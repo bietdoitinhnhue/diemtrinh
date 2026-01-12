@@ -70,10 +70,10 @@
     }
     </script>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Only Be Vietnam Pro) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -95,7 +95,7 @@
                     },
                     fontFamily: {
                         sans: ['Be Vietnam Pro', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        // Removed serif family configuration
                     },
                     animation: {
                         blob: "blob 7s infinite",
@@ -162,7 +162,7 @@
                 <!-- Logo 100x50 -->
                 <a href="#hero" class="flex-shrink-0 flex items-center cursor-pointer group">
                     <!-- Placeholder Logo 100x50 -->
-                    <img src="https://placehold.co/100x50/5D7566/F5F2EB?text=Trinh+Yoga&font=playfair" 
+                    <img src="https://placehold.co/100x50/5D7566/F5F2EB?text=Trinh+Yoga&font=sans" 
                          alt="Trinh & Yoga Logo" 
                          class="h-[50px] w-[100px] object-contain"
                          width="100" height="50">
@@ -218,7 +218,7 @@
                         <span>Dành riêng cho Phụ nữ & Dân văn phòng</span>
                     </div>
                     
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.2] text-charcoal">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] text-charcoal">
                         Giải Phóng <span class="text-sage italic">&nbsp;Cổ Vai Gáy</span> <br/>
                         Tìm Lại Sự Cân Bằng
                     </h1>
@@ -269,7 +269,7 @@
     <section id="van-de" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-6">Cơ thể bạn đang "lên tiếng"?</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-6">Cơ thể bạn đang "lên tiếng"?</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg font-light">
                     Nếu bạn là dân văn phòng, mẹ bỉm sữa hay chủ doanh nghiệp, chắc hẳn bạn không xa lạ với những cảm giác này.
                 </p>
@@ -306,7 +306,7 @@
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Lộ Trình Tập Luyện</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Lộ Trình Tập Luyện</h2>
                 <p class="text-sand max-w-2xl mx-auto text-lg font-light">
                     Thiết kế chuyên biệt để giải quyết dứt điểm vấn đề và duy trì sức khỏe bền vững.
                 </p>
@@ -318,7 +318,7 @@
                 <div class="bg-white text-charcoal rounded-2xl p-6 relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                     <div class="absolute top-0 right-0 bg-terracotta text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Hot</div>
                     <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Bước 1</h3>
-                    <div class="text-2xl font-serif font-bold text-terracotta mb-2">30 Phút <br/>Tập Thử</div>
+                    <div class="text-2xl font-bold text-terracotta mb-2">30 Phút <br/>Tập Thử</div>
                     <div class="text-4xl font-bold text-sage mb-1">0đ</div>
                     <p class="text-gray-400 text-sm mb-6 line-through">Giá gốc: 500.000đ</p>
                     
@@ -336,7 +336,7 @@
                 <div class="bg-[#FDFBF7] text-charcoal rounded-2xl p-6 relative transform lg:scale-105 shadow-2xl border-4 border-terracotta flex flex-col z-10">
                     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-terracotta text-white text-xs font-bold px-4 py-1 rounded-b-lg uppercase tracking-wider w-max">Khuyên dùng</div>
                     <h3 class="text-sm font-bold text-sage uppercase tracking-widest mb-2 mt-4">Bước 2</h3>
-                    <div class="text-2xl font-serif font-bold text-charcoal mb-2">Gói 7 Buổi <br/>Chuyên Sâu</div>
+                    <div class="text-2xl font-bold text-charcoal mb-2">Gói 7 Buổi <br/>Chuyên Sâu</div>
                     <div class="text-4xl font-bold text-terracotta mb-1">2.000k</div>
                     <p class="text-sage text-sm mb-6 line-through font-semibold">Giá gốc: 3.500.000đ</p>
                     
@@ -353,7 +353,7 @@
                 <!-- STEP 3: MONTHLY (CONTINUITY) -->
                 <div class="bg-white text-charcoal rounded-2xl p-6 relative transform hover:-translate-y-2 transition-transform duration-300 opacity-95 flex flex-col">
                     <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Bước 3</h3>
-                    <div class="text-2xl font-serif font-bold text-charcoal mb-2">Gói Duy Trì <br/>(1 Tháng)</div>
+                    <div class="text-2xl font-bold text-charcoal mb-2">Gói Duy Trì <br/>(1 Tháng)</div>
                     <div class="text-4xl font-bold text-sage mb-1">3.000k</div>
                     <p class="text-gray-400 text-sm mb-6 line-through">Giá gốc: 6.000.000đ</p>
                     
@@ -371,7 +371,7 @@
                 <!-- STEP 4: LONG TERM -->
                 <div class="bg-white text-charcoal rounded-2xl p-6 relative transform hover:-translate-y-2 transition-transform duration-300 opacity-95 flex flex-col">
                     <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Bước 4</h3>
-                    <div class="text-2xl font-serif font-bold text-charcoal mb-2">Combo VIP <br/>6 Tháng</div>
+                    <div class="text-2xl font-bold text-charcoal mb-2">Combo VIP <br/>6 Tháng</div>
                     <div class="text-4xl font-bold text-sage mb-1">18.000k</div>
                     <p class="text-gray-400 text-sm mb-6 line-through">Giá gốc: 36.000.000đ</p>
                     
@@ -399,14 +399,14 @@
                     </div>
                     <!-- Quote Bubble -->
                     <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-sand rounded-full flex items-center justify-center p-8 text-center shadow-xl z-20 hidden md:flex">
-                        <p class="text-terracotta font-serif font-bold italic text-lg leading-tight">"Yoga không phải là chạm tay vào ngón chân, mà là những gì bạn học được trên đường đi xuống."</p>
+                        <p class="text-terracotta font-bold italic text-lg leading-tight">"Yoga không phải là chạm tay vào ngón chân, mà là những gì bạn học được trên đường đi xuống."</p>
                     </div>
                     <!-- Decor -->
                     <div class="absolute top-10 -left-10 w-20 h-20 bg-sage/20 rounded-full z-0"></div>
                 </div>
                 <div class="lg:w-1/2">
                     <div class="inline-block px-3 py-1 bg-sage/10 text-sage rounded-full text-sm font-bold mb-4">Người sáng lập</div>
-                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-charcoal mb-8">Chào bạn, mình là Trinh</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold text-charcoal mb-8">Chào bạn, mình là Trinh</h2>
                     <div class="space-y-6 text-lg text-gray-600 font-light leading-relaxed">
                         <p>
                             Mình không chỉ dạy Yoga, mình đồng hành cùng bạn trên hành trình lắng nghe cơ thể. Với kinh nghiệm làm việc cùng nhiều phụ nữ văn phòng và các mẹ bỉm sữa tại Cần Thơ, mình hiểu sâu sắc những cơn đau mỏi "không tên" mà bạn đang chịu đựng.
@@ -418,11 +418,11 @@
                     
                     <div class="grid grid-cols-2 gap-8 mt-10 border-t border-sand pt-8">
                         <div>
-                            <div class="text-5xl font-serif font-bold text-terracotta mb-2">500+</div>
+                            <div class="text-5xl font-bold text-terracotta mb-2">500+</div>
                             <div class="text-sm text-gray-500 uppercase tracking-wide">Học viên cải thiện</div>
                         </div>
                         <div>
-                            <div class="text-5xl font-serif font-bold text-terracotta mb-2">98%</div>
+                            <div class="text-5xl font-bold text-terracotta mb-2">98%</div>
                             <div class="text-sm text-gray-500 uppercase tracking-wide">Phản hồi tích cực</div>
                         </div>
                     </div>
@@ -442,7 +442,7 @@
                     <div class="absolute top-0 right-0 w-40 h-40 bg-terracotta rounded-full filter blur-[50px] opacity-20"></div>
                     
                     <div>
-                        <h3 class="text-3xl font-serif font-bold mb-6 text-sand">Đăng Ký Tập Thử Ngay</h3>
+                        <h3 class="text-3xl font-bold mb-6 text-sand">Đăng Ký Tập Thử Ngay</h3>
                         <p class="text-gray-300 mb-8 text-lg font-light leading-relaxed">
                             Đừng để những cơn đau mỏi cản trở cuộc sống của bạn. Hãy bắt đầu hành trình phục hồi ngay hôm nay với 30 phút hoàn toàn miễn phí.
                         </p>
@@ -503,7 +503,7 @@
     <!-- FAQ -->
     <section class="py-20 bg-offwhite">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-serif font-bold text-center text-charcoal mb-12">Câu hỏi thường gặp</h2>
+            <h2 class="text-3xl font-bold text-center text-charcoal mb-12">Câu hỏi thường gặp</h2>
             <div class="space-y-4">
                 <!-- FAQ 1 -->
                 <div class="bg-white rounded-xl shadow-sm border border-sand/30 overflow-hidden transition-all duration-300">
@@ -551,7 +551,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <div>
                     <!-- Logo in Footer -->
-                    <span class="text-2xl font-serif font-bold text-sand tracking-wide mb-6 block flex items-center gap-2">
+                    <span class="text-2xl font-bold text-sand tracking-wide mb-6 block flex items-center gap-2">
                         <i data-lucide="heart" class="w-5 h-5 fill-sand"></i> Trinh & Yoga
                     </span>
                     <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
@@ -566,7 +566,7 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold text-sand mb-6 font-serif">Liên hệ</h4>
+                    <h4 class="text-lg font-bold text-sand mb-6 font-bold">Liên hệ</h4>
                     <ul class="space-y-4 text-gray-400 text-sm font-light">
                         <li class="flex items-start"><i data-lucide="map-pin" class="w-4.5 h-4.5 mr-3 mt-0.5 text-sage flex-shrink-0"></i> TP. Cần Thơ</li>
                         <li class="flex items-center"><i data-lucide="phone" class="w-4.5 h-4.5 mr-3 text-sage flex-shrink-0"></i> 00939 347 266</li>
@@ -575,7 +575,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-bold text-sand mb-6 font-serif">Chính sách</h4>
+                    <h4 class="text-lg font-bold text-sand mb-6 font-bold">Chính sách</h4>
                     <ul class="space-y-2 text-gray-400 text-sm font-light">
                         <li class="hover:text-terracotta cursor-pointer transition-colors">Điều khoản sử dụng</li>
                         <li class="hover:text-terracotta cursor-pointer transition-colors">Chính sách bảo mật</li>
