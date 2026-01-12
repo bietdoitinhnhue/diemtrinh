@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- --- SEO & META TAGS --- -->
+    <title>Trinh & Yoga - Trị Liệu Cổ Vai Gáy & Phục Hồi Cột Sống Cần Thơ</title>
+    <meta name="description" content="Giải pháp Yoga trị liệu chuyên sâu cho dân văn phòng và phụ nữ 40+ tại Cần Thơ. Xóa tan đau mỏi vai gáy, đau lưng chỉ sau 7 buổi. Đăng ký tập thử 30 phút miễn phí ngay.">
+    <meta name="keywords" content="yoga cần thơ, yoga trị liệu cần thơ, đau cổ vai gáy, yoga phục hồi, trinh yoga, yoga cho người mới, giảm đau lưng, yoga văn phòng, lớp yoga cần thơ">
+    <meta name="author" content="Trinh & Yoga">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://trinhyoga.com/">
+
+    <!-- Open Graph / Facebook (Thumbnail khi share) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trinhyoga.com/">
+    <meta property="og:title" content="Trinh & Yoga - Giải Phóng Cổ Vai Gáy tại Cần Thơ">
+    <meta property="og:description" content="Nhận ngay 30 phút tập thử miễn phí. Liệu pháp Yoga chuyên sâu giúp bạn xóa tan đau mỏi và tìm lại sự cân bằng.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trinh & Yoga - Trị Liệu Cổ Vai Gáy Cần Thơ">
+    <meta name="twitter:description" content="Chấm dứt đau mỏi vai gáy. Đăng ký tập thử 30 phút miễn phí cùng Trinh.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- Schema.org Structured Data (Local Business) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Trinh & Yoga",
+      "image": "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0",
+      "description": "Trung tâm Yoga trị liệu chuyên sâu cổ vai gáy và phục hồi cột sống cho dân văn phòng và phụ nữ tại Cần Thơ.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ninh Kiều",
+        "addressLocality": "Cần Thơ",
+        "addressRegion": "Cần Thơ",
+        "addressCountry": "VN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.0452,
+        "longitude": 105.7469
+      },
+      "url": "https://trinhyoga.com",
+      "telephone": "+84388032045",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "06:00",
+          "closes": "20:00"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#5D7566',      /* Primary */
+                        sand: '#DCC9B6',      /* Secondary */
+                        terracotta: '#A66E56',/* Accent */
+                        offwhite: '#F5F2EB',  /* Bg */
+                        charcoal: '#2D302E',  /* Text */
+                    },
+                    fontFamily: {
+                        sans: ['Be Vietnam Pro', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        ::selection {
+            background-color: #DCC9B6;
+            color: #2D302E;
+        }
+        .faq-content {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .faq-content.active {
+            max-height: 200px; /* Adjust based on content */
+            opacity: 1;
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        .mobile-menu.open {
+            transform: translateY(0);
+        }
+        /* Custom Loading Spinner */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #A66E56;
+            width: 20px;
+            height: 20px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-offwhite text-charcoal font-sans antialiased overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 bg-offwhite/95 backdrop-blur-md border-b border-sand/50 shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo 100x50 -->
+                <a href="#hero" class="flex-shrink-0 flex items-center cursor-pointer group">
+                    <!-- Placeholder Logo 100x50 -->
+                    <img src="https://placehold.co/100x50/5D7566/F5F2EB?text=Trinh+Yoga&font=playfair" 
+                         alt="Trinh & Yoga Logo" 
+                         class="h-[50px] w-[100px] object-contain"
+                         width="100" height="50">
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#ve-trinh" class="hover:text-terracotta transition-colors font-medium text-sm uppercase tracking-wide">Về Trinh</a>
+                    <a href="#van-de" class="hover:text-terracotta transition-colors font-medium text-sm uppercase tracking-wide">Vấn đề của bạn</a>
+                    <a href="#lo-trinh" class="hover:text-terracotta transition-colors font-medium text-sm uppercase tracking-wide">Lộ trình tập</a>
+                    <a href="#dang-ky" class="bg-sage text-white px-6 py-2.5 rounded-full font-medium hover:bg-[#4a5e52] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        Đăng ký Tập thử
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-terracotta focus:outline-none">
+                        <i data-lucide="menu" class="w-7 h-7" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-offwhite border-t border-sand absolute w-full h-screen left-0 top-20 shadow-xl">
+            <div class="px-4 pt-4 pb-6 space-y-4">
+                <a href="#ve-trinh" class="mobile-link block w-full text-left px-3 py-3 font-medium text-lg hover:bg-sand/30 rounded-lg">Về Trinh</a>
+                <a href="#van-de" class="mobile-link block w-full text-left px-3 py-3 font-medium text-lg hover:bg-sand/30 rounded-lg">Vấn đề của bạn</a>
+                <a href="#lo-trinh" class="mobile-link block w-full text-left px-3 py-3 font-medium text-lg hover:bg-sand/30 rounded-lg">Lộ trình tập</a>
+                <a href="#dang-ky" class="mobile-link block w-full text-center mt-6 bg-terracotta text-white px-3 py-4 rounded-lg font-bold shadow-md text-lg">
+                    Đăng ký Tập thử FREE
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-32 pb-16 lg:pt-44 lg:pb-32 overflow-hidden">
+        <!-- Background Blobs -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-sand rounded-full mix-blend-multiply filter blur-[80px] opacity-40 animate-blob"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-sage rounded-full mix-blend-multiply filter blur-[80px] opacity-30 animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="space-y-8 text-center lg:text-left z-10">
+                    <div class="inline-flex items-center space-x-2 bg-sand/30 border border-sand px-4 py-2 rounded-full text-terracotta font-semibold text-sm mx-auto lg:mx-0">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-terracotta opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-terracotta"></span>
+                        </span>
+                        <span>Dành riêng cho Phụ nữ & Dân văn phòng</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.2] text-charcoal">
+                        Giải Phóng <span class="text-sage italic">&nbsp;Cổ Vai Gáy</span> <br/>
+                        Tìm Lại Sự Cân Bằng
+                    </h1>
+                    
+                    <p class="text-lg text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0 font-light">
+                        Liệu pháp Yoga chuyên sâu giúp bạn xóa tan đau mỏi, phục hồi năng lượng và tìm về "Trạm Mình" bình yên nhất ngay tại Cần Thơ.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#dang-ky" class="bg-terracotta text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#8f5a44] transition-all shadow-lg hover:shadow-orange-900/20 flex items-center justify-center gap-2 group">
+                            Nhận 30 Phút Tập Thử Free 
+                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#lo-trinh" class="px-8 py-4 rounded-full font-medium text-sage border border-sage hover:bg-sage hover:text-white transition-all text-lg flex items-center justify-center">
+                            Xem các gói tập
+                        </a>
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 italic">*Ưu đãi giới hạn cho 10 người đăng ký sớm nhất</p>
+                </div>
+
+                <div class="relative mx-auto w-full max-w-md lg:max-w-full">
+                    <div class="aspect-[4/5] md:aspect-square rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-4 border-white group">
+                        <img src="https://scontent.fvca1-1.fna.fbcdn.net/v/t39.30808-6/613849731_4184481988533155_4760842472643994237_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=YHI3wxKTXF4Q7kNvwEQ7kc3&_nc_oc=AdnaMikS3glx3VlvirOkTGaXCVhwxTRtjooDdJOdQHccszTZ8zcXKNvRizrYuifX1zA5o-RExbvvShE4DX-OVb79&_nc_zt=23&_nc_ht=scontent.fvca1-1.fna&_nc_gid=2oYsKcLqwO-1kaTqb3vSyQ&oh=00_AfoYft0AFccUeaSbUwwDIlq_HYzNxCg5cRPUctabDC6b8A&oe=696AB3A2" alt="Yoga Healing" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Float Card -->
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur px-6 py-4 rounded-xl shadow-lg border border-sand/50">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-sage rounded-full flex items-center justify-center text-white">
+                                    <i data-lucide="check" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-charcoal">Kết quả rõ rệt</p>
+                                    <p class="text-xs text-gray-500">Sau liệu trình 7 buổi đầu tiên</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-sand rounded-full z-0 mix-blend-multiply opacity-60"></div>
+                    <div class="absolute -top-6 -right-6 w-40 h-40 border-2 border-sage rounded-full z-0 opacity-30 border-dashed animate-spin-slow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGITATION (PAIN POINTS) -->
+    <section id="van-de" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-charcoal mb-6">Cơ thể bạn đang "lên tiếng"?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg font-light">
+                    Nếu bạn là dân văn phòng, mẹ bỉm sữa hay chủ doanh nghiệp, chắc hẳn bạn không xa lạ với những cảm giác này.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-offwhite p-8 rounded-2xl border border-sand/30 hover:shadow-xl hover:border-terracotta/30 transition-all group cursor-default">
+                    <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">😖</div>
+                    <h3 class="text-xl font-bold text-sage mb-3 group-hover:text-terracotta transition-colors">Đau mỏi Cổ Vai Gáy</h3>
+                    <p class="text-gray-600 leading-relaxed">Cảm giác bó cứng, nặng nề vùng vai gáy sau hàng giờ ngồi làm việc máy tính.</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-offwhite p-8 rounded-2xl border border-sand/30 hover:shadow-xl hover:border-terracotta/30 transition-all group cursor-default">
+                    <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">🦴</div>
+                    <h3 class="text-xl font-bold text-sage mb-3 group-hover:text-terracotta transition-colors">Lưng thường xuyên đau</h3>
+                    <p class="text-gray-600 leading-relaxed">Đau thắt lưng âm ỉ, khó khăn khi đứng lên ngồi xuống hoặc vận động mạnh.</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-offwhite p-8 rounded-2xl border border-sand/30 hover:shadow-xl hover:border-terracotta/30 transition-all group cursor-default">
+                    <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">🤯</div>
+                    <h3 class="text-xl font-bold text-sage mb-3 group-hover:text-terracotta transition-colors">Stress & Mất ngủ</h3>
+                    <p class="text-gray-600 leading-relaxed">Căng thẳng thần kinh kéo dài dẫn đến giấc ngủ không sâu, mệt mỏi triền miên.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FUNNEL STAGES (PRICING) -->
+    <section id="lo-trinh" class="py-24 bg-sage text-white relative overflow-hidden">
+        <!-- Pattern Overlay -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="absolute -left-20 top-40 w-80 h-80 bg-terracotta rounded-full mix-blend-screen filter blur-[100px] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Lộ Trình Tập Luyện</h2>
+                <p class="text-sand max-w-2xl mx-auto text-lg font-light">
+                    Thiết kế chuyên biệt để giải quyết dứt điểm vấn đề và duy trì sức khỏe bền vững.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- STEP 1: FREE TRIAL -->
+                <div class="bg-white text-charcoal rounded-2xl p-6 relative overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                    <div class="absolute top-0 right-0 bg-terracotta text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Hot</div>
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Bước 1</h3>
+                    <div class="text-2xl font-serif font-bold text-terracotta mb-2">30 Phút <br/>Tập Thử</div>
+                    <div class="text-4xl font-bold text-sage mb-1">0đ</div>
+                    <p class="text-gray-400 text-sm mb-6 line-through">Giá gốc: 500.000đ</p>
+                    
+                    <ul class="space-y-3 mb-8 text-sm flex-grow">
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sage mr-2 mt-1 flex-shrink-0"></i> Tư vấn 1-1 tình trạng cơ thể</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sage mr-2 mt-1 flex-shrink-0"></i> Trải nghiệm bài tập giãn cơ</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sage mr-2 mt-1 flex-shrink-0"></i> Không áp lực mua hàng</li>
+                    </ul>
+                    <a href="#dang-ky" class="w-full py-3 rounded-xl border border-sage text-sage font-bold hover:bg-sage hover:text-white transition-colors text-center block">
+                        Đăng ký ngay
+                    </a>
+                </div>
+
+                <!-- STEP 2: CORE PRODUCT -->
+                <div class="bg-[#FDFBF7] text-charcoal rounded-2xl p-6 relative transform lg:scale-105 shadow-2xl border-4 border-terracotta flex flex-col z-10">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-terracotta text-white text-xs font-bold px-4 py-1 rounded-b-lg uppercase tracking-wider w-max">Khuyên dùng</div>
+                    <h3 class="text-sm font-bold text-sage uppercase tracking-widest mb-2 mt-4">Bước 2</h3>
+                    <div class="text-2xl font-serif font-bold text-charcoal mb-2">Gói 7 Buổi <br/>Chuyên Sâu</div>
+                    <div class="text-4xl font-bold text-terracotta mb-1">2.000k</div>
+                    <p class="text-sage text-sm mb-6 line-through font-semibold">Giá gốc: 3.500.000đ</p>
+                    
+                    <ul class="space-y-3 mb-8 text-sm font-medium flex-grow">
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-terracotta mr-2 mt-1 flex-shrink-0"></i> <b>7 buổi</b> tập trung cổ vai gáy</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-terracotta mr-2 mt-1 flex-shrink-0"></i> Giảm đau mỏi rõ rệt</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-terracotta mr-2 mt-1 flex-shrink-0"></i> Kèm sát 1:1 kỹ thuật</li>
+                    </ul>
+                    <a href="#dang-ky" class="w-full py-3 rounded-xl bg-terracotta text-white font-bold hover:bg-[#8f5a44] transition-colors shadow-lg text-center block">
+                        Nhận ưu đãi này
+                    </a>
+                </div>
+
+                <!-- STEP 3: MONTHLY (CONTINUITY) -->
+                <div class="bg-white text-charcoal rounded-2xl p-6 relative transform hover:-translate-y-2 transition-transform duration-300 opacity-95 flex flex-col">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Bước 3</h3>
+                    <div class="text-2xl font-serif font-bold text-charcoal mb-2">Gói Duy Trì <br/>(1 Tháng)</div>
+                    <div class="text-4xl font-bold text-sage mb-1">3.000k</div>
+                    <p class="text-gray-400 text-sm mb-6 line-through">Giá gốc: 6.000.000đ</p>
+                    
+                    <ul class="space-y-3 mb-8 text-sm flex-grow">
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sage mr-2 mt-1 flex-shrink-0"></i> <b>12 buổi</b> tập luyện đều đặn</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sage mr-2 mt-1 flex-shrink-0"></i> Tặng <b>01 buổi Review</b> 1:1</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sage mr-2 mt-1 flex-shrink-0"></i> Đánh giá kết quả sau 1 tháng</li>
+                        <li class="text-xs text-terracotta italic mt-2 font-semibold bg-terracotta/10 p-2 rounded">*Chỉ áp dụng cho 3 tháng đầu sau khi hoàn thành gói 7 buổi</li>
+                    </ul>
+                    <a href="#dang-ky" class="w-full py-3 rounded-xl border border-sage text-sage font-bold hover:bg-sage hover:text-white transition-colors text-center block">
+                        Đăng ký tư vấn
+                    </a>
+                </div>
+
+                <!-- STEP 4: LONG TERM -->
+                <div class="bg-white text-charcoal rounded-2xl p-6 relative transform hover:-translate-y-2 transition-transform duration-300 opacity-95 flex flex-col">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Bước 4</h3>
+                    <div class="text-2xl font-serif font-bold text-charcoal mb-2">Combo VIP <br/>6 Tháng</div>
+                    <div class="text-4xl font-bold text-sage mb-1">18.000k</div>
+                    <p class="text-gray-400 text-sm mb-6 line-through">Giá gốc: 36.000.000đ</p>
+                    
+                    <ul class="space-y-3 mb-8 text-sm flex-grow">
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sage mr-2 mt-1 flex-shrink-0"></i> <b>72 buổi tập</b> + 6 buổi Review</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sage mr-2 mt-1 flex-shrink-0"></i> Cam kết thay đổi vóc dáng</li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-sage mr-2 mt-1 flex-shrink-0"></i> Tiết kiệm 50% chi phí</li>
+                    </ul>
+                    <a href="#dang-ky" class="w-full py-3 rounded-xl border border-sage text-sage font-bold hover:bg-sage hover:text-white transition-colors text-center block">
+                        Tư vấn VIP
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="ve-trinh" class="py-20 bg-offwhite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:flex lg:items-center lg:gap-20">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 relative">
+                    <div class="aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl relative z-10">
+                        <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=2070&auto=format&fit=crop" alt="Trinh Yoga Teacher" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Quote Bubble -->
+                    <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-sand rounded-full flex items-center justify-center p-8 text-center shadow-xl z-20 hidden md:flex">
+                        <p class="text-terracotta font-serif font-bold italic text-lg leading-tight">"Yoga không phải là chạm tay vào ngón chân, mà là những gì bạn học được trên đường đi xuống."</p>
+                    </div>
+                    <!-- Decor -->
+                    <div class="absolute top-10 -left-10 w-20 h-20 bg-sage/20 rounded-full z-0"></div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="inline-block px-3 py-1 bg-sage/10 text-sage rounded-full text-sm font-bold mb-4">Người sáng lập</div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-charcoal mb-8">Chào bạn, mình là Trinh</h2>
+                    <div class="space-y-6 text-lg text-gray-600 font-light leading-relaxed">
+                        <p>
+                            Mình không chỉ dạy Yoga, mình đồng hành cùng bạn trên hành trình lắng nghe cơ thể. Với kinh nghiệm làm việc cùng nhiều phụ nữ văn phòng và các mẹ bỉm sữa tại Cần Thơ, mình hiểu sâu sắc những cơn đau mỏi "không tên" mà bạn đang chịu đựng.
+                        </p>
+                        <p>
+                            Tại <b>Trinh & Yoga</b>, không có những tư thế khó nhằn hay áp lực thành tích. Chỉ có sự thư giãn, phục hồi và những phút giây bạn thực sự thuộc về chính mình.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-8 mt-10 border-t border-sand pt-8">
+                        <div>
+                            <div class="text-5xl font-serif font-bold text-terracotta mb-2">500+</div>
+                            <div class="text-sm text-gray-500 uppercase tracking-wide">Học viên cải thiện</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-serif font-bold text-terracotta mb-2">98%</div>
+                            <div class="text-sm text-gray-500 uppercase tracking-wide">Phản hồi tích cực</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / LEAD CAPTURE FORM -->
+    <section id="dang-ky" class="py-24 bg-sage relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full bg-sand opacity-10 transform skew-y-6 origin-top-right"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden lg:flex min-h-[500px]">
+                <!-- Left Content -->
+                <div class="lg:w-1/2 bg-charcoal text-white p-12 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-terracotta rounded-full filter blur-[50px] opacity-20"></div>
+                    
+                    <div>
+                        <h3 class="text-3xl font-serif font-bold mb-6 text-sand">Đăng Ký Tập Thử Ngay</h3>
+                        <p class="text-gray-300 mb-8 text-lg font-light leading-relaxed">
+                            Đừng để những cơn đau mỏi cản trở cuộc sống của bạn. Hãy bắt đầu hành trình phục hồi ngay hôm nay với 30 phút hoàn toàn miễn phí.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center"><span class="w-6 h-6 rounded-full bg-terracotta flex items-center justify-center mr-3 text-xs"><i data-lucide="check" class="w-3.5 h-3.5"></i></span> 100% Miễn phí tập thử 30p</li>
+                            <li class="flex items-center"><span class="w-6 h-6 rounded-full bg-terracotta flex items-center justify-center mr-3 text-xs"><i data-lucide="check" class="w-3.5 h-3.5"></i></span> Tư vấn lộ trình cá nhân hóa</li>
+                            <li class="flex items-center"><span class="w-6 h-6 rounded-full bg-terracotta flex items-center justify-center mr-3 text-xs"><i data-lucide="check" class="w-3.5 h-3.5"></i></span> Ưu đãi đặc biệt khi đăng ký ngay</li>
+                        </ul>
+                    </div>
+                    <div class="mt-12 pt-8 border-t border-gray-700">
+                        <div class="flex items-center gap-1 text-sand mb-3">
+                            <i data-lucide="star" class="w-5 h-5 fill-sand"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-sand"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-sand"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-sand"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-sand"></i>
+                        </div>
+                        <p class="text-gray-400 italic font-light">"Mình đã hết đau vai gáy chỉ sau 5 buổi tập cùng Trinh. Cảm ơn Trinh rất nhiều!"</p>
+                        <p class="text-terracotta text-sm font-bold mt-2">- Chị Lan, Kế toán (Cần Thơ)</p>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="lg:w-1/2 p-12 bg-white flex items-center">
+                    <form id="registration-form" class="w-full space-y-5">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Họ và tên</label>
+                            <input type="text" id="name" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full px-4 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-sage focus:border-transparent outline-none transition-all placeholder-gray-400">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Số điện thoại</label>
+                            <input type="tel" id="phone" required placeholder="Nhập số điện thoại Zalo của bạn" class="w-full px-4 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-sage focus:border-transparent outline-none transition-all placeholder-gray-400">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Vấn đề bạn quan tâm nhất</label>
+                            <div class="relative">
+                                <select id="problem" class="w-full px-4 py-4 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-sage focus:border-transparent outline-none transition-all appearance-none text-gray-600">
+                                    <option>Đau mỏi cổ vai gáy</option>
+                                    <option>Đau lưng / Thoát vị</option>
+                                    <option>Căng thẳng / Mất ngủ</option>
+                                    <option>Muốn giảm cân / Săn chắc</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <button type="submit" id="submit-btn" class="w-full bg-terracotta text-white font-bold py-4 rounded-xl hover:bg-[#8f5a44] transition-all shadow-lg hover:shadow-orange-900/20 mt-2 text-lg flex items-center justify-center gap-2">
+                            <span>Đăng Ký Ngay (Miễn Phí)</span>
+                        </button>
+                        <p class="text-xs text-center text-gray-400 mt-4 flex items-center justify-center gap-1">
+                            <i data-lucide="check" class="w-3 h-3"></i> Thông tin của bạn được bảo mật tuyệt đối.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-offwhite">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-serif font-bold text-center text-charcoal mb-12">Câu hỏi thường gặp</h2>
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-xl shadow-sm border border-sand/30 overflow-hidden transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50">
+                        <span class="font-semibold text-charcoal">Tôi chưa tập Yoga bao giờ có tập được không?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 bg-white">
+                        <p class="text-gray-600 leading-relaxed border-t border-gray-100 pt-3 pb-5">
+                            Hoàn toàn được! Các bài tập phục hồi của Trinh được thiết kế nhẹ nhàng, phù hợp cho người mới bắt đầu và người có cơ xương khớp yếu.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-xl shadow-sm border border-sand/30 overflow-hidden transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50">
+                        <span class="font-semibold text-charcoal">Gói 7 buổi có thực sự hiệu quả?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 bg-white">
+                        <p class="text-gray-600 leading-relaxed border-t border-gray-100 pt-3 pb-5">
+                            Đây là gói Phục hồi chuyên sâu được thiết kế cô đọng để giải quyết cấp tốc các cơn đau. 80% học viên cảm thấy nhẹ nhõm ngay sau buổi thứ 3.
+                        </p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-xl shadow-sm border border-sand/30 overflow-hidden transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50">
+                        <span class="font-semibold text-charcoal">Thời gian tập luyện như thế nào?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 bg-white">
+                        <p class="text-gray-600 leading-relaxed border-t border-gray-100 pt-3 pb-5">
+                            Lịch tập linh hoạt theo khung giờ của bạn. Chúng tôi có các ca tập sáng, trưa (cho dân văn phòng) và tối.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-charcoal text-white pt-16 pb-8 border-t-4 border-terracotta">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <!-- Logo in Footer -->
+                    <span class="text-2xl font-serif font-bold text-sand tracking-wide mb-6 block flex items-center gap-2">
+                        <i data-lucide="heart" class="w-5 h-5 fill-sand"></i> Trinh & Yoga
+                    </span>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                        Nơi bạn tìm lại sự cân bằng và chữa lành những tổn thương cơ thể thông qua Yoga phục hồi. <br/>
+                        "Hít vào tâm tĩnh lặng - Thở ra miệng mỉm cười"
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-white/10 hover:bg-terracotta transition-colors flex items-center justify-center cursor-pointer text-sand hover:text-white">F</div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 hover:bg-terracotta transition-colors flex items-center justify-center cursor-pointer text-sand hover:text-white">I</div>
+                        <div class="w-10 h-10 rounded-full bg-white/10 hover:bg-terracotta transition-colors flex items-center justify-center cursor-pointer text-sand hover:text-white">Z</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-sand mb-6 font-serif">Liên hệ</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-light">
+                        <li class="flex items-start"><i data-lucide="map-pin" class="w-4.5 h-4.5 mr-3 mt-0.5 text-sage flex-shrink-0"></i> TP. Cần Thơ</li>
+                        <li class="flex items-center"><i data-lucide="phone" class="w-4.5 h-4.5 mr-3 text-sage flex-shrink-0"></i> 00939 347 266</li>
+                        <li class="flex items-center"><i data-lucide="mail" class="w-4.5 h-4.5 mr-3 text-sage flex-shrink-0"></i> Trinhyoga@drakenguyen.me</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold text-sand mb-6 font-serif">Chính sách</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm font-light">
+                        <li class="hover:text-terracotta cursor-pointer transition-colors">Điều khoản sử dụng</li>
+                        <li class="hover:text-terracotta cursor-pointer transition-colors">Chính sách bảo mật</li>
+                        <li class="hover:text-terracotta cursor-pointer transition-colors">Chính sách hoàn tiền</li>
+                        <li class="hover:text-terracotta cursor-pointer transition-colors">Quy định phòng tập</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-xs text-gray-500 font-light">
+                <p>&copy; 2024 Trinh & Yoga. Design by Lan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Plugin Code -->
+    <div id="chat-plugin" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999;">
+        <a href="https://zalo.me/0939347266" target="_blank" style="display: flex; align-items: center; justify-content: center; width: 113px; height: 113px; border-radius: 50%; background-color: transparent; text-decoration: none; box-shadow: none;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo icon" width="45" height="45" />
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons(); // Refresh icon
+        });
+
+        // Close mobile menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // FAQ Toggle
+        const faqBtns = document.querySelectorAll('.faq-btn');
+
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('[data-lucide="chevron-down"]');
+                
+                // Toggle current
+                content.classList.toggle('active');
+                
+                // Rotate icon
+                if (content.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+
+                // Optional: Close others (Accordion behavior)
+                faqBtns.forEach(otherBtn => {
+                    if (otherBtn !== btn) {
+                        const otherContent = otherBtn.nextElementSibling;
+                        const otherIcon = otherBtn.querySelector('[data-lucide="chevron-down"]');
+                        otherContent.classList.remove('active');
+                        otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+
+        // --- FORM SUBMISSION TO TELEGRAM ---
+        const form = document.getElementById('registration-form');
+        const submitBtn = document.getElementById('submit-btn');
+
+        // Configuration
+        const BOT_TOKEN = '8186767716:AAGu7pHjOeAkcbJZi5xLeT7nEtQb2bc2YT0';
+        const CHAT_ID = '-1002862730189';
+        const MESSAGE_THREAD_ID = '36'; // Topic ID
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // UI: Loading State
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<div class="loader"></div> <span>Đang gửi...</span>';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            // Get Data
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const problem = document.getElementById('problem').value;
+            const now = new Date().toLocaleString('vi-VN');
+
+            // Construct Message
+            const message = `
+🔥 <b>CÓ KHÁCH HÀNG MỚI ĐĂNG KÝ!</b> 🔥
+------------------------------
+👤 <b>Họ tên:</b> ${name}
+📞 <b>SĐT:</b> ${phone}
+😰 <b>Vấn đề:</b> ${problem}
+⏰ <b>Thời gian:</b> ${now}
+------------------------------
+👉 <i>Hãy gọi lại ngay để chốt đơn!</i>
+            `;
+
+            try {
+                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML',
+                        message_thread_id: MESSAGE_THREAD_ID
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.ok) {
+                    alert('Đăng ký thành công! Trinh sẽ liên hệ bạn sớm.');
+                    form.reset();
+                } else {
+                    console.error('Telegram Error:', data);
+                    alert('Có lỗi xảy ra, vui lòng thử lại hoặc liên hệ Zalo.');
+                }
+            } catch (error) {
+                console.error('Network Error:', error);
+                alert('Lỗi kết nối. Vui lòng kiểm tra mạng.');
+            } finally {
+                // UI: Reset State
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+            }
+        });
+    </script>
+</body>
+</html>
