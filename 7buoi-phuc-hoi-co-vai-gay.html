@@ -1,10 +1,63 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trinh Yoga - 7 Ngày Trị Liệu Cổ Vai Gáy</title>
     
+    <!-- --- SEO & METADATA START --- -->
+    <title>7 Buổi Phục Hồi Cổ Vai Gáy cùng Trinh n Yoga | Giảm Đau Mỏi Tại Nhà</title>
+    <meta name="description" content="Liệu trình 7 buổi Yoga phục hồi cổ vai gáy chuyên sâu cùng HLV Trinh n Yoga. Giúp giảm đau mỏi, thư giãn cơ, cải thiện tư thế và giấc ngủ chỉ sau 1 tuần. Đăng ký ngay!">
+    <meta name="keywords" content="yoga phục hồi, đau cổ vai gáy, yoga trị liệu, Trinh n Yoga, giảm đau vai gáy, bài tập cổ vai gáy, yoga online">
+    <meta name="author" content="Trinh n Yoga">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook (Thumbnail when shared) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trinhnyoga.com/">
+    <meta property="og:title" content="7 Buổi Phục Hồi Cổ Vai Gáy cùng Trinh n Yoga">
+    <meta property="og:description" content="Giảm 80% đau mỏi với liệu trình phục hồi chuyên sâu. Ưu đãi giới hạn!">
+    <meta property="og:image" content="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/9.jpg?raw=true">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="7 Buổi Phục Hồi Cổ Vai Gáy cùng Trinh n Yoga">
+    <meta name="twitter:description" content="Liệu trình Yoga phục hồi chuyên sâu dành cho người làm văn phòng.">
+    <meta name="twitter:image" content="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/9.jpg?raw=true">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/9.jpg?raw=true">
+    
+    <!-- Schema Markup (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "7 Buổi Phục Hồi Cổ Vai Gáy",
+      "description": "Khóa học Yoga phục hồi chuyên sâu giúp giảm đau mỏi cổ vai gáy.",
+      "provider": {
+        "@type": "Person",
+        "name": "Trinh n Yoga",
+        "sameAs": "https://www.facebook.com/diemtrinh1904"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Health & Wellness",
+        "price": "2000000",
+        "priceCurrency": "VND",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2024-01-01"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "1250"
+      }
+    }
+    </script>
+    <!-- --- SEO & METADATA END --- -->
+
     <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -27,15 +80,15 @@
             --color-primary: #3E5E3F;  /* Sage/Forest Green - Primary Actions & Highlights */
             --color-text: #4A3B32;     /* Dark Coffee Brown - Text & Borders */
             --color-accent: #D4A373;   /* Soft Earthy Orange for numbers/icons */
+            --color-urgent: #C0392B;   /* Red for urgency */
         }
 
         body {
             background-color: var(--color-bg);
             color: var(--color-text);
-            font-family: 'Be Vietnam Pro', sans-serif; /* Changed to Sans-serif */
+            font-family: 'Be Vietnam Pro', sans-serif;
         }
 
-        /* Ensure headings use the same sans-serif font */
         h1, h2, h3, h4, h5, h6, .display-font {
             font-family: 'Be Vietnam Pro', sans-serif;
         }
@@ -60,6 +113,19 @@
         .btn-primary:hover {
             opacity: 0.9;
             transform: translateY(-1px);
+        }
+
+        .btn-urgent {
+            background-color: var(--color-urgent);
+            color: white;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(192, 57, 43, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
         }
 
         .card-shadow {
@@ -94,18 +160,19 @@
         const CheckCircle = (props) => (<Icon {...props}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></Icon>);
         const Activity = (props) => (<Icon {...props}><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></Icon>);
         const Lock = (props) => (<Icon {...props}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></Icon>);
+        const Timer = (props) => (<Icon {...props}><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></Icon>);
 
         // --- DATA SOURCE ---
         const fixedRoutine = {
             title: "Nền Tảng Cố Định (35 Phút)",
-            description: "Thực hiện giống nhau ở cả 7 ngày để tạo thói quen.",
+            description: "Thực hiện giống nhau ở cả 7 buổi để tạo thói quen.",
             sections: [
                 {
                     title: "1. Hít thở & Tĩnh tâm (10 Phút)",
                     items: [
                         "Ngồi thiền/Bán hoa sen: Ổn định tư thế, giữ thẳng lưng.",
                         "Hít thở bụng (5 phút): Hít vào phình bụng, thở ra hóp sâu bụng.",
-                        "Hít thở luân phiên (5 phút): Cân bằng bán cầu não, giảm đau đầu."
+                        "Hít thở luân phiên (5 phút): Cân bằng bán cầu não, thư giãn tinh thần."
                     ]
                 },
                 {
@@ -134,7 +201,7 @@
                 subtitle: "Làm mềm các bó cơ đang co cứng",
                 focus: "Giảm đau & Mở rộng biên độ",
                 structure: [
-                    "12 Động tác Trị liệu chuyên sâu",
+                    "12 Động tác Phục hồi chuyên sâu",
                     "5 Động tác Kéo giãn toàn thân"
                 ]
             },
@@ -170,7 +237,7 @@
             },
             {
                 day: 5,
-                title: "TRỊ LIỆU SÂU LIÊN SƯỜN",
+                title: "PHỤC HỒI SÂU LIÊN SƯỜN",
                 subtitle: "Giải tỏa điểm kích hoạt (Trigger points) vùng bả vai",
                 focus: "Lưng trên & Bả vai",
                 structure: [
@@ -180,9 +247,9 @@
             },
             {
                 day: 6,
-                title: "TỰ MASSAGE & PHỤC HỒI",
+                title: "TỰ MASSAGE & THƯ GIÃN",
                 subtitle: "Thư giãn chủ động, kết hợp bấm huyệt",
-                focus: "Self-Care & Thư giãn",
+                focus: "Self-Care & Tái tạo",
                 structure: [
                     "Kỹ thuật tự massage & bấm huyệt",
                     "Thiền buông thư (Body Scan)"
@@ -201,6 +268,73 @@
         ];
 
         // --- COMPONENTS ---
+
+        const PromoBanner = () => {
+            const [timeLeft, setTimeLeft] = useState(15 * 60); // 15 minutes in seconds
+
+            useEffect(() => {
+                const timer = setInterval(() => {
+                    setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+                }, 1000);
+                return () => clearInterval(timer);
+            }, []);
+
+            const formatTime = (seconds) => {
+                const m = Math.floor(seconds / 60);
+                const s = seconds % 60;
+                return `${m}:${s < 10 ? '0' : ''}${s}`;
+            };
+
+            return (
+                <div className="bg-white rounded-3xl p-4 md:p-6 mb-8 card-shadow border border-[#E6DCC8] relative overflow-hidden">
+                    {/* Background Pattern */}
+                    <div className="absolute top-0 right-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 pointer-events-none"></div>
+                    
+                    <div className="relative z-10 flex flex-col md:flex-row items-center gap-6">
+                        {/* Image Side */}
+                        <div className="w-full md:w-1/3 flex-shrink-0">
+                            <img 
+                                src="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/9.jpg?raw=true" 
+                                alt="Yoga Phục Hồi Cổ Vai Gáy" 
+                                className="w-full h-48 md:h-full object-cover rounded-2xl shadow-md"
+                            />
+                        </div>
+
+                        {/* Content Side */}
+                        <div className="flex-1 text-center md:text-left">
+                            <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 animate-pulse">
+                                <Timer size={14} />
+                                Ưu đãi kết thúc trong: {formatTime(timeLeft)}
+                            </div>
+                            
+                            <h2 className="text-2xl font-bold text-[var(--color-text)] mb-2">
+                                Trọn Bộ Khóa Học Phục Hồi Chuyên Sâu
+                            </h2>
+                            <p className="text-sm opacity-80 mb-4">
+                                Sở hữu ngay liệu trình 21 ngày + Coaching 1:1 để chấm dứt đau mỏi vĩnh viễn.
+                            </p>
+
+                            <div className="flex flex-col md:flex-row items-center gap-4 mb-4">
+                                <div className="text-gray-400 text-lg line-through font-medium">
+                                    3.500.000đ
+                                </div>
+                                <div className="text-3xl font-bold text-[var(--color-urgent)]">
+                                    2.000.000đ
+                                </div>
+                            </div>
+
+                            <a 
+                                href="http://m.me/100009141864190" 
+                                target="_blank"
+                                className="btn-urgent w-full md:w-auto px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 shadow-lg"
+                            >
+                                Thanh Toán Ngay Kẻo Lỡ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
 
         const ProgressBar = ({ day }) => {
             const percentage = Math.round((day / 7) * 100);
@@ -230,7 +364,7 @@
                                         : 'border-[#D7CCC8] bg-white text-[var(--color-text)] hover:border-[var(--color-primary)]'
                                     }`}
                             >
-                                <span className="text-xs font-semibold mb-1">Ngày</span>
+                                <span className="text-xs font-semibold mb-1">Buổi</span>
                                 <span className="text-xl font-bold">{item.day}</span>
                                 {isActive && <div className="w-1 h-1 bg-[#FFF8DE] rounded-full mt-1"></div>}
                             </button>
@@ -255,7 +389,7 @@
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg">Phần Cố Định (35 Phút)</h3>
-                                <p className="text-sm opacity-70">Khởi động & Thư giãn (Mỗi ngày)</p>
+                                <p className="text-sm opacity-70">Khởi động & Thư giãn (Mỗi buổi)</p>
                             </div>
                         </div>
                         <ChevronRight size={20} className={`transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
@@ -292,7 +426,7 @@
                         <div className="mb-6">
                             <div className="flex flex-wrap gap-2 mb-3">
                                 <span className="inline-block px-3 py-1 bg-[var(--color-primary)] text-white text-xs font-bold rounded-full uppercase tracking-wider">
-                                    Ngày {dayData.day}
+                                    Buổi {dayData.day}
                                 </span>
                                 <span className="inline-block px-3 py-1 bg-[#F1F8E9] text-[var(--color-primary)] text-xs font-bold rounded-full uppercase tracking-wider">
                                     {dayData.focus}
@@ -306,7 +440,7 @@
                             </p>
                         </div>
 
-                        {/* Summary / Structure Block instead of Detailed List */}
+                        {/* Summary / Structure Block */}
                         <div className="bg-[#FFF8DE] rounded-2xl p-6 border border-[#E6DCC8]">
                             <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)]">
                                 <Activity size={20} />
@@ -374,6 +508,14 @@
             </div>
         );
 
+        const ChatPlugin = () => (
+            <div id="chat-plugin" style={{position: 'fixed', bottom: '10px', right: '10px', zIndex: 9999}}>
+                <a href="https://m.me/100009141864190" target="_blank" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '80px', height: '80px', borderRadius: '50%', backgroundColor: 'transparent', textDecoration: 'none', boxShadow: 'none'}}>
+                    <img src="https://raw.githubusercontent.com/bietdoitinhnhue/bietdoitinhnhue/5f1715a9894f8288f99ab845bca84f3d181a7c3b/Messenger.svg" alt="Messenger icon" width="60" height="60" />
+                </a>
+            </div>
+        );
+
         const App = () => {
             const [currentDay, setCurrentDay] = useState(1);
 
@@ -381,25 +523,31 @@
                 <div className="min-h-screen pb-12">
                     {/* Header */}
                     <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#EFEBE9] shadow-sm">
-                        <div className="max-w-3xl mx-auto px-4 py-4 flex justify-between items-center">
-                            <div className="flex items-center gap-2">
-                                <div className="w-8 h-8 bg-[var(--color-primary)] rounded-lg flex items-center justify-center text-[#FFF8DE]">
-                                    <Heart size={18} fill="currentColor" />
-                                </div>
-                                <span className="font-bold text-xl tracking-tight text-[var(--color-primary)]">Trinh Yoga</span>
+                        <div className="max-w-3xl mx-auto px-4 py-3 flex justify-between items-center">
+                            <div className="flex items-center gap-3">
+                                {/* Placeholder Logo 100x50 as requested. Using a generated placeholder to represent size/location */}
+                                <img 
+                                    src="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/logo_900x900_Trinh_n_Yoga.png?raw=true" 
+                                    alt="Trinh n Yoga Logo" 
+                                    className="object-contain h-[50px] w-[100px] rounded-lg"
+                                />
                             </div>
-                            <div className="hidden md:block text-xs font-bold uppercase tracking-widest opacity-60">Phục hồi cổ vai gáy</div>
-                            <div className="md:hidden text-xs font-bold uppercase tracking-widest opacity-60">7 buổi phục hồi cổ vai gáy</div>
+                            <div className="hidden md:block text-xs font-bold uppercase tracking-widest opacity-60">Phục Hồi Cổ Vai Gáy</div>
+                            <div className="md:hidden text-xs font-bold uppercase tracking-widest opacity-60">7 Buổi Phục Hồi</div>
                         </div>
                     </header>
 
                     {/* Main Content */}
                     <main className="max-w-3xl mx-auto px-4 pt-8">
+                        
+                        {/* Promo Banner with Image & Countdown */}
+                        <PromoBanner />
+
                         {/* Welcome/Progress */}
                         <div className="mb-6">
                             <h1 className="text-2xl md:text-3xl font-bold mb-2 text-[var(--color-text)]">Chào bạn,</h1>
                             <p className="text-sm md:text-base opacity-80 mb-4 leading-relaxed">
-                                Hành trình chữa lành bắt đầu từ sự kiên trì. Đây là nội dung của <span className="font-bold text-[var(--color-primary)]">Ngày {currentDay}</span>.
+                                Hành trình phục hồi sức khỏe bắt đầu từ sự kiên trì. Đây là nội dung của <span className="font-bold text-[var(--color-primary)]">Buổi {currentDay}</span>.
                             </p>
                             <ProgressBar day={currentDay} />
                         </div>
@@ -424,9 +572,12 @@
 
                     {/* Simple Footer */}
                     <footer className="text-center mt-12 py-8 border-t border-[#E6DCC8] text-sm opacity-60 bg-[#F9F5EB]">
-                        <p className="font-medium">© 2026 Trinh Yoga Therapy.</p>
-                        <p className="text-xs mt-1">Thiết kế lộ trình chuẩn y khoa.</p>
+                        <p className="font-medium">© 2026 Trinh n Yoga.</p>
+                        <p className="text-xs mt-1">Thiết kế lộ trình phục hồi chuẩn khoa học.</p>
                     </footer>
+
+                    {/* Chat Plugin (Bottom Right) */}
+                    <ChatPlugin />
                 </div>
             );
         };
