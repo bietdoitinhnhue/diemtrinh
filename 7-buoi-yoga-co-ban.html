@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="vi" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- --- SEO & METADATA START --- -->
+    <title>7 Buổi Yoga Nền Tảng Cho Người Mới Bắt Đầu | Trinh n Yoga</title>
+    <meta name="description" content="Khóa học Yoga 7 ngày dành riêng cho người chưa biết gì. Tập thở đúng, định tuyến chuẩn, an toàn cùng HLV Trinh n Yoga. Đăng ký ngay để bắt đầu hành trình sức khỏe.">
+    <meta name="keywords" content="yoga cho người mới, yoga cơ bản, yoga tại nhà, Trinh n Yoga, tập yoga từ con số 0, hít thở trong yoga">
+    <meta name="author" content="Trinh n Yoga">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trinhnyoga.com/">
+    <meta property="og:title" content="7 Buổi Yoga Nền Tảng Cho Người Mới Bắt Đầu">
+    <meta property="og:description" content="Lộ trình chuẩn y khoa, dễ tập, an toàn cho người cứng cơ. Ưu đãi giới hạn!">
+    <meta property="og:image" content="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/9.jpg?raw=true">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="7 Buổi Yoga Nền Tảng Cho Người Mới Bắt Đầu">
+    <meta name="twitter:description" content="Khởi đầu hành trình Yoga an toàn và đúng chuẩn.">
+    <meta name="twitter:image" content="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/9.jpg?raw=true">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/9.jpg?raw=true">
+    
+    <!-- Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Yoga Nền Tảng Cho Người Mới Bắt Đầu",
+      "description": "Khóa học 7 ngày giúp người mới làm quen với Yoga, tập hít thở và các tư thế cơ bản.",
+      "provider": {
+        "@type": "Person",
+        "name": "Trinh n Yoga",
+        "sameAs": "https://www.facebook.com/profile.php?id=704732516067125"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Health & Wellness",
+        "price": "2000000",
+        "priceCurrency": "VND",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2024-01-01"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "2100"
+      }
+    }
+    </script>
+    <!-- --- SEO & METADATA END --- -->
+
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Be Vietnam Pro (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Palette */
+        :root {
+            --color-bg: #FFF8DE;       /* Cream - Background */
+            --color-primary: #3E5E3F;  /* Sage/Forest Green */
+            --color-text: #4A3B32;     /* Dark Coffee Brown */
+            --color-accent: #D4A373;   /* Soft Earthy Orange */
+            --color-urgent: #C0392B;   /* Red for urgency */
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6, .display-font {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        .day-scroller::-webkit-scrollbar {
+            height: 4px;
+        }
+        .day-scroller::-webkit-scrollbar-track {
+            background: rgba(62, 94, 63, 0.1);
+        }
+        .day-scroller::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: 4px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: #FFF8DE;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn-urgent {
+            background-color: var(--color-urgent);
+            color: white;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(192, 57, 43, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(74, 59, 50, 0.08);
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- ICONS (Inline SVG) ---
+        const Icon = ({ size = 24, children, className, ...props }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>{children}</svg>
+        );
+        const Heart = (props) => (<Icon {...props}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></Icon>);
+        const Clock = (props) => (<Icon {...props}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></Icon>);
+        const ChevronRight = (props) => (<Icon {...props}><polyline points="9 18 15 12 9 6" /></Icon>);
+        const Star = (props) => (<Icon {...props}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></Icon>);
+        const Play = (props) => (<Icon {...props}><polygon points="5 3 19 12 5 21 5 3" /></Icon>);
+        const CheckCircle = (props) => (<Icon {...props}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></Icon>);
+        const Activity = (props) => (<Icon {...props}><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></Icon>);
+        const Lock = (props) => (<Icon {...props}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></Icon>);
+        const Timer = (props) => (<Icon {...props}><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></Icon>);
+
+        // --- DATA SOURCE (BEGINNER) ---
+        const fixedRoutine = {
+            title: "Khởi Động Nền Tảng (15 Phút)",
+            description: "Thực hiện đầu mỗi buổi để làm nóng cơ thể và kết nối hơi thở.",
+            sections: [
+                {
+                    title: "1. Kết Nối Hơi Thở (5 Phút)",
+                    items: [
+                        "Ngồi xếp bằng thoải mái (Sukhasana).",
+                        "Hít thở bụng: Cảm nhận bụng phình lên khi hít vào, xẹp xuống khi thở ra.",
+                        "Tĩnh tâm và lắng nghe cơ thể."
+                    ]
+                },
+                {
+                    title: "2. Làm Nóng Các Khớp (10 Phút)",
+                    items: [
+                        "Xoay cổ nhẹ nhàng: Trái, phải, cúi, ngửa.",
+                        "Xoay khớp vai và cánh tay.",
+                        "Xoay eo và khởi động khớp háng.",
+                        "Mèo - Bò (Cat-Cow): Làm mềm cột sống."
+                    ]
+                },
+                {
+                    title: "3. Thư Giãn Cuối Buổi",
+                    items: [
+                        "Savasana: Nằm ngửa thả lỏng hoàn toàn trong 5 phút."
+                    ]
+                }
+            ]
+        };
+
+        const dailyContent = [
+            {
+                day: 1,
+                title: "HƠI THỞ & ĐỊNH TUYẾN",
+                subtitle: "Làm quen với Yoga và cách hít thở đúng",
+                focus: "Hít thở & Cảm nhận",
+                structure: [
+                    "Học cách hít thở bằng mũi (Ujjayi Breath)",
+                    "Định tuyến cột sống thẳng trong tư thế ngồi và đứng"
+                ]
+            },
+            {
+                day: 2,
+                title: "ĐÁNH THỨC CỘT SỐNG",
+                subtitle: "Giúp lưng linh hoạt, giảm đau mỏi",
+                focus: "Cột sống & Lưng",
+                structure: [
+                    "Chuỗi bài tập nghiêng lườn và vặn xoắn nhẹ",
+                    "Tư thế Rắn hổ mang (Cobra) dành cho người mới"
+                ]
+            },
+            {
+                day: 3,
+                title: "SỨC MẠNH ĐÔI CHÂN",
+                subtitle: "Xây dựng nền móng vững chắc với tư thế đứng",
+                focus: "Chân & Thăng bằng",
+                structure: [
+                    "Chiến binh 1 & 2 (Warrior I & II)",
+                    "Tư thế Cái cây (Tree Pose) hỗ trợ thăng bằng"
+                ]
+            },
+            {
+                day: 4,
+                title: "MỞ HÔNG & KHỚP HÁNG",
+                subtitle: "Giải tỏa cảm xúc và sự căng thẳng vùng chậu",
+                focus: "Khớp háng & Cảm xúc",
+                structure: [
+                    "Tư thế Cánh bướm (Butterfly)",
+                    "Kéo giãn cơ gập hông nhẹ nhàng"
+                ]
+            },
+            {
+                day: 5,
+                title: "SỨC MẠNH CƠ LÕI (CORE)",
+                subtitle: "Bụng khỏe để bảo vệ lưng dưới",
+                focus: "Cơ bụng & Ổn định",
+                structure: [
+                    "Tư thế Tấm ván (Plank) biến thể (hạ gối)",
+                    "Tư thế Cây cầu (Bridge Pose) săn chắc mông đùi"
+                ]
+            },
+            {
+                day: 6,
+                title: "MỞ NGỰC & VAI",
+                subtitle: "Cải thiện tư thế, chống gù lưng",
+                focus: "Vai & Lồng ngực",
+                structure: [
+                    "Các bài tập mở rộng lồng ngực an toàn",
+                    "Tư thế Chó úp mặt (Downward Dog) cơ bản"
+                ]
+            },
+            {
+                day: 7,
+                title: "CHUỖI FLOW CƠ BẢN",
+                subtitle: "Kết nối hơi thở và chuyển động nhịp nhàng",
+                focus: "Vận động liên hoàn",
+                structure: [
+                    "Chuỗi Chào Mặt Trời (Sun Salutation) biến thể đơn giản",
+                    "Tổng kết và hướng dẫn duy trì tập luyện"
+                ]
+            }
+        ];
+
+        // --- COMPONENTS ---
+
+        const PromoBanner = () => {
+            const [timeLeft, setTimeLeft] = useState(15 * 60);
+
+            useEffect(() => {
+                const timer = setInterval(() => {
+                    setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+                }, 1000);
+                return () => clearInterval(timer);
+            }, []);
+
+            const formatTime = (seconds) => {
+                const m = Math.floor(seconds / 60);
+                const s = seconds % 60;
+                return `${m}:${s < 10 ? '0' : ''}${s}`;
+            };
+
+            return (
+                <div className="bg-white rounded-3xl p-4 md:p-6 mb-8 card-shadow border border-[#E6DCC8] relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1545389336-cf090694435e?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 pointer-events-none"></div>
+                    
+                    <div className="relative z-10 flex flex-col md:flex-row items-center gap-6">
+                        <div className="w-full md:w-1/3 flex-shrink-0">
+                            <img 
+                                src="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/9.jpg?raw=true" 
+                                alt="Yoga Cho Người Mới Bắt Đầu" 
+                                className="w-full h-48 md:h-full object-cover rounded-2xl shadow-md"
+                            />
+                        </div>
+
+                        <div className="flex-1 text-center md:text-left">
+                            <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 animate-pulse">
+                                <Timer size={14} />
+                                Ưu đãi kết thúc trong: {formatTime(timeLeft)}
+                            </div>
+                            
+                            <h2 className="text-2xl font-bold text-[var(--color-text)] mb-2">
+                                Trọn Bộ Khóa Học Yoga Nền Tảng
+                            </h2>
+                            <p className="text-sm opacity-80 mb-4">
+                                Lộ trình 7 buổi + Coaching 1:1 giúp bạn nắm vững nền tảng cơ bản Yoga với các kỹ thuật chính xác.
+                            </p>
+
+                            <div className="flex flex-col md:flex-row items-center gap-4 mb-4">
+                                <div className="text-gray-400 text-lg line-through font-medium">
+                                    3.500.000đ
+                                </div>
+                                <div className="text-3xl font-bold text-[var(--color-urgent)]">
+                                    2.000.000đ
+                                </div>
+                            </div>
+
+                            <a 
+                                href="https://m.me/704732516067125" 
+                                target="_blank"
+                                className="btn-urgent w-full md:w-auto px-8 py-3 rounded-full font-bold flex items-center justify-center gap-2 shadow-lg"
+                            >
+                                Đăng Ký Ngay
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const ProgressBar = ({ day }) => {
+            const percentage = Math.round((day / 7) * 100);
+            return (
+                <div className="w-full bg-[#EADDCA] h-2 rounded-full mt-4 overflow-hidden">
+                    <div 
+                        className="h-full bg-[var(--color-primary)] transition-all duration-1000 ease-out"
+                        style={{ width: `${percentage}%` }}
+                    ></div>
+                </div>
+            );
+        };
+
+        const DaySelector = ({ currentDay, setDay }) => {
+            return (
+                <div className="day-scroller flex overflow-x-auto py-4 gap-3 px-4 -mx-4 md:mx-0 md:px-0 scroll-smooth">
+                    {dailyContent.map((item) => {
+                        const isActive = currentDay === item.day;
+                        
+                        return (
+                            <button
+                                key={item.day}
+                                onClick={() => setDay(item.day)}
+                                className={`flex-shrink-0 w-16 h-20 rounded-2xl flex flex-col items-center justify-center border-2 transition-all duration-300
+                                    ${isActive 
+                                        ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-[#FFF8DE] shadow-lg scale-105' 
+                                        : 'border-[#D7CCC8] bg-white text-[var(--color-text)] hover:border-[var(--color-primary)]'
+                                    }`}
+                            >
+                                <span className="text-xs font-semibold mb-1">Buổi</span>
+                                <span className="text-xl font-bold">{item.day}</span>
+                                {isActive && <div className="w-1 h-1 bg-[#FFF8DE] rounded-full mt-1"></div>}
+                            </button>
+                        );
+                    })}
+                </div>
+            );
+        };
+
+        const FixedRoutineCard = () => {
+            const [isOpen, setIsOpen] = useState(false);
+
+            return (
+                <div className="mb-4 bg-white rounded-2xl p-5 card-shadow border-l-4 border-[var(--color-primary)]">
+                    <div 
+                        className="flex justify-between items-center cursor-pointer"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-[#F1F8E9] rounded-full text-[var(--color-primary)]">
+                                <Clock size={20} />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-lg">Khởi Động (Quan Trọng)</h3>
+                                <p className="text-sm opacity-70">Làm nóng cơ thể trước khi tập chính</p>
+                            </div>
+                        </div>
+                        <ChevronRight size={20} className={`transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
+                    </div>
+
+                    {isOpen && (
+                        <div className="mt-4 pt-4 border-t border-gray-100 animate-fade-in space-y-4">
+                            {fixedRoutine.sections.map((section, idx) => (
+                                <div key={idx} className="bg-[#FFF8DE] p-4 rounded-xl">
+                                    <h4 className="font-bold text-[var(--color-primary)] mb-2 text-sm uppercase tracking-wide">{section.title}</h4>
+                                    <ul className="space-y-2">
+                                        {section.items.map((item, i) => (
+                                            <li key={i} className="text-sm flex items-start gap-2 text-gray-700">
+                                                <span className="mt-1.5 w-1.5 h-1.5 bg-[var(--color-primary)] rounded-full flex-shrink-0"></span>
+                                                <span className="leading-relaxed">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        const DailyExerciseCard = ({ dayData }) => {
+            return (
+                <div key={dayData.day} className="bg-white rounded-3xl p-6 md:p-8 card-shadow animate-fade-in relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-[#F1F8E9] rounded-bl-[100px] -z-0 opacity-60"></div>
+
+                    <div className="relative z-10">
+                        <div className="mb-6">
+                            <div className="flex flex-wrap gap-2 mb-3">
+                                <span className="inline-block px-3 py-1 bg-[var(--color-primary)] text-white text-xs font-bold rounded-full uppercase tracking-wider">
+                                    Buổi {dayData.day}
+                                </span>
+                                <span className="inline-block px-3 py-1 bg-[#F1F8E9] text-[var(--color-primary)] text-xs font-bold rounded-full uppercase tracking-wider">
+                                    {dayData.focus}
+                                </span>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-3 leading-tight">
+                                {dayData.title}
+                            </h2>
+                            <p className="text-lg opacity-80 italic border-l-4 border-[var(--color-accent)] pl-4 py-1">
+                                {dayData.subtitle}
+                            </p>
+                        </div>
+
+                        <div className="bg-[#FFF8DE] rounded-2xl p-6 border border-[#E6DCC8]">
+                            <div className="flex items-center gap-2 mb-4 text-[var(--color-primary)]">
+                                <Activity size={20} />
+                                <h3 className="font-bold text-lg">Bài Tập Chính (30 Phút)</h3>
+                            </div>
+                            <div className="space-y-3">
+                                {dayData.structure.map((item, idx) => (
+                                    <div key={idx} className="flex items-center gap-3">
+                                        <CheckCircle size={18} className="text-[var(--color-accent)] flex-shrink-0" />
+                                        <span className="text-[var(--color-text)] font-medium">{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                            
+                            <div className="mt-6 pt-4 border-t border-[#E6DCC8] flex items-center justify-between text-sm opacity-70">
+                                <div className="flex items-center gap-2">
+                                    <Lock size={16} />
+                                    <span>Video hướng dẫn chi tiết</span>
+                                </div>
+                                <span>Chỉ dành cho học viên</span>
+                            </div>
+                        </div>
+
+                        <div className="mt-8 flex justify-center">
+                            <button className="btn-primary w-full md:w-auto px-10 py-4 rounded-full font-bold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl text-lg group">
+                                <Play size={24} fill="currentColor" className="group-hover:scale-110 transition-transform" />
+                                Bắt Đầu Tập Luyện
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const CoreOfferCTA = () => (
+            <div className="mt-12 bg-[#4A3B32] text-[#FFF8DE] rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                <div className="relative z-10">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4">Bạn Muốn Tập Yoga Bài Bản?</h3>
+                    <p className="mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
+                        Sau 7 buổi làm quen, để thực sự thay đổi vóc dáng và sức khỏe bền vững, hãy tham gia cộng đồng chuyên sâu với lộ trình được thiết kế riêng cho bạn.
+                    </p>
+                    <div className="flex flex-col md:flex-row gap-4 justify-center">
+                        <a 
+                            href="https://m.me/704732516067125" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="bg-[#FFF8DE] text-[#4A3B32] px-8 py-3 rounded-full font-bold hover:bg-white transition-colors transform hover:-translate-y-1 inline-block"
+                        >
+                            Tư Vấn Lộ Trình 1:1
+                        </a>
+                        <a 
+                            href="https://m.me/704732516067125" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="border border-[#FFF8DE] text-[#FFF8DE] px-8 py-3 rounded-full font-bold hover:bg-[#FFF8DE] hover:text-[#4A3B32] transition-colors inline-block"
+                        >
+                            Tham Gia Cộng Đồng VIP
+                        </a>
+                    </div>
+                </div>
+                <div className="absolute -top-10 -left-10 w-48 h-48 border-2 border-[#FFF8DE] rounded-full opacity-10"></div>
+                <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#FFF8DE] rounded-full opacity-10"></div>
+            </div>
+        );
+
+        const ChatPlugin = () => (
+            <div id="chat-plugin" style={{position: 'fixed', bottom: '10px', right: '10px', zIndex: 9999}}>
+                <a href="https://m.me/704732516067125" target="_blank" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '80px', height: '80px', borderRadius: '50%', backgroundColor: 'transparent', textDecoration: 'none', boxShadow: 'none'}}>
+                    <img src="https://raw.githubusercontent.com/bietdoitinhnhue/bietdoitinhnhue/5f1715a9894f8288f99ab845bca84f3d181a7c3b/Messenger.svg" alt="Messenger icon" width="60" height="60" />
+                </a>
+            </div>
+        );
+
+        const App = () => {
+            const [currentDay, setCurrentDay] = useState(1);
+
+            return (
+                <div className="min-h-screen pb-12">
+                    {/* Header */}
+                    <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#EFEBE9] shadow-sm">
+                        <div className="max-w-3xl mx-auto px-4 py-3 flex justify-between items-center">
+                            <div className="flex items-center gap-3">
+                                <a href="https://diemtrinh.vercel.app/">
+                                    <img 
+                                        src="https://github.com/bietdoitinhnhue/diemtrinh/blob/main/logo_900x900_Trinh_n_Yoga.png?raw=true" 
+                                        alt="Trinh n Yoga Logo" 
+                                        className="object-contain h-[50px] w-auto rounded-lg cursor-pointer"
+                                    />
+                                </a>
+                            </div>
+                            <div className="hidden md:block text-xs font-bold uppercase tracking-widest opacity-60">Yoga Cho Người Mới</div>
+                            <div className="md:hidden text-xs font-bold uppercase tracking-widest opacity-60">7 Buổi Nền Tảng</div>
+                        </div>
+                    </header>
+
+                    {/* Main Content */}
+                    <main className="max-w-3xl mx-auto px-4 pt-8">
+                        
+                        <PromoBanner />
+
+                        <div className="mb-6">
+                            <h1 className="text-2xl md:text-3xl font-bold mb-2 text-[var(--color-text)]">Chào bạn,</h1>
+                            <p className="text-sm md:text-base opacity-80 mb-4 leading-relaxed">
+                                Đừng lo lắng nếu bạn chưa từng tập Yoga. Chúng ta sẽ bắt đầu thật chậm rãi tại <span className="font-bold text-[var(--color-primary)]">Buổi {currentDay}</span>.
+                            </p>
+                            <ProgressBar day={currentDay} />
+                        </div>
+
+                        <div className="mb-8">
+                            <DaySelector currentDay={currentDay} setDay={setCurrentDay} />
+                        </div>
+
+                        <div className="grid md:grid-cols-1 gap-6">
+                            <FixedRoutineCard />
+                            <DailyExerciseCard dayData={dailyContent[currentDay - 1]} />
+                        </div>
+
+                        <CoreOfferCTA />
+                    </main>
+
+                    <footer className="text-center mt-12 py-8 border-t border-[#E6DCC8] text-sm opacity-60 bg-[#F9F5EB]">
+                        <p className="font-medium">© 2026 Trinh n Yoga.</p>
+                        <p className="text-xs mt-1">Giúp bạn khỏe đẹp từ gốc.</p>
+                    </footer>
+
+                    <ChatPlugin />
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
