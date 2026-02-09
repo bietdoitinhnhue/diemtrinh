@@ -49,8 +49,7 @@
       "sameAs": [
         "https://www.facebook.com/TrinhNYoga",
         "https://www.instagram.com/TrinhNYoga",
-        "https://www.tiktok.com/@trinhnyogajourney",
-        "https://www.youtube.com/@TrinhNYoga"
+        "https://www.tiktok.com/@trinhnyogajourney"
       ]
     }
     </script>
@@ -197,6 +196,16 @@
         details[open] summary ~ * {
             animation: fadeIn 0.3s ease-in-out;
         }
+        
+        /* Flag Icon Styles */
+        .flag-icon {
+            width: 24px;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="font-body text-slate-600 bg-[#fbfbf9] selection:bg-teal-100 selection:text-teal-800 overflow-x-hidden w-full">
@@ -213,31 +222,42 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
-                <a href="#home" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap">Trang Chủ</a>
-                <a href="#process" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap">Lộ Trình</a>
-                <a href="#offers" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap">Bảng Giá</a>
-                <a href="#testimonials" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap">Học Viên</a>
-                <a href="#faq" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap">Hỏi Đáp</a>
+                <a href="#home" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap" data-i18n="nav_home">Trang Chủ</a>
+                <a href="#process" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap" data-i18n="nav_process">Lộ Trình</a>
+                <a href="#offers" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap" data-i18n="nav_pricing">Bảng Giá</a>
+                <a href="#testimonials" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap" data-i18n="nav_testimonials">Học Viên</a>
+                <a href="#faq" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap" data-i18n="nav_faq">Hỏi Đáp</a>
                 
+                <!-- Language Switcher Desktop (Flags) -->
+                <button id="lang-toggle-desktop" class="hover:opacity-80 transition-opacity p-1" title="Switch Language">
+                    <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="flag-icon" id="flag-icon-desktop">
+                </button>
+
                 <a href="https://m.me/TrinhNYoga" target="_blank" rel="noreferrer" class="bg-teal-600 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-teal-700 transition-all shadow-lg shadow-teal-200 flex items-center gap-2 whitespace-nowrap">
-                    <i data-lucide="send" class="w-4 h-4"></i> Tư vấn ngay
+                    <i data-lucide="send" class="w-4 h-4"></i> <span data-i18n="nav_consult">Tư vấn ngay</span>
                 </a>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-slate-600 p-2 z-50 focus:outline-none" aria-label="Toggle menu">
-                <i data-lucide="menu" class="w-7 h-7" id="menu-icon"></i>
-            </button>
+            <div class="flex items-center gap-3 lg:hidden">
+                <!-- Language Switcher Mobile (Flags) -->
+                <button id="lang-toggle-mobile" class="hover:opacity-80 transition-opacity p-1" title="Switch Language">
+                    <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="flag-icon" id="flag-icon-mobile">
+                </button>
+                <button id="mobile-menu-btn" class="text-slate-600 p-2 z-50 focus:outline-none" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-7 h-7" id="menu-icon"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-6 transition-transform duration-300 lg:hidden translate-x-full">
-            <a href="#home" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50">Trang Chủ</a>
-            <a href="#process" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50">Lộ Trình</a>
-            <a href="#offers" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50">Bảng Giá</a>
-            <a href="#testimonials" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50">Học Viên</a>
-            <a href="#faq" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50">Hỏi Đáp</a>
-            <a href="https://m.me/TrinhNYoga" class="mobile-link mt-4 bg-teal-600 text-white px-8 py-3 rounded-full text-lg font-bold shadow-xl">
+            <a href="#home" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50" data-i18n="nav_home">Trang Chủ</a>
+            <a href="#process" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50" data-i18n="nav_process">Lộ Trình</a>
+            <a href="#offers" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50" data-i18n="nav_pricing">Bảng Giá</a>
+            <a href="#testimonials" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50" data-i18n="nav_testimonials">Học Viên</a>
+            <a href="#faq" class="mobile-link text-xl font-bold text-slate-700 py-2 w-full text-center hover:bg-slate-50" data-i18n="nav_faq">Hỏi Đáp</a>
+            <a href="https://m.me/TrinhNYoga" class="mobile-link mt-4 bg-teal-600 text-white px-8 py-3 rounded-full text-lg font-bold shadow-xl" data-i18n="mobile_chat">
                 Chat Zalo/Mess
             </a>
         </div>
@@ -251,9 +271,9 @@
                     <i data-lucide="quote" class="w-6 h-6 md:w-8 md:h-8 text-teal-500 fill-teal-100"></i>
                 </div>
                 <h2 class="font-heading text-2xl md:text-4xl font-bold text-slate-800 leading-tight">
-                    "Có bao giờ bạn tự hỏi, <br class="hidden md:block"/> lần cuối mình thức dậy mà <span class="text-teal-600 relative inline-block">không đau lưng<svg class="absolute w-full h-2 bottom-0 left-0 text-teal-200 -z-10 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" /></svg></span> là khi nào?"
+                    "<span data-i18n="story_quote_1">Có bao giờ bạn tự hỏi,</span> <br class="hidden md:block"/> <span data-i18n="story_quote_2">lần cuối mình thức dậy mà</span> <span class="text-teal-600 relative inline-block"><span data-i18n="story_quote_highlight">không đau lưng</span><svg class="absolute w-full h-2 bottom-0 left-0 text-teal-200 -z-10 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" /></svg></span> <span data-i18n="story_quote_3">là khi nào?</span>"
                 </h2>
-                <p class="text-slate-600 text-lg md:text-xl leading-relaxed font-light italic px-4">
+                <p class="text-slate-600 text-lg md:text-xl leading-relaxed font-light italic px-4" data-i18n="story_desc">
                     Những cơn đau âm ỉ không chỉ làm cơ thể mệt mỏi, mà còn lấy đi niềm vui chơi đùa cùng con, sự tập trung trong công việc và cả những giấc ngủ trọn vẹn. <br/><br/>
                     Đừng để cơn đau định nghĩa cuộc sống của bạn. Hành trình chữa lành bắt đầu từ việc <span class="font-bold not-italic text-teal-700">lắng nghe cơ thể</span>.
                 </p>
@@ -283,60 +303,60 @@
                     <!-- Floating Info -->
                     <div class="hidden sm:block absolute top-10 md:top-20 right-0 md:-right-4 bg-white/90 backdrop-blur p-3 md:p-4 rounded-xl shadow-lg border-l-4 border-teal-500 z-20 animate-bounce-slow max-w-[150px] md:max-w-none">
                         <p class="font-heading font-bold text-slate-800 text-sm md:text-lg">Trinh N Yoga</p>
-                        <p class="text-[10px] md:text-xs text-slate-500">HLV Yoga 1:1 Online</p>
+                        <p class="text-[10px] md:text-xs text-slate-500" data-i18n="hero_coach_title">HLV Yoga 1:1 Online</p>
                     </div>
                 </div>
 
                 <!-- Text Side (Right) -->
                 <div class="w-full md:w-1/2 space-y-5 md:space-y-6 text-center md:text-left">
-                    <span class="inline-block px-4 py-1.5 bg-white border border-teal-100 rounded-full text-teal-700 text-xs md:text-sm font-bold tracking-wider uppercase mb-2 shadow-sm">
+                    <span class="inline-block px-4 py-1.5 bg-white border border-teal-100 rounded-full text-teal-700 text-xs md:text-sm font-bold tracking-wider uppercase mb-2 shadow-sm" data-i18n="hero_badge">
                         🌿 Yoga Trị Liệu Online 1:1
                     </span>
                     
                     <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 leading-tight">
-                        Gỡ bỏ gánh nặng <br/>
+                        <span data-i18n="hero_title_1">Gỡ bỏ gánh nặng</span> <br/>
                         <span class="text-teal-600 relative inline-block mt-1">
-                            Đau Thắt Lưng
+                            <span data-i18n="hero_title_highlight">Đau Thắt Lưng</span>
                             <svg class="absolute w-full h-2 md:h-3 -bottom-1 left-0 text-teal-200 -z-10 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" /></svg>
                         </span>
                         <br/>
-                        <span class="text-2xl md:text-4xl font-light text-slate-600">Ngay tại nhà</span>
+                        <span class="text-2xl md:text-4xl font-light text-slate-600" data-i18n="hero_title_2">Ngay tại nhà</span>
                     </h1>
                     
                     <div class="text-base md:text-lg text-slate-500 md:pr-10 leading-relaxed font-medium space-y-4">
-                        <p>Chào bạn, đây là Trinh N Yoga. Mình không chỉ dạy Yoga, mình đồng hành <strong>1:1 Online</strong> cùng bạn trên hành trình lắng nghe cơ thể. </p>
-                        <p>Tại <strong>Trinh N Yoga</strong>, khoảng cách địa lý không còn là rào cản. Qua màn hình Google Meet/Video Call, Trinh N Yoga vẫn quan sát và chỉnh sửa tỉ mỉ từng động tác, giúp bạn phục hồi hiệu quả cột sống thắt lưng mà không mất thời gian di chuyển.</p>
+                        <p data-i18n="hero_desc_1">Chào bạn, đây là Trinh N Yoga. Mình không chỉ dạy Yoga, mình đồng hành <strong>1:1 Online</strong> cùng bạn trên hành trình lắng nghe cơ thể. </p>
+                        <p data-i18n="hero_desc_2">Tại <strong>Trinh N Yoga</strong>, khoảng cách địa lý không còn là rào cản. Qua màn hình Google Meet/Video Call, Trinh N Yoga vẫn quan sát và chỉnh sửa tỉ mỉ từng động tác, giúp bạn phục hồi hiệu quả cột sống thắt lưng mà không mất thời gian di chuyển.</p>
                     </div>
 
                     <!-- Stats -->
                     <div class="flex flex-row justify-center md:justify-start gap-8 pt-4 border-t border-slate-200 mt-4">
                          <div class="text-center md:text-left">
                             <p class="text-3xl font-bold text-teal-600">500+</p>
-                            <p class="text-sm font-bold text-slate-600">Học viên Online</p>
+                            <p class="text-sm font-bold text-slate-600" data-i18n="stat_1">Học viên Online</p>
                          </div>
                          <div class="text-center md:text-left">
                             <p class="text-3xl font-bold text-teal-600">98%</p>
-                            <p class="text-sm font-bold text-slate-600">Hài lòng & Cải thiện</p>
+                            <p class="text-sm font-bold text-slate-600" data-i18n="stat_2">Hài lòng & Cải thiện</p>
                          </div>
                     </div>
                     
                     <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start pt-4">
                         <a href="#trial" class="flex items-center justify-center gap-2 bg-teal-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-teal-700 transition-all hover:shadow-xl shadow-teal-200 group animate-shake w-full sm:w-auto">
-                            Đăng ký tập thử <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            <span data-i18n="cta_register">Đăng ký tập thử</span> <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                         <a href="#offers" class="flex items-center justify-center gap-2 bg-white text-slate-600 border border-slate-200 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-teal-50 hover:border-teal-200 hover:text-teal-700 transition-all w-full sm:w-auto">
-                            Xem chi phí
+                            <span data-i18n="cta_pricing">Xem chi phí</span>
                         </a>
                     </div>
                     
                     <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-3">
                          <div class="flex items-center gap-2 text-xs md:text-sm text-slate-500 font-bold bg-white/80 px-3 py-2 rounded-lg shadow-sm border border-slate-100">
                             <i data-lucide="clock" class="w-4 h-4 text-teal-500"></i>
-                            <span>Linh động T2 - T6</span>
+                            <span data-i18n="feature_1">Linh động T2 - T6</span>
                          </div>
                          <div class="flex items-center gap-2 text-xs md:text-sm text-slate-500 font-bold bg-white/80 px-3 py-2 rounded-lg shadow-sm border border-slate-100">
                             <i data-lucide="video" class="w-4 h-4 text-rose-500"></i>
-                            <span>Tập qua Google Meet</span>
+                            <span data-i18n="feature_2">Tập qua Google Meet</span>
                          </div>
                     </div>
                 </div>
@@ -349,9 +369,9 @@
     <section id="audience" class="py-16 md:py-24 bg-white border-t border-slate-100">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-10 md:mb-16">
-                <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm">Đối Tượng Phù Hợp</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2">Trinh N Yoga Dành Cho Ai?</h2>
-                <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base">Các bài tập được thiết kế chuyên biệt để giải quyết vấn đề đau thắt lưng của từng nhóm đối tượng cụ thể.</p>
+                <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm" data-i18n="audience_subtitle">Đối Tượng Phù Hợp</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2" data-i18n="audience_title">Trinh N Yoga Dành Cho Ai?</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base" data-i18n="audience_desc">Các bài tập được thiết kế chuyên biệt để giải quyết vấn đề đau thắt lưng của từng nhóm đối tượng cụ thể.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -360,8 +380,8 @@
                     <div class="bg-white w-14 h-14 rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                         <i data-lucide="monitor" class="w-7 h-7 text-teal-600"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold text-slate-800 mb-2">Dân Văn Phòng</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <h3 class="font-heading text-xl font-bold text-slate-800 mb-2" data-i18n="audience_1_title">Dân Văn Phòng</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="audience_1_desc">
                         Ngồi làm việc máy tính liên tục dẫn đến đau mỏi thắt lưng, gù lưng và tê bì chân. Cần bài tập giãn cơ lưng và chỉnh dáng.
                     </p>
                 </div>
@@ -371,8 +391,8 @@
                     <div class="bg-white w-14 h-14 rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                         <i data-lucide="baby" class="w-7 h-7 text-rose-500"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold text-slate-800 mb-2">Mẹ Bỉm & Nội Trợ</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <h3 class="font-heading text-xl font-bold text-slate-800 mb-2" data-i18n="audience_2_title">Mẹ Bỉm & Nội Trợ</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="audience_2_desc">
                         Cơ thể nhức mỏi sau sinh, đặc biệt vùng thắt lưng do bế con. Cần hồi phục cột sống và tập luyện tranh thủ tại nhà.
                     </p>
                 </div>
@@ -382,8 +402,8 @@
                     <div class="bg-white w-14 h-14 rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                         <i data-lucide="flower-2" class="w-7 h-7 text-purple-500"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold text-slate-800 mb-2">Phụ Nữ</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <h3 class="font-heading text-xl font-bold text-slate-800 mb-2" data-i18n="audience_3_title">Phụ Nữ</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="audience_3_desc">
                         Gặp các vấn đề về thoái hóa cột sống, tiền mãn kinh. Cần sự vận động nhẹ nhàng, giảm đau lưng an toàn.
                     </p>
                 </div>
@@ -393,8 +413,8 @@
                     <div class="bg-white w-14 h-14 rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                         <i data-lucide="briefcase" class="w-7 h-7 text-amber-500"></i>
                     </div>
-                    <h3 class="font-heading text-xl font-bold text-slate-800 mb-2">Chủ Doanh Nghiệp</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <h3 class="font-heading text-xl font-bold text-slate-800 mb-2" data-i18n="audience_4_title">Chủ Doanh Nghiệp</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="audience_4_desc">
                         Áp lực công việc cao, đau lưng do stress. Cần không gian riêng tư để thư giãn cột sống mà không mất thời gian di chuyển.
                     </p>
                 </div>
@@ -406,9 +426,9 @@
     <section id="pain-points" class="py-16 md:py-24 bg-gradient-to-b from-white to-teal-50">
         <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-10 md:mb-16">
-                <span class="text-rose-500 font-bold uppercase tracking-widest text-xs md:text-sm">Nỗi Niềm Khó Nói</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2">Có Phải Cơn Đau Đang Lấy Đi Của Bạn Nhiều Hơn Bạn Nghĩ?</h2>
-                <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base">Không chỉ là những cơn đau thoáng qua, đau thắt lưng đang âm thầm bào mòn chất lượng cuộc sống của bạn.</p>
+                <span class="text-rose-500 font-bold uppercase tracking-widest text-xs md:text-sm" data-i18n="pain_subtitle">Nỗi Niềm Khó Nói</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2" data-i18n="pain_title">Có Phải Cơn Đau Đang Lấy Đi Của Bạn Nhiều Hơn Bạn Nghĩ?</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base" data-i18n="pain_desc">Không chỉ là những cơn đau thoáng qua, đau thắt lưng đang âm thầm bào mòn chất lượng cuộc sống của bạn.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -418,9 +438,9 @@
                         <div class="bg-rose-100 p-3 rounded-full">
                             <i data-lucide="battery-low" class="w-6 h-6 text-rose-500"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-bold text-slate-800">Giấc Ngủ Chập Chờn</h3>
+                        <h3 class="font-heading text-xl font-bold text-slate-800" data-i18n="pain_1_title">Giấc Ngủ Chập Chờn</h3>
                     </div>
-                    <p class="text-slate-600 leading-relaxed">
+                    <p class="text-slate-600 leading-relaxed" data-i18n="pain_1_desc">
                         Nằm xuống giường là thấy ê ẩm, xoay người là nhói đau. Mỗi sáng thức dậy với cái lưng cứng đơ, khiến bạn bắt đầu ngày mới trong sự mệt mỏi và uể oải.
                     </p>
                 </div>
@@ -431,9 +451,9 @@
                         <div class="bg-amber-100 p-3 rounded-full">
                             <i data-lucide="frown" class="w-6 h-6 text-amber-500"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-bold text-slate-800">Bất Lực Khi Chăm Sóc Gia Đình</h3>
+                        <h3 class="font-heading text-xl font-bold text-slate-800" data-i18n="pain_2_title">Bất Lực Khi Chăm Sóc Gia Đình</h3>
                     </div>
-                    <p class="text-slate-600 leading-relaxed">
+                    <p class="text-slate-600 leading-relaxed" data-i18n="pain_2_desc">
                         Muốn bế con nhưng lưng không cho phép, làm việc nhà một chút là phải ngồi nghỉ. Cảm giác bất lực khi không thể chu toàn cho gia đình nhỏ.
                     </p>
                 </div>
@@ -444,18 +464,18 @@
                         <div class="bg-teal-100 p-3 rounded-full">
                             <i data-lucide="activity" class="w-6 h-6 text-teal-600"></i>
                         </div>
-                        <h3 class="font-heading text-xl font-bold text-slate-800">Nỗi Sợ Về Già</h3>
+                        <h3 class="font-heading text-xl font-bold text-slate-800" data-i18n="pain_3_title">Nỗi Sợ Về Già</h3>
                     </div>
-                    <p class="text-slate-600 leading-relaxed">
+                    <p class="text-slate-600 leading-relaxed" data-i18n="pain_3_desc">
                         Lo lắng cơn đau sẽ biến chứng thành thoái hóa, thoát vị nặng hơn. Sợ bản thân trở thành gánh nặng, phải phụ thuộc vào người thân khi về già.
                     </p>
                 </div>
             </div>
 
             <div class="text-center mt-12">
-                <p class="text-lg font-medium text-slate-700 mb-6">Đừng để cơn đau định nghĩa cuộc sống của bạn. <br class="md:hidden"/> Giải pháp nằm ngay trong tầm tay.</p>
+                <p class="text-lg font-medium text-slate-700 mb-6" data-i18n="pain_cta_text">Đừng để cơn đau định nghĩa cuộc sống của bạn. <br class="md:hidden"/> Giải pháp nằm ngay trong tầm tay.</p>
                 <a href="#trial" class="inline-flex items-center gap-2 text-teal-700 font-bold hover:text-teal-900 transition-colors border-b-2 border-teal-200 hover:border-teal-700 pb-1">
-                    Tìm lại sự tự do cho cột sống của bạn <i data-lucide="arrow-down" class="w-4 h-4 animate-bounce"></i>
+                    <span data-i18n="pain_cta_link">Tìm lại sự tự do cho cột sống của bạn</span> <i data-lucide="arrow-down" class="w-4 h-4 animate-bounce"></i>
                 </a>
             </div>
         </div>
@@ -468,72 +488,72 @@
               <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-teal-500/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
               
               <div class="w-full lg:w-1/2 relative z-10 text-white text-center lg:text-left">
-                 <span class="bg-amber-400 text-teal-900 text-[10px] md:text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider mb-4 md:mb-6 inline-block">Ưu đãi trải nghiệm</span>
-                 <h2 class="font-heading text-2xl md:text-5xl font-bold mb-4 md:mb-6">30 Phút Tập Thử <br/><span class="text-teal-200">Online 1:1 Miễn Phí</span></h2>
-                 <p class="text-teal-50 mb-6 md:mb-8 text-sm md:text-lg font-light leading-relaxed">
+                 <span class="bg-amber-400 text-teal-900 text-[10px] md:text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider mb-4 md:mb-6 inline-block" data-i18n="form_badge">Ưu đãi trải nghiệm</span>
+                 <h2 class="font-heading text-2xl md:text-5xl font-bold mb-4 md:mb-6"><span data-i18n="form_title_1">30 Phút Tập Thử</span> <br/><span class="text-teal-200" data-i18n="form_title_2">Online 1:1 Miễn Phí</span></h2>
+                 <p class="text-teal-50 mb-6 md:mb-8 text-sm md:text-lg font-light leading-relaxed" data-i18n="form_desc">
                     Bạn chưa hình dung tập Online sẽ như thế nào? Hãy dành 30 phút video call cùng Trinh N Yoga để kiểm tra tư thế, test biên độ vận động và cảm nhận sự hướng dẫn tận tâm.
                  </p>
                  <ul class="space-y-3 md:space-y-4 text-left inline-block lg:block">
                     <li class="flex items-center gap-3">
                         <div class="bg-white/20 p-1 rounded-full shrink-0"><i data-lucide="check-circle" class="w-4 h-4 text-amber-300"></i></div>
-                        <span class="font-medium text-teal-50 text-sm md:text-base">Tư vấn 1:1 trực tiếp qua Google Meet/Video Call</span>
+                        <span class="font-medium text-teal-50 text-sm md:text-base" data-i18n="form_benefit_1">Tư vấn 1:1 trực tiếp qua Google Meet/Video Call</span>
                     </li>
                     <li class="flex items-center gap-3">
                         <div class="bg-white/20 p-1 rounded-full shrink-0"><i data-lucide="check-circle" class="w-4 h-4 text-amber-300"></i></div>
-                        <span class="font-medium text-teal-50 text-sm md:text-base">Kiểm tra biên độ vận động</span>
+                        <span class="font-medium text-teal-50 text-sm md:text-base" data-i18n="form_benefit_2">Kiểm tra biên độ vận động</span>
                     </li>
                     <li class="flex items-center gap-3">
                         <div class="bg-white/20 p-1 rounded-full shrink-0"><i data-lucide="check-circle" class="w-4 h-4 text-amber-300"></i></div>
-                        <span class="font-medium text-teal-50 text-sm md:text-base">Riêng tư, thoải mái ngay tại nhà</span>
+                        <span class="font-medium text-teal-50 text-sm md:text-base" data-i18n="form_benefit_3">Riêng tư, thoải mái ngay tại nhà</span>
                     </li>
                  </ul>
               </div>
               
               <div class="w-full lg:w-1/2 bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-xl relative z-10">
-                 <h3 class="font-heading text-xl md:text-2xl font-bold mb-4 md:mb-6 text-slate-800 text-center">Đăng Ký Ngay</h3>
+                 <h3 class="font-heading text-xl md:text-2xl font-bold mb-4 md:mb-6 text-slate-800 text-center" data-i18n="form_header">Đăng Ký Ngay</h3>
                  
                  <!-- Success Message (Hidden by default) -->
                  <div id="success-message" class="hidden text-center py-8 md:py-10">
                     <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="check-circle" class="w-8 h-8"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-2">Đăng ký thành công!</h4>
-                    <p class="text-slate-500 text-sm">Đang chuyển hướng bạn vào nhóm Zalo cộng đồng...</p>
+                    <h4 class="text-xl font-bold text-slate-800 mb-2" data-i18n="form_success_title">Đăng ký thành công!</h4>
+                    <p class="text-slate-500 text-sm" data-i18n="form_success_desc">Đang chuyển hướng bạn vào nhóm Zalo cộng đồng...</p>
                  </div>
 
                  <!-- Error Message (Hidden by default) -->
-                 <div id="error-message" class="hidden text-red-500 text-center text-sm mb-4">
+                 <div id="error-message" class="hidden text-red-500 text-center text-sm mb-4" data-i18n="form_error">
                      Có lỗi xảy ra, vui lòng thử lại hoặc nhắn tin qua Zalo!
                  </div>
 
                  <!-- Form -->
                  <form id="registration-form" class="space-y-3 md:space-y-4">
                     <div>
-                        <label class="block text-sm font-bold mb-1.5 text-slate-700">Họ tên của bạn</label>
-                        <input required type="text" id="name" class="w-full px-4 py-3 md:py-3.5 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all font-medium text-sm md:text-base" placeholder="VD: Nguyễn Văn A" />
+                        <label class="block text-sm font-bold mb-1.5 text-slate-700" data-i18n="label_name">Họ tên của bạn</label>
+                        <input required type="text" id="name" class="w-full px-4 py-3 md:py-3.5 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all font-medium text-sm md:text-base" data-i18n-placeholder="placeholder_name" placeholder="VD: Nguyễn Văn A" />
                     </div>
                     <div>
-                        <label class="block text-sm font-bold mb-1.5 text-slate-700">Số điện thoại (Zalo)</label>
+                        <label class="block text-sm font-bold mb-1.5 text-slate-700" data-i18n="label_phone">Số điện thoại (Zalo)</label>
                         <input required type="tel" id="phone" class="w-full px-4 py-3 md:py-3.5 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all font-medium text-sm md:text-base" placeholder="09xxxxxxx" />
                     </div>
                     <div>
-                        <label class="block text-sm font-bold mb-1.5 text-slate-700">Gói tập quan tâm</label>
+                        <label class="block text-sm font-bold mb-1.5 text-slate-700" data-i18n="label_package">Gói tập quan tâm</label>
                         <select id="package" class="w-full px-4 py-3 md:py-3.5 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all font-medium text-slate-600 text-sm md:text-base">
-                            <option>Tập thử Online 30p (Miễn phí)</option>
-                            <option>Gói Phục Hồi Online (7 buổi)</option>
-                            <option>Gói 7 Buổi Yoga Cơ Bản</option>
-                            <option>Gói Tháng Online (6.000.000đ)</option>
-                            <option>Combo 3 Tháng Online</option>
-                            <option>Combo 6 Tháng Online</option>
+                            <option data-i18n="pkg_opt_trial">Tập thử Online 30p (Miễn phí)</option>
+                            <option data-i18n="pkg_opt_recovery">Gói Phục Hồi Online (7 buổi)</option>
+                            <option data-i18n="pkg_opt_basic">Gói 7 Buổi Yoga Cơ Bản</option>
+                            <option data-i18n="pkg_opt_month">Gói Tháng Online (6.000.000đ)</option>
+                            <option data-i18n="pkg_opt_3month">Combo 3 Tháng Online</option>
+                            <option data-i18n="pkg_opt_6month">Combo 6 Tháng Online</option>
                         </select>
                     </div>
                     <div>
-                         <label class="block text-sm font-bold mb-1.5 text-slate-700">Vấn đề gặp phải</label>
-                         <input type="text" id="problem" class="w-full px-4 py-3 md:py-3.5 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all font-medium text-sm md:text-base" placeholder="VD: Đau lưng, mỏi vai..." />
+                         <label class="block text-sm font-bold mb-1.5 text-slate-700" data-i18n="label_problem">Vấn đề gặp phải</label>
+                         <input type="text" id="problem" class="w-full px-4 py-3 md:py-3.5 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all font-medium text-sm md:text-base" data-i18n-placeholder="placeholder_problem" placeholder="VD: Đau lưng, mỏi vai..." />
                     </div>
                     
                     <button type="submit" id="submit-btn" class="w-full bg-teal-600 text-white font-bold py-3.5 md:py-4 rounded-xl hover:bg-teal-700 transition-all shadow-lg shadow-teal-100 flex items-center justify-center gap-2 text-sm md:text-base">
-                        <span>Gửi Đăng Ký Ngay</span> <i data-lucide="send" class="w-4 h-4"></i>
+                        <span data-i18n="btn_submit">Gửi Đăng Ký Ngay</span> <i data-lucide="send" class="w-4 h-4"></i>
                     </button>
                  </form>
               </div>
@@ -545,9 +565,9 @@
     <section id="process" class="py-16 md:py-24 bg-teal-50/50">
         <div class="container mx-auto px-4 md:px-6">
           <div class="text-center mb-12 md:mb-16">
-            <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm">Quy Trình Khoa Học</span>
-            <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2">Lộ Trình 3 Bước Chữa Lành Online</h2>
-            <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base">
+            <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm" data-i18n="process_subtitle">Quy Trình Khoa Học</span>
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2" data-i18n="process_title">Lộ Trình 3 Bước Chữa Lành Online</h2>
+            <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base" data-i18n="process_desc">
                 Quy trình được thiết kế tối ưu cho việc tập luyện từ xa, đảm bảo hiệu quả phục hồi cột sống.
             </p>
           </div>
@@ -562,8 +582,8 @@
                 <span class="text-3xl font-heading font-bold text-teal-600">01</span>
                 <div class="absolute -top-2 -right-2 bg-amber-400 rounded-full p-1"><i data-lucide="video" class="w-4 h-4 text-white"></i></div>
               </div>
-              <h3 class="font-heading text-xl font-bold text-slate-800 mb-3">Thấu Hiểu Online</h3>
-              <p class="text-slate-500 text-sm md:text-base leading-relaxed max-w-xs px-4">
+              <h3 class="font-heading text-xl font-bold text-slate-800 mb-3" data-i18n="step_1_title">Thấu Hiểu Online</h3>
+              <p class="text-slate-500 text-sm md:text-base leading-relaxed max-w-xs px-4" data-i18n="step_1_desc">
                 Kết nối qua Google Meet/Zalo. Trinh N Yoga sẽ quan sát cột sống, test vận động và lắng nghe vấn đề đau lưng của bạn.
               </p>
             </div>
@@ -573,8 +593,8 @@
               <div class="w-24 h-24 bg-white rounded-full border-4 border-teal-100 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 relative z-10">
                 <span class="text-3xl font-heading font-bold text-teal-600">02</span>
               </div>
-              <h3 class="font-heading text-xl font-bold text-slate-800 mb-3">Phục Hồi 1:1</h3>
-              <p class="text-slate-500 text-sm md:text-base leading-relaxed max-w-xs px-4">
+              <h3 class="font-heading text-xl font-bold text-slate-800 mb-3" data-i18n="step_2_title">Phục Hồi 1:1</h3>
+              <p class="text-slate-500 text-sm md:text-base leading-relaxed max-w-xs px-4" data-i18n="step_2_desc">
                 7 buổi tập trung giải tỏa đau thắt lưng. Giáo án được điều chỉnh liên tục dựa trên mức độ hồi phục của bạn.
               </p>
             </div>
@@ -584,8 +604,8 @@
               <div class="w-24 h-24 bg-white rounded-full border-4 border-teal-100 flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300 relative z-10">
                 <span class="text-3xl font-heading font-bold text-teal-600">03</span>
               </div>
-              <h3 class="font-heading text-xl font-bold text-slate-800 mb-3">Duy Trì Tại Nhà</h3>
-              <p class="text-slate-500 text-sm md:text-base leading-relaxed max-w-xs px-4">
+              <h3 class="font-heading text-xl font-bold text-slate-800 mb-3" data-i18n="step_3_title">Duy Trì Tại Nhà</h3>
+              <p class="text-slate-500 text-sm md:text-base leading-relaxed max-w-xs px-4" data-i18n="step_3_desc">
                 Gói tháng giúp bạn xây dựng thói quen bảo vệ cột sống, ngăn ngừa đau lưng tái phát.
               </p>
             </div>
@@ -597,9 +617,9 @@
     <section id="offers" class="py-16 md:py-24 bg-[#f4f6f5]">
          <div class="container mx-auto px-4 md:px-6">
             <div class="text-center mb-10 md:mb-16">
-               <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm">Đầu Tư Cho Sức Khỏe</span>
-               <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2">Bảng Giá Tập Online 1:1</h2>
-               <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base">Lộ trình cá nhân hóa, tập luyện linh hoạt qua Google Meet. Hiệu quả như có PT tại nhà.</p>
+               <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm" data-i18n="pricing_subtitle">Đầu Tư Cho Sức Khỏe</span>
+               <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2" data-i18n="pricing_title">Bảng Giá Tập Online 1:1</h2>
+               <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base" data-i18n="pricing_desc">Lộ trình cá nhân hóa, tập luyện linh hoạt qua Google Meet. Hiệu quả như có PT tại nhà.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-[1400px] mx-auto items-stretch">
@@ -607,13 +627,13 @@
                 <!-- 1. Gói 7 Buổi Yoga Cơ Bản (NEW) - ORDER 1 ON MOBILE -->
                 <div class="bg-white rounded-3xl p-6 border-2 border-rose-400 shadow-lg relative flex flex-col order-1 md:order-1">
                     <div class="absolute top-0 inset-x-0 -mt-3 text-center">
-                        <span class="bg-rose-500 text-white text-[10px] md:text-xs font-bold px-4 py-1 rounded-full uppercase shadow-sm">Được lựa chọn nhiều nhất</span>
+                        <span class="bg-rose-500 text-white text-[10px] md:text-xs font-bold px-4 py-1 rounded-full uppercase shadow-sm" data-i18n="label_popular">Được lựa chọn nhiều nhất</span>
                     </div>
                     <div class="mb-4 mt-2">
-                        <span class="bg-rose-50 text-rose-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase">Cơ bản</span>
+                        <span class="bg-rose-50 text-rose-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase" data-i18n="label_basic">Cơ bản</span>
                     </div>
-                    <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-2">7 Buổi Yoga Cơ Bản</h3>
-                    <p class="text-slate-400 text-xs mb-4">Dành cho người mới bắt đầu làm quen.</p>
+                    <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-2" data-i18n="pkg_basic_title">7 Buổi Yoga Cơ Bản</h3>
+                    <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_basic_desc">Dành cho người mới bắt đầu làm quen.</p>
                     
                     <div class="flex flex-col items-start gap-0.5 mb-6">
                         <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80">3.500.000đ</span>
@@ -621,20 +641,31 @@
                     </div>
                     
                     <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
-                        <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> <strong>07 Buổi</strong> tập Online 1:1</li>
-                        <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> Hướng dẫn kỹ thuật chuẩn</li>
-                        <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> Nhẹ nhàng, dễ tập</li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                            <span>
+                                <strong data-i18n="pkg_feat_7sessions">07 Buổi</strong> <span data-i18n="pkg_feat_online">tập Online 1:1</span>
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                            <span data-i18n="pkg_feat_technique">Hướng dẫn kỹ thuật chuẩn</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                            <span data-i18n="pkg_feat_easy">Nhẹ nhàng, dễ tập</span>
+                        </li>
                     </ul>
-                    <a href="https://diemtrinh.vercel.app/7-buoi-yoga-co-ban" target="_blank" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors text-sm shadow-md">Đăng ký ngay</a>
+                    <a href="https://diemtrinh.vercel.app/7-buoi-yoga-co-ban" target="_blank" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors text-sm shadow-md" data-i18n="btn_register">Đăng ký ngay</a>
                 </div>
                
                <!-- 2. Gói Phục Hồi - ORDER 2 ON MOBILE -->
                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all flex flex-col order-2 md:order-2">
                   <div class="mb-4">
-                      <span class="bg-slate-100 text-slate-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase">Người mới</span>
+                      <span class="bg-slate-100 text-slate-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase" data-i18n="label_newbie">Người mới</span>
                   </div>
-                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-2">Gói Phục Hồi</h3>
-                  <p class="text-slate-400 text-xs mb-4">Làm quen với Yoga trị liệu Đau Lưng.</p>
+                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-2" data-i18n="pkg_recovery_title">Gói Phục Hồi</h3>
+                  <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_recovery_desc">Làm quen với Yoga trị liệu Đau Lưng.</p>
                   
                   <div class="flex flex-col items-start gap-0.5 mb-6">
                      <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80">3.500.000đ</span>
@@ -642,23 +673,32 @@
                   </div>
                   
                   <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> <strong>07 Buổi</strong> tập Online 1:1</li>
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> Chỉnh sửa kỹ qua Camera</li>
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> Trị liệu Đau Thắt Lưng</li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <span><strong data-i18n="pkg_feat_7sessions">07 Buổi</strong> <span data-i18n="pkg_feat_online">tập Online 1:1</span></span>
+                     </li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <span data-i18n="pkg_feat_camera">Chỉnh sửa kỹ qua Camera</span>
+                     </li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <span data-i18n="pkg_feat_therapy">Trị liệu Đau Thắt Lưng</span>
+                     </li>
                   </ul>
-                  <a href="https://diemtrinh.vercel.app/7buoi-phuc-hoi-that-lung" target="_blank" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors text-sm">Đăng ký ngay</a>
+                  <a href="https://diemtrinh.vercel.app/7buoi-phuc-hoi-that-lung" target="_blank" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors text-sm" data-i18n="btn_register">Đăng ký ngay</a>
                </div>
 
                <!-- 3. Gói Tháng -->
                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all flex flex-col order-3">
                   <div class="mb-4">
-                      <span class="bg-slate-100 text-slate-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase">Duy trì</span>
+                      <span class="bg-slate-100 text-slate-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase" data-i18n="label_maintain">Duy trì</span>
                   </div>
-                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mt-2 mb-2">Gói 1 Tháng</h3>
-                  <p class="text-slate-400 text-xs mb-4">Duy trì tập luyện đều đặn tại nhà.</p>
+                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mt-2 mb-2" data-i18n="pkg_month_title">Gói 1 Tháng</h3>
+                  <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_month_desc">Duy trì tập luyện đều đặn tại nhà.</p>
                   
                   <div class="flex flex-col items-start gap-0.5 mb-4">
-                     <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80">6.000.000đ/tháng</span>
+                     <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80" data-i18n="price_month_old">6.000.000đ/tháng</span>
                      <div class="flex items-center gap-2">
                         <span class="text-xl md:text-2xl font-bold text-teal-600">4.800.000đ</span>
                         <span class="bg-rose-100 text-rose-600 text-[10px] font-bold px-2 py-0.5 rounded-full">-20%</span>
@@ -666,25 +706,34 @@
                   </div>
                   
                   <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-6">
-                     <p class="text-xs font-bold text-amber-700">🔥 Tiết kiệm 20%:</p>
-                     <p class="text-xs text-amber-800">Dành cho học viên đăng ký duy trì sau khóa nền tảng.</p>
+                     <p class="text-xs font-bold text-amber-700" data-i18n="pkg_month_note_title">🔥 Tiết kiệm 20%:</p>
+                     <p class="text-xs text-amber-800" data-i18n="pkg_month_note_desc">Dành cho học viên đăng ký duy trì sau khóa nền tảng.</p>
                   </div>
                   
                   <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> <strong>12 Buổi</strong> Online 1:1</li>
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> <strong>+01 Buổi Review</strong> Online</li>
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> Theo dõi chỉ số qua App</li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <span><strong data-i18n="pkg_feat_12sessions">12 Buổi</strong> <span data-i18n="pkg_feat_online">Online 1:1</span></span>
+                     </li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <strong>+01 Buổi Review</strong> Online
+                     </li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <span data-i18n="pkg_feat_tracking">Theo dõi chỉ số qua App</span>
+                     </li>
                   </ul>
-                  <a href="#trial" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors shadow-lg text-sm">Đăng ký ngay</a>
+                  <a href="#trial" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors shadow-lg text-sm" data-i18n="btn_register">Đăng ký ngay</a>
                </div>
 
                <!-- 4. Combo 3 Tháng -->
                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all flex flex-col order-4">
                   <div class="mb-4">
-                      <span class="bg-rose-100 text-rose-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase">Tiết kiệm 33%</span>
+                      <span class="bg-rose-100 text-rose-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase" data-i18n="label_saving">Tiết kiệm 33%</span>
                   </div>
-                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-2">Combo 3 Tháng</h3>
-                  <p class="text-slate-400 text-xs mb-4">Cam kết ngắn hạn, tập luyện bền bỉ.</p>
+                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-2" data-i18n="pkg_3month_title">Combo 3 Tháng</h3>
+                  <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_3month_desc">Cam kết ngắn hạn, tập luyện bền bỉ.</p>
                   
                   <div class="flex flex-col items-start gap-0.5 mb-6">
                      <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80">18.000.000đ</span>
@@ -692,20 +741,29 @@
                   </div>
                   
                   <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> Tổng <strong>36 Buổi</strong> Online</li>
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> <strong>Tặng thêm 03 buổi tập</strong></li>
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> Ổn định thói quen tại nhà</li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <span><span data-i18n="pkg_feat_total">Tổng</span> <strong>36 Buổi</strong> Online</span>
+                     </li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <strong data-i18n="pkg_feat_bonus3">Tặng thêm 03 buổi tập</strong>
+                     </li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <span data-i18n="pkg_feat_habit">Ổn định thói quen tại nhà</span>
+                     </li>
                   </ul>
-                  <a href="#trial" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors shadow-lg text-sm">Tư vấn gói này</a>
+                  <a href="#trial" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors shadow-lg text-sm" data-i18n="btn_consult_pkg">Tư vấn gói này</a>
                </div>
 
                <!-- 5. Combo 6 Tháng -->
                <div class="bg-white rounded-3xl p-6 border-2 border-teal-500 shadow-lg relative flex flex-col order-5 md:-mt-4 animate-zoom-in-out">
                   <div class="absolute top-0 inset-x-0 -mt-3 text-center">
-                     <span class="bg-teal-600 text-white text-[10px] md:text-xs font-bold px-4 py-1 rounded-full uppercase shadow-sm">VIP - Phổ biến nhất</span>
+                     <span class="bg-teal-600 text-white text-[10px] md:text-xs font-bold px-4 py-1 rounded-full uppercase shadow-sm" data-i18n="label_vip">VIP - Phổ biến nhất</span>
                   </div>
-                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mt-2 mb-2">Combo 6 Tháng</h3>
-                  <p class="text-slate-400 text-xs mb-4">Thay đổi toàn diện vóc dáng và sức khỏe.</p>
+                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mt-2 mb-2" data-i18n="pkg_6month_title">Combo 6 Tháng</h3>
+                  <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_6month_desc">Thay đổi toàn diện vóc dáng và sức khỏe.</p>
                   
                   <div class="flex flex-col items-start gap-0.5 mb-4">
                      <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80">36.000.000đ</span>
@@ -717,15 +775,23 @@
 
                   <!-- Added note about saving 50% and +1 month bonus -->
                   <div class="bg-rose-50 border border-rose-200 rounded-lg p-3 mb-6">
-                     <p class="text-xs font-bold text-rose-700">🔥 Ưu đãi đặc biệt:</p>
-                     <p class="text-xs text-rose-800">Tiết kiệm 50% + Tặng thêm 01 tháng tập luyện.</p>
+                     <p class="text-xs font-bold text-rose-700" data-i18n="pkg_6month_note_title">🔥 Ưu đãi đặc biệt:</p>
+                     <p class="text-xs text-rose-800" data-i18n="pkg_6month_note_desc">Tiết kiệm 50% + Tặng thêm 01 tháng tập luyện.</p>
                   </div>
                   
                   <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-600">
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> Tổng <strong>84 Buổi</strong> (6 + 1 tháng)</li>
-                     <li class="flex gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0"></i> Tặng Lộ Trình dinh dưỡng 21 ngày</li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <span>
+                            <span data-i18n="pkg_feat_total">Tổng</span> <strong>84 Buổi</strong> (6 + 1 <span data-i18n="month">tháng</span>)
+                        </span>
+                     </li>
+                     <li class="flex items-start gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-teal-500 shrink-0 mt-1"></i>
+                        <span data-i18n="pkg_feat_nutrition">Tặng Lộ Trình dinh dưỡng 21 ngày</span>
+                     </li>
                   </ul>
-                  <a href="#trial" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors shadow-lg text-sm">Tư vấn gói này</a>
+                  <a href="#trial" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors shadow-lg text-sm" data-i18n="btn_consult_pkg">Tư vấn gói này</a>
                </div>
 
             </div>
@@ -736,9 +802,9 @@
       <section id="testimonials" class="py-16 md:py-24 bg-white">
           <div class="container mx-auto px-4">
               <div class="text-center mb-12 md:mb-16">
-                  <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm">Học Viên Nói Gì</span>
-                  <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2">Câu Chuyện Thay Đổi Từ Xa</h2>
-                  <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base">Những phản hồi chân thực từ học viên tham gia lớp Yoga 1:1 Online.</p>
+                  <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm" data-i18n="testimonial_subtitle">Học Viên Nói Gì</span>
+                  <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2" data-i18n="testimonial_title">Câu Chuyện Thay Đổi Từ Xa</h2>
+                  <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base" data-i18n="testimonial_desc">Những phản hồi chân thực từ học viên tham gia lớp Yoga 1:1 Online.</p>
               </div>
               
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
@@ -759,7 +825,7 @@
                              <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/feed04.jpg" alt="Yoga trị liệu" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                          </div>
                      </div>
-                     <p class="text-center text-slate-400 text-xs mt-3 italic">*Hình ảnh thực tế từ các lớp học Online 1:1</p>
+                     <p class="text-center text-slate-400 text-xs mt-3 italic" data-i18n="feedback_note">*Hình ảnh thực tế từ các lớp học Online 1:1</p>
                  </div>
 
                   <!-- Feedback 1 -->
@@ -767,12 +833,12 @@
                       <div class="flex items-center gap-3 mb-4">
                           <img src="https://i.pravatar.cc/150?img=5" alt="Học viên" class="w-12 h-12 rounded-full border-2 border-white shadow-sm">
                           <div>
-                              <h4 class="font-bold text-slate-800 text-sm">Chị Ngọc</h4>
-                              <p class="text-xs text-slate-400">30 tuổi, Australia</p>
+                              <h4 class="font-bold text-slate-800 text-sm" data-i18n="feed_1_name">Chị Ngọc</h4>
+                              <p class="text-xs text-slate-400" data-i18n="feed_1_info">30 tuổi, Australia</p>
                           </div>
                           <div class="ml-auto flex text-amber-400 text-xs">★★★★★</div>
                       </div>
-                      <p class="text-slate-600 text-sm italic leading-relaxed">"Mấy nay đặt lưng xuống là ngủ một mạch tới sáng luôn. Ko bị trằn trọc nữa. Biết vậy đi tập sớm hơn. Cảm ơn em nhiều nha."</p>
+                      <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="feed_1_text">"Mấy nay đặt lưng xuống là ngủ một mạch tới sáng luôn. Ko bị trằn trọc nữa. Biết vậy đi tập sớm hơn. Cảm ơn em nhiều nha."</p>
                   </div>
 
                   <!-- Feedback 2 -->
@@ -780,12 +846,12 @@
                       <div class="flex items-center gap-3 mb-4">
                           <img src="https://i.pravatar.cc/150?img=9" alt="Học viên" class="w-12 h-12 rounded-full border-2 border-white shadow-sm">
                           <div>
-                              <h4 class="font-bold text-slate-800 text-sm">Chị Hạnh</h4>
-                              <p class="text-xs text-slate-400">38 tuổi, Tp Hồ Chí Minh</p>
+                              <h4 class="font-bold text-slate-800 text-sm" data-i18n="feed_2_name">Chị Hạnh</h4>
+                              <p class="text-xs text-slate-400" data-i18n="feed_2_info">38 tuổi, Tp Hồ Chí Minh</p>
                           </div>
                           <div class="ml-auto flex text-amber-400 text-xs">★★★★★</div>
                       </div>
-                      <p class="text-slate-600 text-sm italic leading-relaxed">"Chị dân văn phòng, lưng cứng đơ sợ tập sai. May mà Trinh dùng kiến thức giải phẫu chỉnh khung xương, không bắt uốn dẻo. Tập xong nhẹ người liền."</p>
+                      <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="feed_2_text">"Chị dân văn phòng, lưng cứng đơ sợ tập sai. May mà Trinh dùng kiến thức giải phẫu chỉnh khung xương, không bắt uốn dẻo. Tập xong nhẹ người liền."</p>
                   </div>
 
                   <!-- Feedback 3 -->
@@ -793,12 +859,12 @@
                       <div class="flex items-center gap-3 mb-4">
                           <img src="https://i.pravatar.cc/150?img=32" alt="Học viên" class="w-12 h-12 rounded-full border-2 border-white shadow-sm">
                           <div>
-                              <h4 class="font-bold text-slate-800 text-sm">Chị Trang</h4>
-                              <p class="text-xs text-slate-400">35 tuổi, Phú Quốc</p>
+                              <h4 class="font-bold text-slate-800 text-sm" data-i18n="feed_3_name">Chị Trang</h4>
+                              <p class="text-xs text-slate-400" data-i18n="feed_3_info">35 tuổi, Phú Quốc</p>
                           </div>
                           <div class="ml-auto flex text-amber-400 text-xs">★★★★★</div>
                       </div>
-                      <p class="text-slate-600 text-sm italic leading-relaxed">"Nay cái lưng êm ru rồi á. Sáng dậy cúi xuống ko bị thốn nữa. Công nhận tập xong nhẹ người thật."</p>
+                      <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="feed_3_text">"Nay cái lưng êm ru rồi á. Sáng dậy cúi xuống ko bị thốn nữa. Công nhận tập xong nhẹ người thật."</p>
                   </div>
 
                   <!-- Feedback 4 -->
@@ -806,12 +872,12 @@
                       <div class="flex items-center gap-3 mb-4">
                           <img src="https://i.pravatar.cc/150?img=43" alt="Học viên" class="w-12 h-12 rounded-full border-2 border-white shadow-sm">
                           <div>
-                              <h4 class="font-bold text-slate-800 text-sm">Chị Thanh</h4>
-                              <p class="text-xs text-slate-400">40 tuổi, USA</p>
+                              <h4 class="font-bold text-slate-800 text-sm" data-i18n="feed_4_name">Chị Thanh</h4>
+                              <p class="text-xs text-slate-400" data-i18n="feed_4_info">40 tuổi, USA</p>
                           </div>
                           <div class="ml-auto flex text-amber-400 text-xs">★★★★★</div>
                       </div>
-                      <p class="text-slate-600 text-sm italic leading-relaxed">"Trộm vía êm ru luôn em ơi! Kỳ diệu ghê, mấy hôm nay sáng dậy là cái lưng nó nhẹ bẫng. Mê nhất là ngủ ngon dã man, đặt lưng xuống là ngủ một mạch tới sáng."</p>
+                      <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="feed_4_text">"Trộm vía êm ru luôn em ơi! Kỳ diệu ghê, mấy hôm nay sáng dậy là cái lưng nó nhẹ bẫng. Mê nhất là ngủ ngon dã man, đặt lưng xuống là ngủ một mạch tới sáng."</p>
                   </div>
 
                   <!-- Feedback 5 -->
@@ -819,12 +885,12 @@
                       <div class="flex items-center gap-3 mb-4">
                           <img src="https://i.pravatar.cc/150?img=24" alt="Học viên" class="w-12 h-12 rounded-full border-2 border-white shadow-sm">
                           <div>
-                              <h4 class="font-bold text-slate-800 text-sm">Chị Lan</h4>
-                              <p class="text-xs text-slate-400">32 tuổi, Hà Nội</p>
+                              <h4 class="font-bold text-slate-800 text-sm" data-i18n="feed_5_name">Chị Lan</h4>
+                              <p class="text-xs text-slate-400" data-i18n="feed_5_info">32 tuổi, Hà Nội</p>
                           </div>
                           <div class="ml-auto flex text-amber-400 text-xs">★★★★★</div>
                       </div>
-                      <p class="text-slate-600 text-sm italic leading-relaxed">"Mình ngồi máy tính cả ngày, đau thắt lưng kinh khủng. Tập online với Trinh thấy rất tiện, giáo viên chỉnh dáng kỹ từng chút một. Giờ lưng mình đỡ đau hẳn."</p>
+                      <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="feed_5_text">"Mình ngồi máy tính cả ngày, đau thắt lưng kinh khủng. Tập online với Trinh thấy rất tiện, giáo viên chỉnh dáng kỹ từng chút một. Giờ lưng mình đỡ đau hẳn."</p>
                   </div>
 
                   <!-- Feedback 6 -->
@@ -832,12 +898,12 @@
                       <div class="flex items-center gap-3 mb-4">
                           <img src="https://i.pravatar.cc/150?img=44" alt="Học viên" class="w-12 h-12 rounded-full border-2 border-white shadow-sm">
                           <div>
-                              <h4 class="font-bold text-slate-800 text-sm">Cô Vân</h4>
-                              <p class="text-xs text-slate-400">55 tuổi, Cần Thơ</p>
+                              <h4 class="font-bold text-slate-800 text-sm" data-i18n="feed_6_name">Cô Vân</h4>
+                              <p class="text-xs text-slate-400" data-i18n="feed_6_info">55 tuổi, Cần Thơ</p>
                           </div>
                           <div class="ml-auto flex text-amber-400 text-xs">★★★★★</div>
                       </div>
-                      <p class="text-slate-600 text-sm italic leading-relaxed">"Cô lớn tuổi nên xương khớp cứng, sợ tập sai. May mà Trinh hướng dẫn rất kiên nhẫn, bài tập nhẹ nhàng. Giờ cô thấy khỏe khoắn, linh hoạt hơn nhiều."</p>
+                      <p class="text-slate-600 text-sm italic leading-relaxed" data-i18n="feed_6_text">"Cô lớn tuổi nên xương khớp cứng, sợ tập sai. May mà Trinh hướng dẫn rất kiên nhẫn, bài tập nhẹ nhàng. Giờ cô thấy khỏe khoắn, linh hoạt hơn nhiều."</p>
                   </div>
               </div>
           </div>
@@ -847,8 +913,8 @@
     <section id="faq" class="py-16 md:py-24 bg-slate-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10 md:mb-16">
-                <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm">Giải Đáp Thắc Mắc</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2">Câu Hỏi Thường Gặp</h2>
+                <span class="text-teal-600 font-bold uppercase tracking-widest text-xs md:text-sm" data-i18n="faq_subtitle">Giải Đáp Thắc Mắc</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2" data-i18n="faq_title">Câu Hỏi Thường Gặp</h2>
             </div>
             
             <div class="max-w-3xl mx-auto space-y-4">
@@ -856,12 +922,12 @@
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <details class="group">
                         <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 font-heading text-lg">
-                            <span>Tôi chưa tập Yoga bao giờ có theo được lớp Online không?</span>
+                            <span data-i18n="faq_1_q">Tôi chưa tập Yoga bao giờ có theo được lớp Online không?</span>
                             <span class="transition group-open:rotate-180">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                             </span>
                         </summary>
-                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3">
+                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3" data-i18n="faq_1_a">
                             Hoàn toàn được ạ. Vì là lớp 1:1 nên giáo án được thiết kế riêng cho người mới bắt đầu. Trinh N Yoga sẽ hướng dẫn tỉ mỉ từng hơi thở, từng chuyển động cơ bản nhất để chị làm quen và cảm nhận cơ thể.
                         </div>
                     </details>
@@ -871,12 +937,12 @@
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <details class="group">
                         <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 font-heading text-lg">
-                            <span>Tập Online thì giáo viên chỉnh dáng cho tôi thế nào?</span>
+                            <span data-i18n="faq_2_q">Tập Online thì giáo viên chỉnh dáng cho tôi thế nào?</span>
                             <span class="transition group-open:rotate-180">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                             </span>
                         </summary>
-                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3">
+                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3" data-i18n="faq_2_a">
                             Trinh N Yoga sẽ hướng dẫn chị cách đặt camera (điện thoại/laptop) để quan sát được toàn bộ cơ thể. Trong suốt buổi tập, Trinh N Yoga luôn quan sát màn hình và dùng lời nói để điều chỉnh tư thế cho chị ngay lập tức, đảm bảo tập đúng và an toàn.
                         </div>
                     </details>
@@ -886,12 +952,12 @@
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <details class="group">
                         <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 font-heading text-lg">
-                            <span>Tôi cần chuẩn bị dụng cụ gì để tập tại nhà?</span>
+                            <span data-i18n="faq_3_q">Tôi cần chuẩn bị dụng cụ gì để tập tại nhà?</span>
                             <span class="transition group-open:rotate-180">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                             </span>
                         </summary>
-                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3">
+                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3" data-i18n="faq_3_a">
                             Chị chỉ cần chuẩn bị một thảm tập Yoga, một chiếc khăn bông, và thiết bị có kết nối internet (điện thoại, máy tính bảng hoặc laptop). Không gian tập chỉ cần đủ rộng để trải thảm là được ạ.
                         </div>
                     </details>
@@ -901,12 +967,12 @@
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <details class="group">
                         <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 font-heading text-lg">
-                            <span>Nếu tôi bận đột xuất thì có được đổi lịch không?</span>
+                            <span data-i18n="faq_4_q">Nếu tôi bận đột xuất thì có được đổi lịch không?</span>
                             <span class="transition group-open:rotate-180">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                             </span>
                         </summary>
-                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3">
+                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3" data-i18n="faq_4_a">
                             Có ạ. Chị vui lòng báo trước cho Trinh N Yoga ít nhất 4 tiếng để Trinh N Yoga sắp xếp lại lịch bù cho chị vào buổi khác thuận tiện hơn trong tuần nhé.
                         </div>
                     </details>
@@ -916,12 +982,12 @@
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <details class="group">
                         <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-slate-800 font-heading text-lg">
-                            <span>Hình thức thanh toán như thế nào?</span>
+                            <span data-i18n="faq_5_q">Hình thức thanh toán như thế nào?</span>
                             <span class="transition group-open:rotate-180">
                                 <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                             </span>
                         </summary>
-                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3">
+                        <div class="text-slate-600 px-5 pb-5 leading-relaxed border-t border-slate-100 pt-3" data-i18n="faq_5_a">
                             Chị có thể thanh toán chuyển khoản qua ngân hàng. Trinh N Yoga sẽ gửi thông tin chi tiết sau khi tư vấn và chốt lịch tập với chị ạ.
                         </div>
                     </details>
@@ -940,7 +1006,7 @@
                         <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/Logo_Wide_TrinhNyoga.png" alt="Trinh N Yoga Logo" class="h-full object-contain filter brightness-200" />
                      </div>
                   </div>
-                  <p class="text-slate-400 mb-6 leading-relaxed text-sm">
+                  <p class="text-slate-400 mb-6 leading-relaxed text-sm" data-i18n="footer_about">
                     Trinh N Yoga - Tiên phong mô hình Yoga trị liệu 1:1 Online. Mang lại sự cân bằng cho Thân - Tâm - Trí ngay tại ngôi nhà của bạn.
                   </p>
                   <div class="flex gap-4">
@@ -955,7 +1021,7 @@
                </div>
                
                <div>
-                  <h4 class="font-heading font-bold text-white text-lg mb-4 md:mb-6">Thông Tin Liên Hệ</h4>
+                  <h4 class="font-heading font-bold text-white text-lg mb-4 md:mb-6" data-i18n="footer_contact_title">Thông Tin Liên Hệ</h4>
                   <ul class="space-y-4">
                      <li class="flex items-start gap-3">
                         <i data-lucide="map-pin" class="w-5 h-5 text-teal-500 mt-1 shrink-0"></i>
@@ -963,7 +1029,7 @@
                      </li>
                      <li class="flex items-center gap-3">
                         <i data-lucide="globe" class="w-5 h-5 text-teal-500 shrink-0"></i>
-                        <span>Mô hình: 100% Online Toàn Quốc</span>
+                        <span data-i18n="footer_model">Mô hình: 100% Online Toàn Quốc</span>
                      </li>
                      <li class="flex items-center gap-3">
                         <i data-lucide="phone" class="w-5 h-5 text-teal-500 shrink-0"></i>
@@ -977,23 +1043,23 @@
                </div>
                
                <div>
-                  <h4 class="font-heading font-bold text-white text-lg mb-4 md:mb-6">Chính Sách Lớp Online</h4>
+                  <h4 class="font-heading font-bold text-white text-lg mb-4 md:mb-6" data-i18n="footer_policy_title">Chính Sách Lớp Online</h4>
                   <ul class="space-y-3 text-slate-400">
                      <li class="flex items-start gap-2">
                         <i data-lucide="shield-check" class="w-4 h-4 text-teal-500 mt-1 shrink-0"></i>
-                        <span><strong class="text-white">Bảo lưu gói tập</strong> trong trường hợp bất khả kháng.</span>
+                        <span data-i18n="policy_1"><strong class="text-white">Bảo lưu gói tập</strong> trong trường hợp bất khả kháng.</span>
                      </li>
                      <li class="flex items-start gap-2">
                         <i data-lucide="refresh-cw" class="w-4 h-4 text-teal-500 mt-1 shrink-0"></i>
-                        <span>Linh hoạt <strong class="text-white">đổi lịch tập</strong> trước 4 tiếng.</span>
+                        <span data-i18n="policy_2">Linh hoạt <strong class="text-white">đổi lịch tập</strong> trước 4 tiếng.</span>
                      </li>
                      <li class="flex items-start gap-2">
                         <i data-lucide="lock" class="w-4 h-4 text-teal-500 mt-1 shrink-0"></i>
-                        <span>Cam kết <strong class="text-white">bảo mật hình ảnh</strong> tập luyện của khách hàng.</span>
+                        <span data-i18n="policy_3">Cam kết <strong class="text-white">bảo mật hình ảnh</strong> tập luyện của khách hàng.</span>
                      </li>
                      <li class="mt-4 pt-4 border-t border-slate-800">
                         <a href="#" id="open-policy-modal" class="group inline-flex items-center gap-2 text-teal-400 hover:text-white font-bold text-sm transition-colors">
-                            <span class="border-b-2 border-teal-500 group-hover:border-white pb-0.5">XEM CHI TIẾT ĐIỀU KHOẢN</span>
+                            <span class="border-b-2 border-teal-500 group-hover:border-white pb-0.5" data-i18n="policy_link">XEM CHI TIẾT ĐIỀU KHOẢN</span>
                             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
                      </li>
@@ -1017,7 +1083,7 @@
             <div class="bg-white rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-y-auto shadow-2xl relative animate-fade-in">
                 <!-- Header -->
                 <div class="sticky top-0 bg-white border-b border-slate-100 p-6 flex justify-between items-center z-10">
-                    <h3 class="font-heading text-xl md:text-2xl font-bold text-slate-800">Điều Khoản & Chính Sách</h3>
+                    <h3 class="font-heading text-xl md:text-2xl font-bold text-slate-800" data-i18n="modal_title">Điều Khoản & Chính Sách</h3>
                     <button id="close-policy-modal" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
                         <i data-lucide="x" class="w-6 h-6 text-slate-500"></i>
                     </button>
@@ -1027,40 +1093,40 @@
                 <div class="p-6 space-y-6 text-slate-600 text-sm md:text-base leading-relaxed">
                     <div class="space-y-2">
                         <h4 class="font-bold text-teal-700 text-lg flex items-center gap-2">
-                            <i data-lucide="shield-check" class="w-5 h-5"></i> 1. Chính Sách Bảo Lưu
+                            <i data-lucide="shield-check" class="w-5 h-5"></i> <span data-i18n="modal_p1_title">1. Chính Sách Bảo Lưu</span>
                         </h4>
-                        <p>Học viên được quyền bảo lưu gói tập trong các trường hợp bất khả kháng (sức khỏe, công tác...) với thời hạn tối đa là <strong>30 ngày</strong>. Vui lòng thông báo cho HLV trước ít nhất 03 ngày để làm thủ tục bảo lưu.</p>
+                        <p data-i18n="modal_p1_desc">Học viên được quyền bảo lưu gói tập trong các trường hợp bất khả kháng (sức khỏe, công tác...) với thời hạn tối đa là <strong>30 ngày</strong>. Vui lòng thông báo cho HLV trước ít nhất 03 ngày để làm thủ tục bảo lưu.</p>
                     </div>
 
                     <div class="space-y-2">
                         <h4 class="font-bold text-teal-700 text-lg flex items-center gap-2">
-                            <i data-lucide="refresh-cw" class="w-5 h-5"></i> 2. Quy Định Đổi Lịch / Hủy Lớp
+                            <i data-lucide="refresh-cw" class="w-5 h-5"></i> <span data-i18n="modal_p2_title">2. Quy Định Đổi Lịch / Hủy Lớp</span>
                         </h4>
                         <ul class="list-disc pl-5 space-y-1">
-                            <li><strong>Hủy/Đổi lịch:</strong> Cần báo trước giờ tập ít nhất <strong>04 tiếng</strong> để được sắp xếp lịch bù.</li>
-                            <li><strong>Báo trễ/Không báo:</strong> Buổi tập sẽ được tính là đã tham gia và trừ vào gói tập.</li>
-                            <li><strong>HLV nghỉ:</strong> Nếu HLV có việc bận đột xuất, buổi tập sẽ được bù vào thời gian thuận tiện nhất cho học viên.</li>
+                            <li data-i18n="modal_p2_li1"><strong>Hủy/Đổi lịch:</strong> Cần báo trước giờ tập ít nhất <strong>04 tiếng</strong> để được sắp xếp lịch bù.</li>
+                            <li data-i18n="modal_p2_li2"><strong>Báo trễ/Không báo:</strong> Buổi tập sẽ được tính là đã tham gia và trừ vào gói tập.</li>
+                            <li data-i18n="modal_p2_li3"><strong>HLV nghỉ:</strong> Nếu HLV có việc bận đột xuất, buổi tập sẽ được bù vào thời gian thuận tiện nhất cho học viên.</li>
                         </ul>
                     </div>
 
                     <div class="space-y-2">
                         <h4 class="font-bold text-teal-700 text-lg flex items-center gap-2">
-                            <i data-lucide="lock" class="w-5 h-5"></i> 3. Cam Kết Bảo Mật
+                            <i data-lucide="lock" class="w-5 h-5"></i> <span data-i18n="modal_p3_title">3. Cam Kết Bảo Mật</span>
                         </h4>
-                        <p>Trinh N Yoga cam kết bảo mật tuyệt đối thông tin cá nhân và hình ảnh tập luyện của học viên. Mọi hình ảnh chỉ được sử dụng cho mục đích truyền thông khi có sự đồng ý bằng văn bản/tin nhắn của học viên.</p>
+                        <p data-i18n="modal_p3_desc">Trinh N Yoga cam kết bảo mật tuyệt đối thông tin cá nhân và hình ảnh tập luyện của học viên. Mọi hình ảnh chỉ được sử dụng cho mục đích truyền thông khi có sự đồng ý bằng văn bản/tin nhắn của học viên.</p>
                     </div>
 
                     <div class="space-y-2">
                         <h4 class="font-bold text-teal-700 text-lg flex items-center gap-2">
-                            <i data-lucide="credit-card" class="w-5 h-5"></i> 4. Quy Định Thanh Toán & Hoàn Tiền
+                            <i data-lucide="credit-card" class="w-5 h-5"></i> <span data-i18n="modal_p4_title">4. Quy Định Thanh Toán & Hoàn Tiền</span>
                         </h4>
-                        <p>Học phí cần được thanh toán 100% trước khi bắt đầu khóa học. Gói tập không áp dụng hoàn tiền sau khi đã kích hoạt buổi tập đầu tiên, trừ các trường hợp đặc biệt do lỗi từ phía Trinh N Yoga.</p>
+                        <p data-i18n="modal_p4_desc">Học phí cần được thanh toán 100% trước khi bắt đầu khóa học. Gói tập không áp dụng hoàn tiền sau khi đã kích hoạt buổi tập đầu tiên, trừ các trường hợp đặc biệt do lỗi từ phía Trinh N Yoga.</p>
                     </div>
                 </div>
                 
                 <!-- Footer -->
                 <div class="p-6 border-t border-slate-100 bg-slate-50 rounded-b-2xl">
-                    <button id="modal-ok-btn" class="w-full bg-teal-600 text-white font-bold py-3 rounded-xl hover:bg-teal-700 transition-colors">
+                    <button id="modal-ok-btn" class="w-full bg-teal-600 text-white font-bold py-3 rounded-xl hover:bg-teal-700 transition-colors" data-i18n="modal_btn_ok">
                         Đã Hiểu
                     </button>
                 </div>
@@ -1081,13 +1147,461 @@
         };
 
         // --- 2. INITIALIZATION ---
-        // Initialize Lucide Icons
-        // Ensure DOM is fully loaded before running script to prevent null reference errors
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
 
+            // --- TRANSLATION DATA ---
+            const translations = {
+                vi: {
+                    nav_home: "Trang Chủ",
+                    nav_process: "Lộ Trình",
+                    nav_pricing: "Bảng Giá",
+                    nav_testimonials: "Học Viên",
+                    nav_faq: "Hỏi Đáp",
+                    nav_consult: "Tư vấn ngay",
+                    mobile_chat: "Chat Zalo/Mess",
+                    hero_coach_title: "HLV Yoga 1:1 Online",
+                    hero_badge: "🌿 Yoga Trị Liệu Online 1:1",
+                    hero_title_1: "Gỡ bỏ gánh nặng",
+                    hero_title_highlight: "Đau Thắt Lưng",
+                    hero_title_2: "Ngay tại nhà",
+                    hero_desc_1: "Chào bạn, đây là Trinh N Yoga. Mình không chỉ dạy Yoga, mình đồng hành <strong>1:1 Online</strong> cùng bạn trên hành trình lắng nghe cơ thể.",
+                    hero_desc_2: "Tại <strong>Trinh N Yoga</strong>, khoảng cách địa lý không còn là rào cản. Qua màn hình Google Meet/Video Call, Trinh N Yoga vẫn quan sát và chỉnh sửa tỉ mỉ từng động tác, giúp bạn phục hồi hiệu quả cột sống thắt lưng mà không mất thời gian di chuyển.",
+                    stat_1: "Học viên Online",
+                    stat_2: "Hài lòng & Cải thiện",
+                    cta_register: "Đăng ký tập thử",
+                    cta_pricing: "Xem chi phí",
+                    feature_1: "Linh động T2 - T6",
+                    feature_2: "Tập qua Google Meet",
+                    
+                    story_quote_1: "Có bao giờ bạn tự hỏi,",
+                    story_quote_2: "lần cuối mình thức dậy mà",
+                    story_quote_highlight: "không đau lưng",
+                    story_quote_3: "là khi nào?",
+                    story_desc: "Những cơn đau âm ỉ không chỉ làm cơ thể mệt mỏi, mà còn lấy đi niềm vui chơi đùa cùng con, sự tập trung trong công việc và cả những giấc ngủ trọn vẹn. <br/><br/>Đừng để cơn đau định nghĩa cuộc sống của bạn. Hành trình chữa lành bắt đầu từ việc <span class='font-bold not-italic text-teal-700'>lắng nghe cơ thể</span>.",
+                    
+                    audience_subtitle: "Đối Tượng Phù Hợp",
+                    audience_title: "Trinh N Yoga Dành Cho Ai?",
+                    audience_desc: "Các bài tập được thiết kế chuyên biệt để giải quyết vấn đề đau thắt lưng của từng nhóm đối tượng cụ thể.",
+                    audience_1_title: "Dân Văn Phòng",
+                    audience_1_desc: "Ngồi làm việc máy tính liên tục dẫn đến đau mỏi thắt lưng, gù lưng và tê bì chân. Cần bài tập giãn cơ lưng và chỉnh dáng.",
+                    audience_2_title: "Mẹ Bỉm & Nội Trợ",
+                    audience_2_desc: "Cơ thể nhức mỏi sau sinh, đặc biệt vùng thắt lưng do bế con. Cần hồi phục cột sống và tập luyện tranh thủ tại nhà.",
+                    audience_3_title: "Phụ Nữ",
+                    audience_3_desc: "Gặp các vấn đề về thoái hóa cột sống, tiền mãn kinh. Cần sự vận động nhẹ nhàng, giảm đau lưng an toàn.",
+                    audience_4_title: "Chủ Doanh Nghiệp",
+                    audience_4_desc: "Áp lực công việc cao, đau lưng do stress. Cần không gian riêng tư để thư giãn cột sống mà không mất thời gian di chuyển.",
+
+                    pain_subtitle: "Nỗi Niềm Khó Nói",
+                    pain_title: "Có Phải Cơn Đau Đang Lấy Đi Của Bạn Nhiều Hơn Bạn Nghĩ?",
+                    pain_desc: "Không chỉ là những cơn đau thoáng qua, đau thắt lưng đang âm thầm bào mòn chất lượng cuộc sống của bạn.",
+                    pain_1_title: "Giấc Ngủ Chập Chờn",
+                    pain_1_desc: "Nằm xuống giường là thấy ê ẩm, xoay người là nhói đau. Mỗi sáng thức dậy với cái lưng cứng đơ, khiến bạn bắt đầu ngày mới trong sự mệt mỏi và uể oải.",
+                    pain_2_title: "Bất Lực Khi Chăm Sóc Gia Đình",
+                    pain_2_desc: "Muốn bế con nhưng lưng không cho phép, làm việc nhà một chút là phải ngồi nghỉ. Cảm giác bất lực khi không thể chu toàn cho gia đình nhỏ.",
+                    pain_3_title: "Nỗi Sợ Về Già",
+                    pain_3_desc: "Lo lắng cơn đau sẽ biến chứng thành thoái hóa, thoát vị nặng hơn. Sợ bản thân trở thành gánh nặng, phải phụ thuộc vào người thân khi về già.",
+                    pain_cta_text: "Đừng để cơn đau định nghĩa cuộc sống của bạn. <br class='md:hidden'/> Giải pháp nằm ngay trong tầm tay.",
+                    pain_cta_link: "Tìm lại sự tự do cho cột sống của bạn",
+
+                    form_badge: "Ưu đãi trải nghiệm",
+                    form_title_1: "30 Phút Tập Thử",
+                    form_title_2: "Online 1:1 Miễn Phí",
+                    form_desc: "Bạn chưa hình dung tập Online sẽ như thế nào? Hãy dành 30 phút video call cùng Trinh N Yoga để kiểm tra tư thế, test biên độ vận động và cảm nhận sự hướng dẫn tận tâm.",
+                    form_benefit_1: "Tư vấn 1:1 trực tiếp qua Google Meet/Video Call",
+                    form_benefit_2: "Kiểm tra biên độ vận động",
+                    form_benefit_3: "Riêng tư, thoải mái ngay tại nhà",
+                    form_header: "Đăng Ký Ngay",
+                    form_success_title: "Đăng ký thành công!",
+                    form_success_desc: "Đang chuyển hướng bạn vào nhóm Zalo cộng đồng...",
+                    form_error: "Có lỗi xảy ra, vui lòng thử lại hoặc nhắn tin qua Zalo!",
+                    
+                    label_name: "Họ tên của bạn",
+                    placeholder_name: "VD: Nguyễn Văn A",
+                    label_phone: "Số điện thoại (Zalo)",
+                    label_package: "Gói tập quan tâm",
+                    pkg_opt_trial: "Tập thử Online 30p (Miễn phí)",
+                    pkg_opt_recovery: "Gói Phục Hồi Online (7 buổi)",
+                    pkg_opt_basic: "Gói 7 Buổi Yoga Cơ Bản",
+                    pkg_opt_month: "Gói Tháng Online (6.000.000đ)",
+                    pkg_opt_3month: "Combo 3 Tháng Online",
+                    pkg_opt_6month: "Combo 6 Tháng Online",
+                    label_problem: "Vấn đề gặp phải",
+                    placeholder_problem: "VD: Đau lưng, mỏi vai...",
+                    btn_submit: "Gửi Đăng Ký Ngay",
+
+                    process_subtitle: "Quy Trình Khoa Học",
+                    process_title: "Lộ Trình 3 Bước Chữa Lành Online",
+                    process_desc: "Quy trình được thiết kế tối ưu cho việc tập luyện từ xa, đảm bảo hiệu quả phục hồi cột sống.",
+                    step_1_title: "Thấu Hiểu Online",
+                    step_1_desc: "Kết nối qua Google Meet/Zalo. Trinh N Yoga sẽ quan sát cột sống, test vận động và lắng nghe vấn đề đau lưng của bạn.",
+                    step_2_title: "Phục Hồi 1:1",
+                    step_2_desc: "7 buổi tập trung giải tỏa đau thắt lưng. Giáo án được điều chỉnh liên tục dựa trên mức độ hồi phục của bạn.",
+                    step_3_title: "Duy Trì Tại Nhà",
+                    step_3_desc: "Gói tháng giúp bạn xây dựng thói quen bảo vệ cột sống, ngăn ngừa đau lưng tái phát.",
+
+                    pricing_subtitle: "Đầu Tư Cho Sức Khỏe",
+                    pricing_title: "Bảng Giá Tập Online 1:1",
+                    pricing_desc: "Lộ trình cá nhân hóa, tập luyện linh hoạt qua Google Meet. Hiệu quả như có PT tại nhà.",
+                    
+                    label_popular: "Được lựa chọn nhiều nhất",
+                    label_basic: "Cơ bản",
+                    pkg_basic_title: "7 Buổi Yoga Cơ Bản",
+                    pkg_basic_desc: "Dành cho người mới bắt đầu làm quen.",
+                    pkg_feat_7sessions: "07 Buổi",
+                    pkg_feat_online: "tập Online 1:1",
+                    pkg_feat_technique: "Hướng dẫn kỹ thuật chuẩn",
+                    pkg_feat_easy: "Nhẹ nhàng, dễ tập",
+                    btn_register: "Đăng ký ngay",
+                    
+                    label_newbie: "Người mới",
+                    pkg_recovery_title: "Gói Phục Hồi",
+                    pkg_recovery_desc: "Làm quen với Yoga trị liệu Đau Lưng.",
+                    pkg_feat_camera: "Chỉnh sửa kỹ qua Camera",
+                    pkg_feat_therapy: "Trị liệu Đau Thắt Lưng",
+                    
+                    label_maintain: "Duy trì",
+                    pkg_month_title: "Gói 1 Tháng",
+                    pkg_month_desc: "Duy trì tập luyện đều đặn tại nhà.",
+                    price_month_old: "6.000.000đ/tháng",
+                    pkg_month_note_title: "🔥 Tiết kiệm 20%:",
+                    pkg_month_note_desc: "Dành cho học viên đăng ký duy trì sau khóa nền tảng.",
+                    pkg_feat_12sessions: "12 Buổi",
+                    pkg_feat_review: "+01 Buổi Review",
+                    pkg_feat_tracking: "Theo dõi chỉ số qua App",
+                    
+                    label_saving: "Tiết kiệm 33%",
+                    pkg_3month_title: "Combo 3 Tháng",
+                    pkg_3month_desc: "Cam kết ngắn hạn, tập luyện bền bỉ.",
+                    pkg_feat_total: "Tổng",
+                    pkg_feat_bonus3: "Tặng thêm 03 buổi tập",
+                    pkg_feat_habit: "Ổn định thói quen tại nhà",
+                    btn_consult_pkg: "Tư vấn gói này",
+                    
+                    label_vip: "VIP - Phổ biến nhất",
+                    pkg_6month_title: "Combo 6 Tháng",
+                    pkg_6month_desc: "Thay đổi toàn diện vóc dáng và sức khỏe.",
+                    pkg_6month_note_title: "🔥 Ưu đãi đặc biệt:",
+                    pkg_6month_note_desc: "Tiết kiệm 50% + Tặng thêm 01 tháng tập luyện.",
+                    month: "tháng",
+                    pkg_feat_nutrition: "Tặng Lộ Trình dinh dưỡng 21 ngày",
+
+                    testimonial_subtitle: "Học Viên Nói Gì",
+                    testimonial_title: "Câu Chuyện Thay Đổi Từ Xa",
+                    testimonial_desc: "Những phản hồi chân thực từ học viên tham gia lớp Yoga 1:1 Online.",
+                    feedback_note: "*Hình ảnh thực tế từ các lớp học Online 1:1",
+                    
+                    feed_1_name: "Chị Ngọc",
+                    feed_1_info: "30 tuổi, Australia",
+                    feed_1_text: "\"Mấy nay đặt lưng xuống là ngủ một mạch tới sáng luôn. Ko bị trằn trọc nữa. Biết vậy đi tập sớm hơn. Cảm ơn em nhiều nha.\"",
+                    
+                    feed_2_name: "Chị Hạnh",
+                    feed_2_info: "38 tuổi, Tp Hồ Chí Minh",
+                    feed_2_text: "\"Chị dân văn phòng, lưng cứng đơ sợ tập sai. May mà Trinh dùng kiến thức giải phẫu chỉnh khung xương, không bắt uốn dẻo. Tập xong nhẹ người liền.\"",
+
+                    feed_3_name: "Chị Trang",
+                    feed_3_info: "35 tuổi, Phú Quốc",
+                    feed_3_text: "\"Nay cái lưng êm ru rồi á. Sáng dậy cúi xuống ko bị thốn nữa. Công nhận tập xong nhẹ người thật.\"",
+
+                    feed_4_name: "Chị Thanh",
+                    feed_4_info: "40 tuổi, USA",
+                    feed_4_text: "\"Trộm vía êm ru luôn em ơi! Kỳ diệu ghê, mấy hôm nay sáng dậy là cái lưng nó nhẹ bẫng. Mê nhất là ngủ ngon dã man, đặt lưng xuống là ngủ một mạch tới sáng.\"",
+
+                    feed_5_name: "Chị Lan",
+                    feed_5_info: "32 tuổi, Hà Nội",
+                    feed_5_text: "\"Mình ngồi máy tính cả ngày, đau thắt lưng kinh khủng. Tập online với Trinh thấy rất tiện, giáo viên chỉnh dáng kỹ từng chút một. Giờ lưng mình đỡ đau hẳn.\"",
+
+                    feed_6_name: "Cô Vân",
+                    feed_6_info: "55 tuổi, Cần Thơ",
+                    feed_6_text: "\"Cô lớn tuổi nên xương khớp cứng, sợ tập sai. May mà Trinh hướng dẫn rất kiên nhẫn, bài tập nhẹ nhàng. Giờ cô thấy khỏe khoắn, linh hoạt hơn nhiều.\"",
+
+                    faq_subtitle: "Giải Đáp Thắc Mắc",
+                    faq_title: "Câu Hỏi Thường Gặp",
+                    faq_1_q: "Tôi chưa tập Yoga bao giờ có theo được lớp Online không?",
+                    faq_1_a: "Hoàn toàn được ạ. Vì là lớp 1:1 nên giáo án được thiết kế riêng cho người mới bắt đầu. Trinh N Yoga sẽ hướng dẫn tỉ mỉ từng hơi thở, từng chuyển động cơ bản nhất để chị làm quen và cảm nhận cơ thể.",
+                    faq_2_q: "Tập Online thì giáo viên chỉnh dáng cho tôi thế nào?",
+                    faq_2_a: "Trinh N Yoga sẽ hướng dẫn chị cách đặt camera (điện thoại/laptop) để quan sát được toàn bộ cơ thể. Trong suốt buổi tập, Trinh N Yoga luôn quan sát màn hình và dùng lời nói để điều chỉnh tư thế cho chị ngay lập tức, đảm bảo tập đúng và an toàn.",
+                    faq_3_q: "Tôi cần chuẩn bị dụng cụ gì để tập tại nhà?",
+                    faq_3_a: "Chị chỉ cần chuẩn bị một thảm tập Yoga, một chiếc khăn bông, và thiết bị có kết nối internet (điện thoại, máy tính bảng hoặc laptop). Không gian tập chỉ cần đủ rộng để trải thảm là được ạ.",
+                    faq_4_q: "Nếu tôi bận đột xuất thì có được đổi lịch không?",
+                    faq_4_a: "Có ạ. Chị vui lòng báo trước cho Trinh N Yoga ít nhất 4 tiếng để Trinh N Yoga sắp xếp lại lịch bù cho chị vào buổi khác thuận tiện hơn trong tuần nhé.",
+                    faq_5_q: "Hình thức thanh toán như thế nào?",
+                    faq_5_a: "Chị có thể thanh toán chuyển khoản qua ngân hàng. Trinh N Yoga sẽ gửi thông tin chi tiết sau khi tư vấn và chốt lịch tập với chị ạ.",
+
+                    footer_about: "Trinh N Yoga - Tiên phong mô hình Yoga trị liệu 1:1 Online. Mang lại sự cân bằng cho Thân - Tâm - Trí ngay tại ngôi nhà của bạn.",
+                    footer_contact_title: "Thông Tin Liên Hệ",
+                    footer_model: "Mô hình: 100% Online Toàn Quốc",
+                    footer_policy_title: "Chính Sách Lớp Online",
+                    policy_1: "<strong class='text-white'>Bảo lưu gói tập</strong> trong trường hợp bất khả kháng.",
+                    policy_2: "Linh hoạt <strong class='text-white'>đổi lịch tập</strong> trước 4 tiếng.",
+                    policy_3: "Cam kết <strong class='text-white'>bảo mật hình ảnh</strong> tập luyện của khách hàng.",
+                    policy_link: "XEM CHI TIẾT ĐIỀU KHOẢN",
+
+                    modal_title: "Điều Khoản & Chính Sách",
+                    modal_p1_title: "1. Chính Sách Bảo Lưu",
+                    modal_p1_desc: "Học viên được quyền bảo lưu gói tập trong các trường hợp bất khả kháng (sức khỏe, công tác...) với thời hạn tối đa là <strong>30 ngày</strong>. Vui lòng thông báo cho HLV trước ít nhất 03 ngày để làm thủ tục bảo lưu.",
+                    modal_p2_title: "2. Quy Định Đổi Lịch / Hủy Lớp",
+                    modal_p2_li1: "<strong>Hủy/Đổi lịch:</strong> Cần báo trước giờ tập ít nhất <strong>04 tiếng</strong> để được sắp xếp lịch bù.",
+                    modal_p2_li2: "<strong>Báo trễ/Không báo:</strong> Buổi tập sẽ được tính là đã tham gia và trừ vào gói tập.",
+                    modal_p2_li3: "<strong>HLV nghỉ:</strong> Nếu HLV có việc bận đột xuất, buổi tập sẽ được bù vào thời gian thuận tiện nhất cho học viên.",
+                    modal_p3_title: "3. Cam Kết Bảo Mật",
+                    modal_p3_desc: "Trinh N Yoga cam kết bảo mật tuyệt đối thông tin cá nhân và hình ảnh tập luyện của học viên. Mọi hình ảnh chỉ được sử dụng cho mục đích truyền thông khi có sự đồng ý bằng văn bản/tin nhắn của học viên.",
+                    modal_p4_title: "4. Quy Định Thanh Toán & Hoàn Tiền",
+                    modal_p4_desc: "Học phí cần được thanh toán 100% trước khi bắt đầu khóa học. Gói tập không áp dụng hoàn tiền sau khi đã kích hoạt buổi tập đầu tiên, trừ các trường hợp đặc biệt do lỗi từ phía Trinh N Yoga.",
+                    modal_btn_ok: "Đã Hiểu"
+                },
+                en: {
+                    nav_home: "Home",
+                    nav_process: "Roadmap",
+                    nav_pricing: "Pricing",
+                    nav_testimonials: "Testimonials",
+                    nav_faq: "FAQ",
+                    nav_consult: "Chat Now",
+                    mobile_chat: "Chat via Zalo/Mess",
+                    hero_coach_title: "1:1 Online Yoga Coach",
+                    hero_badge: "🌿 1:1 Online Therapeutic Yoga",
+                    hero_title_1: "Relieve the burden of",
+                    hero_title_highlight: "Lower Back Pain",
+                    hero_title_2: "Right at Home",
+                    hero_desc_1: "Hi, I'm Trinh N Yoga. I don't just teach Yoga; I accompany you <strong>1:1 Online</strong> on the journey of listening to your body.",
+                    hero_desc_2: "At <strong>Trinh N Yoga</strong>, geographical distance is no longer a barrier. Through Google Meet/Video Call, I still observe and correct every movement meticulously, helping you recover your lumbar spine effectively without travel time.",
+                    stat_1: "Online Students",
+                    stat_2: "Satisfaction & Improvement",
+                    cta_register: "Free Trial Sign-up",
+                    cta_pricing: "View Pricing",
+                    feature_1: "Flexible Mon - Fri",
+                    feature_2: "Via Google Meet",
+                    
+                    story_quote_1: "Have you ever asked yourself,",
+                    story_quote_2: "when was the last time you woke up",
+                    story_quote_highlight: "without back pain?",
+                    story_quote_3: "",
+                    story_desc: "Dull aches not only make your body tired but also take away the joy of playing with your children, focus at work, and full nights of sleep. <br/><br/>Don't let pain define your life. The healing journey begins with <span class='font-bold not-italic text-teal-700'>listening to your body</span>.",
+                    
+                    audience_subtitle: "Suitable Audience",
+                    audience_title: "Who is Trinh N Yoga for?",
+                    audience_desc: "Exercises are specially designed to solve lower back pain problems for specific groups.",
+                    audience_1_title: "Office Workers",
+                    audience_1_desc: "Sitting at a computer constantly leads to lower back fatigue, hunchback, and numbness in limbs. Need back stretching and posture correction exercises.",
+                    audience_2_title: "Moms & Homemakers",
+                    audience_2_desc: "Body aches after birth, especially lower back pain from carrying the baby. Need spine recovery and time-saving home workouts.",
+                    audience_3_title: "Women",
+                    audience_3_desc: "Facing spinal degeneration, pre-menopause issues. Need gentle movement, safe back pain relief.",
+                    audience_4_title: "Business Owners",
+                    audience_4_desc: "High work pressure, stress-induced back pain. Need a private space to relax the spine without travel time.",
+
+                    pain_subtitle: "Unspoken Struggles",
+                    pain_title: "Is Pain Taking Away More Than You Think?",
+                    pain_desc: "Not just fleeting pains, lower back pain is silently eroding your quality of life.",
+                    pain_1_title: "Restless Sleep",
+                    pain_1_desc: "Lying down feels sore, turning over hurts. Waking up every morning with a stiff back makes you start the day tired and sluggish.",
+                    pain_2_title: "Helpless in Family Care",
+                    pain_2_desc: "Wanting to carry your child but your back won't allow it, doing a bit of housework requires rest. Feeling helpless when unable to take full care of your small family.",
+                    pain_3_title: "Fear of Aging",
+                    pain_3_desc: "Worrying that the pain will complicate into degeneration, severe herniation. Fear of becoming a burden, dependent on relatives when old.",
+                    pain_cta_text: "Don't let pain define your life. <br class='md:hidden'/> The solution is within reach.",
+                    pain_cta_link: "Reclaim freedom for your spine",
+
+                    form_badge: "Experience Offer",
+                    form_title_1: "Free 30-Minute",
+                    form_title_2: "1:1 Online Trial",
+                    form_desc: "Can't visualize how Online training works? Spend 30 minutes video calling with Trinh N Yoga to check posture, test range of motion, and feel the dedicated guidance.",
+                    form_benefit_1: "1:1 Consultation via Google Meet/Video Call",
+                    form_benefit_2: "Range of Motion Check",
+                    form_benefit_3: "Private, comfortable at home",
+                    form_header: "Register Now",
+                    form_success_title: "Registration Successful!",
+                    form_success_desc: "Redirecting you to the Zalo community group...",
+                    form_error: "An error occurred, please try again or message via Zalo!",
+                    
+                    label_name: "Your Name",
+                    placeholder_name: "Ex: Sarah Nguyen",
+                    label_phone: "Phone Number (Zalo)",
+                    label_package: "Interested Package",
+                    pkg_opt_trial: "30m Online Trial (Free)",
+                    pkg_opt_recovery: "Online Recovery Package (7 sessions)",
+                    pkg_opt_basic: "7 Basic Yoga Sessions",
+                    pkg_opt_month: "Online Monthly Package (6,000,000đ)",
+                    pkg_opt_3month: "Online 3-Month Combo",
+                    pkg_opt_6month: "Online 6-Month Combo",
+                    label_problem: "Problem Faced",
+                    placeholder_problem: "Ex: Back pain, shoulder ache...",
+                    btn_submit: "Send Registration",
+
+                    process_subtitle: "Scientific Process",
+                    process_title: "3-Step Online Healing Roadmap",
+                    process_desc: "The process is optimized for remote training, ensuring effective spine recovery.",
+                    step_1_title: "Online Understanding",
+                    step_1_desc: "Connect via Google Meet/Zalo. Trinh N Yoga will observe your spine, test movement, and listen to your back pain issues.",
+                    step_2_title: "1:1 Recovery",
+                    step_2_desc: "7 sessions focusing on lower back pain relief. The lesson plan is continuously adjusted based on your recovery progress.",
+                    step_3_title: "Maintain at Home",
+                    step_3_desc: "Monthly package helps you build habits to protect your spine and prevent recurring back pain.",
+
+                    pricing_subtitle: "Invest in Health",
+                    pricing_title: "1:1 Online Pricing",
+                    pricing_desc: "Personalized roadmap, flexible training via Google Meet. As effective as having a PT at home.",
+                    
+                    label_popular: "Most Popular",
+                    label_basic: "Basic",
+                    pkg_basic_title: "7 Basic Yoga Sessions",
+                    pkg_basic_desc: "For beginners getting started.",
+                    pkg_feat_7sessions: "07 Sessions",
+                    pkg_feat_online: "1:1 Online",
+                    pkg_feat_technique: "Standard Technique Guidance",
+                    pkg_feat_easy: "Gentle, Easy to Follow",
+                    btn_register: "Register Now",
+                    
+                    label_newbie: "Newbie",
+                    pkg_recovery_title: "Recovery Package",
+                    pkg_recovery_desc: "Get used to Back Pain Therapy Yoga.",
+                    pkg_feat_camera: "Detailed Correction via Camera",
+                    pkg_feat_therapy: "Lower Back Pain Therapy",
+                    
+                    label_maintain: "Maintain",
+                    pkg_month_title: "1 Month Package",
+                    pkg_month_desc: "Maintain regular practice at home.",
+                    price_month_old: "6,000,000đ/month",
+                    pkg_month_note_title: "🔥 Save 20%:",
+                    pkg_month_note_desc: "For students registering maintenance after foundation course.",
+                    pkg_feat_12sessions: "12 Sessions",
+                    pkg_feat_review: "+01 Online Review",
+                    pkg_feat_tracking: "Track stats via App",
+                    
+                    label_saving: "Save 33%",
+                    pkg_3month_title: "3-Month Combo",
+                    pkg_3month_desc: "Short-term commitment, persistent practice.",
+                    pkg_feat_total: "Total",
+                    pkg_feat_bonus3: "Bonus 03 Sessions",
+                    pkg_feat_habit: "Stabilize habits at home",
+                    btn_consult_pkg: "Consult this package",
+                    
+                    label_vip: "VIP - Best Value",
+                    pkg_6month_title: "6-Month Combo",
+                    pkg_6month_desc: "Comprehensive change in physique and health.",
+                    pkg_6month_note_title: "🔥 Special Offer:",
+                    pkg_6month_note_desc: "Save 50% + Bonus 01 month training.",
+                    month: "months",
+                    pkg_feat_nutrition: "Free 21-Day Nutrition Plan",
+
+                    testimonial_subtitle: "What Students Say",
+                    testimonial_title: "Stories of Change from Afar",
+                    testimonial_desc: "Genuine feedback from students participating in 1:1 Online Yoga classes.",
+                    feedback_note: "*Actual photos from 1:1 Online classes",
+                    
+                    feed_1_name: "Ms. Ngoc",
+                    feed_1_info: "30 years old, Australia",
+                    feed_1_text: "\"These days, as soon as my back hits the bed, I sleep straight through to morning. No more tossing and turning. Wish I practiced sooner. Thank you so much.\"",
+                    
+                    feed_2_name: "Ms. Hanh",
+                    feed_2_info: "38 years old, HCM City",
+                    feed_2_text: "\"I'm an office worker, stiff back, afraid of wrong practice. Luckily Trinh uses anatomical knowledge to align the frame, no forced bending. Feel light immediately after practice.\"",
+
+                    feed_3_name: "Ms. Trang",
+                    feed_3_info: "35 years old, Phu Quoc",
+                    feed_3_text: "\"My back is smooth now. Bending down in the morning doesn't hurt anymore. Admit it, feel light after practice.\"",
+
+                    feed_4_name: "Ms. Thanh",
+                    feed_4_info: "40 years old, USA",
+                    feed_4_text: "\"Touch wood, it's smooth now dear! It's magical, lately waking up my back feels light. Best part is sleeping soundly, sleep straight through to morning.\"",
+
+                    feed_5_name: "Ms. Lan",
+                    feed_5_info: "32 years old, Hanoi",
+                    feed_5_text: "\"I sit at the computer all day, terrible lower back pain. Online practice with Trinh is very convenient, teacher corrects posture in detail. My back pain is much better now.\"",
+
+                    feed_6_name: "Ms. Van",
+                    feed_6_info: "55 years old, Can Tho",
+                    feed_6_text: "\"I'm older so joints are stiff, afraid of wrong practice. Luckily Trinh guides very patiently, gentle exercises. Now I feel healthier, much more flexible.\"",
+
+                    faq_subtitle: "Answering Questions",
+                    faq_title: "Frequently Asked Questions",
+                    faq_1_q: "I have never practiced Yoga, can I follow the Online class?",
+                    faq_1_a: "Absolutely. Since it's a 1:1 class, the lesson plan is designed specifically for beginners. Trinh N Yoga will guide you meticulously through each breath and basic movement to help you get used to and feel your body.",
+                    faq_2_q: "How does the teacher correct my posture Online?",
+                    faq_2_a: "Trinh N Yoga will guide you on how to place the camera (phone/laptop) to observe your whole body. Throughout the session, Trinh N Yoga always watches the screen and uses verbal cues to adjust your posture immediately, ensuring correct and safe practice.",
+                    faq_3_q: "What equipment do I need to prepare for home practice?",
+                    faq_3_a: "You just need a Yoga mat, a towel, and a device with internet connection (phone, tablet, or laptop). The practice space just needs to be wide enough to spread the mat.",
+                    faq_4_q: "If I'm busy unexpectedly, can I reschedule?",
+                    faq_4_a: "Yes. Please notify Trinh N Yoga at least 4 hours in advance so Trinh N Yoga can arrange a makeup schedule for you at another convenient time during the week.",
+                    faq_5_q: "What is the payment method?",
+                    faq_5_a: "You can pay via bank transfer. Trinh N Yoga will send detailed information after consulting and finalizing the schedule with you.",
+
+                    footer_about: "Trinh N Yoga - Pioneering the 1:1 Online Therapeutic Yoga model. Bringing balance to Body - Mind - Spirit right at your home.",
+                    footer_contact_title: "Contact Information",
+                    footer_model: "Model: 100% Online Nationwide",
+                    footer_policy_title: "Online Class Policy",
+                    policy_1: "<strong class='text-white'>Package reservation</strong> in case of force majeure.",
+                    policy_2: "Flexible <strong class='text-white'>schedule change</strong> 4 hours in advance.",
+                    policy_3: "Commitment to <strong class='text-white'>confidentiality of images</strong> of customers' practice.",
+                    policy_link: "VIEW DETAILED TERMS",
+
+                    modal_title: "Terms & Policies",
+                    modal_p1_title: "1. Reservation Policy",
+                    modal_p1_desc: "Students have the right to reserve packages in force majeure cases (health, business trip...) with a maximum period of <strong>30 days</strong>. Please notify the Coach at least 03 days in advance to process the reservation.",
+                    modal_p2_title: "2. Reschedule / Cancellation Rules",
+                    modal_p2_li1: "<strong>Cancel/Reschedule:</strong> Must notify at least <strong>04 hours</strong> before class to arrange makeup.",
+                    modal_p2_li2: "<strong>Late/No show:</strong> The session will be counted as attended and deducted from the package.",
+                    modal_p2_li3: "<strong>Coach off:</strong> If the Coach has an emergency, the session will be made up at the most convenient time for the student.",
+                    modal_p3_title: "3. Confidentiality Commitment",
+                    modal_p3_desc: "Trinh N Yoga is committed to absolute confidentiality of students' personal information and training images. All images are only used for media purposes with the student's written/message consent.",
+                    modal_p4_title: "4. Payment & Refund Rules",
+                    modal_p4_desc: "Tuition fees must be paid 100% before starting the course. Packages are non-refundable after activating the first session, except for special cases due to errors from Trinh N Yoga.",
+                    modal_btn_ok: "Understood"
+                }
+            };
+
+            let currentLang = 'vi';
+
+            // Function to update text
+            function updateLanguage(lang) {
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        el.innerHTML = translations[lang][key];
+                    }
+                });
+
+                const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+                placeholders.forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (translations[lang][key]) {
+                        el.setAttribute('placeholder', translations[lang][key]);
+                    }
+                });
+                
+                // Update flag icon
+                const flagDesktop = document.getElementById('flag-icon-desktop');
+                const flagMobile = document.getElementById('flag-icon-mobile');
+                
+                const flagSrc = lang === 'vi' 
+                    ? "https://flagcdn.com/w40/vn.png" 
+                    : "https://flagcdn.com/w40/gb.png";
+                
+                if(flagDesktop) flagDesktop.src = flagSrc;
+                if(flagMobile) flagMobile.src = flagSrc;
+
+                currentLang = lang;
+            }
+
+            // Lang Toggle Logic
+            const langToggleDesktop = document.getElementById('lang-toggle-desktop');
+            const langToggleMobile = document.getElementById('lang-toggle-mobile');
+
+            function toggleLang() {
+                const newLang = currentLang === 'vi' ? 'en' : 'vi';
+                updateLanguage(newLang);
+            }
+
+            if (langToggleDesktop) {
+                langToggleDesktop.addEventListener('click', toggleLang);
+            }
+            if (langToggleMobile) {
+                langToggleMobile.addEventListener('click', toggleLang);
+            }
+            
             // --- 3. UI LOGIC ---
             
             // Mobile Menu Toggle
@@ -1155,7 +1669,7 @@
                     // UI Loading State
                     const originalBtnContent = submitBtn.innerHTML;
                     submitBtn.disabled = true;
-                    submitBtn.innerHTML = '<div class="spinner"></div> Đang gửi...';
+                    submitBtn.innerHTML = '<div class="spinner"></div> ' + (currentLang === 'vi' ? 'Đang gửi...' : 'Sending...');
                     if (errorMsg) errorMsg.classList.add('hidden');
 
                     // Collect Data
@@ -1165,7 +1679,7 @@
                     const pkg = document.getElementById('package').value;
 
                     const message = `
-🌟 <b>ĐĂNG KÝ TẬP MỚI</b> 🌟
+🌟 <b>ĐĂNG KÝ TẬP MỚI (${currentLang.toUpperCase()})</b> 🌟
 --------------------------------
 👤 <b>Họ tên:</b> ${name}
 📞 <b>SĐT:</b> ${phone}
@@ -1196,7 +1710,9 @@
                                 successMsg.classList.remove('hidden');
                                 // Update success message
                                 const successText = successMsg.querySelector('p');
-                                if(successText) successText.innerHTML = 'Đăng ký thành công! Đang chuyển hướng bạn vào nhóm Zalo cộng đồng...';
+                                if(successText) successText.innerHTML = currentLang === 'vi' 
+                                    ? 'Đăng ký thành công! Đang chuyển hướng bạn vào nhóm Zalo cộng đồng...' 
+                                    : 'Registration successful! Redirecting you to the Zalo community group...';
                             }
                             
                             // Hide reset button
@@ -1213,7 +1729,12 @@
                         }
                     } catch (error) {
                         console.error(error);
-                        if (errorMsg) errorMsg.classList.remove('hidden');
+                        if (errorMsg) {
+                            errorMsg.textContent = currentLang === 'vi' 
+                                ? 'Có lỗi xảy ra, vui lòng thử lại hoặc nhắn tin qua Zalo!'
+                                : 'An error occurred, please try again or message via Zalo!';
+                            errorMsg.classList.remove('hidden');
+                        }
                     } finally {
                         // Restore Button
                         submitBtn.disabled = false;
@@ -1252,12 +1773,13 @@
                     // Create toast element
                     const toast = document.createElement('div');
                     toast.className = 'toast-notification';
+                    const justRegisteredText = currentLang === 'vi' ? 'Vừa đăng ký' : 'Just registered';
                     toast.innerHTML = `
                         <div class="bg-teal-100 rounded-full p-2 flex-shrink-0">
                             <i data-lucide="user-check" class="w-5 h-5 text-teal-600"></i>
                         </div>
                         <div>
-                            <p class="text-xs text-slate-500">Vừa đăng ký</p>
+                            <p class="text-xs text-slate-500">${justRegisteredText}</p>
                             <p class="text-sm font-bold text-slate-800">${randomUser.name}</p>
                             <p class="text-xs text-teal-600 font-medium">${randomUser.package}</p>
                         </div>
