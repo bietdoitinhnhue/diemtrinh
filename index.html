@@ -196,16 +196,6 @@
         details[open] summary ~ * {
             animation: fadeIn 0.3s ease-in-out;
         }
-        
-        /* Flag Icon Styles */
-        .flag-icon {
-            width: 24px;
-            height: auto;
-            display: inline-block;
-            vertical-align: middle;
-            border-radius: 2px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
     </style>
 </head>
 <body class="font-body text-slate-600 bg-[#fbfbf9] selection:bg-teal-100 selection:text-teal-800 overflow-x-hidden w-full">
@@ -229,9 +219,15 @@
                 <a href="#faq" class="text-slate-600 hover:text-teal-600 font-bold text-sm uppercase tracking-wide transition-colors whitespace-nowrap" data-i18n="nav_faq">Hỏi Đáp</a>
                 
                 <!-- Language Switcher Desktop (Flags) -->
-                <button id="lang-toggle-desktop" class="hover:opacity-80 transition-opacity p-1" title="Switch Language">
-                    <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="flag-icon" id="flag-icon-desktop">
-                </button>
+                <div class="flex items-center gap-2 border border-slate-200 rounded-full px-3 py-1 bg-white/50 backdrop-blur-sm">
+                    <button id="lang-vi-desktop" class="hover:opacity-80 transition-all transform hover:scale-110" title="Tiếng Việt">
+                        <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="w-6 h-auto rounded-sm shadow-sm">
+                    </button>
+                    <span class="text-slate-400 font-light">|</span>
+                    <button id="lang-en-desktop" class="hover:opacity-80 transition-all transform hover:scale-110" title="English">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-auto rounded-sm shadow-sm">
+                    </button>
+                </div>
 
                 <a href="https://m.me/TrinhNYoga" target="_blank" rel="noreferrer" class="bg-teal-600 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-teal-700 transition-all shadow-lg shadow-teal-200 flex items-center gap-2 whitespace-nowrap">
                     <i data-lucide="send" class="w-4 h-4"></i> <span data-i18n="nav_consult">Tư vấn ngay</span>
@@ -241,9 +237,15 @@
             <!-- Mobile Menu Button -->
             <div class="flex items-center gap-3 lg:hidden">
                 <!-- Language Switcher Mobile (Flags) -->
-                <button id="lang-toggle-mobile" class="hover:opacity-80 transition-opacity p-1" title="Switch Language">
-                    <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="flag-icon" id="flag-icon-mobile">
-                </button>
+                <div class="flex items-center gap-2 border border-slate-200 rounded-full px-2 py-1 bg-white/50 backdrop-blur-sm">
+                    <button id="lang-vi-mobile" class="hover:opacity-80 transition-opacity" title="Tiếng Việt">
+                        <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="w-5 h-auto rounded-sm shadow-sm">
+                    </button>
+                    <span class="text-slate-400 font-light">|</span>
+                    <button id="lang-en-mobile" class="hover:opacity-80 transition-opacity" title="English">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-5 h-auto rounded-sm shadow-sm">
+                    </button>
+                </div>
                 <button id="mobile-menu-btn" class="text-slate-600 p-2 z-50 focus:outline-none" aria-label="Toggle menu">
                     <i data-lucide="menu" class="w-7 h-7" id="menu-icon"></i>
                 </button>
@@ -1358,7 +1360,7 @@
                     nav_pricing: "Pricing",
                     nav_testimonials: "Testimonials",
                     nav_faq: "FAQ",
-                    nav_consult: "Chat Now",
+                    nav_consult: "Consult Now",
                     mobile_chat: "Chat via Zalo/Mess",
                     hero_coach_title: "1:1 Online Yoga Coach",
                     hero_badge: "🌿 1:1 Online Therapeutic Yoga",
@@ -1572,35 +1574,46 @@
                     }
                 });
                 
-                // Update flag icon
-                const flagDesktop = document.getElementById('flag-icon-desktop');
-                const flagMobile = document.getElementById('flag-icon-mobile');
-                
-                const flagSrc = lang === 'vi' 
-                    ? "https://flagcdn.com/w40/vn.png" 
-                    : "https://flagcdn.com/w40/gb.png";
-                
-                if(flagDesktop) flagDesktop.src = flagSrc;
-                if(flagMobile) flagMobile.src = flagSrc;
+                // Update visual state of flags (Highlight active, dim inactive)
+                const opacityActive = 'opacity-100';
+                const opacityInactive = 'opacity-40 grayscale';
+
+                const updateFlagStyle = (id, isActive) => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        const img = el.querySelector('img');
+                        if (isActive) {
+                            img.classList.remove('grayscale', 'opacity-40');
+                            img.classList.add('opacity-100');
+                        } else {
+                            img.classList.add('grayscale', 'opacity-40');
+                            img.classList.remove('opacity-100');
+                        }
+                    }
+                };
+
+                updateFlagStyle('lang-vi-desktop', lang === 'vi');
+                updateFlagStyle('lang-en-desktop', lang === 'en');
+                updateFlagStyle('lang-vi-mobile', lang === 'vi');
+                updateFlagStyle('lang-en-mobile', lang === 'en');
 
                 currentLang = lang;
             }
 
-            // Lang Toggle Logic
-            const langToggleDesktop = document.getElementById('lang-toggle-desktop');
-            const langToggleMobile = document.getElementById('lang-toggle-mobile');
+            // Lang Toggle Listeners
+            const btnViDesk = document.getElementById('lang-vi-desktop');
+            const btnEnDesk = document.getElementById('lang-en-desktop');
+            const btnViMob = document.getElementById('lang-vi-mobile');
+            const btnEnMob = document.getElementById('lang-en-mobile');
 
-            function toggleLang() {
-                const newLang = currentLang === 'vi' ? 'en' : 'vi';
-                updateLanguage(newLang);
-            }
+            if (btnViDesk) btnViDesk.addEventListener('click', () => updateLanguage('vi'));
+            if (btnEnDesk) btnEnDesk.addEventListener('click', () => updateLanguage('en'));
+            if (btnViMob) btnViMob.addEventListener('click', () => updateLanguage('vi'));
+            if (btnEnMob) btnEnMob.addEventListener('click', () => updateLanguage('en'));
 
-            if (langToggleDesktop) {
-                langToggleDesktop.addEventListener('click', toggleLang);
-            }
-            if (langToggleMobile) {
-                langToggleMobile.addEventListener('click', toggleLang);
-            }
+            // Initialize default language visual state
+            updateLanguage('vi');
+
             
             // --- 3. UI LOGIC ---
             
