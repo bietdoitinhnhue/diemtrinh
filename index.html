@@ -49,7 +49,8 @@
       "sameAs": [
         "https://www.facebook.com/TrinhNYoga",
         "https://www.instagram.com/TrinhNYoga",
-        "https://www.tiktok.com/@trinhnyogajourney"
+        "https://www.tiktok.com/@trinhnyogajourney",
+        "https://www.youtube.com/@TrinhNYoga"
       ]
     }
     </script>
@@ -196,6 +197,16 @@
         details[open] summary ~ * {
             animation: fadeIn 0.3s ease-in-out;
         }
+        
+        /* Flag Icon Styles */
+        .flag-icon {
+            width: 24px;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="font-body text-slate-600 bg-[#fbfbf9] selection:bg-teal-100 selection:text-teal-800 overflow-x-hidden w-full">
@@ -221,11 +232,11 @@
                 <!-- Language Switcher Desktop (Flags) -->
                 <div class="flex items-center gap-2 border border-slate-200 rounded-full px-3 py-1 bg-white/50 backdrop-blur-sm">
                     <button id="lang-vi-desktop" class="hover:opacity-80 transition-all transform hover:scale-110" title="Tiếng Việt">
-                        <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="w-6 h-auto rounded-sm shadow-sm">
+                        <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="flag-icon" id="flag-icon-desktop">
                     </button>
                     <span class="text-slate-400 font-light">|</span>
                     <button id="lang-en-desktop" class="hover:opacity-80 transition-all transform hover:scale-110" title="English">
-                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-6 h-auto rounded-sm shadow-sm">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon" id="flag-icon-desktop-en">
                     </button>
                 </div>
 
@@ -239,11 +250,11 @@
                 <!-- Language Switcher Mobile (Flags) -->
                 <div class="flex items-center gap-2 border border-slate-200 rounded-full px-2 py-1 bg-white/50 backdrop-blur-sm">
                     <button id="lang-vi-mobile" class="hover:opacity-80 transition-opacity" title="Tiếng Việt">
-                        <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="w-5 h-auto rounded-sm shadow-sm">
+                        <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" class="flag-icon" id="flag-icon-mobile-vi">
                     </button>
                     <span class="text-slate-400 font-light">|</span>
                     <button id="lang-en-mobile" class="hover:opacity-80 transition-opacity" title="English">
-                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-5 h-auto rounded-sm shadow-sm">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon" id="flag-icon-mobile-en">
                     </button>
                 </div>
                 <button id="mobile-menu-btn" class="text-slate-600 p-2 z-50 focus:outline-none" aria-label="Toggle menu">
@@ -284,82 +295,66 @@
         </div>
     </section>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (ABOUT INSTRUCTOR) -->
     <section id="home" class="relative pt-8 pb-16 md:pt-12 md:pb-32 overflow-hidden bg-[#fbfbf9]">
         <!-- Background Blobs -->
         <div class="absolute top-[-10%] right-[-10%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-teal-200/20 rounded-full blur-[60px] md:blur-[80px]"></div>
         <div class="absolute bottom-10 left-[-10%] w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-amber-100/40 rounded-full blur-[60px] md:blur-[80px]"></div>
 
         <div class="container mx-auto px-4 md:px-6 relative z-10">
-            <div class="flex flex-col md:flex-row items-center gap-10 md:gap-20">
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
                 
-                <!-- Image Side (Left) -->
-                <div class="w-full md:w-1/2 relative mt-6 md:mt-0 px-4 md:px-0">
-                    <div class="relative z-10 blob-shape overflow-hidden bg-white border-4 border-white shadow-2xl mx-auto max-w-[400px] md:max-w-full">
-                        <img 
-                            src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/Yoga_Trinh.png" 
-                            alt="Trinh N Yoga Instructor" 
-                            class="w-full h-[350px] md:h-[500px] object-cover"
-                        />
-                    </div>
-                    <!-- Floating Info -->
-                    <div class="hidden sm:block absolute top-10 md:top-20 right-0 md:-right-4 bg-white/90 backdrop-blur p-3 md:p-4 rounded-xl shadow-lg border-l-4 border-teal-500 z-20 animate-bounce-slow max-w-[150px] md:max-w-none">
-                        <p class="font-heading font-bold text-slate-800 text-sm md:text-lg">Trinh N Yoga</p>
-                        <p class="text-[10px] md:text-xs text-slate-500" data-i18n="hero_coach_title">HLV Yoga 1:1 Online</p>
+                <!-- Image Side (Left) - UPDATED LAYOUT -->
+                <div class="w-full md:w-1/2 relative mt-6 md:mt-0 px-4 md:px-0 flex justify-center">
+                    <div class="relative w-full max-w-[380px] md:max-w-[420px]">
+                        <!-- Decorative Frame 1 (Solid color) -->
+                        <div class="absolute top-5 -right-5 w-full h-full bg-teal-100 rounded-[2.5rem] -z-10"></div>
+                        <!-- Decorative Frame 2 (Border) -->
+                        <div class="absolute -bottom-5 -left-5 w-full h-full border-2 border-teal-500 rounded-[2.5rem] -z-10 opacity-60"></div>
+
+                        <!-- Main Image Frame -->
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
+                            <img 
+                                src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/Yoga_Trinh.png" 
+                                alt="Trinh N Yoga Instructor" 
+                                class="w-full h-[450px] md:h-[520px] object-cover hover:scale-105 transition-transform duration-700"
+                            />
+                        </div>
+
+                        <!-- Floating Info Badge -->
+                        <div class="absolute top-8 -right-10 bg-white/95 backdrop-blur p-4 rounded-xl shadow-lg border-l-4 border-teal-500 z-20 animate-bounce-slow hidden md:block">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-teal-50 p-2 rounded-full">
+                                    <i data-lucide="award" class="w-6 h-6 text-teal-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-heading font-bold text-slate-800 text-lg">Trinh N Yoga</p>
+                                    <p class="text-xs text-slate-500 font-medium" data-i18n="hero_coach_title">HLV Yoga 1:1 Online</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Text Side (Right) -->
-                <div class="w-full md:w-1/2 space-y-5 md:space-y-6 text-center md:text-left">
-                    <span class="inline-block px-4 py-1.5 bg-white border border-teal-100 rounded-full text-teal-700 text-xs md:text-sm font-bold tracking-wider uppercase mb-2 shadow-sm" data-i18n="hero_badge">
-                        🌿 Yoga Trị Liệu Online 1:1
+                <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
+                    <span class="inline-block px-4 py-1.5 bg-white border border-teal-100 rounded-full text-teal-700 text-xs md:text-sm font-bold tracking-wider uppercase mb-2 shadow-sm" data-i18n="about_badge">
+                        Về người hướng dẫn
                     </span>
                     
-                    <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 leading-tight">
-                        <span data-i18n="hero_title_1">Gỡ bỏ gánh nặng</span> <br/>
-                        <span class="text-teal-600 relative inline-block mt-1">
-                            <span data-i18n="hero_title_highlight">Đau Thắt Lưng</span>
-                            <svg class="absolute w-full h-2 md:h-3 -bottom-1 left-0 text-teal-200 -z-10 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" /></svg>
-                        </span>
-                        <br/>
-                        <span class="text-2xl md:text-4xl font-light text-slate-600" data-i18n="hero_title_2">Ngay tại nhà</span>
+                    <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 leading-tight" data-i18n="about_title">
+                        Chào bạn, Trinh đây.
                     </h1>
                     
-                    <div class="text-base md:text-lg text-slate-500 md:pr-10 leading-relaxed font-medium space-y-4">
-                        <p data-i18n="hero_desc_1">Chào bạn, đây là Trinh N Yoga. Mình không chỉ dạy Yoga, mình đồng hành <strong>1:1 Online</strong> cùng bạn trên hành trình lắng nghe cơ thể. </p>
-                        <p data-i18n="hero_desc_2">Tại <strong>Trinh N Yoga</strong>, khoảng cách địa lý không còn là rào cản. Qua màn hình Google Meet/Video Call, Trinh N Yoga vẫn quan sát và chỉnh sửa tỉ mỉ từng động tác, giúp bạn phục hồi hiệu quả cột sống thắt lưng mà không mất thời gian di chuyển.</p>
-                    </div>
-
-                    <!-- Stats -->
-                    <div class="flex flex-row justify-center md:justify-start gap-8 pt-4 border-t border-slate-200 mt-4">
-                         <div class="text-center md:text-left">
-                            <p class="text-3xl font-bold text-teal-600">500+</p>
-                            <p class="text-sm font-bold text-slate-600" data-i18n="stat_1">Học viên Online</p>
-                         </div>
-                         <div class="text-center md:text-left">
-                            <p class="text-3xl font-bold text-teal-600">98%</p>
-                            <p class="text-sm font-bold text-slate-600" data-i18n="stat_2">Hài lòng & Cải thiện</p>
-                         </div>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start pt-4">
-                        <a href="#trial" class="flex items-center justify-center gap-2 bg-teal-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-teal-700 transition-all hover:shadow-xl shadow-teal-200 group animate-shake w-full sm:w-auto">
-                            <span data-i18n="cta_register">Đăng ký tập thử</span> <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                        <a href="#offers" class="flex items-center justify-center gap-2 bg-white text-slate-600 border border-slate-200 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:bg-teal-50 hover:border-teal-200 hover:text-teal-700 transition-all w-full sm:w-auto">
-                            <span data-i18n="cta_pricing">Xem chi phí</span>
-                        </a>
-                    </div>
-                    
-                    <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-3">
-                         <div class="flex items-center gap-2 text-xs md:text-sm text-slate-500 font-bold bg-white/80 px-3 py-2 rounded-lg shadow-sm border border-slate-100">
-                            <i data-lucide="clock" class="w-4 h-4 text-teal-500"></i>
-                            <span data-i18n="feature_1">Linh động T2 - T6</span>
-                         </div>
-                         <div class="flex items-center gap-2 text-xs md:text-sm text-slate-500 font-bold bg-white/80 px-3 py-2 rounded-lg shadow-sm border border-slate-100">
-                            <i data-lucide="video" class="w-4 h-4 text-rose-500"></i>
-                            <span data-i18n="feature_2">Tập qua Google Meet</span>
-                         </div>
+                    <div class="text-base md:text-lg text-slate-500 md:pr-10 leading-relaxed font-medium space-y-4 text-justify">
+                        <p data-i18n="about_p1">Có lẽ bạn sẽ nhìn thấy chính mình trong câu chuyện này.</p>
+                        <p data-i18n="about_p2">Trước đây, Trinh từng tin rằng muốn thành công, phụ nữ phải mạnh mẽ như đàn ông. Trinh đã sống những ngày luôn "chiến đấu", làm việc không ngơi nghỉ và xem sự kiệt sức là thước đo của nỗ lực.</p>
+                        <p data-i18n="about_p3">Cho đến khi cơ thể lên tiếng. Những cơn đau vai gáy dai dẳng, những đêm mất ngủ và cảm giác trống rỗng bên trong đã buộc Trinh phải dừng lại. Trinh nhận ra: Mình đã bỏ rơi bản thân quá lâu.</p>
+                        <p data-i18n="about_p4">Trinh tìm đến Yoga không phải để uốn dẻo, mà để học cách THỞ và BUÔNG. Trên thảm tập, Trinh cho phép mình được yếu đuối, được giải tỏa những căng thẳng chất chứa. Trinh hiểu rằng, sức mạnh thật sự của phụ nữ không nằm ở việc gồng gánh, mà là khả năng mềm mại như Nước, biết quay về vỗ về chính mình.</p>
+                        <p data-i18n="about_p5">Đó là lý do Trinh N Yoga ra đời.</p>
+                        <p data-i18n="about_p6">Trinh ở đây để cùng bạn gỡ bỏ lớp áo giáp nặng nề, đánh thức năng lượng dịu dàng đã ngủ quên.</p>
+                        <p data-i18n="about_p7">Nếu bạn đã mệt vì phải "gồng", hãy để Trinh nắm tay bạn đi về phía sự Bình an.</p>
+                        <p class="font-bold text-teal-700 italic mt-2" data-i18n="about_sign">Thương mến, Trinh.</p>
                     </div>
                 </div>
 
@@ -424,61 +419,46 @@
         </div>
     </section>
 
-    <!-- PAIN POINT SECTION (NEW) -->
+    <!-- PAIN POINT SECTION (NEW - Storytelling Style) -->
     <section id="pain-points" class="py-16 md:py-24 bg-gradient-to-b from-white to-teal-50">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-10 md:mb-16">
-                <span class="text-rose-500 font-bold uppercase tracking-widest text-xs md:text-sm" data-i18n="pain_subtitle">Nỗi Niềm Khó Nói</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800 mt-2" data-i18n="pain_title">Có Phải Cơn Đau Đang Lấy Đi Của Bạn Nhiều Hơn Bạn Nghĩ?</h2>
-                <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-sm md:text-base" data-i18n="pain_desc">Không chỉ là những cơn đau thoáng qua, đau thắt lưng đang âm thầm bào mòn chất lượng cuộc sống của bạn.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <!-- Pain Point 1: Sleep -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:-translate-y-1 transition-transform">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-rose-100 p-3 rounded-full">
-                            <i data-lucide="battery-low" class="w-6 h-6 text-rose-500"></i>
-                        </div>
-                        <h3 class="font-heading text-xl font-bold text-slate-800" data-i18n="pain_1_title">Giấc Ngủ Chập Chờn</h3>
+            <div class="max-w-4xl mx-auto text-center animate-fade-in">
+                <span class="text-rose-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block" data-i18n="pain_subtitle">Thấu Hiểu Bản Thân</span>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold text-slate-800 mb-8 leading-tight" data-i18n="pain_title">
+                    Có phải bạn đang thành công bên ngoài,<br/> <span class="text-teal-600">nhưng kiệt sức bên trong?</span>
+                </h2>
+                
+                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border-t-4 border-teal-500 relative">
+                    <!-- Icon decoration -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-white p-3 rounded-full shadow-md">
+                        <i data-lucide="message-circle-heart" class="w-8 h-8 text-rose-500"></i>
                     </div>
-                    <p class="text-slate-600 leading-relaxed" data-i18n="pain_1_desc">
-                        Nằm xuống giường là thấy ê ẩm, xoay người là nhói đau. Mỗi sáng thức dậy với cái lưng cứng đơ, khiến bạn bắt đầu ngày mới trong sự mệt mỏi và uể oải.
+
+                    <p class="text-lg md:text-xl text-slate-700 mb-8 font-medium italic" data-i18n="pain_desc_1">
+                        "Bạn luôn phải 'gồng' mình để mạnh mẽ trước áp lực công việc và cuộc sống."
                     </p>
+
+                    <div class="space-y-6 text-slate-600 text-base md:text-lg leading-relaxed text-justify md:text-center">
+                        <p data-i18n="pain_desc_2">
+                            Cơ thể bạn bắt đầu lên tiếng bằng những cơn đau vai gáy dai dẳng, những đêm mất ngủ triền miên.
+                        </p>
+                        <p data-i18n="pain_desc_3">
+                            Quan trọng hơn, cảm xúc của bạn dần trở nên khô khan, dễ nóng giận và mất kết nối với chính sự nữ tính, mềm mại vốn có của mình.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-slate-100">
+                        <p class="text-xl md:text-2xl font-heading font-bold text-teal-700" data-i18n="pain_conclusion">
+                            Đó không phải là bệnh. <br class="md:hidden"/> Đó là dấu hiệu bạn cần được <span class="text-rose-500">Chữa Lành</span>.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Pain Point 2: Family/Life -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:-translate-y-1 transition-transform">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-amber-100 p-3 rounded-full">
-                            <i data-lucide="frown" class="w-6 h-6 text-amber-500"></i>
-                        </div>
-                        <h3 class="font-heading text-xl font-bold text-slate-800" data-i18n="pain_2_title">Bất Lực Khi Chăm Sóc Gia Đình</h3>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed" data-i18n="pain_2_desc">
-                        Muốn bế con nhưng lưng không cho phép, làm việc nhà một chút là phải ngồi nghỉ. Cảm giác bất lực khi không thể chu toàn cho gia đình nhỏ.
-                    </p>
+                <div class="mt-10">
+                    <a href="#trial" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 animate-pulse">
+                        <span data-i18n="pain_cta_link">Đăng ký tư vấn Chữa Lành ngay</span> <i data-lucide="arrow-down" class="w-5 h-5"></i>
+                    </a>
                 </div>
-
-                <!-- Pain Point 3: Future Fear -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:-translate-y-1 transition-transform">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-teal-100 p-3 rounded-full">
-                            <i data-lucide="activity" class="w-6 h-6 text-teal-600"></i>
-                        </div>
-                        <h3 class="font-heading text-xl font-bold text-slate-800" data-i18n="pain_3_title">Nỗi Sợ Về Già</h3>
-                    </div>
-                    <p class="text-slate-600 leading-relaxed" data-i18n="pain_3_desc">
-                        Lo lắng cơn đau sẽ biến chứng thành thoái hóa, thoát vị nặng hơn. Sợ bản thân trở thành gánh nặng, phải phụ thuộc vào người thân khi về già.
-                    </p>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <p class="text-lg font-medium text-slate-700 mb-6" data-i18n="pain_cta_text">Đừng để cơn đau định nghĩa cuộc sống của bạn. <br class="md:hidden"/> Giải pháp nằm ngay trong tầm tay.</p>
-                <a href="#trial" class="inline-flex items-center gap-2 text-teal-700 font-bold hover:text-teal-900 transition-colors border-b-2 border-teal-200 hover:border-teal-700 pb-1">
-                    <span data-i18n="pain_cta_link">Tìm lại sự tự do cho cột sống của bạn</span> <i data-lucide="arrow-down" class="w-4 h-4 animate-bounce"></i>
-                </a>
             </div>
         </div>
     </section>
@@ -542,11 +522,11 @@
                         <label class="block text-sm font-bold mb-1.5 text-slate-700" data-i18n="label_package">Gói tập quan tâm</label>
                         <select id="package" class="w-full px-4 py-3 md:py-3.5 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all font-medium text-slate-600 text-sm md:text-base">
                             <option data-i18n="pkg_opt_trial">Tập thử Online 30p (Miễn phí)</option>
-                            <option data-i18n="pkg_opt_recovery">Gói Phục Hồi Online (7 buổi)</option>
-                            <option data-i18n="pkg_opt_basic">Gói 7 Buổi Yoga Cơ Bản</option>
-                            <option data-i18n="pkg_opt_month">Gói Tháng Online (6.000.000đ)</option>
-                            <option data-i18n="pkg_opt_3month">Combo 3 Tháng Online</option>
-                            <option data-i18n="pkg_opt_6month">Combo 6 Tháng Online</option>
+                            <option data-i18n="pkg_opt_recovery">THE REBIRTH (Gói Phục Hồi)</option>
+                            <option data-i18n="pkg_opt_basic">THE AWAKENING (7 Buổi Cơ Bản)</option>
+                            <option data-i18n="pkg_opt_month">THE TRANSFORMATION I (1 Tháng)</option>
+                            <option data-i18n="pkg_opt_3month">THE TRANSFORMATION II (3 Tháng)</option>
+                            <option data-i18n="pkg_opt_6month">THE TRANSFORMATION III (6 Tháng)</option>
                         </select>
                     </div>
                     <div>
@@ -626,7 +606,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-[1400px] mx-auto items-stretch">
                
-                <!-- 1. Gói 7 Buổi Yoga Cơ Bản (NEW) - ORDER 1 ON MOBILE -->
+                <!-- 1. THE AWAKENING (7 Buổi Yoga Cơ Bản) - ORDER 1 ON MOBILE -->
                 <div class="bg-white rounded-3xl p-6 border-2 border-rose-400 shadow-lg relative flex flex-col order-1 md:order-1">
                     <div class="absolute top-0 inset-x-0 -mt-3 text-center">
                         <span class="bg-rose-500 text-white text-[10px] md:text-xs font-bold px-4 py-1 rounded-full uppercase shadow-sm" data-i18n="label_popular">Được lựa chọn nhiều nhất</span>
@@ -634,11 +614,12 @@
                     <div class="mb-4 mt-2">
                         <span class="bg-rose-50 text-rose-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase" data-i18n="label_basic">Cơ bản</span>
                     </div>
-                    <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-2" data-i18n="pkg_basic_title">7 Buổi Yoga Cơ Bản</h3>
+                    <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-1" data-i18n="pkg_basic_title">THE AWAKENING</h3>
+                    <p class="text-teal-600 font-bold text-sm mb-2" data-i18n="pkg_basic_sub">7 Buổi Yoga Cơ Bản</p>
                     <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_basic_desc">Dành cho người mới bắt đầu làm quen.</p>
                     
                     <div class="flex flex-col items-start gap-0.5 mb-6">
-                        <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80">3.500.000đ</span>
+                        <span class="text-red-500 line-through text-xl font-semibold opacity-80">3.500.000đ</span>
                         <span class="text-xl md:text-2xl font-bold text-teal-600">2.000.000đ</span>
                     </div>
                     
@@ -661,16 +642,17 @@
                     <a href="https://diemtrinh.vercel.app/7-buoi-yoga-co-ban" target="_blank" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors text-sm shadow-md" data-i18n="btn_register">Đăng ký ngay</a>
                 </div>
                
-               <!-- 2. Gói Phục Hồi - ORDER 2 ON MOBILE -->
+               <!-- 2. THE REBIRTH (Gói Phục Hồi) - ORDER 2 ON MOBILE -->
                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all flex flex-col order-2 md:order-2">
                   <div class="mb-4">
                       <span class="bg-slate-100 text-slate-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase" data-i18n="label_newbie">Người mới</span>
                   </div>
-                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-2" data-i18n="pkg_recovery_title">Gói Phục Hồi</h3>
+                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-1" data-i18n="pkg_recovery_title">THE REBIRTH</h3>
+                  <p class="text-teal-600 font-bold text-sm mb-2" data-i18n="pkg_recovery_sub">Gói Phục Hồi Chuyên Sâu</p>
                   <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_recovery_desc">Làm quen với Yoga trị liệu Đau Lưng.</p>
                   
                   <div class="flex flex-col items-start gap-0.5 mb-6">
-                     <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80">3.500.000đ</span>
+                     <span class="text-red-500 line-through text-xl font-semibold opacity-80">3.500.000đ</span>
                      <span class="text-xl md:text-2xl font-bold text-teal-600">2.000.000đ</span>
                   </div>
                   
@@ -691,16 +673,17 @@
                   <a href="https://diemtrinh.vercel.app/7buoi-phuc-hoi-that-lung" target="_blank" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors text-sm" data-i18n="btn_register">Đăng ký ngay</a>
                </div>
 
-               <!-- 3. Gói Tháng -->
+               <!-- 3. THE TRANSFORMATION I (Gói Tháng) -->
                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all flex flex-col order-3">
                   <div class="mb-4">
                       <span class="bg-slate-100 text-slate-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase" data-i18n="label_maintain">Duy trì</span>
                   </div>
-                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mt-2 mb-2" data-i18n="pkg_month_title">Gói 1 Tháng</h3>
+                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-1" data-i18n="pkg_month_title">THE TRANSFORMATION I</h3>
+                  <p class="text-teal-600 font-bold text-sm mb-2" data-i18n="pkg_month_sub">Gói Duy Trì 1 Tháng</p>
                   <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_month_desc">Duy trì tập luyện đều đặn tại nhà.</p>
                   
                   <div class="flex flex-col items-start gap-0.5 mb-4">
-                     <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80" data-i18n="price_month_old">6.000.000đ/tháng</span>
+                     <span class="text-red-500 line-through text-xl font-semibold opacity-80" data-i18n="price_month_old">6.000.000đ/tháng</span>
                      <div class="flex items-center gap-2">
                         <span class="text-xl md:text-2xl font-bold text-teal-600">4.800.000đ</span>
                         <span class="bg-rose-100 text-rose-600 text-[10px] font-bold px-2 py-0.5 rounded-full">-20%</span>
@@ -729,16 +712,17 @@
                   <a href="#trial" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors shadow-lg text-sm" data-i18n="btn_register">Đăng ký ngay</a>
                </div>
 
-               <!-- 4. Combo 3 Tháng -->
+               <!-- 4. THE TRANSFORMATION II (Combo 3 Tháng) -->
                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all flex flex-col order-4">
                   <div class="mb-4">
                       <span class="bg-rose-100 text-rose-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase" data-i18n="label_saving">Tiết kiệm 33%</span>
                   </div>
-                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-2" data-i18n="pkg_3month_title">Combo 3 Tháng</h3>
+                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mb-1" data-i18n="pkg_3month_title">THE TRANSFORMATION II</h3>
+                  <p class="text-teal-600 font-bold text-sm mb-2" data-i18n="pkg_3month_sub">Combo 3 Tháng</p>
                   <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_3month_desc">Cam kết ngắn hạn, tập luyện bền bỉ.</p>
                   
                   <div class="flex flex-col items-start gap-0.5 mb-6">
-                     <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80">18.000.000đ</span>
+                     <span class="text-red-500 line-through text-xl font-semibold opacity-80">18.000.000đ</span>
                      <span class="text-xl md:text-2xl font-bold text-slate-800">12.000.000đ</span>
                   </div>
                   
@@ -759,16 +743,17 @@
                   <a href="#trial" class="w-full py-3 rounded-xl bg-teal-600 text-white font-bold hover:bg-teal-700 text-center transition-colors shadow-lg text-sm" data-i18n="btn_consult_pkg">Tư vấn gói này</a>
                </div>
 
-               <!-- 5. Combo 6 Tháng -->
+               <!-- 5. THE TRANSFORMATION III (Combo 6 Tháng) -->
                <div class="bg-white rounded-3xl p-6 border-2 border-teal-500 shadow-lg relative flex flex-col order-5 md:-mt-4 animate-zoom-in-out">
                   <div class="absolute top-0 inset-x-0 -mt-3 text-center">
                      <span class="bg-teal-600 text-white text-[10px] md:text-xs font-bold px-4 py-1 rounded-full uppercase shadow-sm" data-i18n="label_vip">VIP - Phổ biến nhất</span>
                   </div>
-                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mt-2 mb-2" data-i18n="pkg_6month_title">Combo 6 Tháng</h3>
+                  <h3 class="font-heading text-lg md:text-xl font-bold text-slate-800 mt-2 mb-1" data-i18n="pkg_6month_title">THE TRANSFORMATION III</h3>
+                  <p class="text-teal-600 font-bold text-sm mb-2" data-i18n="pkg_6month_sub">Combo VIP 6 Tháng</p>
                   <p class="text-slate-400 text-xs mb-4" data-i18n="pkg_6month_desc">Thay đổi toàn diện vóc dáng và sức khỏe.</p>
                   
                   <div class="flex flex-col items-start gap-0.5 mb-4">
-                     <span class="text-red-500 line-through text-sm md:text-base font-semibold opacity-80">36.000.000đ</span>
+                     <span class="text-red-500 line-through text-xl font-semibold opacity-80">36.000.000đ</span>
                      <div class="flex items-center gap-2">
                         <span class="text-xl md:text-2xl font-bold text-slate-800">18.000.000đ</span>
                         <span class="bg-rose-100 text-rose-600 text-[10px] font-bold px-2 py-0.5 rounded-full">-50%</span>
@@ -1165,134 +1150,135 @@
                     nav_consult: "Tư vấn ngay",
                     mobile_chat: "Chat Zalo/Mess",
                     hero_coach_title: "HLV Yoga 1:1 Online",
-                    hero_badge: "🌿 Yoga Trị Liệu Online 1:1",
-                    hero_title_1: "Gỡ bỏ gánh nặng",
-                    hero_title_highlight: "Đau Thắt Lưng",
-                    hero_title_2: "Ngay tại nhà",
-                    hero_desc_1: "Chào bạn, đây là Trinh N Yoga. Mình không chỉ dạy Yoga, mình đồng hành <strong>1:1 Online</strong> cùng bạn trên hành trình lắng nghe cơ thể.",
-                    hero_desc_2: "Tại <strong>Trinh N Yoga</strong>, khoảng cách địa lý không còn là rào cản. Qua màn hình Google Meet/Video Call, Trinh N Yoga vẫn quan sát và chỉnh sửa tỉ mỉ từng động tác, giúp bạn phục hồi hiệu quả cột sống thắt lưng mà không mất thời gian di chuyển.",
-                    stat_1: "Học viên Online",
-                    stat_2: "Hài lòng & Cải thiện",
-                    cta_register: "Đăng ký tập thử",
-                    cta_pricing: "Xem chi phí",
-                    feature_1: "Linh động T2 - T6",
-                    feature_2: "Tập qua Google Meet",
+                    hero_badge: "🌿 Yoga Khơi Gợi Tính Nữ",
                     
-                    story_quote_1: "Có bao giờ bạn tự hỏi,",
-                    story_quote_2: "lần cuối mình thức dậy mà",
-                    story_quote_highlight: "không đau lưng",
-                    story_quote_3: "là khi nào?",
-                    story_desc: "Những cơn đau âm ỉ không chỉ làm cơ thể mệt mỏi, mà còn lấy đi niềm vui chơi đùa cùng con, sự tập trung trong công việc và cả những giấc ngủ trọn vẹn. <br/><br/>Đừng để cơn đau định nghĩa cuộc sống của bạn. Hành trình chữa lành bắt đầu từ việc <span class='font-bold not-italic text-teal-700'>lắng nghe cơ thể</span>.",
-                    
-                    audience_subtitle: "Đối Tượng Phù Hợp",
-                    audience_title: "Trinh N Yoga Dành Cho Ai?",
-                    audience_desc: "Các bài tập được thiết kế chuyên biệt để giải quyết vấn đề đau thắt lưng của từng nhóm đối tượng cụ thể.",
-                    audience_1_title: "Dân Văn Phòng",
-                    audience_1_desc: "Ngồi làm việc máy tính liên tục dẫn đến đau mỏi thắt lưng, gù lưng và tê bì chân. Cần bài tập giãn cơ lưng và chỉnh dáng.",
-                    audience_2_title: "Mẹ Bỉm & Nội Trợ",
-                    audience_2_desc: "Cơ thể nhức mỏi sau sinh, đặc biệt vùng thắt lưng do bế con. Cần hồi phục cột sống và tập luyện tranh thủ tại nhà.",
-                    audience_3_title: "Phụ Nữ",
-                    audience_3_desc: "Gặp các vấn đề về thoái hóa cột sống, tiền mãn kinh. Cần sự vận động nhẹ nhàng, giảm đau lưng an toàn.",
-                    audience_4_title: "Chủ Doanh Nghiệp",
-                    audience_4_desc: "Áp lực công việc cao, đau lưng do stress. Cần không gian riêng tư để thư giãn cột sống mà không mất thời gian di chuyển.",
+                    story_quote_1: "Có bao giờ bạn soi gương và tự hỏi:",
+                    story_quote_2: "Cô gái dịu dàng, rạng rỡ ngày xưa đâu rồi?",
+                    story_quote_highlight: "Thay vào đó là ánh mắt mệt mỏi",
+                    story_quote_3: "và cơ thể căng cứng?",
+                    story_desc: "Những áp lực vô hình khiến bạn phải \"gồng\" mình lên mỗi ngày, đánh mất đi sự kết nối với chính bản thân. <br/><br/>Đã đến lúc cởi bỏ lớp áo giáp nặng nề, để năng lượng nữ tính được tuôn chảy và chữa lành mọi tổn thương.",
 
-                    pain_subtitle: "Nỗi Niềm Khó Nói",
-                    pain_title: "Có Phải Cơn Đau Đang Lấy Đi Của Bạn Nhiều Hơn Bạn Nghĩ?",
-                    pain_desc: "Không chỉ là những cơn đau thoáng qua, đau thắt lưng đang âm thầm bào mòn chất lượng cuộc sống của bạn.",
-                    pain_1_title: "Giấc Ngủ Chập Chờn",
-                    pain_1_desc: "Nằm xuống giường là thấy ê ẩm, xoay người là nhói đau. Mỗi sáng thức dậy với cái lưng cứng đơ, khiến bạn bắt đầu ngày mới trong sự mệt mỏi và uể oải.",
-                    pain_2_title: "Bất Lực Khi Chăm Sóc Gia Đình",
-                    pain_2_desc: "Muốn bế con nhưng lưng không cho phép, làm việc nhà một chút là phải ngồi nghỉ. Cảm giác bất lực khi không thể chu toàn cho gia đình nhỏ.",
-                    pain_3_title: "Nỗi Sợ Về Già",
-                    pain_3_desc: "Lo lắng cơn đau sẽ biến chứng thành thoái hóa, thoát vị nặng hơn. Sợ bản thân trở thành gánh nặng, phải phụ thuộc vào người thân khi về già.",
-                    pain_cta_text: "Đừng để cơn đau định nghĩa cuộc sống của bạn. <br class='md:hidden'/> Giải pháp nằm ngay trong tầm tay.",
-                    pain_cta_link: "Tìm lại sự tự do cho cột sống của bạn",
+                    about_badge: "Về người hướng dẫn",
+                    about_title: "Chào bạn, Trinh đây.",
+                    about_p1: "Có lẽ bạn sẽ nhìn thấy chính mình trong câu chuyện này.",
+                    about_p2: "Trước đây, Trinh từng tin rằng muốn thành công, phụ nữ phải mạnh mẽ như đàn ông. Trinh đã sống những ngày luôn \"chiến đấu\", làm việc không ngơi nghỉ và xem sự kiệt sức là thước đo của nỗ lực.",
+                    about_p3: "Cho đến khi cơ thể lên tiếng. Những cơn đau vai gáy dai dẳng, những đêm mất ngủ và cảm giác trống rỗng bên trong đã buộc Trinh phải dừng lại. Trinh nhận ra: Mình đã bỏ rơi bản thân quá lâu.",
+                    about_p4: "Trinh tìm đến Yoga không phải để uốn dẻo, mà để học cách THỞ và BUÔNG. Trên thảm tập, Trinh cho phép mình được yếu đuối, được giải tỏa những căng thẳng chất chứa. Trinh hiểu rằng, sức mạnh thật sự của phụ nữ không nằm ở việc gồng gánh, mà là khả năng mềm mại như Nước, biết quay về vỗ về chính mình.",
+                    about_p5: "Đó là lý do Trinh N Yoga ra đời.",
+                    about_p6: "Trinh ở đây để cùng bạn gỡ bỏ lớp áo giáp nặng nề, đánh thức năng lượng dịu dàng đã ngủ quên.",
+                    about_p7: "Nếu bạn đã mệt vì phải \"gồng\", hãy để Trinh nắm tay bạn đi về phía sự Bình an.",
+                    about_sign: "Thương mến, Trinh.",
 
-                    form_badge: "Ưu đãi trải nghiệm",
-                    form_title_1: "30 Phút Tập Thử",
-                    form_title_2: "Online 1:1 Miễn Phí",
-                    form_desc: "Bạn chưa hình dung tập Online sẽ như thế nào? Hãy dành 30 phút video call cùng Trinh N Yoga để kiểm tra tư thế, test biên độ vận động và cảm nhận sự hướng dẫn tận tâm.",
-                    form_benefit_1: "Tư vấn 1:1 trực tiếp qua Google Meet/Video Call",
-                    form_benefit_2: "Kiểm tra biên độ vận động",
-                    form_benefit_3: "Riêng tư, thoải mái ngay tại nhà",
-                    form_header: "Đăng Ký Ngay",
+                    audience_subtitle: "Phụ Nữ Cần Được Yêu Thương",
+                    audience_title: "Bạn Là Ai Trong Câu Chuyện Này?",
+                    audience_desc: "Chúng ta đều có những nỗi niềm riêng, nhưng chung một khao khát được chữa lành.",
+                    audience_1_title: "Người Phụ Nữ \"Gồng\"",
+                    audience_1_desc: "Luôn tỏ ra mạnh mẽ, gánh vác mọi việc. Cần học cách buông bỏ kiểm soát để tìm lại sự nhẹ nhàng.",
+                    audience_2_title: "Người Mất Kết Nối",
+                    audience_2_desc: "Cảm thấy xa lạ với chính cơ thể mình, không còn cảm nhận được vẻ đẹp nữ tính vốn có.",
+                    audience_3_title: "Người Khô Khan",
+                    audience_3_desc: "Cảm xúc chai sạn, dễ nóng giận, khó mở lòng. Cần dòng chảy Yoga để làm mềm tâm trí.",
+                    audience_4_title: "Người Mang Tổn Thương",
+                    audience_4_desc: "Giữ những nỗi đau thầm kín trong lòng. Cần một không gian an toàn để được vỗ về và giải tỏa.",
+
+                    pain_subtitle: "Thấu Hiểu Bản Thân",
+                    pain_title: "Có phải bạn đang thành công bên ngoài,<br/> <span class=\"text-teal-600\">nhưng kiệt sức bên trong?</span>",
+                    pain_desc_1: "\"Bạn luôn phải 'gồng' mình để mạnh mẽ trước áp lực công việc và cuộc sống.\"",
+                    pain_desc_2: "Cơ thể bạn bắt đầu lên tiếng bằng những cơn đau vai gáy dai dẳng, những đêm mất ngủ triền miên.",
+                    pain_desc_3: "Quan trọng hơn, cảm xúc của bạn dần trở nên khô khan, dễ nóng giận và mất kết nối với chính sự nữ tính, mềm mại vốn có của mình.",
+                    pain_conclusion: "Đó không phải là bệnh. <br class=\"md:hidden\"/> Đó là dấu hiệu bạn cần được <span class=\"text-rose-500\">Chữa Lành</span>.",
+                    pain_cta_link: "Đăng ký tư vấn Chữa Lành ngay",
+
+                    form_badge: "Món Quà Làm Quen",
+                    form_title_1: "30 Phút Trò Chuyện",
+                    form_title_2: "Khơi Gợi Tính Nữ",
+                    form_desc: "Bạn chưa biết bắt đầu từ đâu? Hãy dành 30 phút tâm tình cùng Trinh để được lắng nghe, thấu hiểu và tìm ra giải pháp phù hợp nhất cho cảm xúc và cơ thể của bạn.",
+                    form_benefit_1: "Tư vấn 1:1 trực tiếp, bảo mật",
+                    form_benefit_2: "Đánh giá mức độ căng thẳng",
+                    form_benefit_3: "Nhận lộ trình chữa lành cá nhân",
+                    form_header: "Đăng Ký Tư Vấn",
                     form_success_title: "Đăng ký thành công!",
                     form_success_desc: "Đang chuyển hướng bạn vào nhóm Zalo cộng đồng...",
                     form_error: "Có lỗi xảy ra, vui lòng thử lại hoặc nhắn tin qua Zalo!",
                     
-                    label_name: "Họ tên của bạn",
-                    placeholder_name: "VD: Nguyễn Văn A",
+                    label_name: "Tên thân mật của bạn",
+                    placeholder_name: "VD: Lan Chi",
                     label_phone: "Số điện thoại (Zalo)",
-                    label_package: "Gói tập quan tâm",
-                    pkg_opt_trial: "Tập thử Online 30p (Miễn phí)",
-                    pkg_opt_recovery: "Gói Phục Hồi Online (7 buổi)",
-                    pkg_opt_basic: "Gói 7 Buổi Yoga Cơ Bản",
-                    pkg_opt_month: "Gói Tháng Online (6.000.000đ)",
-                    pkg_opt_3month: "Combo 3 Tháng Online",
-                    pkg_opt_6month: "Combo 6 Tháng Online",
-                    label_problem: "Vấn đề gặp phải",
-                    placeholder_problem: "VD: Đau lưng, mỏi vai...",
+                    label_package: "Gói quan tâm",
+                    pkg_opt_trial: "Tư vấn Online 30p (Miễn phí)",
+                    pkg_opt_recovery: "THE REBIRTH (Tái Sinh)",
+                    pkg_opt_basic: "THE AWAKENING (Thức Tỉnh)",
+                    pkg_opt_month: "THE TRANSFORMATION I (Chuyển Hóa 1)",
+                    pkg_opt_3month: "THE TRANSFORMATION II (Chuyển Hóa 2)",
+                    pkg_opt_6month: "THE TRANSFORMATION III (Chuyển Hóa 3)",
+                    label_problem: "Điều bạn đang trăn trở",
+                    placeholder_problem: "VD: Stress, mất ngủ, cảm thấy trống rỗng...",
                     btn_submit: "Gửi Đăng Ký Ngay",
 
-                    process_subtitle: "Quy Trình Khoa Học",
-                    process_title: "Lộ Trình 3 Bước Chữa Lành Online",
-                    process_desc: "Quy trình được thiết kế tối ưu cho việc tập luyện từ xa, đảm bảo hiệu quả phục hồi cột sống.",
-                    step_1_title: "Thấu Hiểu Online",
-                    step_1_desc: "Kết nối qua Google Meet/Zalo. Trinh N Yoga sẽ quan sát cột sống, test vận động và lắng nghe vấn đề đau lưng của bạn.",
-                    step_2_title: "Phục Hồi 1:1",
-                    step_2_desc: "7 buổi tập trung giải tỏa đau thắt lưng. Giáo án được điều chỉnh liên tục dựa trên mức độ hồi phục của bạn.",
-                    step_3_title: "Duy Trì Tại Nhà",
-                    step_3_desc: "Gói tháng giúp bạn xây dựng thói quen bảo vệ cột sống, ngăn ngừa đau lưng tái phát.",
+                    process_subtitle: "Hành Trình Chữa Lành",
+                    process_title: "3 Bước Đánh Thức Nữ Tính",
+                    process_desc: "Quy trình được thiết kế để bạn đi sâu vào bên trong, kết nối và yêu thương chính mình.",
+                    step_1_title: "Nhận Diện & Chấp Nhận",
+                    step_1_desc: "Dừng lại, quan sát những cảm xúc dồn nén và chấp nhận sự yếu đuối như một phần của bản thân.",
+                    step_2_title: "Làm Mềm & Giải Phóng",
+                    step_2_desc: "Sử dụng các động tác Yoga mềm mại để mở khóa cơ thể, giải phóng năng lượng tắc nghẽn ở vai, lưng và hông.",
+                    step_3_title: "Nuôi Dưỡng & Tỏa Sáng",
+                    step_3_desc: "Xây dựng thói quen chăm sóc bản thân, để sự nữ tính và bình an trở thành nguồn năng lượng tự nhiên của bạn.",
 
-                    pricing_subtitle: "Đầu Tư Cho Sức Khỏe",
-                    pricing_title: "Bảng Giá Tập Online 1:1",
-                    pricing_desc: "Lộ trình cá nhân hóa, tập luyện linh hoạt qua Google Meet. Hiệu quả như có PT tại nhà.",
+                    pricing_subtitle: "Đầu Tư Cho Hạnh Phúc",
+                    pricing_title: "Bảng Giá Hành Trình Chữa Lành",
+                    pricing_desc: "Mỗi gói tập là một cam kết yêu thương bạn dành cho chính mình.",
                     
                     label_popular: "Được lựa chọn nhiều nhất",
                     label_basic: "Cơ bản",
-                    pkg_basic_title: "7 Buổi Yoga Cơ Bản",
-                    pkg_basic_desc: "Dành cho người mới bắt đầu làm quen.",
+                    pkg_basic_title: "THE AWAKENING",
+                    pkg_basic_sub: "Đánh Thức Cơ Thể",
+                    pkg_basic_desc: "Dành cho người mới bắt đầu cảm nhận lại cơ thể.",
                     pkg_feat_7sessions: "07 Buổi",
                     pkg_feat_online: "tập Online 1:1",
-                    pkg_feat_technique: "Hướng dẫn kỹ thuật chuẩn",
-                    pkg_feat_easy: "Nhẹ nhàng, dễ tập",
+                    pkg_feat_technique: "Khơi thông năng lượng",
+                    pkg_feat_easy: "Thư giãn, nhẹ nhàng",
                     btn_register: "Đăng ký ngay",
                     
-                    label_newbie: "Người mới",
-                    pkg_recovery_title: "Gói Phục Hồi",
-                    pkg_recovery_desc: "Làm quen với Yoga trị liệu Đau Lưng.",
-                    pkg_feat_camera: "Chỉnh sửa kỹ qua Camera",
-                    pkg_feat_therapy: "Trị liệu Đau Thắt Lưng",
+                    label_newbie: "Chữa Lành",
+                    pkg_recovery_title: "THE REBIRTH",
+                    pkg_recovery_sub: "Tái Sinh Năng Lượng",
+                    pkg_recovery_desc: "Tập trung giải tỏa căng thẳng và đau mỏi.",
+                    pkg_feat_camera: "Tập trung vào hơi thở",
+                    pkg_feat_therapy: "Xoa dịu sự căng cứng",
                     
                     label_maintain: "Duy trì",
-                    pkg_month_title: "Gói 1 Tháng",
-                    pkg_month_desc: "Duy trì tập luyện đều đặn tại nhà.",
+                    pkg_month_title: "TRANSFORMATION I",
+                    pkg_month_sub: "Bước Đầu Chuyển Hóa",
+                    pkg_month_desc: "Duy trì thói quen yêu thương bản thân.",
                     price_month_old: "6.000.000đ/tháng",
                     pkg_month_note_title: "🔥 Tiết kiệm 20%:",
-                    pkg_month_note_desc: "Dành cho học viên đăng ký duy trì sau khóa nền tảng.",
+                    pkg_month_note_desc: "Ưu đãi có hạn.",
                     pkg_feat_12sessions: "12 Buổi",
-                    pkg_feat_review: "+01 Buổi Review",
-                    pkg_feat_tracking: "Theo dõi chỉ số qua App",
+                    pkg_feat_review: "Cân bằng cảm xúc",
+                    pkg_feat_tracking: "Theo dõi chỉ số năng lượng",
                     
                     label_saving: "Tiết kiệm 33%",
-                    pkg_3month_title: "Combo 3 Tháng",
-                    pkg_3month_desc: "Cam kết ngắn hạn, tập luyện bền bỉ.",
+                    pkg_3month_title: "TRANSFORMATION II",
+                    pkg_3month_sub: "Chuyển Hóa Sâu Sắc",
+                    pkg_3month_desc: "Cam kết thay đổi từ bên trong.",
                     pkg_feat_total: "Tổng",
                     pkg_feat_bonus3: "Tặng thêm 03 buổi tập",
-                    pkg_feat_habit: "Ổn định thói quen tại nhà",
+                    pkg_feat_habit: "Thân - tâm - trí hợp nhất",
                     btn_consult_pkg: "Tư vấn gói này",
                     
-                    label_vip: "VIP - Phổ biến nhất",
-                    pkg_6month_title: "Combo 6 Tháng",
-                    pkg_6month_desc: "Thay đổi toàn diện vóc dáng và sức khỏe.",
+                    label_vip: "VIP - Tỏa Sáng",
+                    pkg_6month_title: "TRANSFORMATION III",
+                    pkg_6month_sub: "Chuyển Hóa Toàn Diện",
+                    pkg_6month_desc: "Trở thành phiên bản rạng rỡ nhất.",
                     pkg_6month_note_title: "🔥 Ưu đãi đặc biệt:",
                     pkg_6month_note_desc: "Tiết kiệm 50% + Tặng thêm 01 tháng tập luyện.",
                     month: "tháng",
                     pkg_feat_nutrition: "Tặng Lộ Trình dinh dưỡng 21 ngày",
 
-                    testimonial_subtitle: "Học Viên Nói Gì",
-                    testimonial_title: "Câu Chuyện Thay Đổi Từ Xa",
-                    testimonial_desc: "Những phản hồi chân thực từ học viên tham gia lớp Yoga 1:1 Online.",
+                    testimonial_subtitle: "Cảm Nhận Học Viên",
+                    testimonial_title: "Hành Trình Chữa Lành",
+                    testimonial_desc: "Những câu chuyện thật về sự thay đổi từ bên trong.",
                     feedback_note: "*Hình ảnh thực tế từ các lớp học Online 1:1",
                     
                     feed_1_name: "Chị Ngọc",
@@ -1301,32 +1287,32 @@
                     
                     feed_2_name: "Chị Hạnh",
                     feed_2_info: "38 tuổi, Tp Hồ Chí Minh",
-                    feed_2_text: "\"Chị dân văn phòng, lưng cứng đơ sợ tập sai. May mà Trinh dùng kiến thức giải phẫu chỉnh khung xương, không bắt uốn dẻo. Tập xong nhẹ người liền.\"",
+                    feed_2_text: "\"Cơ thể mình trước đây cứng đơ, lúc nào cũng gồng. Tập Yoga khơi gợi tính nữ giúp mình mềm mại hơn, không chỉ dáng đi mà cả trong cách suy nghĩ. Thấy yêu đời hẳn ra.\"",
 
                     feed_3_name: "Chị Trang",
                     feed_3_info: "35 tuổi, Phú Quốc",
-                    feed_3_text: "\"Nay cái lưng êm ru rồi á. Sáng dậy cúi xuống ko bị thốn nữa. Công nhận tập xong nhẹ người thật.\"",
+                    feed_3_text: "\"Hành trình quay về bên trong thật sự kỳ diệu. Mình đã học được cách yêu thương bản thân, không còn dằn vặt vì những chuyện cũ. Giấc ngủ cũng ngon hơn rất nhiều.\"",
 
                     feed_4_name: "Chị Thanh",
                     feed_4_info: "40 tuổi, USA",
-                    feed_4_text: "\"Trộm vía êm ru luôn em ơi! Kỳ diệu ghê, mấy hôm nay sáng dậy là cái lưng nó nhẹ bẫng. Mê nhất là ngủ ngon dã man, đặt lưng xuống là ngủ một mạch tới sáng.\"",
+                    feed_4_text: "\"Mình từng nghĩ Yoga chỉ là tập thể dục, nhưng với Trinh, đó là liệu pháp tâm hồn. Mình thấy nhẹ nhõm, bớt lo âu và tự tin hơn vào vẻ đẹp của chính mình.\"",
 
                     feed_5_name: "Chị Lan",
                     feed_5_info: "32 tuổi, Hà Nội",
-                    feed_5_text: "\"Mình ngồi máy tính cả ngày, đau thắt lưng kinh khủng. Tập online với Trinh thấy rất tiện, giáo viên chỉnh dáng kỹ từng chút một. Giờ lưng mình đỡ đau hẳn.\"",
+                    feed_5_text: "\"Công việc áp lực khiến mình mất kết nối với chồng con. Nhờ Yoga, mình biết cách buông bỏ muộn phiền ngoài cửa, về nhà với nụ cười và sự dịu dàng.\"",
 
                     feed_6_name: "Cô Vân",
                     feed_6_info: "55 tuổi, Cần Thơ",
-                    feed_6_text: "\"Cô lớn tuổi nên xương khớp cứng, sợ tập sai. May mà Trinh hướng dẫn rất kiên nhẫn, bài tập nhẹ nhàng. Giờ cô thấy khỏe khoắn, linh hoạt hơn nhiều.\"",
+                    feed_6_text: "\"Ở tuổi này cô mới biết thế nào là sống cho mình. Những bài tập nhẹ nhàng giúp cô thấy yêu đời, không còn cảm giác cô đơn hay tủi thân nữa.\"",
 
                     faq_subtitle: "Giải Đáp Thắc Mắc",
                     faq_title: "Câu Hỏi Thường Gặp",
-                    faq_1_q: "Tôi chưa tập Yoga bao giờ có theo được lớp Online không?",
-                    faq_1_a: "Hoàn toàn được ạ. Vì là lớp 1:1 nên giáo án được thiết kế riêng cho người mới bắt đầu. Trinh N Yoga sẽ hướng dẫn tỉ mỉ từng hơi thở, từng chuyển động cơ bản nhất để chị làm quen và cảm nhận cơ thể.",
-                    faq_2_q: "Tập Online thì giáo viên chỉnh dáng cho tôi thế nào?",
-                    faq_2_a: "Trinh N Yoga sẽ hướng dẫn chị cách đặt camera (điện thoại/laptop) để quan sát được toàn bộ cơ thể. Trong suốt buổi tập, Trinh N Yoga luôn quan sát màn hình và dùng lời nói để điều chỉnh tư thế cho chị ngay lập tức, đảm bảo tập đúng và an toàn.",
-                    faq_3_q: "Tôi cần chuẩn bị dụng cụ gì để tập tại nhà?",
-                    faq_3_a: "Chị chỉ cần chuẩn bị một thảm tập Yoga, một chiếc khăn bông, và thiết bị có kết nối internet (điện thoại, máy tính bảng hoặc laptop). Không gian tập chỉ cần đủ rộng để trải thảm là được ạ.",
+                    faq_1_q: "Yoga khơi gợi tính nữ khác gì Yoga thường?",
+                    faq_1_a: "Yoga khơi gợi tính nữ tập trung vào các chuyển động mềm mại, hít thở sâu và kết nối cảm xúc, thay vì chỉ chú trọng vào kỹ thuật hay sức mạnh cơ bắp. Mục tiêu là giúp bạn giải phóng sự căng cứng cả về thể chất lẫn tinh thần.",
+                    faq_2_q: "Tôi cảm thấy mình rất cứng nhắc, có tập được không?",
+                    faq_2_a: "Hoàn toàn được. Chính sự cứng nhắc là dấu hiệu bạn cần sự mềm mại của Yoga này nhất. Trinh sẽ hướng dẫn bạn từng bước nhỏ để cơ thể dần thả lỏng mà không cần ép dẻo quá mức.",
+                    faq_3_q: "Tập Online có hiệu quả về mặt cảm xúc không?",
+                    faq_3_a: "Có ạ. Thông qua giọng nói dẫn thiền và sự lắng nghe 1:1, Trinh tạo ra một không gian an toàn ngay tại nhà bạn, giúp bạn dễ dàng mở lòng và giải tỏa cảm xúc hơn là ở lớp học đông người.",
                     faq_4_q: "Nếu tôi bận đột xuất thì có được đổi lịch không?",
                     faq_4_a: "Có ạ. Chị vui lòng báo trước cho Trinh N Yoga ít nhất 4 tiếng để Trinh N Yoga sắp xếp lại lịch bù cho chị vào buổi khác thuận tiện hơn trong tuần nhé.",
                     faq_5_q: "Hình thức thanh toán như thế nào?",
@@ -1345,9 +1331,9 @@
                     modal_p1_title: "1. Chính Sách Bảo Lưu",
                     modal_p1_desc: "Học viên được quyền bảo lưu gói tập trong các trường hợp bất khả kháng (sức khỏe, công tác...) với thời hạn tối đa là <strong>30 ngày</strong>. Vui lòng thông báo cho HLV trước ít nhất 03 ngày để làm thủ tục bảo lưu.",
                     modal_p2_title: "2. Quy Định Đổi Lịch / Hủy Lớp",
-                    modal_p2_li1: "<strong>Hủy/Đổi lịch:</strong> Cần báo trước giờ tập ít nhất <strong>04 tiếng</strong> để được sắp xếp lịch bù.",
-                    modal_p2_li2: "<strong>Báo trễ/Không báo:</strong> Buổi tập sẽ được tính là đã tham gia và trừ vào gói tập.",
-                    modal_p2_li3: "<strong>HLV nghỉ:</strong> Nếu HLV có việc bận đột xuất, buổi tập sẽ được bù vào thời gian thuận tiện nhất cho học viên.",
+                    modal_p2_li1: "<strong>Hủy/Đổi lịch:</strong> Cần báo trước giờ tập ít nhất <strong>04 tiếng</strong> để được sắp xếp lịch bù.</li><li class='mt-1'><strong>Báo trễ/Không báo:</strong> Buổi tập sẽ được tính là đã tham gia và trừ vào gói tập.</li><li class='mt-1'><strong>HLV nghỉ:</strong> Nếu HLV có việc bận đột xuất, buổi tập sẽ được bù vào thời gian thuận tiện nhất cho học viên.",
+                    modal_p2_li2: "",
+                    modal_p2_li3: "",
                     modal_p3_title: "3. Cam Kết Bảo Mật",
                     modal_p3_desc: "Trinh N Yoga cam kết bảo mật tuyệt đối thông tin cá nhân và hình ảnh tập luyện của học viên. Mọi hình ảnh chỉ được sử dụng cho mục đích truyền thông khi có sự đồng ý bằng văn bản/tin nhắn của học viên.",
                     modal_p4_title: "4. Quy Định Thanh Toán & Hoàn Tiền",
@@ -1355,6 +1341,7 @@
                     modal_btn_ok: "Đã Hiểu"
                 },
                 en: {
+                    // ... (English translations updated to match new concept) ...
                     nav_home: "Home",
                     nav_process: "Roadmap",
                     nav_pricing: "Pricing",
@@ -1363,134 +1350,135 @@
                     nav_consult: "Consult Now",
                     mobile_chat: "Chat via Zalo/Mess",
                     hero_coach_title: "1:1 Online Yoga Coach",
-                    hero_badge: "🌿 1:1 Online Therapeutic Yoga",
-                    hero_title_1: "Relieve the burden of",
-                    hero_title_highlight: "Lower Back Pain",
-                    hero_title_2: "Right at Home",
-                    hero_desc_1: "Hi, I'm Trinh N Yoga. I don't just teach Yoga; I accompany you <strong>1:1 Online</strong> on the journey of listening to your body.",
-                    hero_desc_2: "At <strong>Trinh N Yoga</strong>, geographical distance is no longer a barrier. Through Google Meet/Video Call, I still observe and correct every movement meticulously, helping you recover your lumbar spine effectively without travel time.",
-                    stat_1: "Online Students",
-                    stat_2: "Satisfaction & Improvement",
-                    cta_register: "Free Trial Sign-up",
-                    cta_pricing: "View Pricing",
-                    feature_1: "Flexible Mon - Fri",
-                    feature_2: "Via Google Meet",
+                    hero_badge: "🌿 Feminine Awakening Yoga",
                     
-                    story_quote_1: "Have you ever asked yourself,",
-                    story_quote_2: "when was the last time you woke up",
-                    story_quote_highlight: "without back pain?",
-                    story_quote_3: "",
-                    story_desc: "Dull aches not only make your body tired but also take away the joy of playing with your children, focus at work, and full nights of sleep. <br/><br/>Don't let pain define your life. The healing journey begins with <span class='font-bold not-italic text-teal-700'>listening to your body</span>.",
+                    story_quote_1: "Have you ever looked in the mirror and asked:",
+                    story_quote_2: "Where is that gentle, radiant girl?",
+                    story_quote_highlight: "Instead, there are tired eyes",
+                    story_quote_3: "and a rigid body?",
+                    story_desc: "Invisible pressures make you \"brace\" yourself every day, losing connection with your true self. <br/><br/>It's time to take off the heavy armor, let feminine energy flow, and heal all wounds.",
+
+                    about_badge: "About the Instructor",
+                    about_title: "Hi, I'm Trinh.",
+                    about_p1: "Perhaps you'll see yourself in this story.",
+                    about_p2: "Before, I believed that to succeed, women had to be as strong as men. I lived days always \"fighting\", working relentlessly, and viewing exhaustion as a measure of effort.",
+                    about_p3: "Until the body spoke up. Persistent neck and shoulder pain, sleepless nights, and an inner emptiness forced me to stop. I realized: I had neglected myself for too long.",
+                    about_p4: "I turned to Yoga not to be flexible, but to learn how to BREATHE and LET GO. On the mat, I allow myself to be weak, to release pent-up stress. I understand that a woman's true strength lies not in bracing, but in the ability to be soft like Water, knowing how to return to comfort oneself.",
+                    about_p5: "That's why Trinh N Yoga was born.",
+                    about_p6: "I'm here to help you remove the heavy armor, awakening the gentle energy that has fallen asleep.",
+                    about_p7: "If you're tired of \"bracing\", let me hold your hand and walk towards Peace.",
+                    about_sign: "With love, Trinh.",
                     
-                    audience_subtitle: "Suitable Audience",
-                    audience_title: "Who is Trinh N Yoga for?",
-                    audience_desc: "Exercises are specially designed to solve lower back pain problems for specific groups.",
-                    audience_1_title: "Office Workers",
-                    audience_1_desc: "Sitting at a computer constantly leads to lower back fatigue, hunchback, and numbness in limbs. Need back stretching and posture correction exercises.",
-                    audience_2_title: "Moms & Homemakers",
-                    audience_2_desc: "Body aches after birth, especially lower back pain from carrying the baby. Need spine recovery and time-saving home workouts.",
-                    audience_3_title: "Women",
-                    audience_3_desc: "Facing spinal degeneration, pre-menopause issues. Need gentle movement, safe back pain relief.",
-                    audience_4_title: "Business Owners",
-                    audience_4_desc: "High work pressure, stress-induced back pain. Need a private space to relax the spine without travel time.",
+                    audience_subtitle: "Women Need Love",
+                    audience_title: "Who Are You in This Story?",
+                    audience_desc: "We all have our own struggles, but share a common desire to be healed.",
+                    audience_1_title: "The \"Bracing\" Woman",
+                    audience_1_desc: "Always appearing strong, shouldering everything. Needs to learn to let go of control to find lightness.",
+                    audience_2_title: "The Disconnected",
+                    audience_2_desc: "Feeling alienated from your own body, no longer feeling the inherent feminine beauty.",
+                    audience_3_title: "The Dry Soul",
+                    audience_3_desc: "Calloused emotions, easily angered, hard to open up. Needs Yoga flow to soften the mind.",
+                    audience_4_title: "The Wounded",
+                    audience_4_desc: "Holding hidden pains inside. Needs a safe space to be comforted and released.",
 
-                    pain_subtitle: "Unspoken Struggles",
-                    pain_title: "Is Pain Taking Away More Than You Think?",
-                    pain_desc: "Not just fleeting pains, lower back pain is silently eroding your quality of life.",
-                    pain_1_title: "Restless Sleep",
-                    pain_1_desc: "Lying down feels sore, turning over hurts. Waking up every morning with a stiff back makes you start the day tired and sluggish.",
-                    pain_2_title: "Helpless in Family Care",
-                    pain_2_desc: "Wanting to carry your child but your back won't allow it, doing a bit of housework requires rest. Feeling helpless when unable to take full care of your small family.",
-                    pain_3_title: "Fear of Aging",
-                    pain_3_desc: "Worrying that the pain will complicate into degeneration, severe herniation. Fear of becoming a burden, dependent on relatives when old.",
-                    pain_cta_text: "Don't let pain define your life. <br class='md:hidden'/> The solution is within reach.",
-                    pain_cta_link: "Reclaim freedom for your spine",
+                    pain_subtitle: "Understanding Yourself",
+                    pain_title: "Successful on the outside,<br/> <span class=\"text-teal-600\">but exhausted on the inside?</span>",
+                    pain_desc_1: "\"You always have to 'brace' yourself to be strong against work and life pressures.\"",
+                    pain_desc_2: "Your body starts to speak up with persistent neck and shoulder pain, sleepless nights.",
+                    pain_desc_3: "More importantly, your emotions gradually become dry, easily angered, and disconnected from your inherent femininity and softness.",
+                    pain_conclusion: "It's not a disease. <br class=\"md:hidden\"/> It's a sign you need <span class=\"text-rose-500\">Healing</span>.",
+                    pain_cta_link: "Register for Healing Consultation",
 
-                    form_badge: "Experience Offer",
-                    form_title_1: "Free 30-Minute",
-                    form_title_2: "1:1 Online Trial",
-                    form_desc: "Can't visualize how Online training works? Spend 30 minutes video calling with Trinh N Yoga to check posture, test range of motion, and feel the dedicated guidance.",
-                    form_benefit_1: "1:1 Consultation via Google Meet/Video Call",
-                    form_benefit_2: "Range of Motion Check",
-                    form_benefit_3: "Private, comfortable at home",
-                    form_header: "Register Now",
+                    form_badge: "Acquaintance Gift",
+                    form_title_1: "30-Minute Chat",
+                    form_title_2: "Awaken Femininity",
+                    form_desc: "Don't know where to start? Spend 30 minutes confiding in Trinh to be heard, understood, and find the most suitable solution for your emotions and body.",
+                    form_benefit_1: "Direct 1:1 confidential consultation",
+                    form_benefit_2: "Stress level assessment",
+                    form_benefit_3: "Receive personal healing roadmap",
+                    form_header: "Register for Consultation",
                     form_success_title: "Registration Successful!",
                     form_success_desc: "Redirecting you to the Zalo community group...",
                     form_error: "An error occurred, please try again or message via Zalo!",
                     
-                    label_name: "Your Name",
-                    placeholder_name: "Ex: Sarah Nguyen",
+                    label_name: "Your Intimate Name",
+                    placeholder_name: "Ex: Sarah",
                     label_phone: "Phone Number (Zalo)",
                     label_package: "Interested Package",
-                    pkg_opt_trial: "30m Online Trial (Free)",
-                    pkg_opt_recovery: "Online Recovery Package (7 sessions)",
-                    pkg_opt_basic: "7 Basic Yoga Sessions",
-                    pkg_opt_month: "Online Monthly Package (6,000,000đ)",
-                    pkg_opt_3month: "Online 3-Month Combo",
-                    pkg_opt_6month: "Online 6-Month Combo",
-                    label_problem: "Problem Faced",
-                    placeholder_problem: "Ex: Back pain, shoulder ache...",
+                    pkg_opt_trial: "30m Online Consultation (Free)",
+                    pkg_opt_recovery: "THE REBIRTH (Rebirth)",
+                    pkg_opt_basic: "THE AWAKENING (Awakening)",
+                    pkg_opt_month: "THE TRANSFORMATION I (Transformation 1)",
+                    pkg_opt_3month: "THE TRANSFORMATION II (Transformation 2)",
+                    pkg_opt_6month: "THE TRANSFORMATION III (Transformation 3)",
+                    label_problem: "What troubles you",
+                    placeholder_problem: "Ex: Stress, insomnia, feeling empty...",
                     btn_submit: "Send Registration",
 
-                    process_subtitle: "Scientific Process",
-                    process_title: "3-Step Online Healing Roadmap",
-                    process_desc: "The process is optimized for remote training, ensuring effective spine recovery.",
-                    step_1_title: "Online Understanding",
-                    step_1_desc: "Connect via Google Meet/Zalo. Trinh N Yoga will observe your spine, test movement, and listen to your back pain issues.",
-                    step_2_title: "1:1 Recovery",
-                    step_2_desc: "7 sessions focusing on lower back pain relief. The lesson plan is continuously adjusted based on your recovery progress.",
-                    step_3_title: "Maintain at Home",
-                    step_3_desc: "Monthly package helps you build habits to protect your spine and prevent recurring back pain.",
+                    process_subtitle: "Healing Journey",
+                    process_title: "3 Steps to Awaken Femininity",
+                    process_desc: "The process is designed for you to go deep inside, connect, and love yourself.",
+                    step_1_title: "Recognize & Accept",
+                    step_1_desc: "Stop, observe suppressed emotions, and accept weakness as part of yourself.",
+                    step_2_title: "Soften & Release",
+                    step_2_desc: "Use soft Yoga movements to unlock the body, release blocked energy in shoulders, back, and hips.",
+                    step_3_title: "Nurture & Shine",
+                    step_3_desc: "Build self-care habits, letting femininity and peace become your natural energy source.",
 
-                    pricing_subtitle: "Invest in Health",
-                    pricing_title: "1:1 Online Pricing",
-                    pricing_desc: "Personalized roadmap, flexible training via Google Meet. As effective as having a PT at home.",
+                    pricing_subtitle: "Invest in Happiness",
+                    pricing_title: "Healing Journey Pricing",
+                    pricing_desc: "Each package is a commitment of love you give to yourself.",
                     
                     label_popular: "Most Popular",
                     label_basic: "Basic",
-                    pkg_basic_title: "7 Basic Yoga Sessions",
-                    pkg_basic_desc: "For beginners getting started.",
+                    pkg_basic_title: "THE AWAKENING",
+                    pkg_basic_sub: "Awaken the Body",
+                    pkg_basic_desc: "For beginners re-sensing their bodies.",
                     pkg_feat_7sessions: "07 Sessions",
                     pkg_feat_online: "1:1 Online",
-                    pkg_feat_technique: "Standard Technique Guidance",
-                    pkg_feat_easy: "Gentle, Easy to Follow",
+                    pkg_feat_technique: "Unblock energy",
+                    pkg_feat_easy: "Relaxing, gentle",
                     btn_register: "Register Now",
                     
-                    label_newbie: "Newbie",
-                    pkg_recovery_title: "Recovery Package",
-                    pkg_recovery_desc: "Get used to Back Pain Therapy Yoga.",
-                    pkg_feat_camera: "Detailed Correction via Camera",
-                    pkg_feat_therapy: "Lower Back Pain Therapy",
+                    label_newbie: "Healing",
+                    pkg_recovery_title: "THE REBIRTH",
+                    pkg_recovery_sub: "Energy Rebirth",
+                    pkg_recovery_desc: "Focus on relieving stress and pain.",
+                    pkg_feat_camera: "Focus on breath",
+                    pkg_feat_therapy: "Soothe stiffness",
                     
                     label_maintain: "Maintain",
-                    pkg_month_title: "1 Month Package",
-                    pkg_month_desc: "Maintain regular practice at home.",
+                    pkg_month_title: "TRANSFORMATION I",
+                    pkg_month_sub: "Initial Transformation",
+                    pkg_month_desc: "Maintain self-love habits.",
                     price_month_old: "6,000,000đ/month",
                     pkg_month_note_title: "🔥 Save 20%:",
-                    pkg_month_note_desc: "For students registering maintenance after foundation course.",
+                    pkg_month_note_desc: "For students registering maintenance.",
                     pkg_feat_12sessions: "12 Sessions",
-                    pkg_feat_review: "+01 Online Review",
-                    pkg_feat_tracking: "Track stats via App",
+                    pkg_feat_review: "Emotional balance",
+                    pkg_feat_tracking: "Track energy stats",
                     
                     label_saving: "Save 33%",
-                    pkg_3month_title: "3-Month Combo",
-                    pkg_3month_desc: "Short-term commitment, persistent practice.",
+                    pkg_3month_title: "TRANSFORMATION II",
+                    pkg_3month_sub: "Deep Transformation",
+                    pkg_3month_desc: "Commit to change from within.",
                     pkg_feat_total: "Total",
                     pkg_feat_bonus3: "Bonus 03 Sessions",
-                    pkg_feat_habit: "Stabilize habits at home",
+                    pkg_feat_habit: "Body-Mind-Spirit Unity",
                     btn_consult_pkg: "Consult this package",
                     
-                    label_vip: "VIP - Best Value",
-                    pkg_6month_title: "6-Month Combo",
-                    pkg_6month_desc: "Comprehensive change in physique and health.",
+                    label_vip: "VIP - Shine",
+                    pkg_6month_title: "TRANSFORMATION III",
+                    pkg_6month_sub: "Comprehensive Transformation",
+                    pkg_6month_desc: "Become your most radiant version.",
                     pkg_6month_note_title: "🔥 Special Offer:",
                     pkg_6month_note_desc: "Save 50% + Bonus 01 month training.",
                     month: "months",
                     pkg_feat_nutrition: "Free 21-Day Nutrition Plan",
 
-                    testimonial_subtitle: "What Students Say",
-                    testimonial_title: "Stories of Change from Afar",
-                    testimonial_desc: "Genuine feedback from students participating in 1:1 Online Yoga classes.",
+                    testimonial_subtitle: "Student Feelings",
+                    testimonial_title: "Healing Journey",
+                    testimonial_desc: "Real stories about change from within.",
                     feedback_note: "*Actual photos from 1:1 Online classes",
                     
                     feed_1_name: "Ms. Ngoc",
@@ -1499,32 +1487,32 @@
                     
                     feed_2_name: "Ms. Hanh",
                     feed_2_info: "38 years old, HCM City",
-                    feed_2_text: "\"I'm an office worker, stiff back, afraid of wrong practice. Luckily Trinh uses anatomical knowledge to align the frame, no forced bending. Feel light immediately after practice.\"",
+                    feed_2_text: "\"My body used to be stiff, always bracing. Feminine Awakening Yoga helped me become softer, not just in posture but also in thinking. Feel so much more loving of life.\"",
 
                     feed_3_name: "Ms. Trang",
                     feed_3_info: "35 years old, Phu Quoc",
-                    feed_3_text: "\"My back is smooth now. Bending down in the morning doesn't hurt anymore. Admit it, feel light after practice.\"",
+                    feed_3_text: "\"The journey back inside is truly magical. I learned how to love myself, no longer tormented by past issues. Sleep is also much better.\"",
 
                     feed_4_name: "Ms. Thanh",
                     feed_4_info: "40 years old, USA",
-                    feed_4_text: "\"Touch wood, it's smooth now dear! It's magical, lately waking up my back feels light. Best part is sleeping soundly, sleep straight through to morning.\"",
+                    feed_4_text: "\"I used to think Yoga was just exercise, but with Trinh, it's soul therapy. I feel relieved, less anxious, and more confident in my own beauty.\"",
 
                     feed_5_name: "Ms. Lan",
                     feed_5_info: "32 years old, Hanoi",
-                    feed_5_text: "\"I sit at the computer all day, terrible lower back pain. Online practice with Trinh is very convenient, teacher corrects posture in detail. My back pain is much better now.\"",
+                    feed_5_text: "\"Work pressure disconnected me from my husband and children. Thanks to Yoga, I know how to leave troubles at the door, coming home with a smile and gentleness.\"",
 
                     feed_6_name: "Ms. Van",
                     feed_6_info: "55 years old, Can Tho",
-                    feed_6_text: "\"I'm older so joints are stiff, afraid of wrong practice. Luckily Trinh guides very patiently, gentle exercises. Now I feel healthier, much more flexible.\"",
+                    feed_6_text: "\"At this age, I finally know what it means to live for myself. Gentle exercises help me feel in love with life, no longer feeling lonely or self-pitying.\"",
 
                     faq_subtitle: "Answering Questions",
                     faq_title: "Frequently Asked Questions",
-                    faq_1_q: "I have never practiced Yoga, can I follow the Online class?",
-                    faq_1_a: "Absolutely. Since it's a 1:1 class, the lesson plan is designed specifically for beginners. Trinh N Yoga will guide you meticulously through each breath and basic movement to help you get used to and feel your body.",
-                    faq_2_q: "How does the teacher correct my posture Online?",
-                    faq_2_a: "Trinh N Yoga will guide you on how to place the camera (phone/laptop) to observe your whole body. Throughout the session, Trinh N Yoga always watches the screen and uses verbal cues to adjust your posture immediately, ensuring correct and safe practice.",
-                    faq_3_q: "What equipment do I need to prepare for home practice?",
-                    faq_3_a: "You just need a Yoga mat, a towel, and a device with internet connection (phone, tablet, or laptop). The practice space just needs to be wide enough to spread the mat.",
+                    faq_1_q: "How is Feminine Awakening Yoga different from normal Yoga?",
+                    faq_1_a: "Feminine Awakening Yoga focuses on soft movements, deep breathing, and emotional connection, instead of just focusing on technique or muscle strength. The goal is to help you release stiffness in both body and mind.",
+                    faq_2_q: "I feel very rigid, can I practice?",
+                    faq_2_a: "Absolutely. Rigidity is a sign you need the softness of this Yoga the most. Trinh will guide you through small steps so your body gradually relaxes without excessive stretching.",
+                    faq_3_q: "Is Online training effective emotionally?",
+                    faq_3_a: "Yes. Through voice-guided meditation and 1:1 listening, Trinh creates a safe space right in your home, helping you open up and release emotions easier than in a crowded class.",
                     faq_4_q: "If I'm busy unexpectedly, can I reschedule?",
                     faq_4_a: "Yes. Please notify Trinh N Yoga at least 4 hours in advance so Trinh N Yoga can arrange a makeup schedule for you at another convenient time during the week.",
                     faq_5_q: "What is the payment method?",
@@ -1543,9 +1531,9 @@
                     modal_p1_title: "1. Reservation Policy",
                     modal_p1_desc: "Students have the right to reserve packages in force majeure cases (health, business trip...) with a maximum period of <strong>30 days</strong>. Please notify the Coach at least 03 days in advance to process the reservation.",
                     modal_p2_title: "2. Reschedule / Cancellation Rules",
-                    modal_p2_li1: "<strong>Cancel/Reschedule:</strong> Must notify at least <strong>04 hours</strong> before class to arrange makeup.",
-                    modal_p2_li2: "<strong>Late/No show:</strong> The session will be counted as attended and deducted from the package.",
-                    modal_p2_li3: "<strong>Coach off:</strong> If the Coach has an emergency, the session will be made up at the most convenient time for the student.",
+                    modal_p2_li1: "<strong>Cancel/Reschedule:</strong> Must notify at least <strong>04 hours</strong> before class to arrange makeup.</li><li class='mt-1'><strong>Late/No show:</strong> The session will be counted as attended and deducted from the package.</li><li class='mt-1'><strong>Coach off:</strong> If the Coach has an emergency, the session will be made up at the most convenient time for the student.",
+                    modal_p2_li2: "",
+                    modal_p2_li3: "",
                     modal_p3_title: "3. Confidentiality Commitment",
                     modal_p3_desc: "Trinh N Yoga is committed to absolute confidentiality of students' personal information and training images. All images are only used for media purposes with the student's written/message consent.",
                     modal_p4_title: "4. Payment & Refund Rules",
@@ -1574,10 +1562,7 @@
                     }
                 });
                 
-                // Update visual state of flags (Highlight active, dim inactive)
-                const opacityActive = 'opacity-100';
-                const opacityInactive = 'opacity-40 grayscale';
-
+                // Update flag icon
                 const updateFlagStyle = (id, isActive) => {
                     const el = document.getElementById(id);
                     if (el) {
