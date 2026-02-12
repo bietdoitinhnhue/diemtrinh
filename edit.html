@@ -12,13 +12,13 @@
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
-            --bg-color: #fafbfe; /* Màu nền trắng sáng, hơi xanh nhẹ */
+            --bg-color: #fafbfe;
             --card-bg: #ffffff;
-            --primary: #8fa0fb; /* Tím pastel / Xanh periwinkle */
-            --accent: #ffb7b2; /* Hồng đào pastel */
-            --text-main: #4a5568; /* Xám đậm để dễ đọc */
-            --text-sec: #718096; /* Xám nhạt hơn */
-            --heading: #1a202c; /* Đen tuyền cho tiêu đề */
+            --primary: #8fa0fb;
+            --accent: #ffb7b2;
+            --text-main: #4a5568;
+            --text-sec: #718096;
+            --heading: #1a202c;
             --gradient: linear-gradient(135deg, #8fa0fb, #ffb7b2);
             --shadow: 0 15px 35px rgba(143, 160, 251, 0.15);
             --border-light: rgba(0,0,0,0.06);
@@ -123,6 +123,45 @@
             color: var(--primary);
         }
 
+        /* --- NAV CONTROLS & LANG SWITCHER --- */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            background: rgba(143, 160, 251, 0.1);
+            padding: 4px;
+            border-radius: 50px;
+            border: 1px solid var(--border-light);
+        }
+
+        .lang-switch button {
+            background: transparent;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text-sec);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .lang-switch button.active {
+            background: var(--card-bg);
+            color: var(--heading);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
         .btn-contact {
             padding: 12px 30px;
             background: transparent;
@@ -168,7 +207,7 @@
         }
 
         .btn-pulse:hover {
-            animation: none; /* Tắt nhấp nháy khi đưa chuột vào */
+            animation: none;
         }
 
         /* --- HIỆU ỨNG CLICK MÀU CAM PASTEL SHOPEE --- */
@@ -178,7 +217,7 @@
             border-color: transparent !important;
             box-shadow: 0 5px 15px rgba(255, 148, 114, 0.4) !important;
             transform: scale(0.94) !important;
-            transition: all 0.1s ease !important; /* Phản hồi cực nhanh khi chạm/click */
+            transition: all 0.1s ease !important;
             animation: none !important;
         }
 
@@ -300,8 +339,8 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Cố định 4 cột trên giao diện lớn */
-            gap: 25px; /* Điều chỉnh khoảng cách cho vừa 4 thẻ */
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
         }
 
         .project-card {
@@ -324,7 +363,7 @@
         .card-image-wrapper {
             position: relative;
             width: 100%;
-            height: 180px; /* Điều chỉnh lại độ cao do thẻ hẹp lại */
+            height: 180px;
             overflow: hidden;
         }
 
@@ -372,12 +411,12 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 15px;
-            flex-direction: column; /* Đẩy badge xuống dưới tiêu đề cho thẻ hẹp */
+            flex-direction: column;
             gap: 10px;
         }
 
         .card-header h4 { 
-            font-size: 1.2rem; /* Giảm size một chút để không bị rớt dòng quá mức */
+            font-size: 1.2rem;
             font-weight: 800;
             line-height: 1.3;
             color: var(--heading);
@@ -496,16 +535,17 @@
 
         /* --- RESPONSIVE MOBILE & TABLET --- */
         @media (max-width: 1024px) {
-            /* Máy tính bảng / laptop nhỏ: chuyển về 2 cột */
             .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
             .card-header { flex-direction: row; align-items: flex-start; }
             .card-image-wrapper { height: 220px; }
         }
 
         @media (max-width: 768px) {
-            /* Điện thoại: chuyển về 1 cột */
             .hero h1 { font-size: 3rem; }
             .nav-links { display: none; }
+            .nav-controls { gap: 10px; }
+            .nav-controls .btn-contact { padding: 8px 15px; font-size: 0.8rem; }
+            .lang-switch button { padding: 5px 8px; font-size: 0.8rem; }
             .portfolio-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 2.2rem; }
             .hero-buttons { flex-direction: column; }
@@ -523,11 +563,18 @@
             <nav>
                 <div class="logo"><i class="fas fa-play-circle"></i> TRACY EDIT</div>
                 <ul class="nav-links">
-                    <li><a href="#about">Tổng Quan</a></li>
-                    <li><a href="#skills">Kỹ Năng AI</a></li>
-                    <li><a href="#portfolio">Dự Án</a></li>
+                    <li><a href="#about" data-i18n="nav_about">Tổng Quan</a></li>
+                    <li><a href="#skills" data-i18n="nav_skills">Kỹ Năng AI</a></li>
+                    <li><a href="#portfolio" data-i18n="nav_portfolio">Dự Án</a></li>
                 </ul>
-                <a href="#contact" class="btn-contact filled btn-pulse">Liên hệ</a>
+                <div class="nav-controls">
+                    <!-- Language Switcher -->
+                    <div class="lang-switch">
+                        <button id="btn-vi" onclick="setLanguage('vi')">VI</button>
+                        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+                    </div>
+                    <a href="#contact" class="btn-contact filled btn-pulse" data-i18n="nav_contact">Liên hệ</a>
+                </div>
             </nav>
         </div>
     </header>
@@ -535,11 +582,11 @@
     <!-- Hero Section -->
     <section id="about" class="hero">
         <div class="container">
-            <h1>Nâng Tầm Thương Hiệu <br> <span class="highlight">Qua Từng Khung Hình</span></h1>
-            <p>Không chỉ là cắt ghép, tôi kể câu chuyện của bạn bằng ngôn ngữ hình ảnh. Kết hợp tư duy thẩm mỹ, kỹ năng Storytelling chuyên sâu và sức mạnh AI để tạo ra những video tối ưu tỷ lệ giữ chân và mang đậm dấu ấn riêng.</p>
+            <h1 data-i18n="hero_title">Nâng Tầm Thương Hiệu <br> <span class="highlight">Qua Từng Khung Hình</span></h1>
+            <p data-i18n="hero_desc">Không chỉ là cắt ghép, tôi kể câu chuyện của bạn bằng ngôn ngữ hình ảnh. Kết hợp tư duy thẩm mỹ, kỹ năng Storytelling chuyên sâu và sức mạnh AI để tạo ra những video tối ưu tỷ lệ giữ chân và mang đậm dấu ấn riêng.</p>
             <div class="hero-buttons">
-                <a href="#portfolio" class="btn-contact filled">Xem Portfolio</a>
-                <a href="#skills" class="btn-contact">Khám phá Kỹ năng</a>
+                <a href="#portfolio" class="btn-contact filled" data-i18n="hero_btn_1">Xem Portfolio</a>
+                <a href="#skills" class="btn-contact" data-i18n="hero_btn_2">Khám phá Kỹ năng</a>
             </div>
         </div>
     </section>
@@ -547,31 +594,31 @@
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="section-title">Công Cụ <span class="highlight">&</span> Giải Pháp</h2>
-            <p class="section-subtitle">Tối ưu hóa thời gian và chi phí sản xuất bằng sự kết hợp hoàn hảo giữa tư duy biên tập truyền thống và sức mạnh của Trí tuệ nhân tạo.</p>
+            <h2 class="section-title" data-i18n="skills_title">Công Cụ <span class="highlight">&</span> Giải Pháp</h2>
+            <p class="section-subtitle" data-i18n="skills_subtitle">Tối ưu hóa thời gian và chi phí sản xuất bằng sự kết hợp hoàn hảo giữa tư duy biên tập truyền thống và sức mạnh của Trí tuệ nhân tạo.</p>
             
             <div class="tools-grid">
                 <!-- Nhóm Edit -->
                 <div class="tool-category">
-                    <h3><i class="fas fa-layer-group"></i> Hình Ảnh & Video</h3>
+                    <h3 data-i18n="skill_img_vid"><i class="fas fa-layer-group"></i> Hình Ảnh & Video</h3>
                     <div class="tags">
                         <span class="tag"><i class="fas fa-cut"></i> CapCut Pro</span>
                         <span class="tag"><i class="fas fa-paint-brush"></i> Canva Premium</span>
                         <span class="tag"><i class="fas fa-film"></i> Short-form Editing</span>
-                        <span class="tag"><i class="fas fa-closed-captioning"></i> Hiệu ứng chữ động</span>
+                        <span class="tag" data-i18n="tag_fx"><i class="fas fa-closed-captioning"></i> Hiệu ứng chữ động</span>
                         <span class="tag"><i class="fas fa-music"></i> Sound Design</span>
                     </div>
                 </div>
 
                 <!-- Nhóm AI -->
                 <div class="tool-category">
-                    <h3><i class="fas fa-robot"></i> Công Nghệ AI</h3>
+                    <h3 data-i18n="skill_ai"><i class="fas fa-robot"></i> Công Nghệ AI</h3>
                     <div class="tags">
-                        <span class="tag"><i class="fas fa-bolt"></i> ChatGPT (Kịch bản)</span>
+                        <span class="tag" data-i18n="tag_script"><i class="fas fa-bolt"></i> ChatGPT (Kịch bản)</span>
                         <span class="tag"><i class="fas fa-sparkles"></i> Google Gemini</span>
                         <span class="tag"><i class="fas fa-video"></i> Veo3 (Video Gen)</span>
-                        <span class="tag"><i class="fas fa-microphone-alt"></i> Ausynlabs (Lồng tiếng)</span>
-                        <span class="tag"><i class="fas fa-language"></i> Dịch thuật AI</span>
+                        <span class="tag" data-i18n="tag_voice"><i class="fas fa-microphone-alt"></i> Ausynlabs (Lồng tiếng)</span>
+                        <span class="tag" data-i18n="tag_trans"><i class="fas fa-language"></i> Dịch thuật AI</span>
                     </div>
                 </div>
             </div>
@@ -581,15 +628,14 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio-section">
         <div class="container">
-            <h2 class="section-title">Dự Án <span class="highlight">Tiêu Biểu</span></h2>
-            <p class="section-subtitle">Hệ thống các kênh truyền thông tôi đã xây dựng, tối ưu hóa và trực tiếp sản xuất nội dung.</p>
+            <h2 class="section-title" data-i18n="port_title">Dự Án <span class="highlight">Tiêu Biểu</span></h2>
+            <p class="section-subtitle" data-i18n="port_subtitle">Hệ thống các kênh truyền thông tôi đã xây dựng, tối ưu hóa và trực tiếp sản xuất nội dung.</p>
 
             <div class="portfolio-grid">
                 
                 <!-- Project 1: Hữu Cơ Tây Ban Nha -->
                 <div class="project-card">
                     <div class="card-image-wrapper">
-                        <!-- Ảnh banner phân bón hữu cơ Tây Ban Nha -->
                         <img src="https://unicovn.com/wp-content/uploads/2022/06/12.jpg" alt="Hữu Cơ Tây Ban Nha">
                         <div class="play-overlay"><i class="fas fa-play"></i></div>
                     </div>
@@ -598,15 +644,14 @@
                             <h4>Hữu Cơ Tây Ban Nha</h4>
                             <span class="platform-badge tiktok"><i class="fab fa-tiktok"></i> TikTok</span>
                         </div>
-                        <p>Kênh phân phối sản phẩm nông nghiệp/mỹ phẩm hữu cơ. Phong cách edit lifestyle, tone màu tự nhiên, ASMR nhẹ nhàng.</p>
-                        <a href="https://www.tiktok.com/@huucotaybannha" target="_blank" class="btn-view">Xem Kênh TikTok</a>
+                        <p data-i18n="p1_desc">Kênh phân phối sản phẩm nông nghiệp/mỹ phẩm hữu cơ. Phong cách edit lifestyle, tone màu tự nhiên, ASMR nhẹ nhàng.</p>
+                        <a href="https://www.tiktok.com/@huucotaybannha" target="_blank" class="btn-view" data-i18n="btn_tiktok">Xem Kênh TikTok</a>
                     </div>
                 </div>
 
                 <!-- Project 2: Noah Aesthetic Clinic -->
                 <div class="project-card">
                     <div class="card-image-wrapper">
-                        <!-- Ảnh banner Noah Spa -->
                         <img src="https://scontent.fvca1-1.fna.fbcdn.net/v/t39.30808-6/615151417_1202591185396269_2162339827840074279_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=GUjGeOlNjqQQ7kNvwEIVoLi&_nc_oc=AdnUBlepGFUSY72hqYOkdBetjua9UO6xS2ZcKxz6W2eGtpq6pT37li9uiisCuJQUptwf13dDkS2Ax0h-EupORNfl&_nc_zt=23&_nc_ht=scontent.fvca1-1.fna&_nc_gid=wyRd_DZk7SRR70ab_Ab4Xg&oh=00_AfsHn60BuimApfWeSIBb4uPfuXtRKvSh9dzwf6BumnJc9w&oe=69935FC2" alt="Noah Aesthetic Clinic">
                         <div class="play-overlay"><i class="fas fa-play"></i></div>
                     </div>
@@ -615,15 +660,14 @@
                             <h4>Noah Aesthetic Clinic</h4>
                             <span class="platform-badge tiktok"><i class="fab fa-tiktok"></i> TikTok</span>
                         </div>
-                        <p>Định vị thương hiệu thẩm mỹ viện cao cấp. Video tập trung vào chi tiết dịch vụ, review khách hàng, Before/After ấn tượng.</p>
-                        <a href="https://www.tiktok.com/@noah.aestheticclinic" target="_blank" class="btn-view">Xem Kênh TikTok</a>
+                        <p data-i18n="p2_desc">Định vị thương hiệu thẩm mỹ viện cao cấp. Video tập trung vào chi tiết dịch vụ, review khách hàng, Before/After ấn tượng.</p>
+                        <a href="https://www.tiktok.com/@noah.aestheticclinic" target="_blank" class="btn-view" data-i18n="btn_tiktok">Xem Kênh TikTok</a>
                     </div>
                 </div>
 
                 <!-- Project 3: Trinh N Yoga (FB) -->
                 <div class="project-card">
                     <div class="card-image-wrapper">
-                        <!-- Ảnh banner Trinh N Yoga -->
                         <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/Yoga_Trinh.png" alt="Trinh N Yoga FB">
                         <div class="play-overlay"><i class="fas fa-play"></i></div>
                     </div>
@@ -632,15 +676,14 @@
                             <h4>Trinh N Yoga</h4>
                             <span class="platform-badge facebook"><i class="fab fa-facebook-f"></i> Facebook</span>
                         </div>
-                        <p>Fanpage chia sẻ kiến thức sức khỏe, Yoga trị liệu. Định dạng Video dài kết hợp FB Reels truyền cảm hứng mỗi ngày.</p>
-                        <a href="https://www.facebook.com/TrinhNyoga" target="_blank" class="btn-view">Xem Fanpage</a>
+                        <p data-i18n="p3_desc">Fanpage chia sẻ kiến thức sức khỏe, Yoga trị liệu. Định dạng Video dài kết hợp FB Reels truyền cảm hứng mỗi ngày.</p>
+                        <a href="https://www.facebook.com/TrinhNyoga" target="_blank" class="btn-view" data-i18n="btn_fb">Xem Fanpage</a>
                     </div>
                 </div>
 
                 <!-- Project 4: Trinh N Yoga (TikTok) -->
                 <div class="project-card">
                     <div class="card-image-wrapper">
-                        <!-- Ảnh banner Trinh N Yoga -->
                         <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/Yoga_Trinh.png" alt="Trinh N Yoga TikTok">
                         <div class="play-overlay"><i class="fas fa-play"></i></div>
                     </div>
@@ -649,8 +692,8 @@
                             <h4>Trinh N Yoga (Shorts)</h4>
                             <span class="platform-badge tiktok"><i class="fab fa-tiktok"></i> TikTok</span>
                         </div>
-                        <p>Kênh TikTok tập trung vào hướng dẫn tư thế Yoga nhanh gọn, nhạc trend, nhịp điệu edit bắt mắt thu hút giới trẻ.</p>
-                        <a href="https://www.tiktok.com/@trinhnyoga" target="_blank" class="btn-view">Xem Kênh TikTok</a>
+                        <p data-i18n="p4_desc">Kênh TikTok tập trung vào hướng dẫn tư thế Yoga nhanh gọn, nhạc trend, nhịp điệu edit bắt mắt thu hút giới trẻ.</p>
+                        <a href="https://www.tiktok.com/@trinhnyoga" target="_blank" class="btn-view" data-i18n="btn_tiktok">Xem Kênh TikTok</a>
                     </div>
                 </div>
 
@@ -661,24 +704,24 @@
     <!-- Call To Action -->
     <section id="contact" class="cta-section">
         <div class="container">
-            <h2>Sẵn sàng bắt đầu dự án mới?</h2>
-            <p style="color: var(--text-sec); margin-bottom: 30px; font-size: 1.2rem;">Hãy để tôi giúp bạn kể câu chuyện thương hiệu qua những thước phim.</p>
+            <h2 data-i18n="cta_title">Sẵn sàng bắt đầu dự án mới?</h2>
+            <p style="color: var(--text-sec); margin-bottom: 30px; font-size: 1.2rem;" data-i18n="cta_desc">Hãy để tôi giúp bạn kể câu chuyện thương hiệu qua những thước phim.</p>
             
             <div class="contact-info-text">
-                <div style="margin-bottom: 10px;"><i class="fas fa-phone-alt"></i> Liên hệ / Zalo: <strong>0939 347 266</strong> (Ms. Trinh)</div>
-                <div style="margin-bottom: 10px;"><i class="fab fa-telegram-plane"></i> Hoặc Telegram: <strong>t.me/trinhnyoga</strong></div>
-                <div><i class="fab fa-facebook-messenger"></i> Messenger: <strong>m.me/100009141864190</strong></div>
+                <div style="margin-bottom: 10px;" data-i18n="contact_1"><i class="fas fa-phone-alt"></i> Liên hệ / Zalo: <strong>0939 347 266</strong> (Ms. Trinh)</div>
+                <div style="margin-bottom: 10px;" data-i18n="contact_2"><i class="fab fa-telegram-plane"></i> Hoặc Telegram: <strong>t.me/trinhnyoga</strong></div>
+                <div data-i18n="contact_3"><i class="fab fa-facebook-messenger"></i> Messenger: <strong>m.me/100009141864190</strong></div>
             </div>
 
             <div class="hero-buttons">
-                <!-- Nút trỏ trực tiếp đến app Zalo, Telegram và Messenger có hiệu ứng click Shopee Pastel -->
-                <a href="https://zalo.me/0939347266" target="_blank" class="btn-contact filled btn-pulse btn-shopee-active" style="font-size: 1.1rem; padding: 15px 35px;">
+                <!-- Nút trỏ trực tiếp đến app Zalo, Telegram và Messenger -->
+                <a href="https://zalo.me/0939347266" target="_blank" class="btn-contact filled btn-pulse btn-shopee-active" style="font-size: 1.1rem; padding: 15px 35px;" data-i18n="btn_zalo">
                     <i class="fas fa-comment-dots" style="margin-right: 8px;"></i> Nhắn Zalo
                 </a>
-                <a href="https://m.me/100009141864190" target="_blank" class="btn-contact filled btn-pulse btn-shopee-active" style="font-size: 1.1rem; padding: 15px 35px;">
+                <a href="https://m.me/100009141864190" target="_blank" class="btn-contact filled btn-pulse btn-shopee-active" style="font-size: 1.1rem; padding: 15px 35px;" data-i18n="btn_msg">
                     <i class="fab fa-facebook-messenger" style="margin-right: 8px;"></i> Messenger
                 </a>
-                <a href="https://t.me/trinhnyoga" target="_blank" class="btn-contact btn-shopee-active" style="font-size: 1.1rem; padding: 15px 35px; background: #fff;">
+                <a href="https://t.me/trinhnyoga" target="_blank" class="btn-contact btn-shopee-active" style="font-size: 1.1rem; padding: 15px 35px; background: #fff;" data-i18n="btn_tele">
                     <i class="fab fa-telegram-plane" style="margin-right: 8px;"></i> Telegram
                 </a>
             </div>
@@ -695,9 +738,107 @@
                 <a href="https://zalo.me/0939347266" target="_blank" title="Zalo"><i class="fas fa-phone-alt"></i></a>
                 <a href="https://t.me/trinhnyoga" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
             </div>
-            <p style="font-size: 0.9rem; color: var(--text-sec);">© 2026 TRACY EDIT Portfolio. Tối ưu bằng AI & Sự sáng tạo.</p>
+            <p style="font-size: 0.9rem; color: var(--text-sec);" data-i18n="footer_text">© 2026 TRACY EDIT Portfolio. Tối ưu bằng AI & Sự sáng tạo.</p>
         </div>
     </footer>
 
+    <!-- LANGUAGE SWITCHER LOGIC -->
+    <script>
+        const translations = {
+            vi: {
+                nav_about: "Tổng Quan",
+                nav_skills: "Kỹ Năng AI",
+                nav_portfolio: "Dự Án",
+                nav_contact: "Liên hệ",
+                hero_title: "Nâng Tầm Thương Hiệu <br> <span class='highlight'>Qua Từng Khung Hình</span>",
+                hero_desc: "Không chỉ là cắt ghép, tôi kể câu chuyện của bạn bằng ngôn ngữ hình ảnh. Kết hợp tư duy thẩm mỹ, kỹ năng Storytelling chuyên sâu và sức mạnh AI để tạo ra những video tối ưu tỷ lệ giữ chân và mang đậm dấu ấn riêng.",
+                hero_btn_1: "Xem Portfolio",
+                hero_btn_2: "Khám phá Kỹ năng",
+                skills_title: "Công Cụ <span class='highlight'>&</span> Giải Pháp",
+                skills_subtitle: "Tối ưu hóa thời gian và chi phí sản xuất bằng sự kết hợp hoàn hảo giữa tư duy biên tập truyền thống và sức mạnh của Trí tuệ nhân tạo.",
+                skill_img_vid: "<i class='fas fa-layer-group'></i> Hình Ảnh & Video",
+                tag_fx: "<i class='fas fa-closed-captioning'></i> Hiệu ứng chữ động",
+                skill_ai: "<i class='fas fa-robot'></i> Công Nghệ AI",
+                tag_script: "<i class='fas fa-bolt'></i> ChatGPT (Kịch bản)",
+                tag_voice: "<i class='fas fa-microphone-alt'></i> Ausynlabs (Lồng tiếng)",
+                tag_trans: "<i class='fas fa-language'></i> Dịch thuật AI",
+                port_title: "Dự Án <span class='highlight'>Tiêu Biểu</span>",
+                port_subtitle: "Hệ thống các kênh truyền thông tôi đã xây dựng, tối ưu hóa và trực tiếp sản xuất nội dung.",
+                p1_desc: "Kênh phân phối sản phẩm nông nghiệp/mỹ phẩm hữu cơ. Phong cách edit lifestyle, tone màu tự nhiên, ASMR nhẹ nhàng.",
+                btn_tiktok: "Xem Kênh TikTok",
+                p2_desc: "Định vị thương hiệu thẩm mỹ viện cao cấp. Video tập trung vào chi tiết dịch vụ, review khách hàng, Before/After ấn tượng.",
+                p3_desc: "Fanpage chia sẻ kiến thức sức khỏe, Yoga trị liệu. Định dạng Video dài kết hợp FB Reels truyền cảm hứng mỗi ngày.",
+                btn_fb: "Xem Fanpage",
+                p4_desc: "Kênh TikTok tập trung vào hướng dẫn tư thế Yoga nhanh gọn, nhạc trend, nhịp điệu edit bắt mắt thu hút giới trẻ.",
+                cta_title: "Sẵn sàng bắt đầu dự án mới?",
+                cta_desc: "Hãy để tôi giúp bạn kể câu chuyện thương hiệu qua những thước phim.",
+                contact_1: "<i class='fas fa-phone-alt'></i> Liên hệ / Zalo: <strong>0939 347 266</strong> (Ms. Trinh)",
+                contact_2: "<i class='fab fa-telegram-plane'></i> Hoặc Telegram: <strong>t.me/trinhnyoga</strong>",
+                contact_3: "<i class='fab fa-facebook-messenger'></i> Messenger: <strong>m.me/100009141864190</strong>",
+                btn_zalo: "<i class='fas fa-comment-dots' style='margin-right: 8px;'></i> Nhắn Zalo",
+                btn_msg: "<i class='fab fa-facebook-messenger' style='margin-right: 8px;'></i> Messenger",
+                btn_tele: "<i class='fab fa-telegram-plane' style='margin-right: 8px;'></i> Telegram",
+                footer_text: "© 2026 TRACY EDIT Portfolio. Tối ưu bằng AI & Sự sáng tạo."
+            },
+            en: {
+                nav_about: "Overview",
+                nav_skills: "AI Skills",
+                nav_portfolio: "Projects",
+                nav_contact: "Contact",
+                hero_title: "Elevating Your Brand <br> <span class='highlight'>Through Every Frame</span>",
+                hero_desc: "More than just editing, I tell your brand's story through visual language. Combining an aesthetic mindset, advanced storytelling skills, and AI technology to create videos with optimal retention rates and a unique signature.",
+                hero_btn_1: "View Portfolio",
+                hero_btn_2: "Explore Skills",
+                skills_title: "Tools <span class='highlight'>&</span> Solutions",
+                skills_subtitle: "Optimizing production time and costs through the perfect combination of traditional editing mindset and the power of Artificial Intelligence.",
+                skill_img_vid: "<i class='fas fa-layer-group'></i> Image & Video",
+                tag_fx: "<i class='fas fa-closed-captioning'></i> Dynamic Typography",
+                skill_ai: "<i class='fas fa-robot'></i> AI Technology",
+                tag_script: "<i class='fas fa-bolt'></i> ChatGPT (Scripting)",
+                tag_voice: "<i class='fas fa-microphone-alt'></i> Ausynlabs (Voiceovers)",
+                tag_trans: "<i class='fas fa-language'></i> AI Translation",
+                port_title: "Featured <span class='highlight'>Projects</span>",
+                port_subtitle: "The media channels I have built, optimized, and directly produced content for.",
+                p1_desc: "Distribution channel for organic agriculture & cosmetics. Lifestyle editing, natural color tones, gentle ASMR.",
+                btn_tiktok: "View TikTok",
+                p2_desc: "Premium aesthetic clinic brand positioning. Videos focus on service details, customer reviews, and impressive Before/Afters.",
+                p3_desc: "Fanpage sharing health and therapeutic Yoga knowledge. Long-form videos combined with inspiring daily FB Reels.",
+                btn_fb: "View Fanpage",
+                p4_desc: "TikTok channel focused on quick Yoga pose tutorials, trending music, and eye-catching editing rhythms to attract young audiences.",
+                cta_title: "Ready to start a new project?",
+                cta_desc: "Let me help you tell your brand's story through cinematic footage.",
+                contact_1: "<i class='fas fa-phone-alt'></i> Contact / Zalo: <strong>0939 347 266</strong> (Ms. Trinh)",
+                contact_2: "<i class='fab fa-telegram-plane'></i> Or Telegram: <strong>t.me/trinhnyoga</strong>",
+                contact_3: "<i class='fab fa-facebook-messenger'></i> Messenger: <strong>m.me/100009141864190</strong>",
+                btn_zalo: "<i class='fas fa-comment-dots' style='margin-right: 8px;'></i> Message Zalo",
+                btn_msg: "<i class='fab fa-facebook-messenger' style='margin-right: 8px;'></i> Messenger",
+                btn_tele: "<i class='fab fa-telegram-plane' style='margin-right: 8px;'></i> Telegram",
+                footer_text: "© 2026 TRACY EDIT Portfolio. Optimized with AI & Creativity."
+            }
+        };
+
+        function setLanguage(lang) {
+            // Cập nhật trạng thái nút
+            document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            
+            // Tìm và thay đổi tất cả các đoạn text có chứa thuộc tính data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Lưu cài đặt ngôn ngữ vào bộ nhớ trình duyệt
+            localStorage.setItem('portfolio_lang', lang);
+        }
+
+        // Tự động load ngôn ngữ đã lưu khi trang vừa mở lên
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('portfolio_lang') || 'vi';
+            setLanguage(savedLang);
+        });
+    </script>
 </body>
 </html>
