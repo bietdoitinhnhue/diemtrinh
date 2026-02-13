@@ -538,6 +538,8 @@
             .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
             .card-header { flex-direction: row; align-items: flex-start; }
             .card-image-wrapper { height: 220px; }
+            /* Gallery tablet */
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -552,6 +554,61 @@
             .btn-contact { text-align: center; }
             .card-image-wrapper { height: 250px; }
             .contact-info-text { font-size: 1rem; padding: 15px; }
+            /* Gallery mobile */
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+
+        /* --- GALLERY SECTION (NEW) --- */
+        .gallery-section {
+            padding: 80px 0;
+            background: #ffffff;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Đổi thành 3 cột (trên 3 dưới 3) */
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1 / 1; /* Tỷ lệ vuông 900:900 */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            z-index: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(143, 160, 251, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
         }
     </style>
 </head>
@@ -701,6 +758,47 @@
         </div>
     </section>
 
+    <!-- Gallery Section (6 images 900:900) -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="gallery_title">Thư Viện Ảnh <br> <span class="highlight">Thiết Kế Bởi Tracy</span></h2>
+            <p class="section-subtitle" data-i18n="gallery_subtitle">Bộ sưu tập các ấn phẩm hình ảnh sáng tạo được thực hiện trực tiếp bởi Tracy.</p>
+            
+            <div class="gallery-grid">
+                <!-- Image 1 -->
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/E01.jpg" alt="Design Portfolio 1">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <!-- Image 2 -->
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/E02.jpg" alt="Design Portfolio 2">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <!-- Image 3 -->
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/E03.jpg" alt="Design Portfolio 3">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <!-- Image 4 -->
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/E04.jpg" alt="Design Portfolio 4">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <!-- Image 5 -->
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/E05.jpg" alt="Design Portfolio 5">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <!-- Image 6 -->
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/bietdoitinhnhue/diemtrinh/refs/heads/main/E06.jpg" alt="Design Portfolio 6">
+                    <div class="gallery-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Call To Action -->
     <section id="contact" class="cta-section">
         <div class="container">
@@ -770,6 +868,11 @@
                 p3_desc: "Fanpage chia sẻ kiến thức sức khỏe, Yoga trị liệu. Định dạng Video dài kết hợp FB Reels truyền cảm hứng mỗi ngày.",
                 btn_fb: "Xem Fanpage",
                 p4_desc: "Kênh TikTok tập trung vào hướng dẫn tư thế Yoga nhanh gọn, nhạc trend, nhịp điệu edit bắt mắt thu hút giới trẻ.",
+                
+                // Gallery translations VI
+                gallery_title: "Thư Viện Ảnh <br> <span class='highlight'>Thiết Kế Bởi Tracy</span>",
+                gallery_subtitle: "Bộ sưu tập các ấn phẩm hình ảnh sáng tạo được thực hiện trực tiếp bởi Tracy.",
+
                 cta_title: "Sẵn sàng bắt đầu dự án mới?",
                 cta_desc: "Hãy để tôi giúp bạn kể câu chuyện thương hiệu qua những thước phim.",
                 contact_1: "<i class='fas fa-phone-alt'></i> Liên hệ / Zalo: <strong>0939 347 266</strong> (Ms. Trinh)",
@@ -805,6 +908,11 @@
                 p3_desc: "Fanpage sharing health and therapeutic Yoga knowledge. Long-form videos combined with inspiring daily FB Reels.",
                 btn_fb: "View Fanpage",
                 p4_desc: "TikTok channel focused on quick Yoga pose tutorials, trending music, and eye-catching editing rhythms to attract young audiences.",
+                
+                // Gallery translations EN
+                gallery_title: "Image Gallery <br> <span class='highlight'>Designed By Tracy</span>",
+                gallery_subtitle: "A collection of creative visual publications directly executed by Tracy.",
+
                 cta_title: "Ready to start a new project?",
                 cta_desc: "Let me help you tell your brand's story through cinematic footage.",
                 contact_1: "<i class='fas fa-phone-alt'></i> Contact / Zalo: <strong>0939 347 266</strong> (Ms. Trinh)",
