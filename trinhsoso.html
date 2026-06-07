@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinh Sô Sồ | Beauty, Fashion & Lifestyle Video Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #1a1a1e;
+            --accent-color: #e0a96d; /* Rose Gold */
+            --text-main: #ffffff;
+            --text-muted: #a0a0a5;
+            --border-color: #2a2a30;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'UTM Avo', 'Be Vietnam Pro', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 25px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .contact-btn {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--accent-color);
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            margin-top: 20px;
+            border-radius: 24px;
+            overflow: hidden;
+            padding: 140px 60px 120px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, rgba(15,15,17,0.95) 20%, rgba(15,15,17,0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(224, 169, 109, 0.1);
+            color: var(--accent-color);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border: 1px solid rgba(224, 169, 109, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            color: #d0d0d5;
+            font-size: 16px;
+            font-weight: 400;
+            max-width: 550px;
+        }
+
+        /* Software Stack Container */
+        .software-stack {
+            display: flex;
+            gap: 20px;
+        }
+
+        .software-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .software-badge:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .software-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .icon-capcut {
+            background: #000;
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .icon-capcut svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        .software-badge span {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Titles */
+        .category-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .category-title span {
+            color: var(--accent-color);
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            margin-top: 80px;
+        }
+
+        /* Tabs Navigation */
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 12px 28px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border-color: var(--accent-color);
+        }
+
+        /* Tabs Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Project Card */
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: #3a3a42;
+        }
+
+        /* Khung chứa Video */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background-color: #000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .project-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .drive-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background-color: #252529;
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .drive-btn:hover {
+            background-color: var(--text-main); 
+            color: var(--bg-color);
+            border-color: var(--text-main);
+        }
+
+        .drive-btn svg {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Why Choose Me Section */
+        .why-choose-me {
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: rgba(26, 26, 30, 0.5);
+            padding: 35px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(224, 169, 109, 0.1);
+            border-radius: 50%;
+            color: var(--accent-color);
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 80px;
+            padding: 60px 0;
+            background: linear-gradient(180deg, var(--bg-color) 0%, rgba(224, 169, 109, 0.03) 100%);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-card.zalo:hover {
+            border-color: #0068ff;
+            box-shadow: 0 10px 20px rgba(0, 104, 255, 0.2);
+        }
+
+        .contact-card.telegram:hover {
+            border-color: #0088cc;
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.2);
+        }
+
+        .contact-card svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .contact-card.zalo svg { fill: #0068ff; }
+        .contact-card.telegram svg { fill: #0088cc; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 13px;
+            background: rgba(224, 169, 109, 0.03);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .tab-content.active { grid-template-columns: repeat(2, 1fr); }
+            .hero-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 100px 30px 60px 30px;
+                margin-top: 60px;
+            }
+            .hero-content h1 { font-size: 36px; }
+            .hero-content p { margin: 0 auto; }
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid { flex-direction: column; padding: 0 20px; }
+            .contact-card { justify-content: center; }
+        }
+
+        @media (max-width: 600px) {
+            .tab-content.active { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">Trinh<span> Sô Sồ</span></div>
+            <a href="#contact" class="contact-btn">Liên Hệ</a>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="hero-banner">
+            <div class="hero-content">
+                <div class="hero-tag">Video Editor Portfolio</div>
+                <h1>Crafting Visual Stories for <span>Beauty & Lifestyle Brands</span></h1>
+                <p>Chuyên thiết kế hình ảnh chuyển động và dựng video phân khúc cao cấp chuyên nghiệp cho ngành Beauty Clinic, Personal Brand, Cosmo Nails Spa & Fashion.</p>
+            </div>
+            
+            <div class="software-stack">
+                <div class="software-badge">
+                    <div class="software-icon icon-capcut">
+                        <svg viewBox="0 0 24 24"><path d="M12,2L22,12L12,22L2,12L12,2M12,5.5L5.5,12L12,18.5L18.5,12L12,5.5Z" /></svg>
+                    </div>
+                    <span>CapCut Pro</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container portfolio-section">
+        <h2 class="category-title">Dự án <span>Edit Video</span></h2>
+
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="openTab(event, 'beauty-clinic')">Beauty Clinic</button>
+            <button class="tab-btn" onclick="openTab(event, 'koc-personal-brand')">Personal Brand</button>
+            <button class="tab-btn" onclick="openTab(event, 'cosmo-nails-spa')">Cosmo Nails Spa</button>
+            <button class="tab-btn" onclick="openTab(event, 'fashion')">Fashion</button>
+        </div>
+
+        <div id="beauty-clinic" class="tab-content active">
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe class="video-iframe" src="https://drive.google.com/file/d/1dql8ynWZ5fUInDrlAQ600QSA_R2RBKF-/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Brand Video</span>
+                    <h3 class="project-title">NOAH Aesthetic Clinic</h3>
+                    <p class="project-desc">Video giới thiệu dịch vụ thẩm mỹ cao cấp, edit mượt mà kết hợp text animation chuyên nghiệp bằng CapCut.</p>
+                    <a href="https://drive.google.com/drive/folders/1Pg3iJWV1zYceIx6-gwm6D42_mhosOUWX?usp=sharing" target="_blank" class="drive-btn">
+                        <svg viewBox="0 0 24 24"><path d="M7.71,3.5L1.15,15L4.58,21L11.13,9.5M9.73,15L6.3,21H19.42L22.85,15M22.28,14L15.73,2.5H8.87L15.42,14"/></svg>
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe class="video-iframe" src="https://drive.google.com/file/d/1rXpeCsYAQMSA-ClVCIM468oQ65AgHEx1/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Relax & Treatment</span>
+                    <h3 class="project-title">NOAH Spa Clinic</h3>
+                    <p class="project-desc">Trải nghiệm Spa thư giãn với nhịp điệu cắt ghép chậm rãi, tối ưu hóa âm thanh ASMR mang lại cảm giác dễ chịu.</p>
+                    <a href="https://drive.google.com/drive/folders/1gjvC0zUcI639txic8OxJPkhUD69-hvWK?usp=sharing" target="_blank" class="drive-btn">
+                        <svg viewBox="0 0 24 24"><path d="M7.71,3.5L1.15,15L4.58,21L11.13,9.5M9.73,15L6.3,21H19.42L22.85,15M22.28,14L15.73,2.5H8.87L15.42,14"/></svg>
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe class="video-iframe" src="https://drive.google.com/file/d/1nYyJ2ugUBTxVXqkFTc9fgbLXIJkNX_3C/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Customer Review</span>
+                    <h3 class="project-title">Bella Beauty</h3>
+                    <p class="project-desc">Video Before/After và feedback khách hàng, chèn hiệu ứng chuyển cảnh bắt mắt và text tracking nổi bật.</p>
+                    <a href="https://drive.google.com/drive/folders/18Zxbt33Qd3WiqrX_ODUt3M3fQY_ZmrYC?usp=sharing" target="_blank" class="drive-btn">
+                        <svg viewBox="0 0 24 24"><path d="M7.71,3.5L1.15,15L4.58,21L11.13,9.5M9.73,15L6.3,21H19.42L22.85,15M22.28,14L15.73,2.5H8.87L15.42,14"/></svg>
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe class="video-iframe" src="https://drive.google.com/file/d/1MHLUhvhXt_1HUm70v3QkN8mQ-NQj8N2n/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Trending Reels</span>
+                    <h3 class="project-title">Mina Lab</h3>
+                    <p class="project-desc">Video ngắn chuẩn format Tiktok/Reels, bắt trend âm thanh và nhịp độ cắt nhanh cuốn hút người xem.</p>
+                    <a href="https://drive.google.com/drive/folders/1qjDnJPP_hsiO8tfHzAQe0lRXTZCK6Loc?usp=sharing" target="_blank" class="drive-btn">
+                        <svg viewBox="0 0 24 24"><path d="M7.71,3.5L1.15,15L4.58,21L11.13,9.5M9.73,15L6.3,21H19.42L22.85,15M22.28,14L15.73,2.5H8.87L15.42,14"/></svg>
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="koc-personal-brand" class="tab-content">
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe class="video-iframe" src="https://drive.google.com/file/d/1sD5gv5LJDx3IX6BjVO049vkcTTgHTWEr/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Talking Head</span>
+                    <h3 class="project-title">Chuỗi Video Chia Sẻ Kiến Thức</h3>
+                    <p class="project-desc">Dựng video dạng Talking Head chuyên nghiệp, chèn B-roll sinh động, đồ họa giải thích và subtitle chỉn chu.</p>
+                    <a href="https://drive.google.com/drive/folders/1lgyVrmkj3Juc_fmSwUj0zWyFfcZCDNeK?usp=sharing" target="_blank" class="drive-btn">
+                        <svg viewBox="0 0 24 24"><path d="M7.71,3.5L1.15,15L4.58,21L11.13,9.5M9.73,15L6.3,21H19.42L22.85,15M22.28,14L15.73,2.5H8.87L15.42,14"/></svg>
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="cosmo-nails-spa" class="tab-content">
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe class="video-iframe" src="https://drive.google.com/file/d/10s-IX6woW3elaTrL0TOTav7-U7OT07sO/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Cinematic Showcase</span>
+                    <h3 class="project-title">Cosmo Nails Art Collection</h3>
+                    <p class="project-desc">Video quay cận cảnh macro, tinh chỉnh độ nét và sắc độ màu để làm nổi bật sự tỉ mỉ của các mẫu Nail Art.</p>
+                    <a href="https://drive.google.com/file/d/10s-IX6woW3elaTrL0TOTav7-U7OT07sO/view?usp=sharing" target="_blank" class="drive-btn">
+                        <svg viewBox="0 0 24 24"><path d="M7.71,3.5L1.15,15L4.58,21L11.13,9.5M9.73,15L6.3,21H19.42L22.85,15M22.28,14L15.73,2.5H8.87L15.42,14"/></svg>
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="fashion" class="tab-content">
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe class="video-iframe" src="https://drive.google.com/file/d/11x7F_GFgNjE8HoYMjzuCZugbJ0qS6lvS/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Cinematic Lookbook</span>
+                    <h3 class="project-title">Fashion Collection Launch</h3>
+                    <p class="project-desc">Dựng video Lookbook đậm chất điện ảnh, nhịp chuyển cảnh match hoàn toàn với beat nhạc sang trọng.</p>
+                    <a href="https://drive.google.com/drive/folders/1FrA6X1icBUV1uWYUHIahwhip6ejmbWKe?usp=sharing" target="_blank" class="drive-btn">
+                        <svg viewBox="0 0 24 24"><path d="M7.71,3.5L1.15,15L4.58,21L11.13,9.5M9.73,15L6.3,21H19.42L22.85,15M22.28,14L15.73,2.5H8.87L15.42,14"/></svg>
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="video-container">
+                    <iframe class="video-iframe" src="https://drive.google.com/file/d/ID_CUA_VIDEO_FASHION_2/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Tiktok / IG Reels</span>
+                    <h3 class="project-title">Streetwear Local Brand</h3>
+                    <p class="project-desc">Áp dụng kỹ thuật Glitch, Masking và Text động mạnh mẽ để tạo ra những video ngắn đầy cá tính, thu hút Gen Z.</p>
+                    <a href="https://drive.google.com/drive/folders/1FrA6X1icBUV1uWYUHIahwhip6ejmbWKe?usp=sharing" target="_blank" class="drive-btn">
+                        <svg viewBox="0 0 24 24"><path d="M7.71,3.5L1.15,15L4.58,21L11.13,9.5M9.73,15L6.3,21H19.42L22.85,15M22.28,14L15.73,2.5H8.87L15.42,14"/></svg>
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="container why-choose-me">
+        <h2 class="category-title">Tại sao nên chọn <span>Trinh Sô Sồ?</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.86L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg>
+                </div>
+                <h3>Am hiểu ngành Beauty & Fashion</h3>
+                <p>Nắm bắt chính xác ngôn ngữ hình ảnh, định vị thương hiệu và tinh thần thẩm mỹ cao cấp mà các nhãn hàng muốn truyền tải.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                </div>
+                <h3>Tối ưu tỷ lệ chuyển đổi</h3>
+                <p>Edit nhịp điệu cuốn hút, giữ chân người xem (retention rate), kích thích sự tò mò và chuyển đổi qua video hiệu quả.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </div>
+                <h3>Nhanh chóng & Trách nhiệm</h3>
+                <p>Đảm bảo đúng timeline dự án, quy trình làm việc rõ ràng và luôn sẵn sàng support chỉnh sửa để ra thành phẩm ưng ý nhất.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="category-title">Liên hệ <span>Hợp Tác</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Sẵn sàng biến ý tưởng của bạn thành những video triệu view. Hãy kết nối ngay!</p>
+            <div class="contact-grid">
+                <a href="https://zalo.me/0939347266" target="_blank" class="contact-card zalo">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21.05 13.56c0-4.58-4.22-8.31-9.42-8.31S2.21 8.98 2.21 13.56c0 4.26 3.6 7.82 8.35 8.25.47.04.7.2.78.68.08.48.24 1.48.24 1.48s.16.89 1.13.24c.97-.65 5.25-4.14 6.13-5.01 1.34-1.29 2.21-3.32 2.21-5.64z" />
+                    </svg>
+                    <span>Zalo: 0939.347.266</span>
+                </a>
+                
+                <a href="https://t.me/trinhnyoga" target="_blank" class="contact-card telegram">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M11.94 1.93l-10 4.14c-1.4.58-1.4 1.34-.25 1.7l2.56.8 5.92-3.73c.28-.18.54-.08.33.1l-4.8 4.34-.18 2.67c.27 0 .39-.12.54-.27l1.3-1.26 2.72 2.01c.5.28.87.13 1-.46l1.81-8.52c.18-.75-.29-1.09-.95-.82z"/>
+                    </svg>
+                    <span>Telegram: @trinhnyoga</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Trinh Sô Sồ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Ẩn tất cả tab-content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // Xóa active khỏi tất cả tab-btn
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // Kích hoạt tab được chọn
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
