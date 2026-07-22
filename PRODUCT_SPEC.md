@@ -123,7 +123,7 @@ flowchart TD
 
 ## 9. Lộ trình triển khai
 
-- **Prototype hiện tại:** giao diện tương tác, dữ liệu mẫu, lưu `localStorage`, kiểm chứng luồng nghiệp vụ.
-- **MVP dùng chung:** Google Sheet làm nguồn dữ liệu, Google Apps Script làm API có token và khóa ghi; dashboard vẫn có fallback dữ liệu mẫu khi chưa kết nối.
+- **Prototype hiện tại:** giao diện tương tác, khởi tạo trống, lưu `localStorage`, kiểm chứng luồng nghiệp vụ.
+- **MVP dùng chung:** Google Sheet làm nguồn dữ liệu, Google Apps Script làm API có token và khóa ghi; dashboard hiển thị trạng thái trống khi chưa kết nối.
 - **MVP production quy mô lớn:** chuyển sang Supabase Auth + Postgres + RLS khi cần nhiều người dùng, phân quyền sâu hoặc lượng giao dịch lớn.
 - **Giai đoạn 2:** nhắc học phí qua Zalo, điểm danh, lịch lớp, báo cáo chi phí và đối soát ngân hàng.

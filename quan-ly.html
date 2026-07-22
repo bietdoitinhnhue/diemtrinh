@@ -532,7 +532,7 @@
       </nav>
       <div class="nav-label" style="margin-top: 24px">Hệ thống</div>
       <nav class="sidebar-nav">
-        <button class="nav-item" id="resetDemo"><i data-lucide="rotate-ccw"></i><span>Khôi phục dữ liệu mẫu</span></button>
+        <button class="nav-item" id="resetDemo"><i data-lucide="trash-2"></i><span>Xóa dữ liệu cục bộ</span></button>
         <a class="nav-item" href="/"><i data-lucide="external-link"></i><span>Website TrinhNyoga</span></a>
       </nav>
       <div class="sidebar-footer">
@@ -551,7 +551,7 @@
           <input id="globalSearch" type="search" placeholder="Tìm học viên, số điện thoại..." aria-label="Tìm kiếm học viên">
         </label>
         <div class="top-actions">
-          <button class="data-source" id="dataSourceButton" data-open="connection"><span class="source-dot"></span><span id="dataSourceText">Dữ liệu mẫu</span><i data-lucide="settings-2"></i></button>
+          <button class="data-source" id="dataSourceButton" data-open="connection"><span class="source-dot"></span><span id="dataSourceText">Chưa kết nối</span><i data-lucide="settings-2"></i></button>
           <button class="icon-btn" aria-label="Thông báo" id="notificationButton"><i data-lucide="bell"></i><span class="notification-dot"></span></button>
           <button class="btn btn-secondary" data-open="student"><i data-lucide="user-plus"></i>Thêm học viên</button>
           <button class="btn btn-primary" data-open="payment"><i data-lucide="wallet-cards"></i>Thu học phí</button>
@@ -567,7 +567,7 @@
 
           <div class="stats-grid">
             <article class="stat-card" style="--tone:var(--brand);--tint:var(--brand-soft)">
-              <div class="stat-top"><div class="stat-icon"><i data-lucide="badge-dollar-sign"></i></div><span class="delta">+12,8%</span></div>
+              <div class="stat-top"><div class="stat-icon"><i data-lucide="badge-dollar-sign"></i></div><span class="delta">Tháng hiện tại</span></div>
               <p class="stat-label">Doanh thu tháng này</p><p class="stat-value" id="revenueStat">0 ₫</p><div class="stat-foot">Từ các phiếu thu đã xác nhận</div>
             </article>
             <article class="stat-card" style="--tone:var(--coral);--tint:var(--coral-soft)">
@@ -575,7 +575,7 @@
               <p class="stat-label">Còn cần thu</p><p class="stat-value" id="receivableStat">0 ₫</p><div class="stat-foot">Trong các kỳ đến hạn tháng này</div>
             </article>
             <article class="stat-card" style="--tone:var(--blue);--tint:var(--blue-soft)">
-              <div class="stat-top"><div class="stat-icon"><i data-lucide="users-round"></i></div><span class="delta">+3 mới</span></div>
+              <div class="stat-top"><div class="stat-icon"><i data-lucide="users-round"></i></div><span class="delta">Đang duy trì</span></div>
               <p class="stat-label">Học viên đang học</p><p class="stat-value" id="activeStudentStat">0</p><div class="stat-foot">Đang có gói học hiệu lực</div>
             </article>
             <article class="stat-card" style="--tone:var(--purple);--tint:var(--purple-soft)">
@@ -591,7 +591,7 @@
           <div class="dashboard-grid">
             <article class="card card-pad">
               <div class="card-head"><div><h2 class="card-title">Nhịp doanh thu</h2><p class="card-kicker">8 tuần gần nhất</p></div><button class="text-link" data-page-link="cashflow">Xem sổ thu →</button></div>
-              <div class="chart-summary"><span class="chart-total" id="chartTotal">0 ₫</span><span class="chart-note">↑ Duy trì tốt so với tháng trước</span></div>
+              <div class="chart-summary"><span class="chart-total" id="chartTotal">0 ₫</span><span class="chart-note">Tổng hợp từ phiếu thu thực tế</span></div>
               <div class="bar-chart" id="revenueChart"></div>
             </article>
 
@@ -683,7 +683,7 @@
       <form class="modal-body" id="studentForm">
         <input id="studentEditingId" type="hidden">
         <div class="form-grid">
-          <div class="field"><label for="studentName">Họ và tên <span>*</span></label><input id="studentName" required placeholder="VD: Nguyễn Thảo Vy"></div>
+          <div class="field"><label for="studentName">Họ và tên <span>*</span></label><input id="studentName" required placeholder="Nhập họ và tên học viên"></div>
           <div class="field"><label for="studentPhone">Số điện thoại <span>*</span></label><input id="studentPhone" required inputmode="tel" placeholder="09xx xxx xxx"></div>
           <div class="field"><label for="studentPlan">Tên gói / hình thức tập <span>*</span></label><input id="studentPlan" required placeholder="VD: 12 buổi · 1:1 Online"></div>
           <div class="field"><label for="studentFee">Học phí báo riêng <span>*</span></label><input id="studentFee" type="number" min="1000" step="1000" value="1500000" required></div>
@@ -718,7 +718,7 @@
   <div class="toast" id="toast" role="status"><div class="toast-icon"><i data-lucide="check"></i></div><span id="toastMessage">Đã cập nhật dữ liệu.</span></div>
 
   <script>
-    const STORAGE_KEY = 'trinhnyoga-studio-v2';
+    const STORAGE_KEY = 'trinhnyoga-studio-v3';
     const API_URL_KEY = 'trinhnyoga-api-url';
     const API_TOKEN_KEY = 'trinhnyoga-api-token';
     const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Ho_Chi_Minh', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).filter(part => part.type !== 'literal').map(part => [part.type, part.value]));
@@ -734,26 +734,9 @@
 
     const seedData = {
       rates: { spending: 50, emergency: 20, savings: 15, investment: 15 },
-      debt: { target: 3000000, allocated: 3000000, remaining: 0 },
-      students: [
-        { id: 1, key: 'HV-0001', name: 'Nguyễn Thảo Vy', phone: '0903 486 215', plan: '24 buổi · 1:1', fee: 3600000, start: '2026-05-08', end: '2026-08-08', due: '2026-07-20', status: 'overdue', membership: 'maintained', note: 'Yin yoga phục hồi vai gáy', sessionsTotal: 24, sessionsUsed: 20, sessionsRemaining: 4 },
-        { id: 2, key: 'HV-0002', name: 'Trần Ngọc Anh', phone: '0938 221 740', plan: '8 buổi · Online', fee: 1500000, start: '2026-07-12', end: '2026-08-12', due: '2026-07-24', status: 'due', membership: 'maintained', note: '', sessionsTotal: 8, sessionsUsed: 3, sessionsRemaining: 5 },
-        { id: 3, key: 'HV-0003', name: 'Lê Minh Thư', phone: '0777 182 608', plan: '24 buổi · 1:1 Online', fee: 4200000, start: '2026-06-02', end: '2026-09-02', due: '2026-07-25', status: 'due', membership: 'maintained', note: 'Lớp 1:1 online', sessionsTotal: 24, sessionsUsed: 22, sessionsRemaining: 2 },
-        { id: 4, key: 'HV-0004', name: 'Phạm Tú Linh', phone: '0919 408 522', plan: '8 buổi · Nhóm nhỏ', fee: 1500000, start: '2026-07-16', end: '2026-08-16', due: '2026-07-27', status: 'active', membership: 'maintained', note: '', sessionsTotal: 8, sessionsUsed: 2, sessionsRemaining: 6 },
-        { id: 5, key: 'HV-0005', name: 'Võ Hồng Nhung', phone: '0981 993 302', plan: '24 buổi · Trị liệu', fee: 3900000, start: '2026-04-30', end: '2026-07-30', due: '2026-07-28', status: 'expiring', membership: 'stopped', note: '', sessionsTotal: 24, sessionsUsed: 22, sessionsRemaining: 2 },
-        { id: 6, key: 'HV-0006', name: 'Đặng Khánh My', phone: '0907 154 986', plan: '8 buổi · Phục hồi', fee: 1800000, start: '2026-06-25', end: '2026-07-25', due: '2026-07-22', status: 'expiring', membership: 'maintained', note: 'Cần gia hạn gói mới', sessionsTotal: 8, sessionsUsed: 6, sessionsRemaining: 2 },
-        { id: 7, key: 'HV-0007', name: 'Bùi Thanh Hạ', phone: '0888 425 601', plan: '24 buổi · Yin Yoga', fee: 3600000, start: '2026-05-20', end: '2026-08-20', due: '2026-08-05', status: 'active', membership: 'maintained', note: '', sessionsTotal: 24, sessionsUsed: 12, sessionsRemaining: 12 },
-        { id: 8, key: 'HV-0008', name: 'Hồ Ánh Dương', phone: '0944 712 365', plan: '10 buổi · Tùy chỉnh', fee: 2200000, start: '2026-07-01', end: '2026-08-15', due: '2026-08-01', status: 'active', membership: 'maintained', note: '', sessionsTotal: 10, sessionsUsed: 7, sessionsRemaining: 3 }
-      ],
-      transactions: [
-        { id: 'PT-0722-018', date: '2026-07-21', studentId: 4, student: 'Phạm Tú Linh', method: 'Chuyển khoản', amount: 1500000, allocations: { debt: 0, spending: 750000, emergency: 300000, savings: 225000, investment: 225000 } },
-        { id: 'PT-0719-017', date: '2026-07-19', studentId: 7, student: 'Bùi Thanh Hạ', method: 'Chuyển khoản', amount: 3600000, allocations: { debt: 0, spending: 1800000, emergency: 720000, savings: 540000, investment: 540000 } },
-        { id: 'PT-0716-016', date: '2026-07-16', studentId: 6, student: 'Đặng Khánh My', method: 'Tiền mặt', amount: 1800000, allocations: { debt: 0, spending: 900000, emergency: 360000, savings: 270000, investment: 270000 } },
-        { id: 'PT-0712-015', date: '2026-07-12', studentId: 2, student: 'Trần Ngọc Anh', method: 'Chuyển khoản', amount: 1500000, allocations: { debt: 0, spending: 750000, emergency: 300000, savings: 225000, investment: 225000 } },
-        { id: 'PT-0708-014', date: '2026-07-08', studentId: 1, student: 'Nguyễn Thảo Vy', method: 'Chuyển khoản', amount: 3600000, allocations: { debt: 0, spending: 1800000, emergency: 720000, savings: 540000, investment: 540000 } },
-        { id: 'PT-0703-013', date: '2026-07-03', studentId: 3, student: 'Lê Minh Thư', method: 'Chuyển khoản', amount: 4200000, allocations: { debt: 3000000, spending: 600000, emergency: 240000, savings: 180000, investment: 180000 } },
-        { id: 'PT-0629-012', date: '2026-06-29', studentId: 5, student: 'Võ Hồng Nhung', method: 'Tiền mặt', amount: 3900000, allocations: { debt: 0, spending: 1950000, emergency: 780000, savings: 585000, investment: 585000 } }
-      ]
+      debt: { target: 3000000, allocated: 0, remaining: 3000000 },
+      students: [],
+      transactions: []
     };
 
     const clone = data => JSON.parse(JSON.stringify(data));
@@ -826,7 +809,7 @@
       if (showSuccess) showToast('Đã đồng bộ dữ liệu mới nhất từ Google Sheet.');
     }
     async function initializeRemote() {
-      if (!apiConfig.url) return setDataSourceStatus('demo', 'Dữ liệu mẫu');
+      if (!apiConfig.url) return setDataSourceStatus('demo', 'Chưa kết nối');
       if (!apiConfig.token) return setDataSourceStatus('demo', 'Cần đăng nhập');
       try { await refreshFromApi(false); }
       catch (error) { remoteConnected = false; setDataSourceStatus('demo', 'Mất kết nối'); showToast(error.message); }
@@ -886,12 +869,13 @@
           <div><div class="due-money">${formatMoney(s.fee)}</div><div class="due-date">${s.status === 'overdue' ? 'Quá hạn' : s.status === 'expiring' ? 'Hết gói' : 'Thu'} ${formatDate(s.status === 'expiring' ? s.end : s.due).slice(0,5)}</div></div>
         </div>`).join('') : `<div class="empty-state"><i data-lucide="party-popper"></i><h3>Không có khoản cần xử lý</h3><p>Mọi kỳ thu đều đã hoàn tất.</p></div>`;
 
-      const chartValues = [2.4, 4.2, 3.6, 5.4, 4.8, 6.1, 5.2, Math.max(2, revenue / 1000000)];
-      const max = Math.max(...chartValues, 20);
+      const chartValues = Array(8).fill(0); const today = new Date(`${TODAY}T00:00:00+07:00`);
+      state.transactions.forEach(t => { const diff = Math.floor((today - new Date(`${t.date}T00:00:00+07:00`)) / 86400000); if (diff >= 0 && diff < 56) chartValues[7 - Math.floor(diff / 7)] += Number(t.amount || 0) / 1000000; });
+      const max = Math.max(...chartValues, 1);
       document.getElementById('revenueChart').innerHTML = `
         <div class="chart-lines">${[0,1,2,3].map(() => '<div class="chart-line"></div>').join('')}</div>
         <div class="chart-y"><span>20tr</span><span>15tr</span><span>10tr</span><span>0</span></div>
-        ${chartValues.map((v, i) => `<div class="bar-group"><span class="bar-value">${String(v).replace('.', ',')}tr</span><div class="bar" style="height:${Math.max(8, v / max * 100)}%"></div><span class="bar-label">T${i + 1}</span></div>`).join('')}`;
+        ${chartValues.map((v, i) => `<div class="bar-group"><span class="bar-value">${v ? `${String(Math.round(v * 10) / 10).replace('.', ',')}tr` : '0'}</span><div class="bar" style="height:${v ? Math.max(8, v / max * 100) : 0}%"></div><span class="bar-label">${i === 7 ? 'Tuần này' : `-${7-i}t`}</span></div>`).join('')}`;
 
       const totals = Object.keys(fundMeta).reduce((acc, key) => ({ ...acc, [key]: monthTransactions.reduce((sum, t) => sum + (t.allocations[key] || 0), 0) }), {});
       const debtValue = monthTransactions.reduce((sum, t) => sum + Number(t.allocations.debt || 0), 0);
@@ -1119,7 +1103,7 @@
     ['transactionSearch','paymentMethodFilter'].forEach(id => document.getElementById(id).addEventListener('input', renderTransactions));
     document.getElementById('globalSearch').addEventListener('input', event => { document.getElementById('studentSearch').value = event.target.value; if (event.target.value.trim()) setPage('students'); renderStudents(); });
     document.getElementById('notificationButton').addEventListener('click', () => showToast(`${state.students.filter(s => ['due','overdue','expiring'].includes(s.status)).length} hồ sơ cần xử lý · ${state.students.filter(s => s.membership !== 'stopped' && Number(s.sessionsRemaining) === 2).length} học viên còn 2 buổi.`));
-    document.getElementById('resetDemo').addEventListener('click', () => { if (remoteConnected) return showToast('Hãy ngắt kết nối Google Sheet trước khi khôi phục dữ liệu mẫu.'); if (!confirm('Khôi phục toàn bộ dữ liệu mẫu? Các thao tác thử trên trình duyệt này sẽ bị xóa.')) return; state = clone(seedData); draftRates = { ...state.rates }; saveState(); renderAll(); setPage('dashboard'); showToast('Đã khôi phục dữ liệu mẫu.'); });
+    document.getElementById('resetDemo').addEventListener('click', () => { if (remoteConnected) return showToast('Dữ liệu đang lấy từ Google Sheet nên không thể xóa bằng nút này.'); if (!confirm('Xóa toàn bộ dữ liệu đang lưu cục bộ trên trình duyệt này?')) return; state = clone(seedData); draftRates = { ...state.rates }; saveState(); renderAll(); setPage('dashboard'); showToast('Đã xóa dữ liệu cục bộ.'); });
     document.getElementById('connectionForm').addEventListener('submit', async event => {
       event.preventDefault();
       const url = document.getElementById('apiEndpoint').value.trim(); const token = document.getElementById('apiToken').value.trim();
@@ -1132,7 +1116,7 @@
     });
     document.getElementById('disconnectApi').addEventListener('click', () => {
       apiConfig = { url: '', token: '' }; remoteConnected = false; localStorage.removeItem(API_URL_KEY); sessionStorage.removeItem(API_TOKEN_KEY);
-      state = clone(seedData); draftRates = { ...state.rates }; saveState(); renderAll(); setDataSourceStatus('demo', 'Dữ liệu mẫu'); closeModal(document.getElementById('connectionModal')); showToast('Đã ngắt kết nối và chuyển về dữ liệu mẫu.');
+      state = clone(seedData); draftRates = { ...state.rates }; saveState(); renderAll(); setDataSourceStatus('demo', 'Chưa kết nối'); closeModal(document.getElementById('connectionModal')); showToast('Đã ngắt kết nối. Dashboard hiện dữ liệu trống.');
     });
     document.getElementById('exportStudents').addEventListener('click', () => downloadCsv('trinhnyoga-hoc-vien.csv', [['Học viên','Số điện thoại','Gói','Học phí','Tổng buổi','Đã tập','Còn lại','Ngày thu','Hết hạn','Trạng thái học phí','Tình trạng tập'], ...state.students.map(s => [s.name,s.phone,s.plan,s.fee,s.sessionsTotal,s.sessionsUsed,s.sessionsRemaining,s.due,s.end,statusLabel(s.status),s.membership === 'stopped' ? 'Ngừng tập' : 'Duy trì'])]));
     document.getElementById('exportTransactions').addEventListener('click', () => downloadCsv('trinhnyoga-so-thu.csv', [['Mã phiếu','Ngày','Học viên','Phương thức','Tổng thu','Trả nợ','Chi tiêu','Khẩn cấp','Tiết kiệm','Đầu tư'], ...state.transactions.map(t => [t.id,t.date,t.student,t.method,t.amount,t.allocations.debt||0,t.allocations.spending,t.allocations.emergency,t.allocations.savings,t.allocations.investment])]));

@@ -29,7 +29,7 @@ Mọi API đọc/ghi ngoại trừ health check đều bắt buộc có `API_TOK
 ## 3. Kết nối dashboard
 
 1. Mở `https://diemtrinh.vercel.app/quan-ly`.
-2. Bấm nhãn **Dữ liệu mẫu** trên thanh đầu trang.
+2. Bấm nhãn **Chưa kết nối** trên thanh đầu trang.
 3. Dán Apps Script Web App URL và `API_TOKEN`.
 4. Bấm **Kết nối & đồng bộ**.
 
