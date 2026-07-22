@@ -174,6 +174,25 @@
     }
     .search-wrap input::placeholder { color: #9aa6a5; }
     .top-actions { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+    .data-source {
+      min-height: 36px;
+      padding: 0 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid #f1d9b3;
+      border-radius: 11px;
+      color: #8b6532;
+      background: #fff8e9;
+      font-size: 9px;
+      font-weight: 700;
+    }
+    .data-source .source-dot { width: 7px; height: 7px; border-radius: 50%; background: #dcae56; box-shadow: 0 0 0 3px rgba(220,174,86,.13); }
+    .data-source svg { width: 13px; height: 13px; }
+    .data-source.online { color: #207566; border-color: #cce6df; background: #ecf8f4; }
+    .data-source.online .source-dot { background: #24a287; box-shadow: 0 0 0 3px rgba(36,162,135,.13); }
+    .data-source.loading .source-dot { animation: sourcePulse 1s infinite alternate; }
+    @keyframes sourcePulse { to { opacity: .25; transform: scale(.72); } }
     .icon-btn {
       position: relative;
       width: 42px;
@@ -220,7 +239,7 @@
     .period-chip { padding: 10px 13px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 12px; color: #536563; background: white; font-size: 11px; font-weight: 600; }
     .period-chip svg { width: 15px; }
 
-    .stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
     .stat-card {
       position: relative;
       min-height: 148px;
@@ -275,7 +294,7 @@
     .due-date { margin-top: 4px; color: var(--coral); font-size: 8px; text-align: right; }
 
     .funds-card { margin-top: 16px; }
-    .funds-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
+    .funds-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 13px; }
     .fund-card { padding: 15px; border: 1px solid var(--line); border-radius: 16px; background: #fbfcfc; }
     .fund-head { display: flex; align-items: center; gap: 8px; }
     .fund-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--fund-color); }
@@ -292,7 +311,7 @@
     .toolbar .spacer { margin-left: auto; }
 
     .table-wrap { overflow: auto; border: 1px solid #e4ecea; border-radius: 18px; background: white; }
-    table { width: 100%; border-collapse: collapse; min-width: 820px; }
+    table { width: 100%; border-collapse: collapse; min-width: 1000px; }
     th { padding: 13px 16px; border-bottom: 1px solid var(--line); color: #8b9896; background: #fbfcfc; font-size: 9px; font-weight: 700; letter-spacing: .05em; text-align: left; text-transform: uppercase; }
     td { padding: 14px 16px; border-bottom: 1px solid #edf2f1; color: #536663; font-size: 10px; }
     tbody tr { transition: background .15s; }
@@ -307,10 +326,20 @@
     .status.overdue { color: #c5504a; background: #fff0ee; }
     .status.expiring { color: #8964a0; background: #f3edf7; }
     .status.paused { color: #71807f; background: #eef1f1; }
+    .training-state { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border-radius: 20px; font-size: 9px; font-weight: 700; white-space: nowrap; }
+    .training-state::before { width: 6px; height: 6px; border-radius: 50%; background: currentColor; content: ''; }
+    .training-state.maintained { color: #207566; background: #e8f5f1; }
+    .training-state.stopped { color: #7b8584; background: #edf0f0; }
     .row-actions { display: flex; gap: 6px; justify-content: flex-end; }
     .tiny-btn { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 9px; color: #62726f; background: white; }
     .tiny-btn:hover { color: var(--brand); border-color: #b9d7d2; }
     .tiny-btn svg { width: 14px; }
+    .session-pill { min-width: 70px; }
+    .session-number { color: #315653; font-size: 11px; font-weight: 700; }
+    .session-number.low { color: var(--coral); }
+    .session-track { width: 64px; height: 4px; margin-top: 6px; overflow: hidden; border-radius: 10px; background: #e7eeec; }
+    .session-track span { display: block; height: 100%; border-radius: inherit; background: var(--brand); }
+    .session-track span.low { background: var(--coral); }
 
     .empty-state { padding: 50px 20px; color: var(--muted); text-align: center; }
     .empty-state svg { width: 34px; height: 34px; margin-bottom: 10px; color: #aab7b5; }
@@ -384,7 +413,7 @@
     .field-hint { color: #96a1a0; font-size: 8px; }
     .modal-divider { margin: 20px 0 15px; border: 0; border-top: 1px solid var(--line); }
     .modal-section-title { margin-bottom: 12px; color: #375551; font-size: 11px; font-weight: 700; }
-    .payment-preview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .payment-preview { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
     .payment-fund { padding: 11px; border-radius: 12px; background: var(--fund-bg); }
     .payment-fund-name { color: #60706e; font-size: 8px; }
     .payment-fund-value { margin-top: 6px; color: var(--fund-color); font-size: 10px; font-weight: 700; }
@@ -522,6 +551,7 @@
           <input id="globalSearch" type="search" placeholder="Tìm học viên, số điện thoại..." aria-label="Tìm kiếm học viên">
         </label>
         <div class="top-actions">
+          <button class="data-source" id="dataSourceButton" data-open="connection"><span class="source-dot"></span><span id="dataSourceText">Dữ liệu mẫu</span><i data-lucide="settings-2"></i></button>
           <button class="icon-btn" aria-label="Thông báo" id="notificationButton"><i data-lucide="bell"></i><span class="notification-dot"></span></button>
           <button class="btn btn-secondary" data-open="student"><i data-lucide="user-plus"></i>Thêm học viên</button>
           <button class="btn btn-primary" data-open="payment"><i data-lucide="wallet-cards"></i>Thu học phí</button>
@@ -531,8 +561,8 @@
       <div class="content">
         <section class="page active" id="page-dashboard">
           <div class="page-heading">
-            <div><p class="eyebrow">Hôm nay, 22 tháng 7</p><h1>Chào Trinh, mình bắt đầu nhé.</h1><p class="page-subtitle">Mọi khoản thu và gói học cần chú ý đều ở đây.</p></div>
-            <div class="period-chip"><i data-lucide="calendar-range"></i>Tháng 07/2026<i data-lucide="chevron-down"></i></div>
+            <div><p class="eyebrow" id="todayLabel">Hôm nay</p><h1>Chào Trinh, mình bắt đầu nhé.</h1><p class="page-subtitle">Mọi khoản thu và gói học cần chú ý đều ở đây.</p></div>
+            <div class="period-chip"><i data-lucide="calendar-range"></i><span id="periodLabel">Tháng này</span><i data-lucide="chevron-down"></i></div>
           </div>
 
           <div class="stats-grid">
@@ -552,6 +582,10 @@
               <div class="stat-top"><div class="stat-icon"><i data-lucide="hourglass"></i></div><span class="delta warn">Cần chăm sóc</span></div>
               <p class="stat-label">Gói sắp hết hạn</p><p class="stat-value" id="expiringStat">0</p><div class="stat-foot">Trong 14 ngày tới</div>
             </article>
+            <article class="stat-card" style="--tone:var(--coral);--tint:var(--coral-soft)">
+              <div class="stat-top"><div class="stat-icon"><i data-lucide="send"></i></div><span class="delta warn">Telegram</span></div>
+              <p class="stat-label">Chỉ còn 2 buổi</p><p class="stat-value" id="lowSessionStat">0</p><div class="stat-foot">Cần liên hệ gia hạn gói</div>
+            </article>
           </div>
 
           <div class="dashboard-grid">
@@ -568,7 +602,7 @@
           </div>
 
           <article class="card card-pad funds-card">
-            <div class="card-head"><div><h2 class="card-title">Bốn quỹ tài chính</h2><p class="card-kicker">Được cộng tự động sau mỗi lần thu học phí</p></div><button class="text-link" data-page-link="allocation">Chỉnh tỷ lệ →</button></div>
+            <div class="card-head"><div><h2 class="card-title">Nợ cố định & bốn quỹ tài chính</h2><p class="card-kicker">Ưu tiên đủ 3 triệu trả nợ, sau đó mới chia phần tiền còn lại</p></div><button class="text-link" data-page-link="allocation">Chỉnh tỷ lệ →</button></div>
             <div class="funds-grid" id="fundsGrid"></div>
           </article>
         </section>
@@ -577,11 +611,12 @@
           <div class="page-heading"><div><p class="eyebrow">Quản lý học viên</p><h1>Hồ sơ & gói học</h1><p class="page-subtitle">Theo dõi ngày thu riêng, học phí và hạn gói của từng người.</p></div><button class="btn btn-primary" data-open="student"><i data-lucide="user-plus"></i>Thêm học viên</button></div>
           <div class="toolbar">
             <input class="filter-input" id="studentSearch" type="search" placeholder="Tìm tên hoặc số điện thoại">
-            <select class="filter-select" id="studentStatusFilter"><option value="all">Tất cả trạng thái</option><option value="active">Đang học</option><option value="due">Đến hạn</option><option value="overdue">Quá hạn</option><option value="expiring">Sắp hết gói</option></select>
-            <select class="filter-select" id="studentPlanFilter"><option value="all">Tất cả gói học</option><option value="1 tháng">Gói 1 tháng</option><option value="3 tháng">Gói 3 tháng</option><option value="Tùy chỉnh">Gói tùy chỉnh</option></select>
+            <select class="filter-select" id="studentStatusFilter"><option value="all">Tất cả học phí</option><option value="active">Đang học</option><option value="due">Đến hạn</option><option value="overdue">Quá hạn</option><option value="expiring">Sắp hết gói</option></select>
+            <select class="filter-select" id="studentMembershipFilter"><option value="all">Tất cả tình trạng tập</option><option value="maintained">Duy trì</option><option value="stopped">Ngừng tập</option></select>
+            <select class="filter-select" id="studentPlanFilter"><option value="all">Tất cả gói học</option></select>
             <span class="spacer"></span><button class="btn btn-secondary" id="exportStudents"><i data-lucide="download"></i>Xuất CSV</button>
           </div>
-          <div class="table-wrap"><table><thead><tr><th>Học viên</th><th>Gói hiện tại</th><th>Học phí</th><th>Ngày thu</th><th>Hết hạn</th><th>Trạng thái</th><th></th></tr></thead><tbody id="studentTableBody"></tbody></table><div class="empty-state" id="studentEmpty" hidden><i data-lucide="search-x"></i><h3>Không tìm thấy học viên</h3><p>Thử thay đổi từ khóa hoặc bộ lọc.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Học viên</th><th>Gói hiện tại</th><th>Học phí</th><th>Số buổi</th><th>Ngày thu</th><th>Hết hạn</th><th>Học phí</th><th>Tập luyện</th><th></th></tr></thead><tbody id="studentTableBody"></tbody></table><div class="empty-state" id="studentEmpty" hidden><i data-lucide="search-x"></i><h3>Không tìm thấy học viên</h3><p>Thử thay đổi từ khóa hoặc bộ lọc.</p></div></div>
         </section>
 
         <section class="page" id="page-cashflow">
@@ -591,7 +626,7 @@
             <select class="filter-select" id="paymentMethodFilter"><option value="all">Tất cả phương thức</option><option value="Chuyển khoản">Chuyển khoản</option><option value="Tiền mặt">Tiền mặt</option></select>
             <span class="spacer"></span><button class="btn btn-secondary" id="exportTransactions"><i data-lucide="download"></i>Xuất sổ thu</button>
           </div>
-          <div class="table-wrap"><table><thead><tr><th>Mã phiếu</th><th>Ngày thu</th><th>Học viên</th><th>Phương thức</th><th>Chi tiêu</th><th>Khẩn cấp</th><th>Tiết kiệm</th><th>Đầu tư</th><th>Tổng thu</th></tr></thead><tbody id="transactionTableBody"></tbody></table><div class="empty-state" id="transactionEmpty" hidden><i data-lucide="receipt"></i><h3>Chưa có giao dịch phù hợp</h3><p>Phiếu thu mới sẽ xuất hiện tại đây.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Mã phiếu</th><th>Ngày thu</th><th>Học viên</th><th>Phương thức</th><th>Trả nợ</th><th>Chi tiêu</th><th>Khẩn cấp</th><th>Tiết kiệm</th><th>Đầu tư</th><th>Tổng thu</th></tr></thead><tbody id="transactionTableBody"></tbody></table><div class="empty-state" id="transactionEmpty" hidden><i data-lucide="receipt"></i><h3>Chưa có giao dịch phù hợp</h3><p>Phiếu thu mới sẽ xuất hiện tại đây.</p></div></div>
         </section>
 
         <section class="page" id="page-allocation">
@@ -599,6 +634,7 @@
           <div class="allocation-layout">
             <article class="card card-pad">
               <div class="card-head"><div><h2 class="card-title">Tỷ lệ của 4 quỹ</h2><p class="card-kicker">Tổng tỷ lệ bắt buộc bằng 100%</p></div></div>
+              <div id="debtRuleCard" style="margin-bottom:10px;padding:14px;border-radius:14px;background:var(--gold-soft);color:#715d35;font-size:10px;line-height:1.65"></div>
               <div id="allocationControls"></div>
               <div class="allocation-total" id="allocationTotal"><span>Tổng phân bổ</span><strong>100%</strong></div>
               <div style="display:flex;justify-content:flex-end;gap:9px;margin-top:17px"><button class="btn btn-secondary" id="resetRates">Về mặc định</button><button class="btn btn-primary" id="saveRates"><i data-lucide="save"></i>Lưu tỷ lệ</button></div>
@@ -625,7 +661,7 @@
 
   <div class="modal-backdrop" id="paymentModal" aria-hidden="true">
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
-      <header class="modal-head"><div><h2 class="modal-title" id="paymentModalTitle">Thu học phí</h2><p class="modal-sub">Ghi nhận một lần, hệ thống tự chia tiền vào 4 quỹ.</p></div><button class="close-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></header>
+      <header class="modal-head"><div><h2 class="modal-title" id="paymentModalTitle">Thu học phí</h2><p class="modal-sub">Hệ thống ưu tiên đủ quỹ trả nợ rồi chia phần còn lại vào 4 quỹ.</p></div><button class="close-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></header>
       <form class="modal-body" id="paymentForm">
         <div class="form-grid">
           <div class="field full"><label for="paymentStudent">Học viên <span>*</span></label><select id="paymentStudent" required></select></div>
@@ -645,16 +681,36 @@
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="studentModalTitle">
       <header class="modal-head"><div><h2 class="modal-title" id="studentModalTitle">Thêm học viên mới</h2><p class="modal-sub">Tạo hồ sơ cùng gói học và ngày thu đầu tiên.</p></div><button class="close-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></header>
       <form class="modal-body" id="studentForm">
+        <input id="studentEditingId" type="hidden">
         <div class="form-grid">
           <div class="field"><label for="studentName">Họ và tên <span>*</span></label><input id="studentName" required placeholder="VD: Nguyễn Thảo Vy"></div>
           <div class="field"><label for="studentPhone">Số điện thoại <span>*</span></label><input id="studentPhone" required inputmode="tel" placeholder="09xx xxx xxx"></div>
-          <div class="field"><label for="studentPlan">Gói học <span>*</span></label><select id="studentPlan"><option>1 tháng</option><option>3 tháng</option><option>Tùy chỉnh</option></select></div>
-          <div class="field"><label for="studentFee">Học phí <span>*</span></label><input id="studentFee" type="number" min="1000" step="1000" value="1500000" required></div>
+          <div class="field"><label for="studentPlan">Tên gói / hình thức tập <span>*</span></label><input id="studentPlan" required placeholder="VD: 12 buổi · 1:1 Online"></div>
+          <div class="field"><label for="studentFee">Học phí báo riêng <span>*</span></label><input id="studentFee" type="number" min="1000" step="1000" value="1500000" required></div>
+          <div class="field"><label for="studentSessions">Tổng số buổi <span>*</span></label><input id="studentSessions" type="number" min="1" value="8" required></div>
+          <div class="field" id="studentUsedField" hidden><label for="studentSessionsUsed">Số buổi đã tập</label><input id="studentSessionsUsed" type="number" min="0" value="0"><div class="field-hint">Đặt về 0 khi bắt đầu một gói mới.</div></div>
           <div class="field"><label for="studentStart">Ngày bắt đầu <span>*</span></label><input id="studentStart" type="date" required></div>
-          <div class="field"><label for="studentDueDay">Ngày thu hàng kỳ <span>*</span></label><input id="studentDueDay" type="number" min="1" max="28" value="22" required><div class="field-hint">Chọn từ ngày 1 đến 28 để tránh lệch tháng.</div></div>
+          <div class="field"><label for="studentEnd">Ngày kết thúc <span>*</span></label><input id="studentEnd" type="date" required></div>
+          <div class="field"><label for="studentDue">Ngày thu học phí <span>*</span></label><input id="studentDue" type="date" required></div>
+          <div class="field" id="studentStatusField" hidden><label for="studentStatus">Trạng thái học phí</label><select id="studentStatus"><option value="active">Đang học</option><option value="due">Đến hạn</option><option value="overdue">Quá hạn</option><option value="expiring">Sắp hết gói</option></select></div>
+          <div class="field"><label for="studentMembership">Tình trạng tập</label><select id="studentMembership"><option value="maintained">Duy trì</option><option value="stopped">Ngừng tập</option></select><div class="field-hint">Học viên ngừng tập vẫn được giữ lịch sử học phí.</div></div>
           <div class="field full"><label for="studentNote">Ghi chú sức khỏe / chăm sóc</label><textarea id="studentNote" placeholder="VD: Đau vai gáy, ưu tiên lớp tối thứ 3"></textarea></div>
         </div>
-        <div class="modal-actions"><button type="button" class="btn btn-secondary" data-close>Hủy</button><button type="submit" class="btn btn-primary"><i data-lucide="user-check"></i>Tạo học viên</button></div>
+        <div class="modal-actions"><button type="button" class="btn btn-secondary" data-close>Hủy</button><button type="submit" class="btn btn-primary" id="studentSubmitButton"><i data-lucide="user-check"></i><span id="studentSubmitText">Tạo học viên</span></button></div>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="connectionModal" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="connectionModalTitle">
+      <header class="modal-head"><div><h2 class="modal-title" id="connectionModalTitle">Kết nối Google Sheet</h2><p class="modal-sub">Apps Script API sẽ đồng bộ dữ liệu chung cho dashboard.</p></div><button class="close-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></header>
+      <form class="modal-body" id="connectionForm">
+        <div style="margin-bottom:16px;padding:13px;border-radius:13px;background:var(--brand-soft);color:#37625d;font-size:9px;line-height:1.7">Google Sheet đã được tạo sẵn. Sau khi deploy Apps Script, dán URL kết thúc bằng <strong>/exec</strong> và token bí mật tại đây.</div>
+        <div class="form-grid">
+          <div class="field full"><label for="apiEndpoint">Apps Script Web App URL <span>*</span></label><input id="apiEndpoint" type="url" placeholder="https://script.google.com/macros/s/.../exec" required></div>
+          <div class="field full"><label for="apiToken">API token <span>*</span></label><input id="apiToken" type="password" autocomplete="current-password" placeholder="Token trong Apps Script Properties" required><div class="field-hint">Token chỉ được giữ trong phiên trình duyệt hiện tại.</div></div>
+        </div>
+        <div class="modal-actions" style="justify-content:space-between"><button type="button" class="btn btn-danger" id="disconnectApi"><i data-lucide="unplug"></i>Ngắt kết nối</button><div style="display:flex;gap:9px"><button type="button" class="btn btn-secondary" data-close>Hủy</button><button type="submit" class="btn btn-primary" id="connectApiButton"><i data-lucide="cloud-cog"></i>Kết nối & đồng bộ</button></div></div>
       </form>
     </section>
   </div>
@@ -662,48 +718,119 @@
   <div class="toast" id="toast" role="status"><div class="toast-icon"><i data-lucide="check"></i></div><span id="toastMessage">Đã cập nhật dữ liệu.</span></div>
 
   <script>
-    const STORAGE_KEY = 'trinhnyoga-studio-v1';
-    const TODAY = '2026-07-22';
+    const STORAGE_KEY = 'trinhnyoga-studio-v2';
+    const API_URL_KEY = 'trinhnyoga-api-url';
+    const API_TOKEN_KEY = 'trinhnyoga-api-token';
+    const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Ho_Chi_Minh', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).filter(part => part.type !== 'literal').map(part => [part.type, part.value]));
+    const TODAY = `${todayParts.year}-${todayParts.month}-${todayParts.day}`;
+    const MONTH_KEY = TODAY.slice(0, 7);
     const fundMeta = {
       spending: { name: 'Chi tiêu', color: '#ee795d', bg: '#fff0eb', icon: 'shopping-bag', target: 15000000 },
       emergency: { name: 'Khẩn cấp', color: '#dcae56', bg: '#fdf5e4', icon: 'shield-check', target: 30000000 },
       savings: { name: 'Tiết kiệm', color: '#537eaf', bg: '#eaf1f9', icon: 'piggy-bank', target: 50000000 },
       investment: { name: 'Đầu tư', color: '#8c70ab', bg: '#f1ebf8', icon: 'trending-up', target: 60000000 }
     };
+    const debtMeta = { name: 'Trả nợ bắt buộc', color: '#b98132', bg: '#fdf5e4', icon: 'landmark' };
 
     const seedData = {
       rates: { spending: 50, emergency: 20, savings: 15, investment: 15 },
+      debt: { target: 3000000, allocated: 3000000, remaining: 0 },
       students: [
-        { id: 1, name: 'Nguyễn Thảo Vy', phone: '0903 486 215', plan: '3 tháng', fee: 3600000, start: '2026-05-08', end: '2026-08-08', due: '2026-07-20', status: 'overdue', note: 'Yin yoga phục hồi vai gáy' },
-        { id: 2, name: 'Trần Ngọc Anh', phone: '0938 221 740', plan: '1 tháng', fee: 1500000, start: '2026-07-12', end: '2026-08-12', due: '2026-07-24', status: 'due', note: '' },
-        { id: 3, name: 'Lê Minh Thư', phone: '0777 182 608', plan: '3 tháng', fee: 4200000, start: '2026-06-02', end: '2026-09-02', due: '2026-07-25', status: 'due', note: 'Lớp 1:1 online' },
-        { id: 4, name: 'Phạm Tú Linh', phone: '0919 408 522', plan: '1 tháng', fee: 1500000, start: '2026-07-16', end: '2026-08-16', due: '2026-07-27', status: 'active', note: '' },
-        { id: 5, name: 'Võ Hồng Nhung', phone: '0981 993 302', plan: '3 tháng', fee: 3900000, start: '2026-04-30', end: '2026-07-30', due: '2026-07-28', status: 'expiring', note: '' },
-        { id: 6, name: 'Đặng Khánh My', phone: '0907 154 986', plan: '1 tháng', fee: 1800000, start: '2026-06-25', end: '2026-07-25', due: '2026-07-22', status: 'expiring', note: 'Cần gia hạn gói mới' },
-        { id: 7, name: 'Bùi Thanh Hạ', phone: '0888 425 601', plan: '3 tháng', fee: 3600000, start: '2026-05-20', end: '2026-08-20', due: '2026-08-05', status: 'active', note: '' },
-        { id: 8, name: 'Hồ Ánh Dương', phone: '0944 712 365', plan: 'Tùy chỉnh', fee: 2200000, start: '2026-07-01', end: '2026-08-15', due: '2026-08-01', status: 'active', note: '' }
+        { id: 1, key: 'HV-0001', name: 'Nguyễn Thảo Vy', phone: '0903 486 215', plan: '24 buổi · 1:1', fee: 3600000, start: '2026-05-08', end: '2026-08-08', due: '2026-07-20', status: 'overdue', membership: 'maintained', note: 'Yin yoga phục hồi vai gáy', sessionsTotal: 24, sessionsUsed: 20, sessionsRemaining: 4 },
+        { id: 2, key: 'HV-0002', name: 'Trần Ngọc Anh', phone: '0938 221 740', plan: '8 buổi · Online', fee: 1500000, start: '2026-07-12', end: '2026-08-12', due: '2026-07-24', status: 'due', membership: 'maintained', note: '', sessionsTotal: 8, sessionsUsed: 3, sessionsRemaining: 5 },
+        { id: 3, key: 'HV-0003', name: 'Lê Minh Thư', phone: '0777 182 608', plan: '24 buổi · 1:1 Online', fee: 4200000, start: '2026-06-02', end: '2026-09-02', due: '2026-07-25', status: 'due', membership: 'maintained', note: 'Lớp 1:1 online', sessionsTotal: 24, sessionsUsed: 22, sessionsRemaining: 2 },
+        { id: 4, key: 'HV-0004', name: 'Phạm Tú Linh', phone: '0919 408 522', plan: '8 buổi · Nhóm nhỏ', fee: 1500000, start: '2026-07-16', end: '2026-08-16', due: '2026-07-27', status: 'active', membership: 'maintained', note: '', sessionsTotal: 8, sessionsUsed: 2, sessionsRemaining: 6 },
+        { id: 5, key: 'HV-0005', name: 'Võ Hồng Nhung', phone: '0981 993 302', plan: '24 buổi · Trị liệu', fee: 3900000, start: '2026-04-30', end: '2026-07-30', due: '2026-07-28', status: 'expiring', membership: 'stopped', note: '', sessionsTotal: 24, sessionsUsed: 22, sessionsRemaining: 2 },
+        { id: 6, key: 'HV-0006', name: 'Đặng Khánh My', phone: '0907 154 986', plan: '8 buổi · Phục hồi', fee: 1800000, start: '2026-06-25', end: '2026-07-25', due: '2026-07-22', status: 'expiring', membership: 'maintained', note: 'Cần gia hạn gói mới', sessionsTotal: 8, sessionsUsed: 6, sessionsRemaining: 2 },
+        { id: 7, key: 'HV-0007', name: 'Bùi Thanh Hạ', phone: '0888 425 601', plan: '24 buổi · Yin Yoga', fee: 3600000, start: '2026-05-20', end: '2026-08-20', due: '2026-08-05', status: 'active', membership: 'maintained', note: '', sessionsTotal: 24, sessionsUsed: 12, sessionsRemaining: 12 },
+        { id: 8, key: 'HV-0008', name: 'Hồ Ánh Dương', phone: '0944 712 365', plan: '10 buổi · Tùy chỉnh', fee: 2200000, start: '2026-07-01', end: '2026-08-15', due: '2026-08-01', status: 'active', membership: 'maintained', note: '', sessionsTotal: 10, sessionsUsed: 7, sessionsRemaining: 3 }
       ],
       transactions: [
-        { id: 'PT-0722-018', date: '2026-07-21', studentId: 4, student: 'Phạm Tú Linh', method: 'Chuyển khoản', amount: 1500000, allocations: { spending: 750000, emergency: 300000, savings: 225000, investment: 225000 } },
-        { id: 'PT-0719-017', date: '2026-07-19', studentId: 7, student: 'Bùi Thanh Hạ', method: 'Chuyển khoản', amount: 3600000, allocations: { spending: 1800000, emergency: 720000, savings: 540000, investment: 540000 } },
-        { id: 'PT-0716-016', date: '2026-07-16', studentId: 6, student: 'Đặng Khánh My', method: 'Tiền mặt', amount: 1800000, allocations: { spending: 900000, emergency: 360000, savings: 270000, investment: 270000 } },
-        { id: 'PT-0712-015', date: '2026-07-12', studentId: 2, student: 'Trần Ngọc Anh', method: 'Chuyển khoản', amount: 1500000, allocations: { spending: 750000, emergency: 300000, savings: 225000, investment: 225000 } },
-        { id: 'PT-0708-014', date: '2026-07-08', studentId: 1, student: 'Nguyễn Thảo Vy', method: 'Chuyển khoản', amount: 3600000, allocations: { spending: 1800000, emergency: 720000, savings: 540000, investment: 540000 } },
-        { id: 'PT-0703-013', date: '2026-07-03', studentId: 3, student: 'Lê Minh Thư', method: 'Chuyển khoản', amount: 4200000, allocations: { spending: 2100000, emergency: 840000, savings: 630000, investment: 630000 } },
-        { id: 'PT-0629-012', date: '2026-06-29', studentId: 5, student: 'Võ Hồng Nhung', method: 'Tiền mặt', amount: 3900000, allocations: { spending: 1950000, emergency: 780000, savings: 585000, investment: 585000 } }
+        { id: 'PT-0722-018', date: '2026-07-21', studentId: 4, student: 'Phạm Tú Linh', method: 'Chuyển khoản', amount: 1500000, allocations: { debt: 0, spending: 750000, emergency: 300000, savings: 225000, investment: 225000 } },
+        { id: 'PT-0719-017', date: '2026-07-19', studentId: 7, student: 'Bùi Thanh Hạ', method: 'Chuyển khoản', amount: 3600000, allocations: { debt: 0, spending: 1800000, emergency: 720000, savings: 540000, investment: 540000 } },
+        { id: 'PT-0716-016', date: '2026-07-16', studentId: 6, student: 'Đặng Khánh My', method: 'Tiền mặt', amount: 1800000, allocations: { debt: 0, spending: 900000, emergency: 360000, savings: 270000, investment: 270000 } },
+        { id: 'PT-0712-015', date: '2026-07-12', studentId: 2, student: 'Trần Ngọc Anh', method: 'Chuyển khoản', amount: 1500000, allocations: { debt: 0, spending: 750000, emergency: 300000, savings: 225000, investment: 225000 } },
+        { id: 'PT-0708-014', date: '2026-07-08', studentId: 1, student: 'Nguyễn Thảo Vy', method: 'Chuyển khoản', amount: 3600000, allocations: { debt: 0, spending: 1800000, emergency: 720000, savings: 540000, investment: 540000 } },
+        { id: 'PT-0703-013', date: '2026-07-03', studentId: 3, student: 'Lê Minh Thư', method: 'Chuyển khoản', amount: 4200000, allocations: { debt: 3000000, spending: 600000, emergency: 240000, savings: 180000, investment: 180000 } },
+        { id: 'PT-0629-012', date: '2026-06-29', studentId: 5, student: 'Võ Hồng Nhung', method: 'Tiền mặt', amount: 3900000, allocations: { debt: 0, spending: 1950000, emergency: 780000, savings: 585000, investment: 585000 } }
       ]
     };
 
     const clone = data => JSON.parse(JSON.stringify(data));
     let state = loadState();
     let draftRates = { ...state.rates };
+    let apiConfig = { url: localStorage.getItem(API_URL_KEY) || '', token: sessionStorage.getItem(API_TOKEN_KEY) || '' };
+    let remoteConnected = false;
     let toastTimer;
 
     function loadState() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || clone(seedData); }
+      try { return normalizeState(JSON.parse(localStorage.getItem(STORAGE_KEY)) || clone(seedData)); }
       catch { return clone(seedData); }
     }
+    function normalizeState(data) {
+      data.rates ||= clone(seedData.rates);
+      data.transactions ||= [];
+      data.students ||= [];
+      data.transactions.forEach(t => { t.allocations ||= {}; t.allocations.debt ||= 0; });
+      data.students.forEach(s => { s.membership ||= s.status === 'paused' ? 'stopped' : 'maintained'; if (s.status === 'paused') s.status = 'active'; s.sessionsTotal = Number(s.sessionsTotal || 0); s.sessionsUsed = Number(s.sessionsUsed || 0); s.sessionsRemaining = Number(s.sessionsRemaining ?? Math.max(0, s.sessionsTotal - s.sessionsUsed)); });
+      const debtAllocated = data.transactions.filter(t => String(t.date).startsWith(MONTH_KEY)).reduce((sum, t) => sum + Number(t.allocations.debt || 0), 0);
+      data.debt ||= { target: 3000000, allocated: debtAllocated, remaining: Math.max(0, 3000000 - debtAllocated) };
+      return data;
+    }
     function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+    function setDataSourceStatus(mode, label) {
+      const button = document.getElementById('dataSourceButton');
+      button.classList.toggle('online', mode === 'online');
+      button.classList.toggle('loading', mode === 'loading');
+      document.getElementById('dataSourceText').textContent = label;
+    }
+    async function apiRequest(action, payload) {
+      if (!apiConfig.url || !apiConfig.token) throw new Error('Chưa nhập URL API và token.');
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 20000);
+      try {
+        let response;
+        if (action === 'bootstrap') {
+          const url = new URL(apiConfig.url);
+          url.searchParams.set('action', action);
+          url.searchParams.set('token', apiConfig.token);
+          url.searchParams.set('_', Date.now());
+          response = await fetch(url, { method: 'GET', cache: 'no-store', redirect: 'follow', signal: controller.signal });
+        } else {
+          response = await fetch(apiConfig.url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ action, token: apiConfig.token, ...payload }),
+            redirect: 'follow',
+            signal: controller.signal,
+          });
+        }
+        const text = await response.text();
+        let result;
+        try { result = JSON.parse(text); } catch { throw new Error('API không trả về JSON. Kiểm tra lại quyền deploy Apps Script.'); }
+        if (!result.success) throw new Error(result.error || 'Không thể đồng bộ Google Sheet.');
+        return result.data;
+      } catch (error) {
+        if (error.name === 'AbortError') throw new Error('Kết nối Google Sheet quá thời gian chờ.');
+        throw error;
+      } finally { clearTimeout(timeout); }
+    }
+    async function refreshFromApi(showSuccess = false) {
+      setDataSourceStatus('loading', 'Đang đồng bộ');
+      const data = await apiRequest('bootstrap');
+      state = normalizeState({ students: data.students || [], transactions: data.transactions || [], rates: data.rates || clone(seedData.rates), debt: data.debt || null });
+      draftRates = { ...state.rates };
+      remoteConnected = true;
+      saveState(); renderAll();
+      setDataSourceStatus('online', 'Google Sheet');
+      if (showSuccess) showToast('Đã đồng bộ dữ liệu mới nhất từ Google Sheet.');
+    }
+    async function initializeRemote() {
+      if (!apiConfig.url) return setDataSourceStatus('demo', 'Dữ liệu mẫu');
+      if (!apiConfig.token) return setDataSourceStatus('demo', 'Cần đăng nhập');
+      try { await refreshFromApi(false); }
+      catch (error) { remoteConnected = false; setDataSourceStatus('demo', 'Mất kết nối'); showToast(error.message); }
+    }
     function formatMoney(value, compact = false) {
       if (compact && value >= 1000000) return `${(value / 1000000).toLocaleString('vi-VN', { maximumFractionDigits: 1 })} triệu`;
       return `${Math.round(value).toLocaleString('vi-VN')} ₫`;
@@ -718,36 +845,40 @@
     function nextId() { return state.students.length ? Math.max(...state.students.map(s => s.id)) + 1 : 1; }
 
     function calculateAllocations(amount, rates = state.rates) {
-      const keys = Object.keys(fundMeta);
-      const result = {};
-      let allocated = 0;
-      keys.forEach((key, index) => {
-        const value = index === keys.length - 1 ? amount - allocated : Math.round(amount * rates[key] / 100);
-        result[key] = value;
-        allocated += value;
+      const debt = Math.min(amount, Math.max(0, Number(state.debt?.remaining || 0)));
+      const distributable = amount - debt;
+      const result = { debt };
+      let allocatedOutsideSpending = 0;
+      ['emergency', 'savings', 'investment'].forEach(key => {
+        result[key] = Math.round(distributable * rates[key] / 100);
+        allocatedOutsideSpending += result[key];
       });
+      result.spending = distributable - allocatedOutsideSpending;
       return result;
     }
 
     function renderAll() {
       renderDashboard(); renderStudents(); renderTransactions(); renderAllocation(); updatePaymentStudentOptions();
       document.getElementById('studentCountBadge').textContent = state.students.length;
+      document.getElementById('todayLabel').textContent = `Hôm nay, ${new Intl.DateTimeFormat('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', day: 'numeric', month: 'long' }).format(new Date())}`;
+      document.getElementById('periodLabel').textContent = `Tháng ${todayParts.month}/${todayParts.year}`;
       lucide.createIcons();
     }
 
     function renderDashboard() {
-      const julyTransactions = state.transactions.filter(t => t.date.startsWith('2026-07'));
-      const revenue = julyTransactions.reduce((sum, t) => sum + t.amount, 0);
+      const monthTransactions = state.transactions.filter(t => t.date.startsWith(MONTH_KEY));
+      const revenue = monthTransactions.reduce((sum, t) => sum + t.amount, 0);
       const dueStudents = state.students.filter(s => ['due', 'overdue'].includes(s.status));
       const receivable = dueStudents.reduce((sum, s) => sum + s.fee, 0);
       document.getElementById('revenueStat').textContent = formatMoney(revenue);
       document.getElementById('receivableStat').textContent = formatMoney(receivable);
-      document.getElementById('activeStudentStat').textContent = state.students.filter(s => s.status !== 'paused').length;
-      document.getElementById('expiringStat').textContent = state.students.filter(s => s.status === 'expiring').length;
+      document.getElementById('activeStudentStat').textContent = state.students.filter(s => s.membership !== 'stopped').length;
+      document.getElementById('expiringStat').textContent = state.students.filter(s => s.membership !== 'stopped' && s.status === 'expiring').length;
+      document.getElementById('lowSessionStat').textContent = state.students.filter(s => s.membership !== 'stopped' && Number(s.sessionsRemaining) === 2).length;
       document.getElementById('overdueBadge').textContent = `${state.students.filter(s => s.status === 'overdue').length} quá hạn`;
       document.getElementById('chartTotal').textContent = formatMoney(revenue);
 
-      const dueList = [...dueStudents, ...state.students.filter(s => s.status === 'expiring')].slice(0, 5);
+      const dueList = [...dueStudents, ...state.students.filter(s => s.membership !== 'stopped' && s.status === 'expiring')].slice(0, 5);
       document.getElementById('dueList').innerHTML = dueList.length ? dueList.map((s, i) => `
         <div class="due-item">
           <div class="person-avatar ${i % 3 === 1 ? 'green' : i % 3 === 2 ? 'gold' : ''}">${initials(s.name)}</div>
@@ -762,8 +893,12 @@
         <div class="chart-y"><span>20tr</span><span>15tr</span><span>10tr</span><span>0</span></div>
         ${chartValues.map((v, i) => `<div class="bar-group"><span class="bar-value">${String(v).replace('.', ',')}tr</span><div class="bar" style="height:${Math.max(8, v / max * 100)}%"></div><span class="bar-label">T${i + 1}</span></div>`).join('')}`;
 
-      const totals = Object.keys(fundMeta).reduce((acc, key) => ({ ...acc, [key]: julyTransactions.reduce((sum, t) => sum + (t.allocations[key] || 0), 0) }), {});
-      document.getElementById('fundsGrid').innerHTML = Object.entries(fundMeta).map(([key, meta]) => {
+      const totals = Object.keys(fundMeta).reduce((acc, key) => ({ ...acc, [key]: monthTransactions.reduce((sum, t) => sum + (t.allocations[key] || 0), 0) }), {});
+      const debtValue = monthTransactions.reduce((sum, t) => sum + Number(t.allocations.debt || 0), 0);
+      const debtTarget = Number(state.debt?.target || 3000000);
+      const debtProgress = Math.min(100, Math.round(debtValue / debtTarget * 100));
+      const debtCard = `<div class="fund-card" style="--fund-color:${debtMeta.color};background:${debtMeta.bg}"><div class="fund-head"><span class="fund-dot"></span><span class="fund-name">${debtMeta.name}</span><span class="fund-rate">Ưu tiên 1</span></div><div class="fund-value">${formatMoney(debtValue)}</div><div class="progress"><span style="width:${debtProgress}%"></span></div><div class="fund-target">${debtProgress}% mục tiêu ${formatMoney(debtTarget, true)}</div></div>`;
+      document.getElementById('fundsGrid').innerHTML = debtCard + Object.entries(fundMeta).map(([key, meta]) => {
         const rate = state.rates[key]; const value = totals[key]; const progress = Math.min(100, Math.round(value / meta.target * 100));
         return `<div class="fund-card" style="--fund-color:${meta.color}"><div class="fund-head"><span class="fund-dot"></span><span class="fund-name">${meta.name}</span><span class="fund-rate">${rate}%</span></div><div class="fund-value">${formatMoney(value)}</div><div class="progress"><span style="width:${progress}%"></span></div><div class="fund-target">${progress}% mục tiêu ${formatMoney(meta.target, true)}</div></div>`;
       }).join('');
@@ -772,10 +907,17 @@
     function renderStudents() {
       const query = document.getElementById('studentSearch')?.value.toLowerCase().trim() || '';
       const status = document.getElementById('studentStatusFilter')?.value || 'all';
+      const membership = document.getElementById('studentMembershipFilter')?.value || 'all';
       const plan = document.getElementById('studentPlanFilter')?.value || 'all';
-      const filtered = state.students.filter(s => (!query || `${s.name} ${s.phone}`.toLowerCase().includes(query)) && (status === 'all' || s.status === status) && (plan === 'all' || s.plan === plan));
-      document.getElementById('studentTableBody').innerHTML = filtered.map((s, i) => `
-        <tr><td><div class="student-cell"><div class="person-avatar ${i%3===1?'green':i%3===2?'gold':''}">${initials(s.name)}</div><div><div class="person-name">${escapeHtml(s.name)}</div><div class="person-meta">${escapeHtml(s.phone)}</div></div></div></td><td><strong>${escapeHtml(s.plan)}</strong><div class="person-meta">Từ ${formatDate(s.start)}</div></td><td><strong>${formatMoney(s.fee)}</strong></td><td>${formatDate(s.due)}</td><td>${formatDate(s.end)}</td><td><span class="status ${s.status}">${statusLabel(s.status)}</span></td><td><div class="row-actions"><button class="tiny-btn" title="Thu học phí" data-pay-student="${s.id}"><i data-lucide="wallet-cards"></i></button><button class="tiny-btn" title="Xem hồ sơ" data-view-student="${s.id}"><i data-lucide="chevron-right"></i></button></div></td></tr>`).join('');
+      const filtered = state.students.filter(s => (!query || `${s.name} ${s.phone}`.toLowerCase().includes(query)) && (status === 'all' || s.status === status) && (membership === 'all' || s.membership === membership) && (plan === 'all' || s.plan === plan));
+      const planSelect = document.getElementById('studentPlanFilter'); const selectedPlan = planSelect.value;
+      const plans = [...new Set(state.students.map(s => s.plan).filter(Boolean))].sort((a,b) => a.localeCompare(b, 'vi'));
+      planSelect.innerHTML = '<option value="all">Tất cả gói học</option>' + plans.map(p => `<option value="${escapeHtml(p)}">${escapeHtml(p)}</option>`).join(''); if (plans.includes(selectedPlan)) planSelect.value = selectedPlan;
+      document.getElementById('studentTableBody').innerHTML = filtered.map((s, i) => {
+        const remaining = Number(s.sessionsRemaining || 0); const total = Number(s.sessionsTotal || 0); const low = remaining <= 2; const pct = total ? Math.max(0, Math.min(100, remaining / total * 100)) : 0;
+        const stopped = s.membership === 'stopped';
+        return `<tr><td><div class="student-cell"><div class="person-avatar ${i%3===1?'green':i%3===2?'gold':''}">${initials(s.name)}</div><div><div class="person-name">${escapeHtml(s.name)}</div><div class="person-meta">${escapeHtml(s.phone)}</div></div></div></td><td><strong>${escapeHtml(s.plan)}</strong><div class="person-meta">Từ ${formatDate(s.start)}</div></td><td><strong>${formatMoney(s.fee)}</strong></td><td><div class="session-pill"><div class="session-number ${low?'low':''}">Còn ${remaining}/${total} buổi</div><div class="session-track"><span class="${low?'low':''}" style="width:${pct}%"></span></div></div></td><td>${formatDate(s.due)}</td><td>${formatDate(s.end)}</td><td><span class="status ${s.status}">${statusLabel(s.status)}</span></td><td><span class="training-state ${s.membership}">${stopped ? 'Ngừng tập' : 'Duy trì'}</span></td><td><div class="row-actions"><button class="tiny-btn" title="${stopped ? 'Học viên đã ngừng tập' : 'Điểm danh 1 buổi'}" data-attend-student="${s.id}" ${stopped ? 'disabled' : ''}><i data-lucide="circle-check-big"></i></button><button class="tiny-btn" title="Thu học phí" data-pay-student="${s.id}"><i data-lucide="wallet-cards"></i></button><button class="tiny-btn" title="Sửa học viên" data-edit-student="${s.id}"><i data-lucide="pencil"></i></button><button class="tiny-btn" title="Xóa học viên" data-delete-student="${s.id}"><i data-lucide="trash-2"></i></button></div></td></tr>`;
+      }).join('');
       document.getElementById('studentEmpty').hidden = filtered.length > 0;
       lucide.createIcons();
     }
@@ -784,11 +926,13 @@
       const query = document.getElementById('transactionSearch')?.value.toLowerCase().trim() || '';
       const method = document.getElementById('paymentMethodFilter')?.value || 'all';
       const filtered = state.transactions.filter(t => (!query || `${t.id} ${t.student}`.toLowerCase().includes(query)) && (method === 'all' || t.method === method));
-      document.getElementById('transactionTableBody').innerHTML = filtered.map(t => `<tr><td><strong>${escapeHtml(t.id)}</strong></td><td>${formatDate(t.date)}</td><td>${escapeHtml(t.student)}</td><td>${escapeHtml(t.method)}</td><td>${formatMoney(t.allocations.spending)}</td><td>${formatMoney(t.allocations.emergency)}</td><td>${formatMoney(t.allocations.savings)}</td><td>${formatMoney(t.allocations.investment)}</td><td><strong style="color:var(--brand)">${formatMoney(t.amount)}</strong></td></tr>`).join('');
+      document.getElementById('transactionTableBody').innerHTML = filtered.map(t => `<tr><td><strong>${escapeHtml(t.id)}</strong></td><td>${formatDate(t.date)}</td><td>${escapeHtml(t.student)}</td><td>${escapeHtml(t.method)}</td><td><strong style="color:#a26d24">${formatMoney(t.allocations.debt || 0)}</strong></td><td>${formatMoney(t.allocations.spending)}</td><td>${formatMoney(t.allocations.emergency)}</td><td>${formatMoney(t.allocations.savings)}</td><td>${formatMoney(t.allocations.investment)}</td><td><strong style="color:var(--brand)">${formatMoney(t.amount)}</strong></td></tr>`).join('');
       document.getElementById('transactionEmpty').hidden = filtered.length > 0;
     }
 
     function renderAllocation() {
+      const debt = state.debt || { target: 3000000, allocated: 0, remaining: 3000000 };
+      document.getElementById('debtRuleCard').innerHTML = `<strong>Nợ cố định ${formatMoney(debt.target)} / tháng</strong><br>Đã để dành ${formatMoney(debt.allocated)} · Còn thiếu ${formatMoney(debt.remaining)}. Khoản thu mới sẽ bù phần còn thiếu này trước.`;
       document.getElementById('allocationControls').innerHTML = Object.entries(fundMeta).map(([key, meta]) => `<div class="allocation-row"><div class="allocation-name"><div class="allocation-icon" style="--fund-color:${meta.color};--fund-bg:${meta.bg}"><i data-lucide="${meta.icon}"></i></div>${meta.name}</div><input type="range" min="0" max="100" value="${draftRates[key]}" data-rate-range="${key}" style="--fund-color:${meta.color}"><div class="rate-wrap"><input class="rate-input" type="number" min="0" max="100" value="${draftRates[key]}" data-rate-input="${key}"></div></div>`).join('');
       updateAllocationPreview(); lucide.createIcons();
     }
@@ -798,7 +942,8 @@
       const totalEl = document.getElementById('allocationTotal');
       totalEl.classList.toggle('invalid', total !== 100); totalEl.querySelector('strong').textContent = `${total}%`;
       const preview = calculateAllocations(3000000, draftRates);
-      document.getElementById('allocationPreview').innerHTML = Object.entries(fundMeta).map(([key, meta]) => `<div class="preview-line"><span style="display:flex;align-items:center;gap:7px"><span class="fund-dot" style="--fund-color:${meta.color}"></span>${meta.name} · ${draftRates[key]}%</span><strong>${formatMoney(preview[key])}</strong></div>`).join('');
+      const debtLine = `<div class="preview-line"><span style="display:flex;align-items:center;gap:7px"><span class="fund-dot" style="--fund-color:${debtMeta.color}"></span>${debtMeta.name} · ưu tiên</span><strong>${formatMoney(preview.debt)}</strong></div>`;
+      document.getElementById('allocationPreview').innerHTML = debtLine + Object.entries(fundMeta).map(([key, meta]) => `<div class="preview-line"><span style="display:flex;align-items:center;gap:7px"><span class="fund-dot" style="--fund-color:${meta.color}"></span>${meta.name} · ${draftRates[key]}%</span><strong>${formatMoney(preview[key])}</strong></div>`).join('');
     }
 
     function updatePaymentStudentOptions() {
@@ -811,7 +956,8 @@
     function renderPaymentPreview() {
       const amount = Number(document.getElementById('paymentAmount').value || 0);
       const allocations = calculateAllocations(amount);
-      document.getElementById('paymentPreview').innerHTML = Object.entries(fundMeta).map(([key, meta]) => `<div class="payment-fund" style="--fund-color:${meta.color};--fund-bg:${meta.bg}"><div class="payment-fund-name">${meta.name} · ${state.rates[key]}%</div><div class="payment-fund-value">${formatMoney(allocations[key])}</div></div>`).join('');
+      const debtCard = `<div class="payment-fund" style="--fund-color:${debtMeta.color};--fund-bg:${debtMeta.bg}"><div class="payment-fund-name">${debtMeta.name} · ưu tiên</div><div class="payment-fund-value">${formatMoney(allocations.debt)}</div></div>`;
+      document.getElementById('paymentPreview').innerHTML = debtCard + Object.entries(fundMeta).map(([key, meta]) => `<div class="payment-fund" style="--fund-color:${meta.color};--fund-bg:${meta.bg}"><div class="payment-fund-name">${meta.name} · ${state.rates[key]}%</div><div class="payment-fund-value">${formatMoney(allocations[key])}</div></div>`).join('');
     }
 
     function setPage(page) {
@@ -821,16 +967,33 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     function openModal(type, studentId = '') {
-      const modal = document.getElementById(type === 'payment' ? 'paymentModal' : 'studentModal');
+      const modal = document.getElementById({ payment: 'paymentModal', student: 'studentModal', connection: 'connectionModal' }[type]);
+      if (!modal) return;
       modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
       if (type === 'payment') {
         updatePaymentStudentOptions(); document.getElementById('paymentDate').value = TODAY;
         if (studentId) { document.getElementById('paymentStudent').value = studentId; syncPaymentAmount(); }
         renderPaymentPreview();
-      } else document.getElementById('studentStart').value = TODAY;
+      } else if (type === 'student') {
+        document.getElementById('studentForm').reset(); document.getElementById('studentEditingId').value = '';
+        document.getElementById('studentStatusField').hidden = true; document.getElementById('studentStatus').value = 'active'; document.getElementById('studentMembership').value = 'maintained'; document.getElementById('studentUsedField').hidden = true; document.getElementById('studentSessionsUsed').value = 0;
+        document.getElementById('studentModalTitle').textContent = 'Thêm học viên mới'; document.getElementById('studentSubmitText').textContent = 'Tạo học viên';
+        document.getElementById('studentStart').value = TODAY; document.getElementById('studentEnd').value = addMonths(TODAY, 1); document.getElementById('studentDue').value = TODAY;
+      }
+      else if (type === 'connection') { document.getElementById('apiEndpoint').value = apiConfig.url; document.getElementById('apiToken').value = apiConfig.token; }
       setTimeout(() => modal.querySelector('input,select')?.focus(), 50);
     }
     function closeModal(modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+    function openStudentEditor(studentId) {
+      const student = state.students.find(s => String(s.id) === String(studentId)); if (!student) return;
+      openModal('student'); document.getElementById('studentEditingId').value = student.id;
+      document.getElementById('studentStatusField').hidden = false; document.getElementById('studentStatus').value = student.status || 'active'; document.getElementById('studentUsedField').hidden = false; document.getElementById('studentSessionsUsed').value = student.sessionsUsed || 0;
+      document.getElementById('studentMembership').value = student.membership || 'maintained';
+      document.getElementById('studentModalTitle').textContent = 'Sửa thông tin học viên'; document.getElementById('studentSubmitText').textContent = 'Lưu thay đổi';
+      document.getElementById('studentName').value = student.name; document.getElementById('studentPhone').value = student.phone; document.getElementById('studentPlan').value = student.plan;
+      document.getElementById('studentFee').value = student.fee; document.getElementById('studentSessions').value = student.sessionsTotal || 1; document.getElementById('studentStart').value = student.start;
+      document.getElementById('studentEnd').value = student.end; document.getElementById('studentDue').value = student.due; document.getElementById('studentNote').value = student.note || '';
+    }
     function syncPaymentAmount() {
       const student = state.students.find(s => String(s.id) === document.getElementById('paymentStudent').value);
       if (student) document.getElementById('paymentAmount').value = student.fee;
@@ -859,31 +1022,83 @@
       const pageLink = event.target.closest('[data-page-link]'); if (pageLink) setPage(pageLink.dataset.pageLink);
       const openButton = event.target.closest('[data-open]'); if (openButton) openModal(openButton.dataset.open);
       const payButton = event.target.closest('[data-pay-student]'); if (payButton) openModal('payment', payButton.dataset.payStudent);
-      const viewButton = event.target.closest('[data-view-student]'); if (viewButton) {
-        const s = state.students.find(x => String(x.id) === viewButton.dataset.viewStudent);
-        showToast(`${s.name} · ${s.plan} · kỳ thu ${formatDate(s.due)}`);
-      }
+      const editButton = event.target.closest('[data-edit-student]'); if (editButton) openStudentEditor(editButton.dataset.editStudent);
+      const attendButton = event.target.closest('[data-attend-student]'); if (attendButton) recordAttendance(attendButton.dataset.attendStudent);
+      const deleteButton = event.target.closest('[data-delete-student]'); if (deleteButton) deleteStudent(deleteButton.dataset.deleteStudent);
       if (event.target.closest('[data-close]')) closeModal(event.target.closest('.modal-backdrop'));
       if (event.target.classList.contains('modal-backdrop')) closeModal(event.target);
     });
     document.addEventListener('keydown', event => { if (event.key === 'Escape') document.querySelectorAll('.modal-backdrop.open').forEach(closeModal); });
 
+    async function recordAttendance(studentId) {
+      const student = state.students.find(s => String(s.id) === String(studentId)); if (!student) return;
+      if (student.membership === 'stopped') return showToast('Học viên đã ngừng tập. Hãy đổi sang Duy trì trước khi điểm danh.');
+      if (!confirm(`Xác nhận ${student.name} đã tập thêm 1 buổi?`)) return;
+      try {
+        if (remoteConnected) {
+          const result = await apiRequest('recordAttendance', { studentId: student.key || student.id }); await refreshFromApi(false);
+          showToast(result.telegramSent ? `Đã điểm danh. ${student.name} còn 2 buổi và Telegram đã được gửi.` : result.telegramError ? `Đã điểm danh; Telegram chưa gửi được: ${result.telegramError}` : `Đã điểm danh. ${student.name} còn ${result.sessionsRemaining} buổi.`); return;
+        }
+        if (student.sessionsUsed >= student.sessionsTotal) return showToast('Gói tập đã hết buổi.');
+        student.sessionsUsed += 1; student.sessionsRemaining = Math.max(0, student.sessionsTotal - student.sessionsUsed); saveState(); renderAll();
+        showToast(student.sessionsRemaining === 2 ? 'Còn 2 buổi. Khi kết nối Apps Script, hệ thống sẽ gửi Telegram tự động.' : `Đã điểm danh. Còn ${student.sessionsRemaining} buổi.`);
+      } catch (error) { showToast(error.message); }
+    }
+
+    async function deleteStudent(studentId) {
+      const student = state.students.find(s => String(s.id) === String(studentId)); if (!student) return;
+      if (!confirm(`Xóa học viên ${student.name}? Thao tác này chỉ được phép khi chưa có phiếu thu.`)) return;
+      try {
+        if (remoteConnected) { await apiRequest('deleteStudent', { studentId: student.key || student.id }); await refreshFromApi(false); showToast(`Đã xóa học viên ${student.name}.`); return; }
+        if (state.transactions.some(t => String(t.studentId) === String(student.id))) return showToast('Học viên đã có phiếu thu nên không thể xóa. Hãy sửa tình trạng thành Ngừng tập.');
+        state.students = state.students.filter(s => String(s.id) !== String(studentId)); saveState(); renderAll(); showToast(`Đã xóa học viên ${student.name}.`);
+      } catch (error) { showToast(error.message); }
+    }
+
     document.getElementById('paymentStudent').addEventListener('change', syncPaymentAmount);
     document.getElementById('paymentAmount').addEventListener('input', renderPaymentPreview);
-    document.getElementById('paymentForm').addEventListener('submit', event => {
+    document.getElementById('paymentForm').addEventListener('submit', async event => {
       event.preventDefault();
       const student = state.students.find(s => String(s.id) === document.getElementById('paymentStudent').value);
       if (!student) return showToast('Vui lòng chọn học viên trước khi xác nhận.');
       const amount = Number(document.getElementById('paymentAmount').value); const date = document.getElementById('paymentDate').value;
-      state.transactions.unshift({ id: `PT-${date.slice(5,7)}${date.slice(8,10)}-${String(state.transactions.length + 12).padStart(3,'0')}`, date, studentId: student.id, student: student.name, method: document.getElementById('paymentMethod').value, amount, allocations: calculateAllocations(amount), note: document.getElementById('paymentNote').value, ratesSnapshot: { ...state.rates } });
-      student.status = 'active'; student.due = addMonths(student.due, student.plan === '3 tháng' ? 3 : 1);
-      saveState(); event.target.reset(); closeModal(document.getElementById('paymentModal')); renderAll(); showToast(`Đã thu ${formatMoney(amount)} của ${student.name} và phân bổ vào 4 quỹ.`);
+      const submit = event.submitter; if (submit) submit.disabled = true;
+      try {
+        if (remoteConnected) {
+          await apiRequest('createPayment', { payment: { studentId: student.key || student.id, amount, date, method: document.getElementById('paymentMethod').value, cycle: document.getElementById('paymentCycle').value, note: document.getElementById('paymentNote').value } });
+          await refreshFromApi(false);
+          event.target.reset(); closeModal(document.getElementById('paymentModal')); showToast(`Đã thu ${formatMoney(amount)} của ${student.name} và ghi vào Google Sheet.`); return;
+        }
+      const allocations = calculateAllocations(amount);
+      state.transactions.unshift({ id: `PT-${date.slice(5,7)}${date.slice(8,10)}-${String(state.transactions.length + 12).padStart(3,'0')}`, date, studentId: student.id, student: student.name, method: document.getElementById('paymentMethod').value, amount, allocations, note: document.getElementById('paymentNote').value, ratesSnapshot: { ...state.rates } });
+      state.debt.allocated += allocations.debt; state.debt.remaining = Math.max(0, state.debt.target - state.debt.allocated); student.status = 'active';
+      saveState(); event.target.reset(); closeModal(document.getElementById('paymentModal')); renderAll(); showToast(`Đã thu ${formatMoney(amount)} của ${student.name} và phân bổ theo thứ tự ưu tiên.`);
+      } catch (error) { showToast(error.message); }
+      finally { if (submit) submit.disabled = false; }
     });
 
-    document.getElementById('studentForm').addEventListener('submit', event => {
-      event.preventDefault(); const start = document.getElementById('studentStart').value; const plan = document.getElementById('studentPlan').value; const months = plan === '3 tháng' ? 3 : plan === '1 tháng' ? 1 : 2;
-      state.students.unshift({ id: nextId(), name: document.getElementById('studentName').value.trim(), phone: document.getElementById('studentPhone').value.trim(), plan, fee: Number(document.getElementById('studentFee').value), start, end: addMonths(start, months), due: makeDueDate(start, Number(document.getElementById('studentDueDay').value)), status: 'active', note: document.getElementById('studentNote').value.trim() });
-      saveState(); event.target.reset(); closeModal(document.getElementById('studentModal')); renderAll(); setPage('students'); showToast('Đã tạo hồ sơ học viên và lịch thu đầu tiên.');
+    document.getElementById('studentForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const editingId = document.getElementById('studentEditingId').value;
+      const payload = { name: document.getElementById('studentName').value.trim(), phone: document.getElementById('studentPhone').value.trim(), plan: document.getElementById('studentPlan').value.trim(), fee: Number(document.getElementById('studentFee').value), totalSessions: Number(document.getElementById('studentSessions').value), sessionsUsed: editingId ? Number(document.getElementById('studentSessionsUsed').value) : 0, start: document.getElementById('studentStart').value, end: document.getElementById('studentEnd').value, due: document.getElementById('studentDue').value, status: editingId ? document.getElementById('studentStatus').value : 'active', membership: document.getElementById('studentMembership').value, note: document.getElementById('studentNote').value.trim() };
+      if (payload.end < payload.start) return showToast('Ngày kết thúc phải sau ngày bắt đầu.');
+      if (payload.sessionsUsed < 0 || payload.sessionsUsed > payload.totalSessions) return showToast('Số buổi đã tập phải từ 0 đến tổng số buổi.');
+      const submit = event.submitter; if (submit) submit.disabled = true;
+      try {
+        if (remoteConnected) {
+          if (editingId) await apiRequest('updateStudent', { studentId: state.students.find(s => String(s.id) === editingId)?.key || editingId, student: payload });
+          else await apiRequest('createStudent', { student: payload });
+          await refreshFromApi(false); event.target.reset(); closeModal(document.getElementById('studentModal')); setPage('students'); showToast(editingId ? 'Đã cập nhật học viên trên Google Sheet.' : 'Đã tạo học viên mới trên Google Sheet.'); return;
+        }
+      if (editingId) {
+        const student = state.students.find(s => String(s.id) === editingId); const used = Math.min(payload.sessionsUsed, payload.totalSessions);
+        Object.assign(student, payload, { sessionsTotal: payload.totalSessions, sessionsUsed: used, sessionsRemaining: payload.totalSessions - used });
+      } else {
+        const id = nextId(); state.students.unshift({ id, key: `HV-${String(id).padStart(4,'0')}`, ...payload, status: 'active', sessionsTotal: payload.totalSessions, sessionsUsed: 0, sessionsRemaining: payload.totalSessions });
+      }
+      saveState(); event.target.reset(); closeModal(document.getElementById('studentModal')); renderAll(); setPage('students'); showToast(editingId ? 'Đã cập nhật thông tin học viên.' : 'Đã tạo hồ sơ học viên và lịch thu đầu tiên.');
+      } catch (error) { showToast(error.message); }
+      finally { if (submit) submit.disabled = false; }
     });
 
     document.getElementById('allocationControls').addEventListener('input', event => {
@@ -891,21 +1106,38 @@
       draftRates[key] = Math.max(0, Math.min(100, Number(event.target.value || 0)));
       document.querySelector(`[data-rate-range="${key}"]`).value = draftRates[key]; document.querySelector(`[data-rate-input="${key}"]`).value = draftRates[key]; updateAllocationPreview();
     });
-    document.getElementById('saveRates').addEventListener('click', () => {
+    document.getElementById('saveRates').addEventListener('click', async () => {
       const total = Object.values(draftRates).reduce((a,b) => a + Number(b), 0); if (total !== 100) return showToast(`Chưa thể lưu: tổng tỷ lệ hiện là ${total}%.`);
-      state.rates = { ...draftRates }; saveState(); renderAll(); showToast('Đã lưu tỷ lệ. Các giao dịch mới sẽ dùng quy tắc này.');
+      try {
+        if (remoteConnected) { await apiRequest('updateRates', { rates: draftRates }); await refreshFromApi(false); showToast('Đã lưu tỷ lệ mới vào Google Sheet.'); return; }
+        state.rates = { ...draftRates }; saveState(); renderAll(); showToast('Đã lưu tỷ lệ. Các giao dịch mới sẽ dùng quy tắc này.');
+      } catch (error) { showToast(error.message); }
     });
     document.getElementById('resetRates').addEventListener('click', () => { draftRates = { spending: 50, emergency: 20, savings: 15, investment: 15 }; renderAllocation(); });
 
-    ['studentSearch','studentStatusFilter','studentPlanFilter'].forEach(id => document.getElementById(id).addEventListener('input', renderStudents));
+    ['studentSearch','studentStatusFilter','studentMembershipFilter','studentPlanFilter'].forEach(id => document.getElementById(id).addEventListener('input', renderStudents));
     ['transactionSearch','paymentMethodFilter'].forEach(id => document.getElementById(id).addEventListener('input', renderTransactions));
     document.getElementById('globalSearch').addEventListener('input', event => { document.getElementById('studentSearch').value = event.target.value; if (event.target.value.trim()) setPage('students'); renderStudents(); });
-    document.getElementById('notificationButton').addEventListener('click', () => showToast(`${state.students.filter(s => ['due','overdue','expiring'].includes(s.status)).length} học viên cần Trinh chú ý hôm nay.`));
-    document.getElementById('resetDemo').addEventListener('click', () => { if (!confirm('Khôi phục toàn bộ dữ liệu mẫu? Các thao tác thử trên trình duyệt này sẽ bị xóa.')) return; state = clone(seedData); draftRates = { ...state.rates }; saveState(); renderAll(); setPage('dashboard'); showToast('Đã khôi phục dữ liệu mẫu.'); });
-    document.getElementById('exportStudents').addEventListener('click', () => downloadCsv('trinhnyoga-hoc-vien.csv', [['Học viên','Số điện thoại','Gói','Học phí','Ngày thu','Hết hạn','Trạng thái'], ...state.students.map(s => [s.name,s.phone,s.plan,s.fee,s.due,s.end,statusLabel(s.status)])]));
-    document.getElementById('exportTransactions').addEventListener('click', () => downloadCsv('trinhnyoga-so-thu.csv', [['Mã phiếu','Ngày','Học viên','Phương thức','Tổng thu','Chi tiêu','Khẩn cấp','Tiết kiệm','Đầu tư'], ...state.transactions.map(t => [t.id,t.date,t.student,t.method,t.amount,t.allocations.spending,t.allocations.emergency,t.allocations.savings,t.allocations.investment])]));
+    document.getElementById('notificationButton').addEventListener('click', () => showToast(`${state.students.filter(s => ['due','overdue','expiring'].includes(s.status)).length} hồ sơ cần xử lý · ${state.students.filter(s => s.membership !== 'stopped' && Number(s.sessionsRemaining) === 2).length} học viên còn 2 buổi.`));
+    document.getElementById('resetDemo').addEventListener('click', () => { if (remoteConnected) return showToast('Hãy ngắt kết nối Google Sheet trước khi khôi phục dữ liệu mẫu.'); if (!confirm('Khôi phục toàn bộ dữ liệu mẫu? Các thao tác thử trên trình duyệt này sẽ bị xóa.')) return; state = clone(seedData); draftRates = { ...state.rates }; saveState(); renderAll(); setPage('dashboard'); showToast('Đã khôi phục dữ liệu mẫu.'); });
+    document.getElementById('connectionForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const url = document.getElementById('apiEndpoint').value.trim(); const token = document.getElementById('apiToken').value.trim();
+      if (!/\/exec(?:\?|$)/.test(url)) return showToast('URL Apps Script phải kết thúc bằng /exec.');
+      const button = document.getElementById('connectApiButton'); button.disabled = true;
+      apiConfig = { url, token }; localStorage.setItem(API_URL_KEY, url); sessionStorage.setItem(API_TOKEN_KEY, token);
+      try { await refreshFromApi(true); closeModal(document.getElementById('connectionModal')); }
+      catch (error) { remoteConnected = false; setDataSourceStatus('demo', 'Kết nối lỗi'); showToast(error.message); }
+      finally { button.disabled = false; }
+    });
+    document.getElementById('disconnectApi').addEventListener('click', () => {
+      apiConfig = { url: '', token: '' }; remoteConnected = false; localStorage.removeItem(API_URL_KEY); sessionStorage.removeItem(API_TOKEN_KEY);
+      state = clone(seedData); draftRates = { ...state.rates }; saveState(); renderAll(); setDataSourceStatus('demo', 'Dữ liệu mẫu'); closeModal(document.getElementById('connectionModal')); showToast('Đã ngắt kết nối và chuyển về dữ liệu mẫu.');
+    });
+    document.getElementById('exportStudents').addEventListener('click', () => downloadCsv('trinhnyoga-hoc-vien.csv', [['Học viên','Số điện thoại','Gói','Học phí','Tổng buổi','Đã tập','Còn lại','Ngày thu','Hết hạn','Trạng thái học phí','Tình trạng tập'], ...state.students.map(s => [s.name,s.phone,s.plan,s.fee,s.sessionsTotal,s.sessionsUsed,s.sessionsRemaining,s.due,s.end,statusLabel(s.status),s.membership === 'stopped' ? 'Ngừng tập' : 'Duy trì'])]));
+    document.getElementById('exportTransactions').addEventListener('click', () => downloadCsv('trinhnyoga-so-thu.csv', [['Mã phiếu','Ngày','Học viên','Phương thức','Tổng thu','Trả nợ','Chi tiêu','Khẩn cấp','Tiết kiệm','Đầu tư'], ...state.transactions.map(t => [t.id,t.date,t.student,t.method,t.amount,t.allocations.debt||0,t.allocations.spending,t.allocations.emergency,t.allocations.savings,t.allocations.investment])]));
 
-    renderAll(); renderPaymentPreview();
+    renderAll(); renderPaymentPreview(); initializeRemote();
   </script>
 </body>
 </html>

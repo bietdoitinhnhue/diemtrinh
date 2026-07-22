@@ -28,13 +28,15 @@ Trinh N Yoga thu học phí theo nhiều chu kỳ khác nhau: gói 1 tháng, gó
 - Dashboard vận hành và dòng tiền.
 - Hồ sơ học viên, gói 1 tháng, 3 tháng và gói tùy chỉnh.
 - Lịch phải thu theo ngày riêng của từng học viên.
-- Thu học phí, tự động phân bổ vào 4 quỹ.
+- Thu học phí, ưu tiên trích nợ cố định rồi tự động phân bổ phần còn lại vào 4 quỹ.
 - Sổ thu, lọc giao dịch, trạng thái đã thu / chờ thu / quá hạn.
 - Cảnh báo gói sắp hết hạn và khoản đến hạn.
+- Thêm, sửa, xóa học viên chưa có giao dịch; chuyển tình trạng `Duy trì / Ngừng tập` cho học viên đã có lịch sử tài chính.
+- Điểm danh theo số buổi và gửi Telegram khi học viên còn đúng 2 buổi.
 
 ### Chưa nằm trong MVP
 
-- Xếp lịch lớp và điểm danh chi tiết.
+- Xếp lịch lớp, lịch phòng và phân công huấn luyện viên chi tiết.
 - Thanh toán online, xuất hóa đơn điện tử và đối soát ngân hàng tự động.
 - Kế toán thuế, lương huấn luyện viên và chi phí vận hành đầy đủ.
 - Nhắn Zalo tự động (cần Zalo OA/API và sự đồng ý của học viên).
@@ -43,9 +45,9 @@ Trinh N Yoga thu học phí theo nhiều chu kỳ khác nhau: gói 1 tháng, gó
 
 ### Gói học và kỳ thu
 
-- Mỗi lượt đăng ký có ngày bắt đầu, ngày kết thúc, học phí và chu kỳ thu.
-- Gói 1 tháng mặc định kết thúc sau 1 tháng; gói 3 tháng kết thúc sau 3 tháng; quản trị viên có thể chỉnh ngày thực tế.
-- Ngày phải thu thuộc về từng đăng ký học, không bắt buộc trùng ngày bắt đầu.
+- Mỗi lượt đăng ký có tên gói, tổng số buổi, học phí, ngày bắt đầu, ngày kết thúc và ngày thu được nhập thủ công.
+- Hệ thống không tự suy ra học phí hay thời hạn vì báo giá thay đổi theo số buổi và hình thức tập.
+- Ngày phải thu thuộc về từng đăng ký học, không bắt buộc trùng ngày bắt đầu hoặc ngày kết thúc.
 - Một học viên có thể gia hạn nhiều lần; lịch sử gói cũ phải được giữ lại.
 
 ### Trạng thái khoản phải thu
@@ -57,12 +59,21 @@ Trinh N Yoga thu học phí theo nhiều chu kỳ khác nhau: gói 1 tháng, gó
 
 ### Phân bổ quỹ
 
+- Nợ cố định 3.000.000 ₫/tháng là ưu tiên bắt buộc. Các khoản thu trong tháng lần lượt bù đủ mục tiêu này trước.
+- Chỉ phần học phí còn lại sau khi trích nợ mới được chia theo 4 tỷ lệ bên dưới.
 - Mặc định prototype: Chi tiêu 50%, Khẩn cấp 20%, Tiết kiệm 15%, Đầu tư 15%.
 - Tổng tỷ lệ luôn phải bằng 100% trước khi ghi nhận phiếu thu.
-- Số tiền từng quỹ = học phí thực thu × tỷ lệ tại thời điểm thu.
+- Số tiền từng quỹ = phần học phí còn lại sau khi trích nợ × tỷ lệ tại thời điểm thu.
 - Phiếu thu lưu “ảnh chụp” tỷ lệ đã áp dụng; đổi tỷ lệ về sau không làm thay đổi giao dịch cũ.
 - Chênh lệch làm tròn được cộng vào quỹ Chi tiêu để tổng phân bổ luôn bằng đúng số tiền thu.
 - Hoàn tiền phải tạo giao dịch đảo chiều, không xóa phiếu thu đã phát sinh.
+
+### Số buổi và Telegram
+
+- Mỗi lần điểm danh tăng `Sessions_Used` một đơn vị và tính lại `Sessions_Remaining`.
+- Khi số buổi còn lại chuyển thành đúng 2, Apps Script gửi Telegram tới TrinhNYoga.
+- `Low_Session_Alert_At` ngăn gửi lặp lại cùng một cảnh báo.
+- Chỉnh lại tổng số buổi làm số buổi còn lại khác 2 sẽ mở lại khả năng cảnh báo cho chu kỳ tiếp theo.
 
 ## 5. Luồng chính
 
@@ -70,18 +81,18 @@ Trinh N Yoga thu học phí theo nhiều chu kỳ khác nhau: gói 1 tháng, gó
 flowchart TD
     A[Chọn học viên] --> B[Kiểm tra gói và số tiền]
     B --> C[Nhập ngày thu và phương thức]
-    C --> D[Xem trước phân bổ 4 quỹ]
+    C --> D[Xem trước nợ và 4 quỹ]
     D --> E[Xác nhận thu học phí]
     E --> F[Tạo phiếu thu]
     E --> G[Cộng số dư các quỹ]
-    E --> H[Cập nhật kỳ thu tiếp theo]
+    E --> H[Cập nhật sổ thu và dashboard]
 ```
 
 ## 6. Mô hình dữ liệu đề xuất
 
 | Thực thể | Trường chính | Ghi chú |
 | --- | --- | --- |
-| `students` | id, name, phone, status, note | Hồ sơ học viên |
+| `students` | id, name, phone, status, membership_state, note, total_sessions, sessions_used, sessions_remaining | Hồ sơ, tình trạng duy trì/ngừng tập và số buổi |
 | `plans` | id, name, duration_months, default_fee | Danh mục gói |
 | `enrollments` | id, student_id, plan_id, start_date, end_date, due_date, fee, status | Một lần đăng ký/gia hạn |
 | `payments` | id, enrollment_id, amount, paid_at, method, note, created_by | Phiếu thu bất biến |
@@ -101,16 +112,18 @@ flowchart TD
 
 1. Thêm được học viên với gói, học phí và ngày thu tùy chọn.
 2. Danh sách hiển thị đúng trạng thái theo ngày phải thu.
-3. Ghi nhận học phí tạo đúng một phiếu thu và đúng bốn dòng phân bổ.
+3. Ghi nhận học phí tạo đúng một phiếu thu, một dòng trích nợ và bốn dòng phân bổ quỹ.
 4. Không cho lưu nếu tỷ lệ phân bổ khác 100%.
-5. Tổng bốn quỹ luôn bằng tổng tiền thực thu, kể cả sau làm tròn.
+5. Tổng tiền trả nợ và bốn quỹ luôn bằng tổng tiền thực thu, kể cả sau làm tròn.
 6. Dashboard và sổ thu cập nhật ngay sau giao dịch.
 7. Giao diện dùng tốt ở màn hình 390 px và desktop từ 1280 px.
-8. Dữ liệu production phải được bảo vệ bằng đăng nhập và Row Level Security.
+8. API Google Apps Script bắt buộc kiểm tra token bí mật và khóa ghi đồng thời.
+9. Thêm và sửa được đầy đủ hồ sơ; chỉ xóa được học viên chưa có phiếu thu.
+10. Điểm danh cập nhật đúng số buổi và gửi Telegram một lần khi còn đúng 2 buổi.
 
 ## 9. Lộ trình triển khai
 
 - **Prototype hiện tại:** giao diện tương tác, dữ liệu mẫu, lưu `localStorage`, kiểm chứng luồng nghiệp vụ.
-- **MVP production:** Supabase Auth + Postgres + RLS, migration dữ liệu thật, sao lưu và phân quyền.
+- **MVP dùng chung:** Google Sheet làm nguồn dữ liệu, Google Apps Script làm API có token và khóa ghi; dashboard vẫn có fallback dữ liệu mẫu khi chưa kết nối.
+- **MVP production quy mô lớn:** chuyển sang Supabase Auth + Postgres + RLS khi cần nhiều người dùng, phân quyền sâu hoặc lượng giao dịch lớn.
 - **Giai đoạn 2:** nhắc học phí qua Zalo, điểm danh, lịch lớp, báo cáo chi phí và đối soát ngân hàng.
-
