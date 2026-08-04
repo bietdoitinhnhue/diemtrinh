@@ -353,13 +353,16 @@ h3 { font-size: 30px; line-height: 1.1; }
 .voices { background: var(--paper); }
 .voices-header { max-width: 740px; margin: 0 auto 70px; text-align: center; }
 .voices-header .section-kicker { justify-content: center; }
-.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
-.testimonial { min-height: 470px; margin: 0; padding: 38px; display: flex; flex-direction: column; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.quote-mark { color: var(--brown); font-family: var(--serif); font-size: 88px; line-height: .8; }
-.testimonial blockquote { margin: 34px 0 42px; color: var(--deep); font-family: var(--serif); font-size: 27px; line-height: 1.28; }
-.testimonial figcaption { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--border); }
+.testimonial-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.testimonial { min-width: 0; min-height: 570px; margin: 0; padding: 0 22px 24px; display: flex; flex-direction: column; overflow: hidden; background: var(--ivory); border: 1px solid var(--border); border-radius: 20px 20px 8px 8px; }
+.testimonial-image { aspect-ratio: 16 / 9; margin: 0 -22px 24px; overflow: hidden; background: var(--sand); }
+.testimonial-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82) contrast(.96); transition: transform .45s ease, filter .45s ease; }
+.testimonial:hover .testimonial-image img { transform: scale(1.025); filter: saturate(.92) contrast(.98); }
+.quote-mark { color: var(--brown); font-family: var(--serif); font-size: 52px; line-height: .72; }
+.testimonial blockquote { margin: 18px 0 30px; color: var(--deep); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
+.testimonial figcaption { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
 .testimonial figcaption strong, .testimonial figcaption span { display: block; }
-.testimonial figcaption strong { color: var(--deep); font-family: var(--serif); font-size: 22px; font-style: normal; font-weight: 500; }
+.testimonial figcaption strong { color: var(--deep); font-family: var(--sans); font-size: 17px; font-style: normal; font-weight: 600; }
 .testimonial figcaption span, .testimonial-source { font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
 .testimonial-source { margin: 20px 0 0; color: rgba(79, 82, 71, .68); text-align: center; }
 
@@ -422,6 +425,7 @@ footer { padding: 70px 0 38px; background: var(--ivory); }
   .desktop-nav a { font-size: 10px; }
   .hero-copy { padding-right: 50px; }
   .program-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .energy-panel { padding: 50px 38px; }
 }
 
@@ -461,7 +465,7 @@ footer { padding: 70px 0 38px; background: var(--ivory); }
   .about-collage { width: min(640px, 100%); min-height: 720px; margin: 0 auto; }
   .practice-header { grid-template-columns: 1fr; gap: 12px; }
   .testimonial-grid { grid-template-columns: 1fr; }
-  .testimonial { min-height: 390px; }
+  .testimonial { min-height: 520px; }
   .contact-card { width: min(520px, 100%); margin: 0 auto; }
   .footer-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .footer-links { justify-content: center; flex-wrap: wrap; }
@@ -503,8 +507,9 @@ footer { padding: 70px 0 38px; background: var(--ivory); }
   .program-card { min-height: 535px; }
   .pricing-note { align-items: flex-start; flex-direction: column; }
   .journey-list li { grid-template-columns: 46px 1fr; }
-  .testimonial { min-height: 410px; padding: 30px; }
-  .testimonial blockquote { font-size: 25px; }
+  .testimonial { min-height: auto; padding: 0 24px 26px; }
+  .testimonial-image { margin: 0 -24px 22px; }
+  .testimonial blockquote { font-size: 16px; }
   .contact-card { min-height: 560px; padding: 38px 28px; border-radius: 170px 170px 16px 16px; }
   .contact-details p { grid-template-columns: 92px 1fr; }
   .footer-links { gap: 22px; }
