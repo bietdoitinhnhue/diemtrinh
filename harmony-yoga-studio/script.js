@@ -49,5 +49,33 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => revealObserver.observe(item));
 }
 
+
+const contactWidget = document.querySelector('[data-contact-widget]');
+const contactToggle = document.querySelector('[data-contact-toggle]');
+const contactMenu = document.querySelector('[data-contact-menu]');
+
+const setContactWidget = (open) => {
+  if (!contactWidget || !contactToggle || !contactMenu) return;
+  contactWidget.classList.toggle('is-open', open);
+  contactToggle.setAttribute('aria-expanded', String(open));
+  contactMenu.setAttribute('aria-hidden', String(!open));
+};
+
+if (contactWidget && contactToggle && contactMenu) {
+  contactToggle.addEventListener('click', () => {
+    setContactWidget(contactToggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!contactWidget.contains(event.target)) setContactWidget(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    setContactWidget(false);
+    contactToggle.focus();
+  });
+}
+
 const year = document.querySelector('[data-year]');
 if (year) year.textContent = new Date().getFullYear();
